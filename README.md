@@ -1,5 +1,7 @@
 # 香橙派 FAST-LIVO2 建图
 
+本分支为 **B0 隔离回放研究版**。板端安装 ELF 的 SHA256 为 `e9f7eaeb7260fe13304e1b846426b6a21dc91776d6128f991e6caeacab481469`。重建使用相同固定依赖和 `./build.sh algorithm`；历史启动 IMU 补丁与离线回调夹具在 `records/stage_b0/`。正式部署取 `main` 或 `g3-stage-a-20261126`。
+
 `main` 对应已部署的阶段 A。`research/stage-b0` 保存调整启动 IMU 边界的隔离研究版本。每条分支的 `deploy/aarch64/fastlivo_mapping` 都来自该版本板端的安装目录。检出后执行以下命令可在无 ROS 环境的电脑上核对算法源码、传感器配置、标定、固定依赖和 ELF。
 
 ```bash

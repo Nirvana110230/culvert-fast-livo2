@@ -1,12 +1,14 @@
 {
-  "stage": "A",
-  "board_role": "正式建图",
-  "install_elf_sha256": "b66a92cd81de2ebc9428c4483908a97e1e1bfd207802a4cca8ee4829e683d49e",
-  "gnu_build_id": "14f4b686dcbd40ba5ba79bd24d0e39a2ce471cf2",
+  "stage": "B0",
+  "board_role": "隔离回放研究",
+  "install_elf_sha256": "e9f7eaeb7260fe13304e1b846426b6a21dc91776d6128f991e6caeacab481469",
+  "gnu_build_id": "85e725b4b672db14eaa254e07e6c829bde4cbdf6",
   "maintenance_overrides_sha256": {
     "camera/camera_device.hpp": "2e7acda51324725d7f1593d586cd663af78d307bfd8795814747ccc32128d908",
     "camera/camera_sync.cpp": "f63c489e2be683a6d1bf067209d845267ecbb6e5dc07f88ec72f6b51a0ef1883",
     "runtime/hardware.py": "c937bfa2d45b997c521496ade6d249e278e805c7335429d25fa7a4159302ba68",
-    "runtime/sensors/radar_device.py": "95ad9e943e5c9a6467745b8eefe3eb8f35fab4b230895194cf7122e69d8115b6"
+    "runtime/sensors/radar_device.py": "95ad9e943e5c9a6467745b8eefe3eb8f35fab4b230895194cf7122e69d8115b6",
+    "src/fast_livo/include/LIVMapper.h": "5d2fa382caea7faebe6b5b81d3388c55a2276af70bc59b327557a030f54fd8a9",
+    "src/fast_livo/src/LIVMapper.cpp": "eb38e32676d6d9a5bf0af8317398c699d2549b52293870d36cf773800bb2c9a3"
   }
 }

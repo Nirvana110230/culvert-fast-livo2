@@ -1,6 +1,7 @@
 #include <atomic>
 #include <chrono>
 #include <cmath>
+namespace { constexpr std::size_t kMaxImuQueue = 10000; }
 namespace { std::atomic<unsigned long long> eval_lidar_rx{0}, eval_imu_rx{0}, eval_image_rx{0}; }
 /* 
 This file is part of FAST-LIVO2: Fast, Direct LiDAR-Inertial-Visual Odometry.
@@ -636,7 +637,7 @@ void LIVMapper::run(rclcpp::Node::SharedPtr &node)
       if (rclcpp::ok()) throw;
       break;
     }
-    if (img_buffer.size()>64 || lid_raw_data_buffer.size()>100 || imu_buffer.size()>10000)
+    if (img_buffer.size()>64 || lid_raw_data_buffer.size()>100 || imu_buffer.size()>kMaxImuQueue)
       throw std::runtime_error("Input queues stalled: stopping before memory exhaustion");
     if (!sync_packages(LidarMeasures)) 
     {
@@ -850,6 +851,7 @@ void LIVMapper::standard_pcl_cbk(const sensor_msgs::msg::PointCloud2::ConstShare
   last_timestamp_lidar = cur_head_time;
 
   mtx_buffer.unlock();
+  drainStartupImu();
   sig_buffer.notify_all();
 }
 
@@ -895,6 +897,7 @@ void LIVMapper::livox_pcl_cbk(const livox_ros_driver2::msg::CustomMsg::ConstShar
   last_timestamp_lidar = cur_head_time;
 
   mtx_buffer.unlock();
+  drainStartupImu();
   sig_buffer.notify_all();
 }
 
@@ -903,11 +906,44 @@ void LIVMapper::imu_cbk(const sensor_msgs::msg::Imu::ConstSharedPtr &msg_in)
   ++eval_imu_rx;
   if (!imu_en) return;
 
-  if (last_timestamp_lidar < 0.0) return;
+  if (last_timestamp_lidar < 0.0)
+  {
+    if (slam_mode_ == LIVO && !ros_driver_fix_en)
+    {
+      // Cross-topic callback order need not follow sensor time.
+      if (startup_imu_buffer.size() == kMaxImuQueue)
+      {
+        startup_imu_buffer.pop_front();
+        RCLCPP_WARN_ONCE(node->get_logger(), "Startup IMU queue full before first LiDAR; dropping oldest");
+      }
+      startup_imu_buffer.push_back(msg_in);
+    }
+    return;
+  }
+  bufferImu(msg_in);
+}
+
+void LIVMapper::drainStartupImu()
+{
+  // The serial executor runs this after enqueuing the first scan and releasing its lock.
+  while (!startup_imu_buffer.empty())
+  {
+    bufferImu(startup_imu_buffer.front());
+    startup_imu_buffer.pop_front();
+  }
+}
+
+void LIVMapper::bufferImu(const sensor_msgs::msg::Imu::ConstSharedPtr &msg_in)
+{
   RCLCPP_DEBUG(this->node->get_logger(), "get imu at time: %.6f", stamp2Sec(msg_in->header.stamp));
   sensor_msgs::msg::Imu::SharedPtr msg(new sensor_msgs::msg::Imu(*msg_in));
   msg->header.stamp = sec2Stamp(stamp2Sec(msg->header.stamp) - imu_time_offset);
   double timestamp = stamp2Sec(msg->header.stamp);
+
+  // The first LIVO cut is (first scan header, image time]. A stale sample
+  // must not seed the discontinuity check and block the first eligible sample.
+  if (slam_mode_ == LIVO && !ros_driver_fix_en && last_timestamp_imu < 0.0 &&
+      !lid_header_time_buffer.empty() && timestamp <= lid_header_time_buffer.front()) return;
 
   if (fabs(last_timestamp_lidar - timestamp) > 0.5 && (!ros_driver_fix_en))
   {
