@@ -1,0 +1,150 @@
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+Visualization Manager:
+  Class: ""
+  Global Options:
+    Background Color: 35; 35; 40
+    Fixed Frame: map_gravity
+    Frame Rate: 3
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Ground grid
+      Enabled: true
+      Plane: XY
+      Cell Size: 1
+      Plane Cell Count: 20
+      Color: 100; 100; 110
+    - Class: rviz_default_plugins/Axes
+      Name: World axes
+      Enabled: true
+      Reference Frame: map_gravity
+      Length: 1
+      Radius: 0.03
+    - Class: rviz_default_plugins/PointCloud2
+      Name: Native LiDAR effective geometry
+      Enabled: true
+      Topic:
+        Value: /cloud_effected
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 2
+        Filter size: 2
+      Queue Size: 2
+      Style: Points
+      Size (Pixels): 2
+      Decay Time: 0.5
+      Position Transformer: XYZ
+      Color Transformer: AxisColor
+      Axis: Z
+      Autocompute Value Bounds: true
+      Use Fixed Frame: true
+    - Class: rviz_default_plugins/PointCloud2
+      Name: Real camera RGB
+      Enabled: true
+      Topic:
+        Value: /livo_view/cloud_registered
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 2
+        Filter size: 2
+      Queue Size: 2
+      Style: Points
+      Size (Pixels): 2
+      Decay Time: 1
+      Position Transformer: XYZ
+      Color Transformer: RGB8
+    - Class: rviz_default_plugins/PointCloud2
+      Name: Accumulated native RGB 10cm
+      Enabled: true
+      Topic:
+        Value: /livo_view/accumulated_rgb
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 1
+      Queue Size: 1
+      Style: Points
+      Size (Pixels): 3
+      Decay Time: 0
+      Position Transformer: XYZ
+      Color Transformer: RGB8
+    - Class: rviz_default_plugins/Path
+      Name: Estimated path
+      Enabled: true
+      Topic:
+        Value: /path
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 2
+        Filter size: 2
+      Buffer Length: 1
+      Line Style: Lines
+      Color: 255; 210; 40
+      Pose Style: None
+    - Class: rviz_default_plugins/Odometry
+      Name: Current pose
+      Enabled: true
+      Topic:
+        Value: /aft_mapped_to_init
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 2
+        Filter size: 2
+      Keep: 1
+      Position Tolerance: 0
+      Angle Tolerance: 0
+      Shape:
+        Value: Axes
+        Axes Length: 0.7
+        Axes Radius: 0.04
+      Covariance:
+        Value: false
+    - Class: rviz_default_plugins/Image
+      Name: VIO processed image
+      Enabled: true
+      Topic:
+        Value: /rgb_img
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 1
+      Transport Hint: raw
+    - Class: rviz_default_plugins/Image
+      Name: Live Hikvision camera input
+      Enabled: true
+      Topic:
+        Value: /hik_camera/image_timeshare
+        Reliability Policy: Best Effort
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Depth: 1
+      Transport Hint: raw
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 16
+      Pitch: 0.65
+      Yaw: 0.8
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+  Enabled: true
+Window Geometry:
+  Width: 1250
+  Height: 800
+  X: 20
+  Y: 50
+
+

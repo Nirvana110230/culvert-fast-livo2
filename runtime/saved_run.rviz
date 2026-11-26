@@ -1,0 +1,93 @@
+Panels:
+- Class: rviz_common/Displays
+  Name: Displays
+- Class: rviz_common/Views
+  Name: Views
+Visualization Manager:
+  Class: ''
+  Global Options:
+    Background Color: 35; 35; 40
+    Fixed Frame: map_gravity
+    Frame Rate: 3
+  Displays:
+  - Class: rviz_default_plugins/Grid
+    Name: Ground grid
+    Enabled: true
+    Plane: XY
+    Cell Size: 1
+    Plane Cell Count: 20
+    Color: 100; 100; 110
+  - Class: rviz_default_plugins/Axes
+    Name: World axes
+    Enabled: true
+    Reference Frame: map_gravity
+    Length: 1
+    Radius: 0.03
+  - Class: rviz_default_plugins/PointCloud2
+    Name: Saved geometry
+    Enabled: true
+    Topic:
+      Value: /saved_experiment/geometry
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+      History Policy: Keep Last
+      Depth: 1
+      Filter size: 2
+    Queue Size: 2
+    Style: Points
+    Size (Pixels): 2
+    Decay Time: 0
+    Position Transformer: XYZ
+    Color Transformer: AxisColor
+    Axis: Z
+    Autocompute Value Bounds: true
+    Use Fixed Frame: true
+  - Class: rviz_default_plugins/PointCloud2
+    Name: Saved RGB
+    Enabled: true
+    Topic:
+      Value: /saved_experiment/rgb
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+      History Policy: Keep Last
+      Depth: 1
+    Queue Size: 1
+    Style: Points
+    Size (Pixels): 3
+    Decay Time: 0
+    Position Transformer: XYZ
+    Color Transformer: RGB8
+  - Class: rviz_default_plugins/Path
+    Name: Saved trajectory
+    Enabled: true
+    Topic:
+      Value: /saved_experiment/path
+      Reliability Policy: Reliable
+      Durability Policy: Transient Local
+      History Policy: Keep Last
+      Depth: 1
+      Filter size: 2
+    Buffer Length: 1
+    Line Style: Lines
+    Color: 255; 210; 40
+    Pose Style: None
+  Tools:
+  - Class: rviz_default_plugins/Interact
+  - Class: rviz_default_plugins/MoveCamera
+  - Class: rviz_default_plugins/Select
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Distance: 16
+      Pitch: 0.65
+      Yaw: 0.8
+      Focal Point:
+        X: 0
+        Y: 0
+        Z: 0
+  Enabled: true
+Window Geometry:
+  Width: 1250
+  Height: 800
+  X: 20
+  Y: 50

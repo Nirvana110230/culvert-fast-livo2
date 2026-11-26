@@ -1,0 +1,59 @@
+{
+  "formal_stage_a": {
+    "baseline_commit": "24e2e2c142f1e7bc2b8ff76c5f37795be5580c42",
+    "source_commit": "a9727f89e348faa218410bce9e834992395d54c2",
+    "source_subtree": "2d9290d4378bd58d8998af142d569f645031e82d",
+    "documentation_commit": "178525fd795b77afd61fc668bfee53c799e1e2d9",
+    "documentation_subtree": "c8bc5ccc974db0f8ba99347ffe7356d748f820e5",
+    "documentation_changes_inside_component": [
+      "fast_livo2/records/stage_a/changes_after_20261121.patch",
+      "fast_livo2/records/stage_a/release.json"
+    ],
+    "maintained_paths": 245,
+    "manifest_sha256": "e6c985eb6092604ce7aff2ebd82f706c8b91d9ce1f9cd4215c571a2c89733b11",
+    "verified_disk_bytes_against_git_blob_ids": 245,
+    "incremental_patch_sha256": "d911b6cd111d59705d429d751a3eddef35b5a64c7924f3af36d542c2a6664e4e",
+    "deployed_installed_elf_according_to_historical_journal": "b66a92cd81de2ebc9428c4483908a97e1e1bfd207802a4cca8ee4829e683d49e",
+    "tested_candidate_build_elf": "15a362dad0e701123fb2cf363372ae8c12224e50d70f4802d833faae1977b6da",
+    "tested_build_id": "14f4b686dcbd40ba5ba79bd24d0e39a2ce471cf2",
+    "native_formal_build_elf": "12f89544a78fdc7b03823ec26f32795fd89a3614beb9dcf7bc920bd20ac25d2c",
+    "native_formal_install_elf_before_adopting_tested_install": "56292d495d010f07d277fef008868674ed0ecf54b60a2e937b9a0236057f9b11",
+    "rollback_package_sha256": "fa3841604cc236073ba1eebf0267c17245cc9c2e6dde9c7b967243db8c438655",
+    "device_checked_this_round": false,
+    "evidence_sha256": {
+      "fast_livo2/records/stage_a/release.json": "3e5aef35a20ead896178fa9514a0fb3948c10a7d9fb830760a326bff2309b14e",
+      "docs/mainline/2026-11-23/stage_a/evidence/formal-verification.json": "119c85e7c68c3f9738cdb8f49e9ebb43f3f57627f49398452d0fab246131b54e",
+      "docs/mainline/2026-11-23/stage_a/evidence/postflight.json": "264551aa26787a1601345523aa161b9b62343244f93b17b52beae48aabeca54d",
+      "docs/mainline/2026-11-23/stage_a/evidence/deploy-retry.log": "bf11abd331ad46781d388b19821af1f5142ad2353ceccf632a5dcd59f4d53d93"
+    }
+  },
+  "b0_isolated": {
+    "base_commit": "a9727f89e348faa218410bce9e834992395d54c2",
+    "patch_sha256": "57ebeea36023239e816860f249ebdd12df983fa30c218fd0492432adb779d594",
+    "patch_dry_run_against_formal_sources": "pass",
+    "historical_candidate_source_changes": {
+      "src/fast_livo/include/LIVMapper.h": "5d2fa382caea7faebe6b5b81d3388c55a2276af70bc59b327557a030f54fd8a9",
+      "src/fast_livo/src/LIVMapper.cpp": "eb38e32676d6d9a5bf0af8317398c699d2549b52293870d36cf773800bb2c9a3"
+    },
+    "historical_install_elf": "e9f7eaeb7260fe13304e1b846426b6a21dc91776d6128f991e6caeacab481469",
+    "historical_build_elf": "9791fa3f693b30e3d7bb94b91aea807c829b90e068c2addcffa2bbc0b385121c",
+    "historical_build_id": "85e725b4b672db14eaa254e07e6c829bde4cbdf6",
+    "deployed": false,
+    "result": "同一手持包三次离线重放，576个姿态和两份地图分别一致。两个尾段区间局部一致性变差，缺少独立真值。",
+    "evidence_sha256": {
+      "docs/mainline/2026-11-23/stage_b0/evidence/startup_imu.patch": "57ebeea36023239e816860f249ebdd12df983fa30c218fd0492432adb779d594",
+      "docs/mainline/2026-11-23/stage_b0/evidence/postflight.json": "00b9b5feebcfedfff94d0d07fb91faadc0138d91c3bc910e1bf12528c7701599",
+      "docs/mainline/2026-11-23/stage_b0/evidence/fixed.json": "2d765c1a3bdbba65108cc4d79098868aa284ff57225787fd55a249eba9356a90",
+      "docs/mainline/2026-11-23/stage_b0/evidence/quality.json": "34ec77608a13dcd1c20e6704d36ef148203c1da02bfc93c3491b5448954872ab"
+    }
+  },
+  "later": {
+    "2026-11-25": "隔离导航 v3 接口、R1、R2 同时刻配对和 ICP/GICP 离线定位，独立导航仓承接。双主机 USB 文档按受限运维材料归档。",
+    "2026-11-26": "便携供电开机快检 243.11 s，不能推断长时带载余量、输入电压或电流。",
+    "evidence_sha256": {
+      "docs/hardware_health/2026-11-26/USB供电快检_105104.txt": "b4b6a4c59d64a9f93555865b941e46e1844f1e059cf5a1957bfc29b10418d77d",
+      "docs/ssh_usb/2026-11-25/双主机_USB_SSH_实施报告.md": "89379e59b8b4634d4d806837b84a96d06665fdd7a8eea9f901008d6ef555708f"
+    }
+  },
+  "license_hold": "fast_livo 的 GPLv2 文本与包字段 BSD 冲突，vikit 包声明 GPLv3，Livox 与内嵌依赖分别适用条款。原始源码及所有历史引用保存在受限介质，上传禁止。"
+}
