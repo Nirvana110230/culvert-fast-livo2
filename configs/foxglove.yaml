@@ -1,0 +1,13 @@
+/**:
+  ros__parameters:
+    address: 127.0.0.1
+    port: 8765
+    tls: false
+    num_threads: 2
+    min_qos_depth: 1
+    max_qos_depth: 2
+    send_buffer_limit: 10000000
+    use_sim_time: false
+    remote_access: false
+    topic_whitelist:
+      - '^/(cloud_registered|cloud_effected|path|aft_mapped_to_init|rgb_img|hik_camera/image_timeshare|livo_view/.*|tf|tf_static)$'

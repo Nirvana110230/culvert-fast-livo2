@@ -1,0 +1,11 @@
+/**:
+  ros__parameters:
+    # The map archive writes the formal, gravity-aligned full pose trajectory.
+    evo:
+      pose_output_en: false
+    vio:
+      local_map_en: true
+      local_map_radius_m: 30.0
+      lru_far_idle_frames: 30
+      lru_idle_frames: 100
+      lru_recent_frames: 10

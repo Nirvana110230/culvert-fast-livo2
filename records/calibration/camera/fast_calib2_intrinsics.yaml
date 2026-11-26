@@ -1,0 +1,12 @@
+# Approved real-camera intrinsics: MV-CU013-A0UC / MVL-HF0628M-6MPE / F2.8 / 1280x1024 / scale=1.0
+# Camera fields for FAST-Calib2 qr_params.yaml parameter namespace. k3 is fixed to zero.
+camera_width: 1280
+camera_height: 1024
+fx: 1297.754900243953
+fy: 1299.166933102416
+cx: 655.3979063879893
+cy: 501.2026449669307
+k1: -0.08265631931699047
+k2: 0.13391147021521527
+p1: -0.00032649255292178974
+p2: 0.00029400314258161474

@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "scene_order": [
+    "A_first_22_scans",
+    "B",
+    "C"
+  ],
+  "correspondence_blocks": 3,
+  "original_single_scene_files_and_images_unchanged": true,
+  "approved_intrinsics_unchanged": true,
+  "brown_vs_opencv_pixel_max_difference": 1.1368683772161603e-13,
+  "leave_one_scene_out_horn_matrix_max_differences": [
+    2.220446049250313e-15,
+    1.3322676295501878e-15,
+    3.885780586188048e-15
+  ],
+  "fast_livo2_candidate_matches_joint_matrix": true,
+  "output_images_readable": true
+}

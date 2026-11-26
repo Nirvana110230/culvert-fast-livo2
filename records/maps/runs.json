@@ -1,0 +1,447 @@
+[
+  {
+    "session": "runs/20261121T113716Z_0295583978",
+    "documents": {
+      "map/result.json": {
+        "sha256": "3a3968264047c6214bb9a68062a7ba6df39e1866f06e145028e4ad4e1c3ffd3d",
+        "values": {
+          "status": "complete",
+          "output_frame": "map_gravity",
+          "gravity_applied": true,
+          "rgb_points": 52313,
+          "geometry_points": 274066,
+          "poses": 136
+        }
+      },
+      "map/manifest.json": {
+        "sha256": "0c5dc2bd0b718cfc8728d6b3169759a7e9f3a822bf8ee0dd51aad17b4800ec32",
+        "values": {
+          "status": "complete",
+          "counts": {
+            "rgb_points": 52313,
+            "geometry_points": 274066,
+            "poses": 136
+          },
+          "output_frame": "map_gravity",
+          "gravity_applied": true,
+          "files": {
+            "map_rgb.pcd": {
+              "sha256": "efa561e11eb7ab5b13812580c658792b203f4ebcbabf17c0e3234cbb403f1103"
+            },
+            "map_geometry.pcd": {
+              "sha256": "e0c8ca66ae847276558bef1b4b3c054a2efb5f4d5cc40a032ba0e5b08af7cd0b"
+            },
+            "trajectory.tum": {
+              "sha256": "dd7b0de88825ad5a7fd187f9bddd43a999b2a3a2ee8104c8b356bef224efad5e"
+            }
+          }
+        }
+      },
+      "algorithm_identity.json": {
+        "sha256": "7e7efe05070ae766d65dd34d22cd272c8e9c191ded477f419a45bf723bb6b866",
+        "values": {
+          "sha256": "191fe9f476649d9b940b96c561857076ba12acd7cf38574b200b640ca20f4059"
+        }
+      },
+      "replay.json": {
+        "sha256": "c47c49b0f9e1620ff30552d80001fd87a328a508be02b744f53b51091a263e30",
+        "values": {
+          "rate": 0.5,
+          "storage_id": "sqlite3",
+          "published": {
+            "/livox/lidar": 140,
+            "/livox/imu": 2796,
+            "/hik_camera/image_timeshare": 145
+          },
+          "eof": true,
+          "stopped": false
+        }
+      },
+      "resources.json": {
+        "sha256": "f4c7b70008674d00f16cf9e4ca88b3a1ebaa66af44502ff3b15da7fbfe37ee08",
+        "values": {
+          "samples": 21,
+          "min_available_bytes": 15020044288,
+          "max_algorithm_rss_bytes": 447590400
+        }
+      },
+      "gravity_tf_check.json": {
+        "sha256": "c846b86468da98128d6e6f84058a5c5e6c219f8ba9031510f62c92bd15c79678",
+        "values": {
+          "verified": true,
+          "error_m": 4.965068306494546e-16
+        }
+      }
+    }
+  },
+  {
+    "session": "runs/20261121T114543Z_f34d561f8e",
+    "documents": {
+      "map/result.json": {
+        "sha256": "3a3968264047c6214bb9a68062a7ba6df39e1866f06e145028e4ad4e1c3ffd3d",
+        "values": {
+          "status": "complete",
+          "output_frame": "map_gravity",
+          "gravity_applied": true,
+          "rgb_points": 52313,
+          "geometry_points": 274066,
+          "poses": 136
+        }
+      },
+      "map/manifest.json": {
+        "sha256": "87b1292db520b85017ba51b15e2f2cc0b791e80a96caa818c057efb57696e138",
+        "values": {
+          "status": "complete",
+          "counts": {
+            "rgb_points": 52313,
+            "geometry_points": 274066,
+            "poses": 136
+          },
+          "output_frame": "map_gravity",
+          "gravity_applied": true,
+          "files": {
+            "map_rgb.pcd": {
+              "sha256": "efa561e11eb7ab5b13812580c658792b203f4ebcbabf17c0e3234cbb403f1103"
+            },
+            "map_geometry.pcd": {
+              "sha256": "e0c8ca66ae847276558bef1b4b3c054a2efb5f4d5cc40a032ba0e5b08af7cd0b"
+            },
+            "trajectory.tum": {
+              "sha256": "8211d8e238e70a947a1ec9f98646338b9aa42fd8dd9041d082a6cbcf916a420c"
+            }
+          }
+        }
+      },
+      "algorithm_identity.json": {
+        "sha256": "1da1187cfb30be79973b8f12be6dfbecfa8f65d936ca22e9cdb0eb74d281758c",
+        "values": {
+          "sha256": "191fe9f476649d9b940b96c561857076ba12acd7cf38574b200b640ca20f4059"
+        }
+      },
+      "replay.json": {
+        "sha256": "0251f463cfacd89bee338db2fd2e259452c67a2bfe0b73c34b1d9c4335f92a82",
+        "values": {
+          "rate": 0.5,
+          "storage_id": "sqlite3",
+          "published": {
+            "/livox/lidar": 140,
+            "/livox/imu": 2796,
+            "/hik_camera/image_timeshare": 145
+          },
+          "eof": true,
+          "stopped": false
+        }
+      },
+      "resources.json": {
+        "sha256": "21ac14433d5dc9b815052ede8ffe71169558faf2f499ef1d31f5e2f730e8b2c8",
+        "values": {
+          "samples": 19,
+          "min_available_bytes": 15024635904,
+          "max_algorithm_rss_bytes": 440143872
+        }
+      },
+      "gravity_tf_check.json": {
+        "sha256": "c846b86468da98128d6e6f84058a5c5e6c219f8ba9031510f62c92bd15c79678",
+        "values": {
+          "verified": true,
+          "error_m": 4.965068306494546e-16
+        }
+      }
+    }
+  },
+  {
+    "session": "runs/20261121T115432Z_a5c9de93c7",
+    "documents": {
+      "map/result.json": {
+        "sha256": "b61387a6480d2a8545b9f7a1356c130d863fad366d4ac04793aac551a88dba75",
+        "values": {
+          "status": "complete",
+          "output_frame": "map_gravity",
+          "gravity_applied": true,
+          "rgb_points": 203076,
+          "geometry_points": 1121434,
+          "poses": 576
+        }
+      },
+      "map/manifest.json": {
+        "sha256": "469b20381c80e47ed151749bcf6f81ee834587f299c85d49b66221480fab2428",
+        "values": {
+          "status": "complete",
+          "counts": {
+            "rgb_points": 203076,
+            "geometry_points": 1121434,
+            "poses": 576
+          },
+          "output_frame": "map_gravity",
+          "gravity_applied": true,
+          "files": {
+            "map_rgb.pcd": {
+              "sha256": "60c2d7d7590ed60da8efa7572ebb213b60372745cd24e39295f98a9bce4a72ba"
+            },
+            "map_geometry.pcd": {
+              "sha256": "2a7e9609db9a987895dff5529b2517b9e1c89d1eec7e6d09eee5c1652534fd1e"
+            },
+            "trajectory.tum": {
+              "sha256": "3c675b5d766abb2c68976c14fd5a972fb0875bf7554bbdb28c019a77aaeef536"
+            }
+          }
+        }
+      },
+      "algorithm_identity.json": {
+        "sha256": "c195657cde06896f1bb9b14ba42e49792aea9e20db6e7e5f985c258cf4faa5b6",
+        "values": {
+          "sha256": "191fe9f476649d9b940b96c561857076ba12acd7cf38574b200b640ca20f4059"
+        }
+      },
+      "replay.json": {
+        "sha256": "7b8377a0b43b8a8ce88d98a99d1be0909787419c701e9c1dc2fce9e4af2e763e",
+        "values": {
+          "rate": 1.0,
+          "storage_id": "sqlite3",
+          "published": {
+            "/livox/lidar": 627,
+            "/livox/imu": 12071,
+            "/hik_camera/image_timeshare": 577
+          },
+          "eof": true,
+          "stopped": false
+        }
+      },
+      "resources.json": {
+        "sha256": "09dbd7b1931ba25b5115a7f3a9902f597c3b306039386cfeefc39b2a7ecd1808",
+        "values": {
+          "samples": 49,
+          "min_available_bytes": 13660164096,
+          "max_algorithm_rss_bytes": 748761088
+        }
+      },
+      "gravity_tf_check.json": {
+        "sha256": "c3e7575fa09ef2e8e7fd7dde34ac101b5d365e3931655ba47f95078f4df49ce8",
+        "values": {
+          "verified": true,
+          "error_m": 4.965068306494546e-16
+        }
+      }
+    }
+  },
+  {
+    "session": "runs/20261121T120547Z_0c372f43dd",
+    "documents": {
+      "map/result.json": {
+        "sha256": "3a3968264047c6214bb9a68062a7ba6df39e1866f06e145028e4ad4e1c3ffd3d",
+        "values": {
+          "status": "complete",
+          "output_frame": "map_gravity",
+          "gravity_applied": true,
+          "rgb_points": 52313,
+          "geometry_points": 274066,
+          "poses": 136
+        }
+      },
+      "map/manifest.json": {
+        "sha256": "d3ed51c741c814d1f02d994e5309cdc1432ff18f11edcb702b6f879ff15aecab",
+        "values": {
+          "status": "complete",
+          "counts": {
+            "rgb_points": 52313,
+            "geometry_points": 274066,
+            "poses": 136
+          },
+          "output_frame": "map_gravity",
+          "gravity_applied": true,
+          "files": {
+            "map_rgb.pcd": {
+              "sha256": "efa561e11eb7ab5b13812580c658792b203f4ebcbabf17c0e3234cbb403f1103"
+            },
+            "map_geometry.pcd": {
+              "sha256": "e0c8ca66ae847276558bef1b4b3c054a2efb5f4d5cc40a032ba0e5b08af7cd0b"
+            },
+            "trajectory.tum": {
+              "sha256": "6141b6414090672911dca0a4330d0a298eff17bd17451b9b06929177f467925b"
+            }
+          }
+        }
+      },
+      "algorithm_identity.json": {
+        "sha256": "a75a5081d2a167ae93d4738ea58a53230e93fe4e77467973d52a35671ad6b1c7",
+        "values": {
+          "sha256": "191fe9f476649d9b940b96c561857076ba12acd7cf38574b200b640ca20f4059"
+        }
+      },
+      "replay.json": {
+        "sha256": "b84e7d9b83ae4ab198e52ec5f7090b5b1c167fae7c8e49614b03ac794fb6d871",
+        "values": {
+          "rate": 0.5,
+          "storage_id": "sqlite3",
+          "published": {
+            "/livox/lidar": 140,
+            "/livox/imu": 2796,
+            "/hik_camera/image_timeshare": 145
+          },
+          "eof": true,
+          "stopped": false
+        }
+      },
+      "resources.json": {
+        "sha256": "be7015fa29b20ccc6838a3783d4d7e54877e706f2ea75f56d69d564945ca8e3c",
+        "values": {
+          "samples": 27,
+          "min_available_bytes": 14699634688,
+          "max_algorithm_rss_bytes": 452550656
+        }
+      },
+      "gravity_tf_check.json": {
+        "sha256": "c846b86468da98128d6e6f84058a5c5e6c219f8ba9031510f62c92bd15c79678",
+        "values": {
+          "verified": true,
+          "error_m": 4.965068306494546e-16
+        }
+      }
+    }
+  },
+  {
+    "session": "runs/20261121T192540+0800_1161188646",
+    "documents": {
+      "map/result.json": {
+        "sha256": "beffae4abd8834f315fe22b3b01c991b2b2d26c6bc26910db5e9a4282b09178e",
+        "values": {
+          "status": "incomplete",
+          "rgb_points": 0,
+          "geometry_points": 0,
+          "poses": 0
+        }
+      },
+      "algorithm_identity.json": {
+        "sha256": "8443b2b549b0be7961f2c24420125e73b650fba8494eec753e01fd238f19e9a1",
+        "values": {
+          "sha256": "191fe9f476649d9b940b96c561857076ba12acd7cf38574b200b640ca20f4059"
+        }
+      },
+      "resources.json": {
+        "sha256": "946e6bb64ef3371a466fa0f431e96e39510d5563a93e12dcc50a0836db3a21f9",
+        "values": {
+          "samples": 3,
+          "min_available_bytes": 15393107968,
+          "max_algorithm_rss_bytes": 39596032
+        }
+      }
+    }
+  },
+  {
+    "session": "runs/20261121T193038+0800_90a476dc9a",
+    "documents": {
+      "map/result.json": {
+        "sha256": "beffae4abd8834f315fe22b3b01c991b2b2d26c6bc26910db5e9a4282b09178e",
+        "values": {
+          "status": "incomplete",
+          "rgb_points": 0,
+          "geometry_points": 0,
+          "poses": 0
+        }
+      },
+      "algorithm_identity.json": {
+        "sha256": "94e28498070b3314087d4677550ff38a407923b62fecca0c6bd8cb66244d44a8",
+        "values": {
+          "sha256": "191fe9f476649d9b940b96c561857076ba12acd7cf38574b200b640ca20f4059"
+        }
+      },
+      "replay.json": {
+        "sha256": "306d88fa0be36a1c2540fc74a53687d15882ab0b9df69f3be1a582103f767d39",
+        "values": {
+          "rate": 0.5,
+          "storage_id": "sqlite3",
+          "published": {
+            "/livox/lidar": 4,
+            "/livox/imu": 82,
+            "/hik_camera/image_timeshare": 9
+          },
+          "eof": false,
+          "stopped": true
+        }
+      },
+      "resources.json": {
+        "sha256": "17c661c1f36575af315afd52e27dc4f32fe805a314c18cce5cc0b1397cfe8549",
+        "values": {
+          "samples": 4,
+          "min_available_bytes": 15110189056,
+          "max_algorithm_rss_bytes": 182239232
+        }
+      }
+    }
+  },
+  {
+    "session": "runs/20261123T031954Z_619a6f87b6",
+    "documents": {
+      "map/result.json": {
+        "sha256": "798ea51ce37741ac27dd0841dee6f8a4d1c45fd1e3c6ea5fa2cd336c6a0a539a",
+        "values": {
+          "status": "complete",
+          "output_frame": "map_gravity",
+          "gravity_applied": true,
+          "rgb_points": 203160,
+          "geometry_points": 1131562,
+          "poses": 576
+        }
+      },
+      "map/manifest.json": {
+        "sha256": "9074d4652454429845f0156ccc8e4c8ec48fb012819d0cd13b4a799514a493e8",
+        "values": {
+          "status": "complete",
+          "counts": {
+            "rgb_points": 203160,
+            "geometry_points": 1131562,
+            "poses": 576
+          },
+          "output_frame": "map_gravity",
+          "gravity_applied": true,
+          "files": {
+            "map_rgb.pcd": {
+              "sha256": "25685a7146cec7cf8d7be9bd427e3096582d90106b5f818add962503f2370b67"
+            },
+            "map_geometry.pcd": {
+              "sha256": "f62abfaa18bea97350a34e508d857e3ba8d376e3992bf5460a22dd7062d09234"
+            },
+            "trajectory.tum": {
+              "sha256": "c676a246a67d6bd51c9649ebe0e38fd9f9b47d8f994e34b1291348504a1920a2"
+            }
+          }
+        }
+      },
+      "algorithm_identity.json": {
+        "sha256": "7bfd27ff71964423c84359fce2d465689891ba0f6318dff47f476814f3c1d470",
+        "values": {
+          "sha256": "b66a92cd81de2ebc9428c4483908a97e1e1bfd207802a4cca8ee4829e683d49e"
+        }
+      },
+      "replay.json": {
+        "sha256": "fd84afa54a4ad31ad3ef7199bce6742bfd1e14499292af8519c38e0d7223d45c",
+        "values": {
+          "rate": 1.0,
+          "storage_id": "sqlite3",
+          "published": {
+            "/livox/lidar": 627,
+            "/livox/imu": 12071,
+            "/hik_camera/image_timeshare": 577
+          },
+          "eof": true,
+          "stopped": false
+        }
+      },
+      "resources.json": {
+        "sha256": "7511d738bc8253157501903d8ec4ca518a23a5d4e2f8ca891ca93d23013334e5",
+        "values": {
+          "samples": 37,
+          "min_available_bytes": 14750924800,
+          "max_algorithm_rss_bytes": 682360832
+        }
+      },
+      "gravity_tf_check.json": {
+        "sha256": "3be533384b961bc56aad0d37cb1728e6107744987e32e1da2e5564ebc8f9826f",
+        "values": {
+          "verified": true,
+          "error_m": 4.965068306494546e-16
+        }
+      }
+    }
+  }
+]

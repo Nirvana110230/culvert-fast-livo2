@@ -1,0 +1,25 @@
+{
+  "baseline_commit": "24e2e2c142f1e7bc2b8ff76c5f37795be5580c42",
+  "source_commit": "a9727f89e348faa218410bce9e834992395d54c2",
+  "source_tree": "2d9290d4378bd58d8998af142d569f645031e82d",
+  "previous_patch": "records/changes_from_board.patch",
+  "incremental_patch": "changes_after_20261121.patch",
+  "incremental_patch_sha256": "d911b6cd111d59705d429d751a3eddef35b5a64c7924f3af36d542c2a6664e4e",
+  "maintained_paths": 245,
+  "maintained_manifest_sha256": "e6c985eb6092604ce7aff2ebd82f706c8b91d9ce1f9cd4215c571a2c89733b11",
+  "candidate_install_sha256": "b66a92cd81de2ebc9428c4483908a97e1e1bfd207802a4cca8ee4829e683d49e",
+  "candidate_build_sha256": "15a362dad0e701123fb2cf363372ae8c12224e50d70f4802d833faae1977b6da",
+  "candidate_build_id": "14f4b686dcbd40ba5ba79bd24d0e39a2ce471cf2",
+  "unchanged_git_added": {
+    "src/livox_ros_driver2/package.xml": "byte-identical to package_ROS2.xml on baseline and candidate"
+  },
+  "upstream_pr_heads": {
+    "352": "39aa2a119c24189d0e663f4c8f46fde25b481f60",
+    "455": "6ba9ebf7b2b79b7b85eb279a7933ecf419b354c0",
+    "465": "b3dd11fc4aa4a0514b9c170d8d2c4d5b5c43e4c8"
+  },
+  "rollback_package": "/home/orangepi/stage_a_20261123/baseline.tar.gz",
+  "rollback_package_sha256": "fa3841604cc236073ba1eebf0267c17245cc9c2e6dde9c7b967243db8c438655",
+  "rollback_command": "bash /home/orangepi/stage_a_20261123/evidence/rollback.sh",
+  "deployment_journal": "/home/orangepi/stage_a_20261123/evidence"
+}

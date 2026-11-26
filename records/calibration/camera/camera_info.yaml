@@ -1,0 +1,56 @@
+# Approved real-camera intrinsics: MV-CU013-A0UC / MVL-HF0628M-6MPE / F2.8 / 1280x1024 / scale=1.0
+image_width: 1280
+image_height: 1024
+camera_name: hik_camera
+distortion_model: plumb_bob
+camera_matrix:
+  rows: 3
+  cols: 3
+  data:
+  - 1297.754900243953
+  - 0.0
+  - 655.3979063879893
+  - 0.0
+  - 1299.166933102416
+  - 501.2026449669307
+  - 0.0
+  - 0.0
+  - 1.0
+distortion_coefficients:
+  rows: 1
+  cols: 5
+  data:
+  - -0.08265631931699047
+  - 0.13391147021521527
+  - -0.00032649255292178974
+  - 0.00029400314258161474
+  - 0.0
+rectification_matrix:
+  rows: 3
+  cols: 3
+  data:
+  - 1.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+projection_matrix:
+  rows: 3
+  cols: 4
+  data:
+  - 1297.754900243953
+  - 0.0
+  - 655.3979063879893
+  - 0.0
+  - 0.0
+  - 1299.166933102416
+  - 501.2026449669307
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  - 0.0

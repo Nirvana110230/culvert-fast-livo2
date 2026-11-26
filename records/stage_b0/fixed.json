@@ -1,0 +1,531 @@
+{
+  "runs": {
+    "fixed1": {
+      "run": "/data/robot/maps/fast_livo2/stage_b0_20261123/fixed1/20261123T041741Z_75e5a8a4d9",
+      "executable": "/home/orangepi/stage_b0_20261123/candidate/install/fast_livo/lib/fast_livo/fastlivo_mapping",
+      "sha256": "e9f7eaeb7260fe13304e1b846426b6a21dc91776d6128f991e6caeacab481469",
+      "loaded_libs": {
+        "/home/orangepi/stage_b0_20261123/candidate/install/vikit_common/lib/libvikit_common.so": "d2b1c9f6809459ba72aea21072de2bbdf576a03037dd38bb53b559af30dc5e41",
+        "/usr/lib/aarch64-linux-gnu/libgomp.so.1.0.0": "53d7318d8e1addc4d2990c028daba609f8dc1af16a501255eb5c4d59b7e2b601"
+      },
+      "resolved": "92c6a9b4d22e5b26873d43b62e3915d1e33dcc42fac0fdb5ede9250eb791bd2d",
+      "gravity": [
+        -0.003417461226085637,
+        0.1830081383227269,
+        0.0,
+        0.9831054583646751
+      ],
+      "n_confirmed": 576,
+      "a_method_confirmed": 567,
+      "first_cut": {
+        "wall_s": "9340.1318324749991",
+        "ros_s": "1795407467.166507",
+        "scan_begin_s": "-0",
+        "scan_end_s": "0",
+        "state_s": "1590204343.8003142",
+        "processing_ms": "5.8417250002094079",
+        "cycle_ms": "28.812835998905939",
+        "frames": "0",
+        "lidar_queue": "0",
+        "imu_queue": "15",
+        "lidar_rx": "48",
+        "imu_rx": "471",
+        "image_rx": "1",
+        "image_queue": "1",
+        "vio_frames": "0",
+        "visual_update_frames": "0",
+        "visual_update_steps": "0",
+        "synced": "1"
+      },
+      "pose_by_sensor_sha": "14fc9f5e6d42cd81a74a4a688efc40d5cb6f2a66ada8cfacdd6f654c0195797c",
+      "config_values_checked": 81,
+      "layers": {
+        "base.yaml": "7523a1d04c029e529e9da2f1d5747a0f2c95e06b6b32b8415231cebf60b07b54",
+        "camera.yaml": "bcb383d34dd7001c4a94c24830a92bb792f2a686e5e6cdc13eef596b895f1448",
+        "extrinsic.yaml": "c99eda5fe8e13b4bd77b8253ebf7f43a5872347ad72740d04d84827027aca25e",
+        "time_overlay.yaml": "5aecff0a39fdae213de0c898408617c11205cb516017c3163bc33f71a3999242",
+        "display_only.yaml": "bda0b9b0678000042a24d30c2f7ce51d74d9d629dfd82caf569e5f136c52cdb1",
+        "runtime_policy.yaml": "299dcdff2b894819a308c43ab2f06c2d3e128a38bc009531fa6a5f4e41e7fa2a"
+      },
+      "counts": {
+        "lidar_rx": 627,
+        "imu_rx": 12071,
+        "synced": 1154,
+        "image_rx": 577,
+        "image_remaining": 0,
+        "vio_frames": 576,
+        "visual_update_frames": 575,
+        "visual_update_steps": 8692,
+        "lidar_remaining": 3,
+        "imu_remaining": 95
+      },
+      "queues": {
+        "lidar": {
+          "sample_max": 1,
+          "at_exit": 3
+        },
+        "imu": {
+          "sample_max": 24,
+          "at_exit": 95
+        },
+        "image": {
+          "sample_max": 1,
+          "at_exit": 0
+        }
+      },
+      "map": {
+        "status": "complete",
+        "error": null,
+        "output_frame": "map_gravity",
+        "gravity_applied": true,
+        "segment_end_reason": null,
+        "rgb_points": 203287,
+        "geometry_points": 1132217,
+        "poses": 576
+      },
+      "files": {
+        "map_rgb.pcd": "58f6d56ed6eba68560d7f22082d05429ff163208007023557dd2b18655980f74",
+        "map_geometry.pcd": "067a4b4866d0eb87c3282ec860d815ac94fa14571982abba9d31f813cf6ac007",
+        "trajectory.tum": "065b1ee61559e86a0407afa6254ef31c19b746f8e9bb2a270f40c434b35b72af"
+      },
+      "codes": {
+        "archive": 0,
+        "algorithm": 0,
+        "parameters": 0,
+        "replay": 0
+      },
+      "input_delta": {
+        "lidar_rx": 0,
+        "imu_rx": 0,
+        "image_rx": 0
+      },
+      "path_length": 7.043148623963416,
+      "displacement": 0.4580778542484835,
+      "elapsed": 71.98911221699927,
+      "rss_mib": 658.7109375,
+      "processing_ms": {
+        "count": 56,
+        "min": 5.841725000209408,
+        "median": 30.132174999380368,
+        "mean": 35.57021219652207,
+        "p95": 62.9345999996076,
+        "max": 78.18910199966922,
+        "rms": 38.44838226264323
+      },
+      "errors": [],
+      "stop_reason": "bag_eof"
+    },
+    "fixed2": {
+      "run": "/data/robot/maps/fast_livo2/stage_b0_20261123/fixed2/20261123T041854Z_74c9e190b9",
+      "executable": "/home/orangepi/stage_b0_20261123/candidate/install/fast_livo/lib/fast_livo/fastlivo_mapping",
+      "sha256": "e9f7eaeb7260fe13304e1b846426b6a21dc91776d6128f991e6caeacab481469",
+      "loaded_libs": {
+        "/home/orangepi/stage_b0_20261123/candidate/install/vikit_common/lib/libvikit_common.so": "d2b1c9f6809459ba72aea21072de2bbdf576a03037dd38bb53b559af30dc5e41",
+        "/usr/lib/aarch64-linux-gnu/libgomp.so.1.0.0": "53d7318d8e1addc4d2990c028daba609f8dc1af16a501255eb5c4d59b7e2b601"
+      },
+      "resolved": "92c6a9b4d22e5b26873d43b62e3915d1e33dcc42fac0fdb5ede9250eb791bd2d",
+      "gravity": [
+        -0.003417461226085637,
+        0.1830081383227269,
+        0.0,
+        0.9831054583646751
+      ],
+      "n_confirmed": 576,
+      "a_method_confirmed": 567,
+      "first_cut": {
+        "wall_s": "9413.0305623339991",
+        "ros_s": "1795407540.0652373",
+        "scan_begin_s": "-0",
+        "scan_end_s": "0",
+        "state_s": "1590204343.8003142",
+        "processing_ms": "2.7582599996094359",
+        "cycle_ms": "24.293221000334597",
+        "frames": "0",
+        "lidar_queue": "0",
+        "imu_queue": "15",
+        "lidar_rx": "48",
+        "imu_rx": "471",
+        "image_rx": "1",
+        "image_queue": "1",
+        "vio_frames": "0",
+        "visual_update_frames": "0",
+        "visual_update_steps": "0",
+        "synced": "1"
+      },
+      "pose_by_sensor_sha": "14fc9f5e6d42cd81a74a4a688efc40d5cb6f2a66ada8cfacdd6f654c0195797c",
+      "config_values_checked": 81,
+      "layers": {
+        "base.yaml": "7523a1d04c029e529e9da2f1d5747a0f2c95e06b6b32b8415231cebf60b07b54",
+        "camera.yaml": "bcb383d34dd7001c4a94c24830a92bb792f2a686e5e6cdc13eef596b895f1448",
+        "extrinsic.yaml": "c99eda5fe8e13b4bd77b8253ebf7f43a5872347ad72740d04d84827027aca25e",
+        "time_overlay.yaml": "5aecff0a39fdae213de0c898408617c11205cb516017c3163bc33f71a3999242",
+        "display_only.yaml": "bda0b9b0678000042a24d30c2f7ce51d74d9d629dfd82caf569e5f136c52cdb1",
+        "runtime_policy.yaml": "299dcdff2b894819a308c43ab2f06c2d3e128a38bc009531fa6a5f4e41e7fa2a"
+      },
+      "counts": {
+        "lidar_rx": 627,
+        "imu_rx": 12071,
+        "synced": 1154,
+        "image_rx": 577,
+        "image_remaining": 0,
+        "vio_frames": 576,
+        "visual_update_frames": 575,
+        "visual_update_steps": 8692,
+        "lidar_remaining": 3,
+        "imu_remaining": 95
+      },
+      "queues": {
+        "lidar": {
+          "sample_max": 1,
+          "at_exit": 3
+        },
+        "imu": {
+          "sample_max": 23,
+          "at_exit": 95
+        },
+        "image": {
+          "sample_max": 1,
+          "at_exit": 0
+        }
+      },
+      "map": {
+        "status": "complete",
+        "error": null,
+        "output_frame": "map_gravity",
+        "gravity_applied": true,
+        "segment_end_reason": null,
+        "rgb_points": 203287,
+        "geometry_points": 1132217,
+        "poses": 576
+      },
+      "files": {
+        "map_rgb.pcd": "58f6d56ed6eba68560d7f22082d05429ff163208007023557dd2b18655980f74",
+        "map_geometry.pcd": "067a4b4866d0eb87c3282ec860d815ac94fa14571982abba9d31f813cf6ac007",
+        "trajectory.tum": "5d2e62cadff70d14a38c3b1dad23eb5e36eb205632db2a204a2794903cdb8540"
+      },
+      "codes": {
+        "archive": 0,
+        "algorithm": 0,
+        "parameters": 0,
+        "replay": 0
+      },
+      "input_delta": {
+        "lidar_rx": 0,
+        "imu_rx": 0,
+        "image_rx": 0
+      },
+      "path_length": 7.043148623963416,
+      "displacement": 0.4580778542484835,
+      "elapsed": 71.7119479819994,
+      "rss_mib": 652.8671875,
+      "processing_ms": {
+        "count": 57,
+        "min": 2.758259999609436,
+        "median": 29.530202000387362,
+        "mean": 34.6457234735952,
+        "p95": 64.49534239945933,
+        "max": 73.75965299979725,
+        "rms": 37.977647262018515
+      },
+      "errors": [],
+      "stop_reason": "bag_eof"
+    },
+    "fixed3": {
+      "run": "/data/robot/maps/fast_livo2/stage_b0_20261123/fixed3/20261123T042007Z_1e6bab1cf2",
+      "executable": "/home/orangepi/stage_b0_20261123/candidate/install/fast_livo/lib/fast_livo/fastlivo_mapping",
+      "sha256": "e9f7eaeb7260fe13304e1b846426b6a21dc91776d6128f991e6caeacab481469",
+      "loaded_libs": {
+        "/home/orangepi/stage_b0_20261123/candidate/install/vikit_common/lib/libvikit_common.so": "d2b1c9f6809459ba72aea21072de2bbdf576a03037dd38bb53b559af30dc5e41",
+        "/usr/lib/aarch64-linux-gnu/libgomp.so.1.0.0": "53d7318d8e1addc4d2990c028daba609f8dc1af16a501255eb5c4d59b7e2b601"
+      },
+      "resolved": "92c6a9b4d22e5b26873d43b62e3915d1e33dcc42fac0fdb5ede9250eb791bd2d",
+      "gravity": [
+        -0.003417461226085637,
+        0.1830081383227269,
+        0.0,
+        0.9831054583646751
+      ],
+      "n_confirmed": 576,
+      "a_method_confirmed": 567,
+      "first_cut": {
+        "wall_s": "9486.6673338889996",
+        "ros_s": "1795407613.7020147",
+        "scan_begin_s": "-0",
+        "scan_end_s": "0",
+        "state_s": "1590204343.8003142",
+        "processing_ms": "4.4064489993616007",
+        "cycle_ms": "30.158528999891132",
+        "frames": "0",
+        "lidar_queue": "0",
+        "imu_queue": "15",
+        "lidar_rx": "48",
+        "imu_rx": "471",
+        "image_rx": "1",
+        "image_queue": "1",
+        "vio_frames": "0",
+        "visual_update_frames": "0",
+        "visual_update_steps": "0",
+        "synced": "1"
+      },
+      "pose_by_sensor_sha": "14fc9f5e6d42cd81a74a4a688efc40d5cb6f2a66ada8cfacdd6f654c0195797c",
+      "config_values_checked": 81,
+      "layers": {
+        "base.yaml": "7523a1d04c029e529e9da2f1d5747a0f2c95e06b6b32b8415231cebf60b07b54",
+        "camera.yaml": "bcb383d34dd7001c4a94c24830a92bb792f2a686e5e6cdc13eef596b895f1448",
+        "extrinsic.yaml": "c99eda5fe8e13b4bd77b8253ebf7f43a5872347ad72740d04d84827027aca25e",
+        "time_overlay.yaml": "5aecff0a39fdae213de0c898408617c11205cb516017c3163bc33f71a3999242",
+        "display_only.yaml": "bda0b9b0678000042a24d30c2f7ce51d74d9d629dfd82caf569e5f136c52cdb1",
+        "runtime_policy.yaml": "299dcdff2b894819a308c43ab2f06c2d3e128a38bc009531fa6a5f4e41e7fa2a"
+      },
+      "counts": {
+        "lidar_rx": 627,
+        "imu_rx": 12071,
+        "synced": 1154,
+        "image_rx": 577,
+        "image_remaining": 0,
+        "vio_frames": 576,
+        "visual_update_frames": 575,
+        "visual_update_steps": 8692,
+        "lidar_remaining": 3,
+        "imu_remaining": 95
+      },
+      "queues": {
+        "lidar": {
+          "sample_max": 1,
+          "at_exit": 3
+        },
+        "imu": {
+          "sample_max": 23,
+          "at_exit": 95
+        },
+        "image": {
+          "sample_max": 1,
+          "at_exit": 0
+        }
+      },
+      "map": {
+        "status": "complete",
+        "error": null,
+        "output_frame": "map_gravity",
+        "gravity_applied": true,
+        "segment_end_reason": null,
+        "rgb_points": 203287,
+        "geometry_points": 1132217,
+        "poses": 576
+      },
+      "files": {
+        "map_rgb.pcd": "58f6d56ed6eba68560d7f22082d05429ff163208007023557dd2b18655980f74",
+        "map_geometry.pcd": "067a4b4866d0eb87c3282ec860d815ac94fa14571982abba9d31f813cf6ac007",
+        "trajectory.tum": "16b0042744201e2ba758e0d5b4d37737e8500be517c9bd1a00af1560d7017bae"
+      },
+      "codes": {
+        "archive": 0,
+        "algorithm": 0,
+        "parameters": 0,
+        "replay": 0
+      },
+      "input_delta": {
+        "lidar_rx": 0,
+        "imu_rx": 0,
+        "image_rx": 0
+      },
+      "path_length": 7.043148623963416,
+      "displacement": 0.4580778542484835,
+      "elapsed": 72.3255811880008,
+      "rss_mib": 648.5390625,
+      "processing_ms": {
+        "count": 57,
+        "min": 4.406448999361601,
+        "median": 26.586195001073065,
+        "mean": 33.6441029123722,
+        "p95": 70.57394859984925,
+        "max": 79.22546499867167,
+        "rms": 37.485872207249095
+      },
+      "errors": [],
+      "stop_reason": "bag_eof"
+    }
+  },
+  "pairs": {
+    "fixed1--fixed2": {
+      "common_sensor_poses": 576,
+      "position_m": {
+        "count": 576,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "rms": 0.0
+      },
+      "orientation_deg": {
+        "count": 576,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "rms": 0.0
+      },
+      "first_common": [
+        1590204343900154290,
+        1,
+        1,
+        0.0,
+        0.0
+      ],
+      "last_common": [
+        1590204401400174320,
+        576,
+        576,
+        0.0,
+        0.0
+      ],
+      "worst_position_row": [
+        1590204343900154290,
+        1,
+        1,
+        0.0,
+        0.0
+      ],
+      "worst_rotation_row": [
+        1590204343900154290,
+        1,
+        1,
+        0.0,
+        0.0
+      ],
+      "frame_columns": [
+        "sensor_ns",
+        "first_pose_1based",
+        "second_pose_1based",
+        "position_m",
+        "orientation_deg"
+      ],
+      "first_nonzero": null,
+      "first_over_1um_or_1udeg": null,
+      "first_lio_log_difference": null,
+      "identical_raw_scan_counts": true
+    },
+    "fixed1--fixed3": {
+      "common_sensor_poses": 576,
+      "position_m": {
+        "count": 576,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "rms": 0.0
+      },
+      "orientation_deg": {
+        "count": 576,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "rms": 0.0
+      },
+      "first_common": [
+        1590204343900154290,
+        1,
+        1,
+        0.0,
+        0.0
+      ],
+      "last_common": [
+        1590204401400174320,
+        576,
+        576,
+        0.0,
+        0.0
+      ],
+      "worst_position_row": [
+        1590204343900154290,
+        1,
+        1,
+        0.0,
+        0.0
+      ],
+      "worst_rotation_row": [
+        1590204343900154290,
+        1,
+        1,
+        0.0,
+        0.0
+      ],
+      "frame_columns": [
+        "sensor_ns",
+        "first_pose_1based",
+        "second_pose_1based",
+        "position_m",
+        "orientation_deg"
+      ],
+      "first_nonzero": null,
+      "first_over_1um_or_1udeg": null,
+      "first_lio_log_difference": null,
+      "identical_raw_scan_counts": true
+    },
+    "fixed2--fixed3": {
+      "common_sensor_poses": 576,
+      "position_m": {
+        "count": 576,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "rms": 0.0
+      },
+      "orientation_deg": {
+        "count": 576,
+        "min": 0.0,
+        "median": 0.0,
+        "mean": 0.0,
+        "p95": 0.0,
+        "max": 0.0,
+        "rms": 0.0
+      },
+      "first_common": [
+        1590204343900154290,
+        1,
+        1,
+        0.0,
+        0.0
+      ],
+      "last_common": [
+        1590204401400174320,
+        576,
+        576,
+        0.0,
+        0.0
+      ],
+      "worst_position_row": [
+        1590204343900154290,
+        1,
+        1,
+        0.0,
+        0.0
+      ],
+      "worst_rotation_row": [
+        1590204343900154290,
+        1,
+        1,
+        0.0,
+        0.0
+      ],
+      "frame_columns": [
+        "sensor_ns",
+        "first_pose_1based",
+        "second_pose_1based",
+        "position_m",
+        "orientation_deg"
+      ],
+      "first_nonzero": null,
+      "first_over_1um_or_1udeg": null,
+      "first_lio_log_difference": null,
+      "identical_raw_scan_counts": true
+    }
+  }
+}

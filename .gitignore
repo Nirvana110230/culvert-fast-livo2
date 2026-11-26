@@ -48,3 +48,9 @@ raw_bag/
 *.deb
 *.iso
 *.img
+
+# Locally supplied vendor SDK and hardware identity
+/deps/mvs/
+/state/
+/device-identity.local.sh
+!deps/livox_sdk/lib/liblivox_lidar_sdk_shared.so

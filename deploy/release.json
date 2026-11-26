@@ -1,0 +1,12 @@
+{
+  "stage": "A",
+  "board_role": "正式建图",
+  "install_elf_sha256": "b66a92cd81de2ebc9428c4483908a97e1e1bfd207802a4cca8ee4829e683d49e",
+  "gnu_build_id": "14f4b686dcbd40ba5ba79bd24d0e39a2ce471cf2",
+  "maintenance_overrides_sha256": {
+    "camera/camera_device.hpp": "2e7acda51324725d7f1593d586cd663af78d307bfd8795814747ccc32128d908",
+    "camera/camera_sync.cpp": "f63c489e2be683a6d1bf067209d845267ecbb6e5dc07f88ec72f6b51a0ef1883",
+    "runtime/hardware.py": "c937bfa2d45b997c521496ade6d249e278e805c7335429d25fa7a4159302ba68",
+    "runtime/sensors/radar_device.py": "95ad9e943e5c9a6467745b8eefe3eb8f35fab4b230895194cf7122e69d8115b6"
+  }
+}

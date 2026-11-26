@@ -1,0 +1,112 @@
+{
+  "version": "calibration_v1",
+  "frozen_at": "2026-11-12T11:15:38.174052+08:00",
+  "status": "雷达—相机外参已通过 A/B/C 联合标定及 D 场景独立静态几何验证，可作为 FAST-LIVO2 后续集成测试的冻结候选参数。",
+  "camera_source": "calibration/camera_intrinsic/results/20261110_formal_calibration_v2",
+  "ABC_source": "calibration/lidar_camera_extrinsic/results/20261111_joint_ABC",
+  "D_source": "calibration/lidar_camera_extrinsic/results/20261112_scene_D/validation_v1",
+  "copies": [
+    {
+      "archive": "camera/fast_livo2.yaml",
+      "source": "calibration/camera_intrinsic/results/20261110_formal_calibration_v2/fast_livo2.yaml",
+      "size": 464,
+      "sha256": "bcb383d34dd7001c4a94c24830a92bb792f2a686e5e6cdc13eef596b895f1448"
+    },
+    {
+      "archive": "camera/fast_calib2_intrinsics.yaml",
+      "source": "calibration/camera_intrinsic/results/20261110_formal_calibration_v2/fast_calib2_intrinsics.yaml",
+      "size": 419,
+      "sha256": "1a74c64b0b0622629f9d2e8f6161267496bbded745876d2cf0698565cde86b1b"
+    },
+    {
+      "archive": "camera/camera_info.yaml",
+      "source": "calibration/camera_intrinsic/results/20261110_formal_calibration_v2/camera_info.yaml",
+      "size": 845,
+      "sha256": "2c55f023be321995b3c71c77c77f9c27dc9768565b317c7cdbb9cc468b081f44"
+    },
+    {
+      "archive": "camera/opencv.yaml",
+      "source": "calibration/camera_intrinsic/results/20261110_formal_calibration_v2/opencv.yaml",
+      "size": 5914,
+      "sha256": "8ce7c9c604ba336f8117ff00ae9489905abf386a3a6acbd09e6e9eaa7ab2a647"
+    },
+    {
+      "archive": "camera/calibration.json",
+      "source": "calibration/camera_intrinsic/results/20261110_formal_calibration_v2/calibration.json",
+      "size": 183435,
+      "sha256": "677b0c78af7e15fa6f27070b6f51819b09f061bc6c6f516001848b8717543846"
+    },
+    {
+      "archive": "extrinsic/fast_livo2_joint_candidate.yaml",
+      "source": "calibration/lidar_camera_extrinsic/results/20261111_joint_ABC/fast_livo2_joint_candidate.yaml",
+      "size": 503,
+      "sha256": "c99eda5fe8e13b4bd77b8253ebf7f43a5872347ad72740d04d84827027aca25e"
+    },
+    {
+      "archive": "extrinsic/joint_result.json",
+      "source": "calibration/lidar_camera_extrinsic/results/20261111_joint_ABC/joint_result.json",
+      "size": 22172,
+      "sha256": "3ff1e3348e21a231ead4ff508b16de6039bd510e56693068d89f92712605802e"
+    },
+    {
+      "archive": "evidence/ABC_inputs.json",
+      "source": "calibration/lidar_camera_extrinsic/results/20261111_joint_ABC/inputs.json",
+      "size": 6614,
+      "sha256": "10eba220cc776a1ccbcb729c26090ab9f8dda33db4cab08538a5abf1dbf1d233"
+    },
+    {
+      "archive": "evidence/ABC_verification.json",
+      "source": "calibration/lidar_camera_extrinsic/results/20261111_joint_ABC/verification.json",
+      "size": 514,
+      "sha256": "e5e94598cbbe9d2368a2ae539e8da763738e1206e01d76133b37b5cbe7b0a7e3"
+    },
+    {
+      "archive": "evidence/D_validation.json",
+      "source": "calibration/lidar_camera_extrinsic/results/20261112_scene_D/validation_v1/validation.json",
+      "size": 2607,
+      "sha256": "361e6f207204646f4ae2e7feb30b619d9de4e2dd4e0f6ed91352605d7e6730e1"
+    },
+    {
+      "archive": "evidence/D_verification.json",
+      "source": "calibration/lidar_camera_extrinsic/results/20261112_scene_D/validation_v1/verification.json",
+      "size": 595,
+      "sha256": "9ec457d40e87ece9d832e1e88cee5bad51bcd76341c48deea047fc67e2516a53"
+    },
+    {
+      "archive": "evidence/D_selection.json",
+      "source": "calibration/lidar_camera_extrinsic/results/20261112_scene_D/validation_v1/selection.json",
+      "size": 4183,
+      "sha256": "b7d2ef41c0874792fa5999985684f21e74823cfcd4a7bc073df97cbfa8a59ad0"
+    },
+    {
+      "archive": "evidence/D_centers.yaml",
+      "source": "calibration/lidar_camera_extrinsic/results/20261112_scene_D/validation_v1/extracted/result.yaml",
+      "size": 3264,
+      "sha256": "175a3c6dd4521e00342cc6e85e78bb5526c5362b39f8315d48b7ba0fe913e57e"
+    },
+    {
+      "archive": "evidence/A_data_summary.json",
+      "source": "calibration/lidar_camera_extrinsic/results/20261111_160804_placement/summary.json",
+      "size": 612,
+      "sha256": "4a187051b031acbe72e40fd1067568bcfc569d158afa87a2030780c0a18d7bc9"
+    },
+    {
+      "archive": "evidence/B_data_summary.json",
+      "source": "calibration/lidar_camera_extrinsic/results/20261111_scene_B_data/summary.json",
+      "size": 611,
+      "sha256": "954129a0f02934b78d763962b0de99dfc478e99975aa8d647150d52072f49e6c"
+    },
+    {
+      "archive": "evidence/C_data_summary.json",
+      "source": "calibration/lidar_camera_extrinsic/results/20261111_scene_C_data/summary.json",
+      "size": 611,
+      "sha256": "08d4eb1840f3cbb45db2a2f9469e40cb914e68a65d7bd966b301a99ef4959269"
+    },
+    {
+      "archive": "evidence/D_data_summary.json",
+      "source": "calibration/lidar_camera_extrinsic/results/20261112_scene_D/export/summary.json",
+      "size": 611,
+      "sha256": "34c42ffa6b627dbc361ed8d8abd8f5a82ea8590f9f544284f2300dcf198e1e4e"
+    }
+  ]
+}

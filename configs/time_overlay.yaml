@@ -1,0 +1,15 @@
+/**:
+  ros__parameters:
+    use_sim_time: false
+    common:
+      img_topic: /hik_camera/image_timeshare
+      lid_topic: /livox/lidar
+      imu_topic: /livox/imu
+      img_en: 1
+      lidar_en: 1
+      ros_driver_bug_fix: false
+    time_offset:
+      img_time_offset: 0.1
+      imu_time_offset: 0.0
+      lidar_time_offset: 0.0
+      exposure_time_init: 0.0

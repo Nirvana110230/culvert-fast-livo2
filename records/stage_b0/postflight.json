@@ -1,0 +1,31 @@
+{
+  "arch": "aarch64",
+  "formal_maintained": 245,
+  "manifest_sha": "e6c985eb6092604ce7aff2ebd82f706c8b91d9ce1f9cd4215c571a2c89733b11",
+  "formal_changes": {},
+  "candidate_items_checked": 235,
+  "candidate_source_changes": {
+    "src/fast_livo/include/LIVMapper.h": "5d2fa382caea7faebe6b5b81d3388c55a2276af70bc59b327557a030f54fd8a9",
+    "src/fast_livo/src/LIVMapper.cpp": "eb38e32676d6d9a5bf0af8317398c699d2549b52293870d36cf773800bb2c9a3"
+  },
+  "patch_sha": "57ebeea36023239e816860f249ebdd12df983fa30c218fd0492432adb779d594",
+  "formal_elf": "b66a92cd81de2ebc9428c4483908a97e1e1bfd207802a4cca8ee4829e683d49e",
+  "candidate_elf": "e9f7eaeb7260fe13304e1b846426b6a21dc91776d6128f991e6caeacab481469",
+  "candidate_build": "9791fa3f693b30e3d7bb94b91aea807c829b90e068c2addcffa2bbc0b385121c",
+  "candidate_build_id": "85e725b4b672db14eaa254e07e6c829bde4cbdf6",
+  "compile_units": 13,
+  "strict_math": true,
+  "openmp_threads": 4,
+  "input_before_equals_after": {
+    "metadata.yaml": "3f08708f76aab83e81aded342db736c6a08469f5b4a63c5e46e1cfbb4d3e23b2",
+    "raw_bag_0.db3": "904d840677cbba7ac7c08d743e3738308318782c478cbecef37ed7325222301b",
+    "raw_bag_1.db3": "a8c691ab800949bff85c2e90a85d95a8f70ce317208478e5f4d471001d9894d8",
+    "raw_bag_2.db3": "81c0f8db7b164953d32a64ccddca2a2237243cdc528ef26747fb6da243db2e47",
+    "raw_bag_3.db3": "f3a196335292212488e69d556a43b5a65708b10dccfe501fca767fc7ffa13184",
+    "raw_bag_4.db3": "45217d5e8384a57c4dbfe501cc2a774dcda16114d53ba03ae24a6b4da550983b"
+  },
+  "active": {
+    "/home/orangepi/fast_livo2": false,
+    "/home/orangepi/stage_b0_20261123/candidate": false
+  }
+}

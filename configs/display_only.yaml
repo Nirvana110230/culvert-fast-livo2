@@ -1,0 +1,4 @@
+/**:
+  ros__parameters:
+    publish:
+      pub_effect_point_en: true

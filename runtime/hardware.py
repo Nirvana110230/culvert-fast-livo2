@@ -34,6 +34,9 @@ def require_free_pipeline(live):
 
 
 def preflight():
+    for key in ("FAST_LIVO2_RADAR_SERIAL", "FAST_LIVO2_CAMERA_SERIAL"):
+        if not os.environ.get(key, "").strip():
+            raise RuntimeError(f"{key} is required for live acquisition")
     for path in (DRIVER, CAMERA, CONFIG / 'MID360s.json', SENSORS / 'radar_device.py',
                  SENSORS / 'radar_packets.py', CONFIG / 'fastdds_camera.xml'):
         if not path.is_file():

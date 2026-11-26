@@ -19,7 +19,7 @@
     "native_formal_build_elf": "12f89544a78fdc7b03823ec26f32795fd89a3614beb9dcf7bc920bd20ac25d2c",
     "native_formal_install_elf_before_adopting_tested_install": "56292d495d010f07d277fef008868674ed0ecf54b60a2e937b9a0236057f9b11",
     "rollback_package_sha256": "fa3841604cc236073ba1eebf0267c17245cc9c2e6dde9c7b967243db8c438655",
-    "device_checked_this_round": false,
+    "device_checked_this_round": true,
     "evidence_sha256": {
       "fast_livo2/records/stage_a/release.json": "3e5aef35a20ead896178fa9514a0fb3948c10a7d9fb830760a326bff2309b14e",
       "docs/mainline/2026-11-23/stage_a/evidence/formal-verification.json": "119c85e7c68c3f9738cdb8f49e9ebb43f3f57627f49398452d0fab246131b54e",
@@ -55,5 +55,39 @@
       "docs/ssh_usb/2026-11-25/双主机_USB_SSH_实施报告.md": "89379e59b8b4634d4d806837b84a96d06665fdd7a8eea9f901008d6ef555708f"
     }
   },
-  "license_hold": "fast_livo 的 GPLv2 文本与包字段 BSD 冲突，vikit 包声明 GPLv3，Livox 与内嵌依赖分别适用条款。原始源码及所有历史引用保存在受限介质，上传禁止。"
+  "g3_verification": {
+    "date": "2026-11-26",
+    "source": "strict pinned-host SSH read-only file acquisition",
+    "formal_stage_a_board_paths_equal_g2": 245,
+    "isolated_b0_comparable_paths": 235,
+    "isolated_b0_paths_missing_from_historical_candidate": [
+      "README.md",
+      "camera/CMakeLists.txt",
+      "camera/camera_device.hpp",
+      "camera/camera_probe.cpp",
+      "camera/camera_sync.cpp",
+      "camera/deployed_image_callback.inc",
+      "camera/shared_timestamp.hpp",
+      "camera/test_livmapper_time.cpp",
+      "start.sh",
+      "stop.sh"
+    ],
+    "isolated_b0_only_differences_among_comparable_paths": {
+      "src/fast_livo/include/LIVMapper.h": "5d2fa382caea7faebe6b5b81d3388c55a2276af70bc59b327557a030f54fd8a9",
+      "src/fast_livo/src/LIVMapper.cpp": "eb38e32676d6d9a5bf0af8317398c699d2549b52293870d36cf773800bb2c9a3"
+    },
+    "source_adjustments_for_private_maintenance": [
+      "README.md (board text now docs/board-operation.md)",
+      "camera/camera_device.hpp",
+      "camera/camera_sync.cpp",
+      "runtime/sensors/radar_device.py",
+      "runtime/hardware.py"
+    ],
+    "data_root": "/data/robot/maps/fast_livo2",
+    "completed_or_failed_map_results_indexed": 22,
+    "formal_install_sha256_verified": "b66a92cd81de2ebc9428c4483908a97e1e1bfd207802a4cca8ee4829e683d49e",
+    "b0_install_sha256_verified": "e9f7eaeb7260fe13304e1b846426b6a21dc91776d6128f991e6caeacab481469",
+    "formal_build_sha256_verified": "12f89544a78fdc7b03823ec26f32795fd89a3614beb9dcf7bc920bd20ac25d2c",
+    "b0_build_sha256_verified": "9791fa3f693b30e3d7bb94b91aea807c829b90e068c2addcffa2bbc0b385121c"
+  }
 }

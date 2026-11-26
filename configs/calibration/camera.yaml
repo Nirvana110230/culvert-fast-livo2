@@ -1,0 +1,16 @@
+# Approved real-camera intrinsics: MV-CU013-A0UC / MVL-HF0628M-6MPE / F2.8 / 1280x1024 / scale=1.0
+/**:
+  ros__parameters:
+    parameter_blackboard:
+      model: Pinhole
+      width: 1280
+      height: 1024
+      scale: 1.0
+      fx: 1297.754900243953
+      fy: 1299.166933102416
+      cx: 655.3979063879893
+      cy: 501.2026449669307
+      d0: -0.08265631931699047
+      d1: 0.13391147021521527
+      d2: -0.00032649255292178974
+      d3: 0.00029400314258161474

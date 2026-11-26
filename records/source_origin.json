@@ -1,0 +1,1037 @@
+{
+  "src/fast_livo/src/IMU_Processing.cpp": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/src/IMU_Processing.cpp",
+    "sha256": "2558005b624e44df9b98fc9b43ed6d02dd25db1fea8499076c7dafa04d816291",
+    "size": 21903
+  },
+  "src/fast_livo/src/LIVMapper.cpp": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/src/LIVMapper.cpp",
+    "sha256": "20cb418c10b7bb6f81809f4568a2a77ecdc520b4053e5bbe26437661881aeb9b",
+    "size": 64544
+  },
+  "src/fast_livo/src/frame.cpp": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/src/frame.cpp",
+    "sha256": "d45bb8ab1edf065089515940d0c7d6ff2c08fe460143778f62f09547e63f489a",
+    "size": 1644
+  },
+  "src/fast_livo/src/main.cpp": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/src/main.cpp",
+    "sha256": "4e89b563ee7439b5529d573b4806c3b98e91d64704debface4c8fa90da2dca38",
+    "size": 373
+  },
+  "src/fast_livo/src/preprocess.cpp": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/src/preprocess.cpp",
+    "sha256": "b40b4aed1d9b8a0c4ceb5cabf66eb6900f84704ffaf7324aa18e1adbaf9dd96c",
+    "size": 33604
+  },
+  "src/fast_livo/src/software_gate_probe.cpp": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/src/software_gate_probe.cpp",
+    "sha256": "0fbf9f925dd43943b1eaf7eb24a03880f348ba6c9d36b7e56b47c25ef95825c0",
+    "size": 3751
+  },
+  "src/fast_livo/src/utils.cpp": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/src/utils.cpp",
+    "sha256": "3e0aeaccaf94d7a5e44af952027ddda88f8e3787580b942af5b2db66ff0705d3",
+    "size": 658
+  },
+  "src/fast_livo/src/vio.cpp": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/src/vio.cpp",
+    "sha256": "ed76295b6d5984a66c79c8b6bf7fa4692ce66273b39c2ed6985e271d56daac1d",
+    "size": 74994
+  },
+  "src/fast_livo/src/visual_point.cpp": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/src/visual_point.cpp",
+    "sha256": "c918c8bb2577ae1453652723d21b88160b5fe7668e307a461a7bf31c6908c655",
+    "size": 2948
+  },
+  "src/fast_livo/src/voxel_map.cpp": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/src/voxel_map.cpp",
+    "sha256": "98e1b52fa3f4f1f25a4b4cae1430569689e821b1c7c867b51135daee7cb56146",
+    "size": 38294
+  },
+  "src/fast_livo/include/IMU_Processing.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/IMU_Processing.h",
+    "sha256": "ebce437f848c0a41cc1d94a3bbaaa67084a2a9894ba76f6ac64e0db19c50901d",
+    "size": 2683
+  },
+  "src/fast_livo/include/LIVMapper.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/LIVMapper.h",
+    "sha256": "23a9069a1493236742d47b4a2f0acf064649933d62773dcddefe9277f75c4ace",
+    "size": 8178
+  },
+  "src/fast_livo/include/common_lib.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/common_lib.h",
+    "sha256": "773bb9fb84c2399ed8dcfca84d399bde6e06d5f69617f28a7588e68bcc8d70d3",
+    "size": 7278
+  },
+  "src/fast_livo/include/feature.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/feature.h",
+    "sha256": "ddfec0060f81511742a15dc8408e15d816fc182c28a9850db4700b89e173ef4d",
+    "size": 2270
+  },
+  "src/fast_livo/include/frame.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/frame.h",
+    "sha256": "91a7ff427c0fb1e12220d4e60ac0ea9ed0785c1ae73c8da98c14ebe2f9782fa6",
+    "size": 3160
+  },
+  "src/fast_livo/include/livox_ros_driver/CustomMsg.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/livox_ros_driver/CustomMsg.h",
+    "sha256": "47ae77c64f4d05f7f471d0c2032f52f985926b2eb1c8c2a71f8e78b08c33157d",
+    "size": 8375
+  },
+  "src/fast_livo/include/livox_ros_driver/CustomPoint.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/livox_ros_driver/CustomPoint.h",
+    "sha256": "36b6f7f0a2545dd425779124429a17703b7f73a237f3f59777fcda68175aae78",
+    "size": 6575
+  },
+  "src/fast_livo/include/memory_diagnostics.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/memory_diagnostics.h",
+    "sha256": "ae61b85a78900984c83f3af7c9d520a2cb442f516b0752e266b23a0797024fcf",
+    "size": 3205
+  },
+  "src/fast_livo/include/preprocess.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/preprocess.h",
+    "sha256": "03c8a5f6062eac3bf3461e384f585601c7c40f20eddf7e104c852b078ce7e648",
+    "size": 5897
+  },
+  "src/fast_livo/include/utils/color.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/utils/color.h",
+    "sha256": "a8dca85646b18e26432f453993cf2da8de8e6b6e3184228b9fb92651c4a8f2ef",
+    "size": 1125
+  },
+  "src/fast_livo/include/utils/so3_math.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/utils/so3_math.h",
+    "sha256": "fa815b3bc8dc157a2ab8d692b0dd604b369680a7e711fef666f4e12d4ab33c37",
+    "size": 2526
+  },
+  "src/fast_livo/include/utils/types.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/utils/types.h",
+    "sha256": "ade63d344d8d4cdec2dd8ec0fd6ea7930cb007c9c41ba83500bc7ea79d874d45",
+    "size": 1488
+  },
+  "src/fast_livo/include/utils/utils.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/utils/utils.h",
+    "sha256": "53e212cc56c9f7627bc9a58cae906b9fe9bb334184b28a1b6f8a2821e2ebf3e8",
+    "size": 2059
+  },
+  "src/fast_livo/include/vio.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/vio.h",
+    "sha256": "575c2d50992e020c85393bd0934e7fc5348f96d7cf36dbc0a75b02a73762c390",
+    "size": 6332
+  },
+  "src/fast_livo/include/visual_map_lru.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/visual_map_lru.h",
+    "sha256": "44ddc4c928911f6fadbf868f40eb163758497a04f9a1c925ca6f97a2f4ac48f9",
+    "size": 5814
+  },
+  "src/fast_livo/include/visual_point.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/visual_point.h",
+    "sha256": "673b90f3ef6b4897ce3774e1e37cfe903a1bd15f969131ad1e1e46e64eb0d5e2",
+    "size": 1820
+  },
+  "src/fast_livo/include/visual_voxel_key.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/visual_voxel_key.h",
+    "sha256": "45e81442116874f41e788ec549e1f99eb13650e126d627c02785ab9956fcb78f",
+    "size": 570
+  },
+  "src/fast_livo/include/voxel_map.h": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/include/voxel_map.h",
+    "sha256": "4efc48967c10a8a9ecdb46d2f2a4ce6bda193847a6f2f037705352512b56d130",
+    "size": 7284
+  },
+  "src/fast_livo/CMakeLists.txt": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/candidate/CMakeLists.txt",
+    "sha256": "cbbe2e16d65059c92dcacc974735e700a38d276f5cbbb2cc16a66bc91ef01955",
+    "size": 8084
+  },
+  "src/fast_livo/package.xml": {
+    "src": "/home/orangepi/visual_fusion/2026-11-12_software_gate/ws/src/fast_livo/package.xml",
+    "sha256": "28cd383faf6107e6d0f08d84e51af6396143349c2803e7b0c8e7b66249a321c3",
+    "size": 1952
+  },
+  "src/fast_livo/LICENSE": {
+    "src": "/home/orangepi/visual_fusion/2026-11-12_software_gate/ws/src/fast_livo/LICENSE",
+    "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+    "size": 18092
+  },
+  "src/vikit_common/CMakeLists.txt": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/CMakeLists.txt",
+    "sha256": "8cfe334302f12c4397e1a59331f11c652f01b3cbd49ac4157115e5eb6d61083f",
+    "size": 3952
+  },
+  "src/vikit_common/CMakeModules/FindEigen.cmake": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/CMakeModules/FindEigen.cmake",
+    "sha256": "254bdb9194cb0fb016102d09fdf62ac18294da2bdfbac54aa65b06e526571991",
+    "size": 2881
+  },
+  "src/vikit_common/include/vikit/abstract_camera.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/abstract_camera.h",
+    "sha256": "ecfe3f35bece1e25884cba598807da4215048feca856325663f27736db3c2f07",
+    "size": 2000
+  },
+  "src/vikit_common/include/vikit/aligned_mem.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/aligned_mem.h",
+    "sha256": "5d2e6c67f25b14c4d9ea719cb1624b8bcaff55cb2bd8a90673c111e3e5014d12",
+    "size": 2710
+  },
+  "src/vikit_common/include/vikit/atan_camera.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/atan_camera.h",
+    "sha256": "e8177a2efc11f2440257e232ea2f0b4ee590fba20349367a81ea81a2fd21df7a",
+    "size": 2333
+  },
+  "src/vikit_common/include/vikit/blender_utils.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/blender_utils.h",
+    "sha256": "5a44888d757e5770b25bc24fe0eba1bb11d82c8069b1376cf4008f3e64e29f90",
+    "size": 3425
+  },
+  "src/vikit_common/include/vikit/equidistant_camera.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/equidistant_camera.h",
+    "sha256": "fc1e265bbaddfb641f81e9faa0551babb373eb9b758744eb36e481082ee635b4",
+    "size": 3840
+  },
+  "src/vikit_common/include/vikit/file_reader.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/file_reader.h",
+    "sha256": "fd2ce7e74ac56ed446a036370ce20eff02b8e49cd856c8ef8a8f956b12a97298",
+    "size": 2406
+  },
+  "src/vikit_common/include/vikit/file_reader_types.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/file_reader_types.h",
+    "sha256": "bf15b33a08d9b9dc57296b2b4bf702433db96511ea54cd522a7f224064e8d57b",
+    "size": 2418
+  },
+  "src/vikit_common/include/vikit/homography.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/homography.h",
+    "sha256": "34fc060c9fe28cb07b1937ca98a86e59b67abe081efd81e76f79f28679dff9ec",
+    "size": 1980
+  },
+  "src/vikit_common/include/vikit/img_align.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/img_align.h",
+    "sha256": "ef96a140facbba762c7622f5fe5c1621e1b944d27daacb9b2435f0e7255de17b",
+    "size": 4677
+  },
+  "src/vikit_common/include/vikit/math_utils.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/math_utils.h",
+    "sha256": "62ed5df27222e102e3d5154e2f3df304b899d9c2ffa9828da89ee906e2ac6c95",
+    "size": 3961
+  },
+  "src/vikit_common/include/vikit/nlls_solver.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/nlls_solver.h",
+    "sha256": "c96b54177b8b131c28a1733d1c6e1619f4608921307b1500cde2ea88569963da",
+    "size": 5188
+  },
+  "src/vikit_common/include/vikit/nlls_solver_impl.hpp": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/nlls_solver_impl.hpp",
+    "sha256": "04c0d1adf6004058e2ed1bfa0b9473a2e08867ba97bd3f360043ca42ebb20f2e",
+    "size": 7946
+  },
+  "src/vikit_common/include/vikit/omni_camera.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/omni_camera.h",
+    "sha256": "cefbfb60ed09ed8aca02868c90bda01c2915a2a14efc6f6882144e99139e0984",
+    "size": 1927
+  },
+  "src/vikit_common/include/vikit/patch_score.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/patch_score.h",
+    "sha256": "e5a5273b3e72851c06738ee09e92b92e41d4b1d464d7b98b5364d37834e347bf",
+    "size": 8454
+  },
+  "src/vikit_common/include/vikit/performance_monitor.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/performance_monitor.h",
+    "sha256": "938422e337cc3d60311f29b30094b735f984a302e432f2b8ff855643e0f0bfcf",
+    "size": 1241
+  },
+  "src/vikit_common/include/vikit/pinhole_camera.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/pinhole_camera.h",
+    "sha256": "9a12133411fee6cb0475a296974c9505d6c5474faffadf302b37d8baa60d22f2",
+    "size": 2233
+  },
+  "src/vikit_common/include/vikit/polynomial_camera.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/polynomial_camera.h",
+    "sha256": "eb7e4983f5c2bc2b5ca7a11f77095139e8a115b1283d395a13fc0f1e73cb6077",
+    "size": 4334
+  },
+  "src/vikit_common/include/vikit/ringbuffer.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/ringbuffer.h",
+    "sha256": "44768985302cb02681a235cfc2e17a82004fea4161b6132518b716eb3009165c",
+    "size": 2645
+  },
+  "src/vikit_common/include/vikit/robust_cost.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/robust_cost.h",
+    "sha256": "a3fba95865bf375b61d5c43c230d3a1a2875d75b7aea6f7ab9a143b562a2bb71",
+    "size": 4256
+  },
+  "src/vikit_common/include/vikit/sample.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/sample.h",
+    "sha256": "8811171bf10eb43c45df2a5cdaf073cf58a1b27ca5a1532ffb41ef0eef942441",
+    "size": 1027
+  },
+  "src/vikit_common/include/vikit/timer.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/timer.h",
+    "sha256": "af3d62462ae241c3c011fca0acd0eb53bed583000dbbb127528807fe7d59cb0e",
+    "size": 1267
+  },
+  "src/vikit_common/include/vikit/user_input_thread.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/user_input_thread.h",
+    "sha256": "35e6af2e5ccaa549406f2eda96442a602662ab6f8456f4dc78dcbd8160d51f93",
+    "size": 1172
+  },
+  "src/vikit_common/include/vikit/vision.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/include/vikit/vision.h",
+    "sha256": "3eb356780a61c5e50c95fbbb35fe8b75379513b5b9857732ddcc3979234ddd13",
+    "size": 1911
+  },
+  "src/vikit_common/package.xml": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/package.xml",
+    "sha256": "3dd557b11b0499cb8aacdf8a42bd77e740df45259ce008a0c94117a1cbac82ad",
+    "size": 880
+  },
+  "src/vikit_common/src/atan_camera.cpp": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/src/atan_camera.cpp",
+    "sha256": "ec4425bfacd367574ae8a88e22ddb344df5748d248addb857b91d2be0e37c8cb",
+    "size": 1717
+  },
+  "src/vikit_common/src/equidistant_camera.cpp": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/src/equidistant_camera.cpp",
+    "sha256": "ca1a7a83fabd63a70ba1c4a9e101c66b93db909937c7d012de5d7fbc06a8163a",
+    "size": 2460
+  },
+  "src/vikit_common/src/homography.cpp": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/src/homography.cpp",
+    "sha256": "c4b35bd83e2dcf004fb060c0fd919fbee0bc0f2307cf39115bd2f1563f112975",
+    "size": 7745
+  },
+  "src/vikit_common/src/img_align.cpp": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/src/img_align.cpp",
+    "sha256": "55b6ea6bc34d46f1e2b5482ccc952b10cd655ba9cc5809225271b57aed677d58",
+    "size": 12595
+  },
+  "src/vikit_common/src/math_utils.cpp": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/src/math_utils.cpp",
+    "sha256": "348f9c25992e2879bd83b900912065525a9a203447d4c2165e596308aecc78cf",
+    "size": 5537
+  },
+  "src/vikit_common/src/omni_camera.cpp": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/src/omni_camera.cpp",
+    "sha256": "fda861a0d4bed32f7c7edaeac9325cdc2ebaebd6f42f977b5b2facfab105c835",
+    "size": 5080
+  },
+  "src/vikit_common/src/performance_monitor.cpp": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/src/performance_monitor.cpp",
+    "sha256": "9c92a84e58b110b3d0c8a22e15f22ca779a35500297abad7e3c0e4d063a6485b",
+    "size": 3468
+  },
+  "src/vikit_common/src/pinhole_camera.cpp": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/src/pinhole_camera.cpp",
+    "sha256": "df3fbf1147a6369ec9a8b0071b3407ff08a4b44d1e0aead9d5fe9182c82ef9d9",
+    "size": 2880
+  },
+  "src/vikit_common/src/polynomial_camera.cpp": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/src/polynomial_camera.cpp",
+    "sha256": "c2e3b30ac021a9eac6d3a8d06186799b5b0dff161419fc6a8a9ac022a0755aee",
+    "size": 3821
+  },
+  "src/vikit_common/src/robust_cost.cpp": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/src/robust_cost.cpp",
+    "sha256": "6d6efd847b11abc00cc69049b409ba825f94119721ac28ebaad3f429216e13bc",
+    "size": 3748
+  },
+  "src/vikit_common/src/user_input_thread.cpp": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/src/user_input_thread.cpp",
+    "sha256": "af8f69e58915eaa95362f2e6f01d990426b54c52dec66354f812f2f194c761a5",
+    "size": 1579
+  },
+  "src/vikit_common/src/vision.cpp": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/src/vision.cpp",
+    "sha256": "2e58d660128e1ce63302b99ee35d557d46f17acb36f064553dc6c3dd27c4b05b",
+    "size": 8972
+  },
+  "src/vikit_common/test/data/scene_000.png": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/test/data/scene_000.png",
+    "sha256": "01bd4b3f1ef29db79e3d14aa3da505591cf81780a94312a38d9d5e2247aeb43a",
+    "size": 500178
+  },
+  "src/vikit_common/test/test_camera.cpp": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/test/test_camera.cpp",
+    "sha256": "e9e536e99af321bb07f2096c61991bebd279c8a6a841ca3e60822cdc0bcb7afb",
+    "size": 1946
+  },
+  "src/vikit_common/test/test_patch_score.cpp": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/test/test_patch_score.cpp",
+    "sha256": "dabcae9fcbdb0132f8afb15f438882ed22849f6dd904c7756edf7b1b27d3446c",
+    "size": 2600
+  },
+  "src/vikit_common/test/test_triangulation.cpp": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/test/test_triangulation.cpp",
+    "sha256": "2029a105912aea9aee06365cdc961b5353aed928fb6e270e052b08b6bfb411c3",
+    "size": 1090
+  },
+  "src/vikit_common/vikit_commonConfig.cmake.in": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_common/vikit_commonConfig.cmake.in",
+    "sha256": "21e6b479e0e3a3445df5a4757a34d3d11ee1053b738dbbe263b8a45d84634766",
+    "size": 702
+  },
+  "src/vikit_ros/CMakeLists.txt": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_ros/CMakeLists.txt",
+    "sha256": "5f992cec34372b7418ed044ca4b0c92f74bd0ae128a3cfe052b9dbde5c99a0bf",
+    "size": 1851
+  },
+  "src/vikit_ros/include/vikit/camera_loader.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_ros/include/vikit/camera_loader.h",
+    "sha256": "634495d4b7947566539b5c719be228846f6759e4fccb829793e7128f5882f6e1",
+    "size": 5156
+  },
+  "src/vikit_ros/include/vikit/output_helper.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_ros/include/vikit/output_helper.h",
+    "sha256": "ea2d922ccf6d93dcf641bf26939aac020f389bc833f77929d63cad09e15afc7c",
+    "size": 3657
+  },
+  "src/vikit_ros/include/vikit/params_helper.h": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_ros/include/vikit/params_helper.h",
+    "sha256": "dc9c08796ff83d91db9a70de5da64c81a66c24d53b10a845361495c2041831d1",
+    "size": 3599
+  },
+  "src/vikit_ros/package.xml": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_ros/package.xml",
+    "sha256": "5ffbfa9b42080f7c119e2c6366edf89140a2068138783a04b65d2d291e890eb4",
+    "size": 1461
+  },
+  "src/vikit_ros/src/output_helper.cpp": {
+    "src": "/home/orangepi/lio_base/2026-10-28/vikit_ws/src/rpg_vikit/vikit_ros/src/output_helper.cpp",
+    "sha256": "aea5d3b31d6f3540a569a42844ab5cb2a8d67b1220dea54d365ec8c498f032cd",
+    "size": 13256
+  },
+  "src/livox_ros_driver2/.gitignore": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/.gitignore",
+    "sha256": "2da9e4085d66ed68d16a4d7d4c97ced71bf404f0cb1a4c7c028f44079b86351b",
+    "size": 37
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/allocators.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/allocators.h",
+    "sha256": "49b554ebfc2369438fd9365b28f0453485d936437847de31a7bb770001abca55",
+    "size": 10437
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/cursorstreamwrapper.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/cursorstreamwrapper.h",
+    "sha256": "de1a52b674c998a7581f9cb69c9310757f825595c3fef985d5d153f7ac1b6aaf",
+    "size": 2230
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/document.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/document.h",
+    "sha256": "6afae6a8825b03b4c6baa42a513e5a5242ac96b4c95968c07ee8bda8163eb3ff",
+    "size": 117966
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/encodedstream.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/encodedstream.h",
+    "sha256": "4bb5e4853943d5ead467e46b5313d95aa23645018cda93e7907a934a06cfbb26",
+    "size": 10634
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/encodings.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/encodings.h",
+    "sha256": "0201c664e471c615b5cd27d2e981cf8b21ac9c210bdf108062fb2fd9d493a501",
+    "size": 29827
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/error/en.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/error/en.h",
+    "sha256": "484dcd32c0b35b7a81561740fad970402c0ffcec44311381a2fb265cfe5e273c",
+    "size": 3739
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/error/error.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/error/error.h",
+    "sha256": "aa9b40b61754b227248b4b092331dbd5721ef6565d962e4c225c6c1e7974817e",
+    "size": 6472
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/filereadstream.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/filereadstream.h",
+    "sha256": "8c7d282eb32897969430f5a94178cab238433e25fa139ee74eda87eb1d42690a",
+    "size": 2961
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/filewritestream.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/filewritestream.h",
+    "sha256": "1db49a4cd9038f2670667e5900f346d231a0eece06ac1817f33feb63f33545b9",
+    "size": 3073
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/fwd.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/fwd.h",
+    "sha256": "2a0e024b8b6b87d1d3f50d1d0dd4656124c161fea88406265d097d613498854e",
+    "size": 4120
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/internal/biginteger.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/internal/biginteger.h",
+    "sha256": "0be8375c2d39bc1f8f57b755a26569db9ed35c86d066b294911690513786afb3",
+    "size": 8296
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/internal/clzll.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/internal/clzll.h",
+    "sha256": "93d71c879a805a8c17cfd8913cf1add4d2f25407bbf668abe1dcca6e40ebc746",
+    "size": 2035
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/internal/diyfp.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/internal/diyfp.h",
+    "sha256": "f2c45af9e73a451e5472e5dd10a7672085e9a3504d1f3ab864a5b9cc7445c1eb",
+    "size": 11387
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/internal/dtoa.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/internal/dtoa.h",
+    "sha256": "965deca8d1382c30db9e0a1d51200a4934bfe032eda3dcde10d4bdb39817c05a",
+    "size": 7724
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/internal/ieee754.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/internal/ieee754.h",
+    "sha256": "a1b4a88d5e0f633e99c7d68a34fdebc6289e6be0f0cfba452a7793166d7ea970",
+    "size": 2990
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/internal/itoa.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/internal/itoa.h",
+    "sha256": "45c96bab2327aee5ff999167fac8f768a3a9e1003142fa68e3aee50b54d93e12",
+    "size": 9272
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/internal/meta.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/internal/meta.h",
+    "sha256": "a20dad578c7d714ff04029f04719df19be5835c30bf9c7028d226e67d065bf0b",
+    "size": 6731
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/internal/pow10.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/internal/pow10.h",
+    "sha256": "7a7693969c936ddb6d036467a0f6b53def076922bb838d250eb40f12b2e2ce0e",
+    "size": 3957
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/internal/regex.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/internal/regex.h",
+    "sha256": "624cf078b8179a198374eebe94331aa2d8b70b08997f4e270ccfaccc90fd09b2",
+    "size": 23238
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/internal/stack.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/internal/stack.h",
+    "sha256": "46c4f98ff2acce64d1280458dd1224aaee9a9035eebd3462cdf31ee25a13702e",
+    "size": 6805
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/internal/strfunc.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/internal/strfunc.h",
+    "sha256": "e083b68f7bf3570653fce1e3ea0a573a75745a096dd80194e1a2fde4d7695bb8",
+    "size": 2184
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/internal/strtod.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/internal/strtod.h",
+    "sha256": "2134c15ad40b9584ecb8e1a7f6163277a6d783574b3fb08574f88ab769b91751",
+    "size": 8656
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/internal/swap.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/internal/swap.h",
+    "sha256": "48ecb57c3b2ca955ad3cccdfff03835be495a56c9c5da07ab9c02f488b7d7fe1",
+    "size": 1421
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/istreamwrapper.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/istreamwrapper.h",
+    "sha256": "b3c03a5826b8d8c9dfcef64eb09d8ec4a955e0c6edd38d9c3a127dbca53ec2dc",
+    "size": 4112
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/license.txt": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/license.txt",
+    "sha256": "a140e5d46fe734a1c78f1a3c3ef207871dd75648be71fdda8e309b23ab8b1f32",
+    "size": 5152
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/memorybuffer.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/memorybuffer.h",
+    "sha256": "cf661606aa41bee3466cee20174bc7454210e8aabac929b1d8e9e189fef601ab",
+    "size": 2573
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/memorystream.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/memorystream.h",
+    "sha256": "8dd07eb66381de95a69c9cadce537d76c0349f913cfe183ab6243c54863c4dcf",
+    "size": 2673
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/msinttypes/inttypes.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/msinttypes/inttypes.h",
+    "sha256": "92f53d3ba0cdebaeb20a52893f89d0c29aae5111a3a8bb555eabdd8c96e3244f",
+    "size": 7824
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/msinttypes/stdint.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/msinttypes/stdint.h",
+    "sha256": "515ff5e244372892293c20bbfe6a5b3dcca7265442941df31dcebdfbe2a828fe",
+    "size": 9151
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/ostreamwrapper.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/ostreamwrapper.h",
+    "sha256": "366d953184777b0de0a102ef38cf56f9fc766422246f16be9af2dad8ad787054",
+    "size": 2342
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/pointer.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/pointer.h",
+    "sha256": "d74ab63c76a99a5a92418d2420cc733c22767b6d9e9a6f989689940de4f7c478",
+    "size": 60230
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/prettywriter.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/prettywriter.h",
+    "sha256": "e8495e521c5d726c7e2ff59b1f7eb6f08a1e0298055d1fbbc4f29f08d736360d",
+    "size": 10253
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/rapidjson.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/rapidjson.h",
+    "sha256": "22ffbcb054cecc5180bdb72478ab32598c9aa40421322f17923809acdcf99629",
+    "size": 24293
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/reader.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/reader.h",
+    "sha256": "291f6d315a3617c9bd83d8b2836f9dc1e45a2a9770dcb0745f9eaaa603b715a6",
+    "size": 89290
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/schema.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/schema.h",
+    "sha256": "473b44fcb9f88d2fa7439e1c9f86899deae44205323a7ba7709e6b4b513f01fa",
+    "size": 101259
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/stream.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/stream.h",
+    "sha256": "58e37336dafded31177eb2381f0d553de8a5fd33c8580873de32b0e467d85677",
+    "size": 6694
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/stringbuffer.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/stringbuffer.h",
+    "sha256": "8434f52ca786bf876b3d3d693ce8e2d399325ddf891e0437becd41ed590806e9",
+    "size": 3984
+  },
+  "src/livox_ros_driver2/3rdparty/rapidjson/writer.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/3rdparty/rapidjson/writer.h",
+    "sha256": "b42eca28a42d7b3806aaf691ee921accabcf911be6728c35fa04e14162a72bdf",
+    "size": 26178
+  },
+  "src/livox_ros_driver2/CHANGELOG.md": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/CHANGELOG.md",
+    "sha256": "2f0073345de013886e27cbbd6aaace3eaca2badba8d1dbc5da364b67a9bd7f3b",
+    "size": 1623
+  },
+  "src/livox_ros_driver2/CMakeLists.txt": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/CMakeLists.txt",
+    "sha256": "9c9f681c973ccf1f50a0d1b1e9e1dbf2b076ac88d17e636c1c0a6882ab02440a",
+    "size": 10968
+  },
+  "src/livox_ros_driver2/LICENSE.txt": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/LICENSE.txt",
+    "sha256": "5d965fd1439196751d5ccad8064a51dafdb2d88548174bb5516d393c7a4c0717",
+    "size": 19928
+  },
+  "src/livox_ros_driver2/README.md": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/README.md",
+    "sha256": "281d4149b6bdfb8dfb93a99c11607a5fb24986d774d06881fd80734b4b2c476c",
+    "size": 19951
+  },
+  "src/livox_ros_driver2/build.sh": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/build.sh",
+    "sha256": "bb19f5ee4f25f2d63ce278cd785be451a7bef456a1b1721004acf590f95ca801",
+    "size": 1638
+  },
+  "src/livox_ros_driver2/cmake/version.cmake": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/cmake/version.cmake",
+    "sha256": "698b065d680a20695f2163ca5bbe601792b24069357919bee3136768d75f8f7f",
+    "size": 990
+  },
+  "src/livox_ros_driver2/config/HAP_config.json": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/config/HAP_config.json",
+    "sha256": "956414d48bf17af2427e2b8f3dbbeff92345f93fe81e97422f22117ea0ef3f35",
+    "size": 863
+  },
+  "src/livox_ros_driver2/config/MID360_config.json": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/config/MID360_config.json",
+    "sha256": "6eba01156ce604a5a5aab8b102179d21ba0729aa4652cd9b0d2ad2a6afd7ca4d",
+    "size": 884
+  },
+  "src/livox_ros_driver2/config/MID360s_config.json": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/config/MID360s_config.json",
+    "sha256": "5bddb76156389877d3d207063f6f542d9ad12e0cd7394d8b12a1b1d679141b93",
+    "size": 797
+  },
+  "src/livox_ros_driver2/config/display_point_cloud_ROS1.rviz": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/config/display_point_cloud_ROS1.rviz",
+    "sha256": "89d934b783d9f0386dbaef7cbbf0ea3f4ee0c87c57b313178d822cec93320caf",
+    "size": 5650
+  },
+  "src/livox_ros_driver2/config/display_point_cloud_ROS2.rviz": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/config/display_point_cloud_ROS2.rviz",
+    "sha256": "ae7cea85c28bcb532f3504994aa287ad14100048cd53b30821b73df0a1f94e61",
+    "size": 4834
+  },
+  "src/livox_ros_driver2/config/mixed_HAP_MID360_config.json": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/config/mixed_HAP_MID360_config.json",
+    "sha256": "99895013db7bfc1d58fef1abb2d25461624ab468bce5f5c4381172f3b7d235cf",
+    "size": 1665
+  },
+  "src/livox_ros_driver2/launch_ROS1/msg_HAP.launch": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/launch_ROS1/msg_HAP.launch",
+    "sha256": "2bb9adeab763da7a414fe756fa0569e41ab4795722817ad950a39450f97813ef",
+    "size": 1743
+  },
+  "src/livox_ros_driver2/launch_ROS1/msg_MID360.launch": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/launch_ROS1/msg_MID360.launch",
+    "sha256": "b4a86ae5e58d354e454140fe6e3b0032193826f764ed8da9f6d1519ba99f60dd",
+    "size": 1744
+  },
+  "src/livox_ros_driver2/launch_ROS1/msg_MID360s.launch": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/launch_ROS1/msg_MID360s.launch",
+    "sha256": "623d0aac93ff6bb54688fb132f441248b33d7331376df30ebb77e736023da850",
+    "size": 1745
+  },
+  "src/livox_ros_driver2/launch_ROS1/msg_mixed.launch": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/launch_ROS1/msg_mixed.launch",
+    "sha256": "77c8f7eed8d2702211f52db053f792f2b5906123e8ab647a913313bb015c6ab8",
+    "size": 1754
+  },
+  "src/livox_ros_driver2/launch_ROS1/rviz_HAP.launch": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/launch_ROS1/rviz_HAP.launch",
+    "sha256": "be4b09a282eb005128933ec802d0658d273ebe5b91dc65d0413a78c603ee3f78",
+    "size": 1930
+  },
+  "src/livox_ros_driver2/launch_ROS1/rviz_MID360.launch": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/launch_ROS1/rviz_MID360.launch",
+    "sha256": "03a622737d58ac346261ad5bf87df109d3c339184c1baeee11ba8371396f6578",
+    "size": 1933
+  },
+  "src/livox_ros_driver2/launch_ROS1/rviz_MID360s.launch": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/launch_ROS1/rviz_MID360s.launch",
+    "sha256": "0786538975f8cb314680f747d3ddacd4d093093e944d94b1d9f10a67bccb2b95",
+    "size": 1934
+  },
+  "src/livox_ros_driver2/launch_ROS1/rviz_mixed.launch": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/launch_ROS1/rviz_mixed.launch",
+    "sha256": "bb9830540646897bb52e4abd76947232a751b27f0f9ec7c4fedc953bb4fbcb79",
+    "size": 1943
+  },
+  "src/livox_ros_driver2/launch_ROS2/msg_HAP_launch.py": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/launch_ROS2/msg_HAP_launch.py",
+    "sha256": "bb58699d0b6d344f579f5b2991db54561621ddb395e6ade8c94425c563cd9ef6",
+    "size": 1968
+  },
+  "src/livox_ros_driver2/launch_ROS2/msg_MID360_launch.py": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/launch_ROS2/msg_MID360_launch.py",
+    "sha256": "11b0618d2a9a0def7f6e1a6831646d261674014344496fa1497fea67d6c0e826",
+    "size": 1902
+  },
+  "src/livox_ros_driver2/launch_ROS2/msg_MID360s_launch.py": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/launch_ROS2/msg_MID360s_launch.py",
+    "sha256": "29d48e9e2dd2b21352e4ecff9c0a7db2a18994fe688dc68f361b3b70b33ee05a",
+    "size": 1903
+  },
+  "src/livox_ros_driver2/launch_ROS2/rviz_HAP_launch.py": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/launch_ROS2/rviz_HAP_launch.py",
+    "sha256": "da07dc3d0402cccffe3e068108066fede37ed71ef47c191541158665d67b478f",
+    "size": 2186
+  },
+  "src/livox_ros_driver2/launch_ROS2/rviz_MID360_launch.py": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/launch_ROS2/rviz_MID360_launch.py",
+    "sha256": "8331565b4c8fe1a80ec77d518b4bb2fcbe40ea8bf60a20de691d9c61417b678e",
+    "size": 2189
+  },
+  "src/livox_ros_driver2/launch_ROS2/rviz_MID360s_launch.py": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/launch_ROS2/rviz_MID360s_launch.py",
+    "sha256": "5660e8982e12c003bac4880b6804b27a611e2c6fda999ebc454e173282e9614b",
+    "size": 2190
+  },
+  "src/livox_ros_driver2/launch_ROS2/rviz_mixed.py": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/launch_ROS2/rviz_mixed.py",
+    "sha256": "decc75ab24173f20455c849c0cbe6cb3931d33d4901f39b52c105d381405b8d0",
+    "size": 2199
+  },
+  "src/livox_ros_driver2/msg/CustomMsg.msg": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/msg/CustomMsg.msg",
+    "sha256": "f42d6709db951b1fa307e929e742c0593cbf0d1b0ff977d2ed63ad8d7cee0a96",
+    "size": 341
+  },
+  "src/livox_ros_driver2/msg/CustomPoint.msg": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/msg/CustomPoint.msg",
+    "sha256": "b64b31a8edc8c8b3765d82b5d3ccd2d2e1f217b9525ef7007ab918674c619c59",
+    "size": 353
+  },
+  "src/livox_ros_driver2/package.xml": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/package.xml",
+    "sha256": "084b1db3a68ef3cf979da0c8ce6a8bf9566dc586ebfdd51d0dbe012f43c3d2dd",
+    "size": 1123
+  },
+  "src/livox_ros_driver2/package_ROS1.xml": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/package_ROS1.xml",
+    "sha256": "2e3eb6932e9fe365d31aa69926aa6cae76464f4176008cf33de26f0fbee29c27",
+    "size": 3395
+  },
+  "src/livox_ros_driver2/package_ROS2.xml": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/package_ROS2.xml",
+    "sha256": "084b1db3a68ef3cf979da0c8ce6a8bf9566dc586ebfdd51d0dbe012f43c3d2dd",
+    "size": 1123
+  },
+  "src/livox_ros_driver2/src/call_back/lidar_common_callback.cpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/call_back/lidar_common_callback.cpp",
+    "sha256": "8f37b7dda4236edbcb4a87cfa6a016e4105ca1e0b8e0e99f2446953636412196",
+    "size": 2276
+  },
+  "src/livox_ros_driver2/src/call_back/lidar_common_callback.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/call_back/lidar_common_callback.h",
+    "sha256": "e0fd66f13ad20b0426b9b5384abee61c8b2b85ace2e9904c470da9fd7c0cc366",
+    "size": 1575
+  },
+  "src/livox_ros_driver2/src/call_back/livox_lidar_callback.cpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/call_back/livox_lidar_callback.cpp",
+    "sha256": "4ea8189ca228f5f5730b07006f7472b46b28bfd942795b865455117c89b980c0",
+    "size": 15386
+  },
+  "src/livox_ros_driver2/src/call_back/livox_lidar_callback.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/call_back/livox_lidar_callback.h",
+    "sha256": "8b491e57ee77c0b020458338f5bf9a5b8776c0d875c96654531e622e92159c45",
+    "size": 3238
+  },
+  "src/livox_ros_driver2/src/comm/cache_index.cpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/comm/cache_index.cpp",
+    "sha256": "dca25f47674f530249e94c0ac8ac368d122910ca66336bd1bee65a06d2f01667",
+    "size": 3858
+  },
+  "src/livox_ros_driver2/src/comm/cache_index.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/comm/cache_index.h",
+    "sha256": "65c635bd6903564bc1e0547113a6aff52e592c16295ed23264b5726317327c01",
+    "size": 2055
+  },
+  "src/livox_ros_driver2/src/comm/comm.cpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/comm/comm.cpp",
+    "sha256": "73e6b7469337528ffb60b0f670bedc3c01dfcd7d8a048e72e8f04bd5d839f126",
+    "size": 2209
+  },
+  "src/livox_ros_driver2/src/comm/comm.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/comm/comm.h",
+    "sha256": "72c639ba1d6eaf7c355050672c865c7615cea3619abee628683d98920fb31fa4",
+    "size": 8580
+  },
+  "src/livox_ros_driver2/src/comm/ldq.cpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/comm/ldq.cpp",
+    "sha256": "b5a11f2b4b658e4fc2c53dc261a7401e09516a6276e9b1a9c7568a4ee6d86a3f",
+    "size": 4682
+  },
+  "src/livox_ros_driver2/src/comm/ldq.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/comm/ldq.h",
+    "sha256": "01ccf8d13f84475cb126dea1f15546a59ce9398968360e6484da5832729aa077",
+    "size": 2330
+  },
+  "src/livox_ros_driver2/src/comm/lidar_imu_data_queue.cpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/comm/lidar_imu_data_queue.cpp",
+    "sha256": "7f9ecbdad433653233b2701dbd06dd4f7f523d0e972cc5cb4bf0aca2ed7494b5",
+    "size": 2248
+  },
+  "src/livox_ros_driver2/src/comm/lidar_imu_data_queue.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/comm/lidar_imu_data_queue.h",
+    "sha256": "cc8ae6d425cf6fb173b59072e5310f7b984e776a9d8277c8e9e0ef9d9dc58998",
+    "size": 2632
+  },
+  "src/livox_ros_driver2/src/comm/pub_handler.cpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/comm/pub_handler.cpp",
+    "sha256": "b98444be352bf6ed7b59ff7393bd488ddfc9825fb0357f67f0e6b49a48cbe9ae",
+    "size": 16204
+  },
+  "src/livox_ros_driver2/src/comm/pub_handler.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/comm/pub_handler.h",
+    "sha256": "dbf0633c2117026936b72bdb825a62cb8dfb831b845a05e985cf12c51cd30e07",
+    "size": 4436
+  },
+  "src/livox_ros_driver2/src/comm/semaphore.cpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/comm/semaphore.cpp",
+    "sha256": "7ea77d2b2b9f5aca1aa1c4f239d427398699b504a25b5bcd1667545650a0c587",
+    "size": 1470
+  },
+  "src/livox_ros_driver2/src/comm/semaphore.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/comm/semaphore.h",
+    "sha256": "a07dedf139d6a1f85d572b23f4a69b1f0574577366b2ecd759f06da4995eadcb",
+    "size": 1623
+  },
+  "src/livox_ros_driver2/src/driver_node.cpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/driver_node.cpp",
+    "sha256": "2367146dbf888b8eb6ac661792c3858ae7c2f8bb3136888fbbaee7593f1c1a1c",
+    "size": 1485
+  },
+  "src/livox_ros_driver2/src/driver_node.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/driver_node.h",
+    "sha256": "503851a1fe806c633377f891479b8b434e89a0ac4070db80d9e3b8fc36070a6a",
+    "size": 2482
+  },
+  "src/livox_ros_driver2/src/include/livox_ros_driver2.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/include/livox_ros_driver2.h",
+    "sha256": "4b1c99eb8ccc2c24dfc30e7c842a74cb8797e0caf2ef4065a103ca98856ed98d",
+    "size": 1734
+  },
+  "src/livox_ros_driver2/src/include/ros1_headers.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/include/ros1_headers.h",
+    "sha256": "25d868b0c4e1972ad61619b26e47c5538d282b520143f6c03300b0adeab8fb0b",
+    "size": 2216
+  },
+  "src/livox_ros_driver2/src/include/ros2_headers.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/include/ros2_headers.h",
+    "sha256": "16aa2833be3b35acb0bbb9c71e78e261f65d7251740565571ae24d2c43b579d1",
+    "size": 2478
+  },
+  "src/livox_ros_driver2/src/include/ros_headers.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/include/ros_headers.h",
+    "sha256": "67c52fefe87f71fb83d99774ba8569fff0de7c698a6917c31de2f4ccff3c78eb",
+    "size": 1341
+  },
+  "src/livox_ros_driver2/src/lddc.cpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/lddc.cpp",
+    "sha256": "aa3d8c4391317e87ccb9fcaf3ea15eafc3b884443443f8d9702a8c387e66012d",
+    "size": 22602
+  },
+  "src/livox_ros_driver2/src/lddc.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/lddc.h",
+    "sha256": "31a78f172caf82f3b2938c9e2c296cd582da228d0043c17849f7a9b20788d4ea",
+    "size": 5868
+  },
+  "src/livox_ros_driver2/src/lds.cpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/lds.cpp",
+    "sha256": "9ca7c31619fe546dad64c0d7df5fc7d6c6221613144717cb7bfc956e72d26ad2",
+    "size": 5882
+  },
+  "src/livox_ros_driver2/src/lds.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/lds.h",
+    "sha256": "090334fb09e5b9a946042af06abe46d0f5a098b9978527b42ac1d0b7ce022b63",
+    "size": 2689
+  },
+  "src/livox_ros_driver2/src/lds_lidar.cpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/lds_lidar.cpp",
+    "sha256": "637cac3ab27239717bb434ac35210551a98d17b08153e7205eb733da84a1153d",
+    "size": 6520
+  },
+  "src/livox_ros_driver2/src/lds_lidar.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/lds_lidar.h",
+    "sha256": "2a36a2f0c890ce7a4692a8e546a8dca5b1c8815766788f1ad95dc89a3d943822",
+    "size": 2705
+  },
+  "src/livox_ros_driver2/src/lds_lvx.cpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/lds_lvx.cpp",
+    "sha256": "adb055a237752a41fa7cc628aa36eb676f448a9c7a329138da9d8429f9a3aafd",
+    "size": 2615
+  },
+  "src/livox_ros_driver2/src/lds_lvx.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/lds_lvx.h",
+    "sha256": "2e7d3db2075463afab02c623ef5ca457cafe83ea9acb5e9bfe1f29f5f854fc0c",
+    "size": 2079
+  },
+  "src/livox_ros_driver2/src/livox_ros_driver2.cpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/livox_ros_driver2.cpp",
+    "sha256": "5be8fe1854e345660e78cf4f1c600eb87bb34ead54ef50b16033fba0cecdd621",
+    "size": 7899
+  },
+  "src/livox_ros_driver2/src/parse_cfg_file/parse_cfg_file.cpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/parse_cfg_file/parse_cfg_file.cpp",
+    "sha256": "f893a7397f05e81826d6097233ae6a90d3428f921ceb04d9f957427f4bcf7e5e",
+    "size": 2381
+  },
+  "src/livox_ros_driver2/src/parse_cfg_file/parse_cfg_file.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/parse_cfg_file/parse_cfg_file.h",
+    "sha256": "c0512f0ddb732861ec152e93d7d6477dd620865b4a92c385379d013286506998",
+    "size": 1721
+  },
+  "src/livox_ros_driver2/src/parse_cfg_file/parse_livox_lidar_cfg.cpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/parse_cfg_file/parse_livox_lidar_cfg.cpp",
+    "sha256": "ce7cc5df5f7e09768a2d256f0d1cae30ae9c6214d821be95036311cef08912ed",
+    "size": 5293
+  },
+  "src/livox_ros_driver2/src/parse_cfg_file/parse_livox_lidar_cfg.h": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/parse_cfg_file/parse_livox_lidar_cfg.h",
+    "sha256": "1d5b9f606deedb7c78e1a6d0c3c10d62a886fcc2aac1ac42e1a4a1ae6a9b6d49",
+    "size": 2018
+  },
+  "src/livox_ros_driver2/src/scan_timestamp_writer.hpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/scan_timestamp_writer.hpp",
+    "sha256": "7eb5fc5fc3f41e6f8b137993f0d8bcb9b0597fd9bd88a7dbda1cb7805ed430c0",
+    "size": 1069
+  },
+  "src/livox_ros_driver2/src/shared_timestamp.hpp": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/sensor/driver/src/src/shared_timestamp.hpp",
+    "sha256": "4ae895dd2311e0abfce8716dd03f8df06876da0afdbe5cbc6d1a711fb89a8a24",
+    "size": 2250
+  },
+  "camera/CMakeLists.txt": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/sensor/source/CMakeLists.txt",
+    "sha256": "0000571a78dc533de8706e553915840903aeb980d1f7bc6386377fe59e57a119",
+    "size": 1826
+  },
+  "camera/camera_device.hpp": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/sensor/source/camera_device.hpp",
+    "sha256": "04c085e8f85e604a5ecfbb0ad1e8debc47bc2a92433d8fea197360e04477fc01",
+    "size": 5998
+  },
+  "camera/camera_probe.cpp": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/sensor/source/camera_probe.cpp",
+    "sha256": "233d7ff6804c3aaabfd412788bc78f834a8137fb17a8c0de74b2989af7883a88",
+    "size": 3877
+  },
+  "camera/camera_sync.cpp": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/sensor/source/camera_sync.cpp",
+    "sha256": "26458e602734743b573fb60a17f530f6974a20ea968399ed521fd495bab6a032",
+    "size": 19030
+  },
+  "camera/deployed_image_callback.inc": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/sensor/source/deployed_image_callback.inc",
+    "sha256": "275da4010032eb6a797ff3e80e7b0cb90feb35db9d89957707fe40fe06d88307",
+    "size": 2035
+  },
+  "camera/shared_timestamp.hpp": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/sensor/source/shared_timestamp.hpp",
+    "sha256": "4ae895dd2311e0abfce8716dd03f8df06876da0afdbe5cbc6d1a711fb89a8a24",
+    "size": 2250
+  },
+  "camera/test_livmapper_time.cpp": {
+    "src": "/home/orangepi/continuous_mapping/2026-11-14/sensor/source/test_livmapper_time.cpp",
+    "sha256": "19dffa1e940e2ab5414ef55cd90ef51b85334a8299875e0de4bb16b6349b8ac2",
+    "size": 3134
+  },
+  "configs/base.yaml": {
+    "src": "/home/orangepi/visual_fusion/2026-11-12_software_gate/configs/base.yaml",
+    "sha256": "2c1ee953aa9b5cca75ccec8bd8fdcf4f108bec38b582b1e3f5e5f0b1a8e4822b",
+    "size": 2077
+  },
+  "configs/time_overlay.yaml": {
+    "src": "/home/orangepi/visual_fusion/2026-11-12_software_gate/configs/time_overlay.yaml",
+    "sha256": "5aecff0a39fdae213de0c898408617c11205cb516017c3163bc33f71a3999242",
+    "size": 359
+  },
+  "configs/calibration/camera.yaml": {
+    "src": "/home/orangepi/visual_fusion/2026-11-12_software_gate/calibration_v1/camera/fast_livo2.yaml",
+    "sha256": "bcb383d34dd7001c4a94c24830a92bb792f2a686e5e6cdc13eef596b895f1448",
+    "size": 464
+  },
+  "configs/calibration/extrinsic.yaml": {
+    "src": "/home/orangepi/visual_fusion/2026-11-12_software_gate/calibration_v1/extrinsic/fast_livo2_joint_candidate.yaml",
+    "sha256": "c99eda5fe8e13b4bd77b8253ebf7f43a5872347ad72740d04d84827027aca25e",
+    "size": 503
+  },
+  "records/calibration_sources.json": {
+    "src": "/home/orangepi/visual_fusion/2026-11-12_software_gate/calibration_v1/sources.json",
+    "sha256": "b587c0e2cb31293549a1147cea4a87bdf3ef960ed21cfc56040a098c71191314",
+    "size": 10108
+  },
+  "records/calibration_source_sha256.txt": {
+    "src": "/home/orangepi/visual_fusion/2026-11-12_software_gate/calibration_v1/SHA256SUMS.txt",
+    "sha256": "00685eef61b66f062693b80008ee4d8db73434c2e0c41ede721f11f4595b1ae8",
+    "size": 1934
+  },
+  "configs/display_only.yaml": {
+    "src": "/home/orangepi/continuous_livo30/2026-11-13/configs/display_only.yaml",
+    "sha256": "bda0b9b0678000042a24d30c2f7ce51d74d9d629dfd82caf569e5f136c52cdb1",
+    "size": 69
+  },
+  "configs/sensors/fastdds_camera.xml": {
+    "src": "/home/orangepi/camera_base/2026-10-29/configs/fastdds_camera.xml",
+    "sha256": "9481cea26b420b4ab57d5b15e19ae9b2df8fc1dc681ad5c3de269b8d072c78d5",
+    "size": 845
+  },
+  "configs/sensors/MID360s.json": {
+    "src": "/home/orangepi/fast_livo2_live/2026-10-29/configs/MID360s.json",
+    "sha256": "b640178f02cf8c62a3312617d84bed6c699a6ad38f52f336e7e03e5a36c635dc",
+    "size": 764
+  },
+  "records/driver_original.yaml": {
+    "src": "/home/orangepi/fast_livo2_live/2026-10-29/configs/driver.yaml",
+    "sha256": "f22cec5476b51e1ad4fa5f747805f603dd981f4e4d891275242a1ee3e0289e71",
+    "size": 312
+  },
+  "runtime/sensors/radar_device.py": {
+    "src": "/home/orangepi/fast_livo2_live/2026-10-29/scripts/radar_device.py",
+    "sha256": "e3e1e87c313ee1fe0537a6f1ec3d401e526c92048ef4c822cc0aa0807c79ecc6",
+    "size": 3831
+  },
+  "runtime/sensors/radar_packets.py": {
+    "src": "/home/orangepi/fast_livo2_live/2026-10-29/scripts/radar_packets.py",
+    "sha256": "3d49b6b3038ac4764b5732fcdd282fae9faca210f83e1ea85253093033a388d6",
+    "size": 1140
+  }
+}
