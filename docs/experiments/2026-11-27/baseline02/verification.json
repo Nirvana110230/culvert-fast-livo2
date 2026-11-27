@@ -1,0 +1,265 @@
+{
+  "captured_at": "2026-11-27T18:54:49.401448+08:00",
+  "decision": "CONDITIONAL GO",
+  "formal_session_started": false,
+  "boot_id": "e602edf5-1e54-4d7f-9d3c-efe34cd82c49",
+  "preflight": {
+    "wall_ns": 1795776889401447871,
+    "mono_ns": 6551590732655,
+    "boot_id": "e602edf5-1e54-4d7f-9d3c-efe34cd82c49",
+    "gates": {
+      "b1_identity": true,
+      "time_sync": true,
+      "nvme_rw": true,
+      "space_110_GiB": true,
+      "idle": true,
+      "camera_usb": false,
+      "radar_route": false,
+      "radar_idle": false
+    },
+    "ready": false,
+    "errors": [],
+    "release": {
+      "stage": "B1",
+      "tag": "stage-b1-20261127",
+      "install_elf_sha256": "a4e4320cac0668987bf15a4a8199430c50a5a65cd008ef00aace1a960f70aeb2",
+      "gnu_build_id": "f68d9a7fdd797e43c9b248fb93164db211b4aa98",
+      "board_source_changes": {
+        "src/fast_livo/CMakeLists.txt": "2ef54dbfdb33c431a7b563c5e11f0f28ec6ed7700ebf8dc8867960b208dda92f",
+        "src/fast_livo/include/LIVMapper.h": "5d2fa382caea7faebe6b5b81d3388c55a2276af70bc59b327557a030f54fd8a9",
+        "src/fast_livo/src/LIVMapper.cpp": "cff305b6d86e4302011633ecc150788ae62868e01ca58ac83411469562144014",
+        "src/fast_livo/include/preprocess.h": "53160d36bff4df0b0ca1d38a418366fef35ac85d51068ace3f7e0b9bf017a80e",
+        "src/fast_livo/src/preprocess.cpp": "de499502225ba5cd1fcccc5de3455ccd1a117deaa4b566ee741244cc955760a3",
+        "tests/blind_regression.cpp": "5e2a221f6c6d99cb3108a1b861499ea877e0a333cbf25afe0af9b6f45fa98e35"
+      },
+      "resolved_sha256": "92c6a9b4d22e5b26873d43b62e3915d1e33dcc42fac0fdb5ede9250eb791bd2d",
+      "retained_a_tag": "g3-stage-a-20261126",
+      "retained_b0_tag": "g3-stage-b0-20261126",
+      "git_commit": "082098ff69052e02397807094cdfa9c4a412b9e7"
+    },
+    "elf_sha256": "a4e4320cac0668987bf15a4a8199430c50a5a65cd008ef00aace1a960f70aeb2",
+    "resolved_sha256": "92c6a9b4d22e5b26873d43b62e3915d1e33dcc42fac0fdb5ede9250eb791bd2d",
+    "keys": 81,
+    "files_sha256": {
+      "start.sh": "89086bc7a02cb4b20ec6f467175d598fdfb6b259f3ef3adcdad7f15927a4a571",
+      "status.sh": "b06a51eb69a0d12dd5c056c7603aa812693aaa3e5bb87983f661de559074442a",
+      "stop.sh": "1bcb0012556f4b83bdcb1744901c878ff558d7293cb8960081118367cc98ef25",
+      "replay.sh": "8e94e9ac9bb64c1096a5f04e27cf13f7ac17fb3733cac6b0f2cb35f75f37a281",
+      "view.sh": "8e5c6bd019d095a307620694e65362e37b504abffeeaa3b33feca7c557c81e30",
+      "env.sh": "7ee3acfa5e9adea959f3808a09a4c57d98b63657bd0043a4ae5f2dbf1d7d6748",
+      "runtime/entry.sh": "40b5e99103f96f2f590f85d8c05a15d7030e6bae5bcf49123c00ec8f9dad62cf",
+      "runtime/session.py": "13dda9ad8ed348aa7b035c2b3f1ad38879932704b56408895e5400e17148092f",
+      "runtime/hardware.py": "78d6c9e63b4cecae9622471a9c5f1d71a625bffbb01c942b472ec1b6418b2ef5",
+      "runtime/run_files.py": "424a5f32b2360b477a821e738b99b97a6b50b6f4cba7297f90aeddf78ddc4bc8",
+      "runtime/archive.py": "f630e2616e578dd5ad8ad831d1b2a0d649b11588b42202eabbef0a61e759cb0f",
+      "runtime/map_store.py": "9302ef6a31f7913b867d21e5315aa1d97cc44d67d4261356c124c77acd38fc4f",
+      "camera/camera_sync.cpp": "59c5724b9e96515f6c80af74b857fe72c8bfc4822f7df8a9db43c2a7f4057c13",
+      "camera/camera_device.hpp": "04c085e8f85e604a5ecfbb0ad1e8debc47bc2a92433d8fea197360e04477fc01",
+      "runtime/sensors/radar_device.py": "e3e1e87c313ee1fe0537a6f1ec3d401e526c92048ef4c822cc0aa0807c79ecc6",
+      "runtime/sensors/radar_packets.py": "3d49b6b3038ac4764b5732fcdd282fae9faca210f83e1ea85253093033a388d6",
+      "configs/base.yaml": "7523a1d04c029e529e9da2f1d5747a0f2c95e06b6b32b8415231cebf60b07b54",
+      "configs/calibration/camera.yaml": "bcb383d34dd7001c4a94c24830a92bb792f2a686e5e6cdc13eef596b895f1448",
+      "configs/calibration/extrinsic.yaml": "c99eda5fe8e13b4bd77b8253ebf7f43a5872347ad72740d04d84827027aca25e",
+      "configs/display_only.yaml": "bda0b9b0678000042a24d30c2f7ce51d74d9d629dfd82caf569e5f136c52cdb1",
+      "configs/foxglove.yaml": "e427f04667865f615999df386ff27948c9bc7edbf93c75ecfecd3e6eb7722675",
+      "configs/runtime_policy.yaml": "299dcdff2b894819a308c43ab2f06c2d3e128a38bc009531fa6a5f4e41e7fa2a",
+      "configs/sensors/MID360s.json": "b640178f02cf8c62a3312617d84bed6c699a6ad38f52f336e7e03e5a36c635dc",
+      "configs/sensors/driver.yaml": "b120ba34003e3960bfe9d091eb23566a947857db3013c1bb80b7452bc42de4de",
+      "configs/sensors/fastdds_camera.xml": "9481cea26b420b4ab57d5b15e19ae9b2df8fc1dc681ad5c3de269b8d072c78d5",
+      "configs/time_overlay.yaml": "5aecff0a39fdae213de0c898408617c11205cb516017c3163bc33f71a3999242",
+      "install/bin/camera_sync": "70d3992f754838877283cd86938d67519ffcef2e1bd20eabbf454e3607753149",
+      "install/livox_ros_driver2/lib/livox_ros_driver2/livox_ros_driver2_node": "54c10cdfbd1055d40622688ce0965836570679fcaa71d0f7814437560371cf08"
+    },
+    "mismatches": [],
+    "source_matches": {
+      "src/fast_livo/CMakeLists.txt": true,
+      "src/fast_livo/include/LIVMapper.h": true,
+      "src/fast_livo/src/LIVMapper.cpp": true,
+      "src/fast_livo/include/preprocess.h": true,
+      "src/fast_livo/src/preprocess.cpp": true,
+      "tests/blind_regression.cpp": true
+    },
+    "sensor_elf_sha256": {
+      "camera_sync": "70d3992f754838877283cd86938d67519ffcef2e1bd20eabbf454e3607753149",
+      "livox_ros_driver2_node": "54c10cdfbd1055d40622688ce0965836570679fcaa71d0f7814437560371cf08"
+    },
+    "mount": [
+      "/data",
+      "/dev/nvme0n1p1",
+      "ext4",
+      "rw,noatime"
+    ],
+    "available_bytes": 216158277632,
+    "planned_max_minutes": 65.03861642683971,
+    "chrony_leap": "Normal",
+    "radar_mode": null,
+    "bag_pids": [],
+    "radar_route_device": "wlan0"
+  },
+  "preparation_fixture": {
+    "fixture_only": true,
+    "wall_start_ns": 1795776705548511226,
+    "wall_end_ns": 1795776771872326261,
+    "samples": 34,
+    "process_rows": {
+      "monitor": 34,
+      "algorithm": 31,
+      "recorder": 32
+    },
+    "alg_pss_rows": 3,
+    "rec_pss_rows": 3,
+    "archive_counter_rows": 33,
+    "mock_endpoints": true,
+    "resource_monitor_real": true,
+    "ssh_reconnect": true,
+    "events": [
+      "SESSION_START",
+      "MOVE_START",
+      "SESSION_END"
+    ],
+    "exit": {
+      "monitor.exit": "0",
+      "recorder.exit": "0",
+      "final.status": "0"
+    }
+  },
+  "monitor": {
+    "samples": 52,
+    "span_s": 102.518041086,
+    "interval_median_s": 2.0104876250006782,
+    "interval_max_s": 2.0109283279998635,
+    "monitor_cpu_mean_one_core_pct": 1.3557450980392156,
+    "monitor_cpu_max_one_core_pct": 1.99,
+    "monitor_peak_rss_KiB": 11580,
+    "pss_KiB": [
+      6133,
+      6339,
+      6363,
+      6383,
+      6387,
+      6391
+    ],
+    "resource_bytes": 87947,
+    "journal_rows": 1,
+    "thermal_mC": {
+      "bigcore1-thermal": "37000",
+      "soc-thermal": "37000",
+      "gpu-thermal": "37000",
+      "littlecore-thermal": "37000",
+      "bigcore0-thermal": "37000",
+      "npu-thermal": "37000",
+      "center-thermal": "37000"
+    },
+    "memory_KiB": {
+      "MemTotal": 16353612,
+      "MemAvailable": 15254284,
+      "Buffers": 52816,
+      "Cached": 1403516,
+      "SwapTotal": 8176804,
+      "SwapFree": 8176804,
+      "Dirty": 16,
+      "Writeback": 0
+    },
+    "actual_policy_kHz": {
+      "policy0": {
+        "affected_cpus": "0 1 2 3",
+        "cpuinfo_cur_freq": "408000",
+        "scaling_cur_freq": "408000",
+        "scaling_max_freq": "1800000"
+      },
+      "policy4": {
+        "affected_cpus": "4 5",
+        "cpuinfo_cur_freq": "408000",
+        "scaling_cur_freq": "408000",
+        "scaling_max_freq": "2400000"
+      },
+      "policy6": {
+        "affected_cpus": "6 7",
+        "cpuinfo_cur_freq": "408000",
+        "scaling_cur_freq": "408000",
+        "scaling_max_freq": "2400000"
+      }
+    },
+    "cpu_labels": [
+      "cpu",
+      "cpu0",
+      "cpu1",
+      "cpu2",
+      "cpu3",
+      "cpu4",
+      "cpu5",
+      "cpu6",
+      "cpu7"
+    ]
+  },
+  "monitor_smart_samples": 3,
+  "smart": {
+    "critical_warning": 0,
+    "temperature": 307,
+    "avail_spare": 100,
+    "spare_thresh": 1,
+    "percent_used": 0,
+    "endurance_grp_critical_warning_summary": 0,
+    "data_units_read": 11136,
+    "data_units_written": 71536,
+    "host_read_commands": 50493,
+    "host_write_commands": 85392,
+    "controller_busy_time": 0,
+    "power_cycles": 33,
+    "power_on_hours": 0,
+    "unsafe_shutdowns": 19,
+    "media_errors": 0,
+    "num_err_log_entries": 0,
+    "warning_temp_time": 0,
+    "critical_comp_time": 0,
+    "temperature_sensor_1": 307,
+    "temperature_sensor_2": 303,
+    "thm_temp1_trans_count": 0,
+    "thm_temp2_trans_count": 0,
+    "thm_temp1_total_time": 0,
+    "thm_temp2_total_time": 0
+  },
+  "prior_map_sha256": {
+    "map_rgb.pcd": "2a113df0399f99611e009b10beb2da5f41a4aa3a1610e5bce2272bdb0752c7c8",
+    "map_geometry.pcd": "f2970b872711c8f3c45e5ae7163253d6f0bddb2c9de6e5dbee896006636c5027",
+    "trajectory.tum": "86bfc17d2fcaf4804ab08b472e2f66beab2cd14e0998e191cb7624f48f8b499f"
+  },
+  "prior_bag": {
+    "shards": 57,
+    "db_bytes": 30758715392,
+    "topics": {
+      "/hardware_sync/camera_clock": 663,
+      "/hardware_sync/camera_events": 35334,
+      "/hardware_sync/camera_metadata": 7067,
+      "/hik_camera/camera_info_timeshare": 7067,
+      "/hik_camera/image_timeshare": 7067,
+      "/livox/imu": 142286,
+      "/livox/lidar": 7119
+    },
+    "checks": {
+      "bag_format": true,
+      "shards": true,
+      "per_shard": true,
+      "messages": true,
+      "identity": true,
+      "effective_params": true,
+      "gravity": true,
+      "map_hashes": true,
+      "session": true,
+      "radar": true,
+      "camera": true,
+      "exited": true
+    }
+  },
+  "baseline01_evidence_zip_sha256": "cad960d788f9a0eb37850d08a5544123cf97834e4163d4104d835979afdfabe6",
+  "wlan": {
+    "strict_login_verified": true,
+    "phone_hotspot_tested": false
+  },
+  "tool_sha256": {
+    "field.sh": "b76aec7946997c3ba5f8542f017e59327fce98c985b41f2149ffd9b758fb9a4c",
+    "monitor.py": "1ad46ee399c7a71b7257bd68fdff642848e0782906b89728f3db235414964a2c",
+    "check.py": "4e3f14a469038f7e1b2b0cc8ec5c947e03ba954fe5d0455477708ded8e485926",
+    "b1-files.sha256": "965489072137fe24509a647bdb37f85885923420e408c81808d4f5045624a6a2"
+  }
+}

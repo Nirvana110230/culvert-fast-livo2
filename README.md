@@ -1,5 +1,7 @@
 # 香橙派 FAST-LIVO2 建图
 
+第二轮走廊长时实验沿用 B1。板端准备结果、现场命令及外围工具见[Baseline 02 准备报告](docs/experiments/2026-11-27/baseline02/准备报告.md)、[现场操作](docs/experiments/2026-11-27/baseline02/现场操作.md)和[维护脚本](tools/baseline02)。
+
 正式版 **B1** 继承 B0 的首帧 IMU 修复，并对 Mid-360S 使用确定的 0.5 m 最近距离。发布标签为 `stage-b1-20261127`。历史 A 和 B0 分别由 `g3-stage-a-20261126`、`g3-stage-b0-20261126` 固定，B0 同时保留在 `research/stage-b0`。已验证的安装 ELF 由板端和工作站留存，SHA256、Build ID、参数及整包回放结果见[发布记录](deploy/release.json)。
 
 2026-11-27，B1 在人工手推式四轮小推车上完成首次走廊移动建图。标称 5 V / 3 A 供电通过本轮带载，约 180 m 的估计移动段同时完成融合、录包和地图归档。[Baseline 01 正式报告](docs/experiments/2026-11-27/first_corridor_test/FAST-LIVO2_B1_首次走廊移动建图实验技术报告_20261127.md)
