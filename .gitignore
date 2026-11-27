@@ -52,5 +52,6 @@ raw_bag/
 # Locally supplied vendor SDK and hardware identity
 /deps/mvs/
 /state/
+/backend/pydeps/
 /device-identity.local.sh
 !deps/livox_sdk/lib/liblivox_lidar_sdk_shared.so

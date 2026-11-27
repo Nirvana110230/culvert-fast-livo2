@@ -1,5 +1,6 @@
 """Open a committed map_gravity archive directly; no TF broadcaster and no hardware."""
 import argparse
+import json
 from decimal import Decimal, ROUND_FLOOR
 import os
 from pathlib import Path
@@ -21,7 +22,7 @@ def ros_stamp(text):
     return seconds + nanos // 1000000000, nanos % 1000000000
 
 
-def display(directory, no_gui, seconds):
+def display(directory, no_gui, seconds, files=FILES):
     import rclpy
     from geometry_msgs.msg import PoseStamped
     from nav_msgs.msg import Path as RosPath
@@ -42,7 +43,9 @@ def display(directory, no_gui, seconds):
     rviz = None
     try:
         for kind in ("geometry", "rgb"):
-            path = directory / FILES[kind]
+            if kind not in files:
+                continue
+            path = directory / files[kind]
             h = pcd_info(path)
             data = np.memmap(path, mode="r", dtype=h.dtype, offset=h.offset, shape=(h.count,))
             msg = ros_cloud(data, GRAVITY, node.get_clock().now().to_msg())
@@ -54,7 +57,7 @@ def display(directory, no_gui, seconds):
             del data, msg
         path = RosPath()
         path.header.frame_id, path.header.stamp = GRAVITY, node.get_clock().now().to_msg()
-        for stamp, p, q in tum_rows(directory / FILES["poses"]):
+        for stamp, p, q in tum_rows(directory / files["poses"]):
             pose = PoseStamped()
             pose.header.frame_id = GRAVITY
             pose.header.stamp.sec, pose.header.stamp.nanosec = ros_stamp(stamp)
@@ -89,16 +92,33 @@ def main():
     source = parser.add_mutually_exclusive_group(required=True)
     source.add_argument("--run", type=Path, help="正式会话目录")
     source.add_argument("--map", type=Path, help="含 manifest.json 的独立成品目录")
+    source.add_argument("--pgo", type=Path, help="含 summary.json 的回环结果目录")
+    parser.add_argument("--before", action="store_true")
     parser.add_argument("--check", action="store_true", help="独立读取并核对坐标、点数、轨迹和校验码")
     parser.add_argument("--no-gui", action="store_true")
     parser.add_argument("--seconds", type=float, default=0, help="正值仅限制本次离线查看的时长")
     args = parser.parse_args()
-    directory = (args.map if args.map is not None else args.run / "map").resolve()
-    result = validate_map(directory)
-    print(f"{directory}  {GRAVITY}  {result['counts']}", flush=True)
+    files = FILES
+    if args.pgo:
+        directory = args.pgo.resolve()
+        summary = json.loads((directory / "summary.json").read_text())
+        side = "before" if args.before else "after"
+        files = dict(geometry=f"map_{side}.pcd", poses=f"trajectory_{side}.tum")
+        expected = {"geometry":summary["maps"]["geometry_points_each"], "poses":summary["keyframes"]}
+        if summary["maps"]["color_points_each"]:
+            files["rgb"] = f"map_rgb_{side}.pcd"
+            expected["rgb"] = summary["maps"]["color_points_each"]
+        counts = {k: (sum(1 for _ in tum_rows(directory / v)) if k=="poses" else
+                      pcd_info(directory / v).count) for k,v in files.items()}
+        if counts != expected:
+            raise ValueError(f"回环重建成品数目与本次求解记录不符 {counts}, {expected}")
+    else:
+        directory = (args.map if args.map is not None else args.run / "map").resolve()
+        counts = validate_map(directory)["counts"]
+    print(f"{directory}  {GRAVITY}  {counts}", flush=True)
     if not args.check:
         os.environ.setdefault("ROS_DOMAIN_ID", "219")
-        display(directory, args.no_gui, args.seconds)
+        display(directory, args.no_gui, args.seconds, files)
 
 
 if __name__ == "__main__":

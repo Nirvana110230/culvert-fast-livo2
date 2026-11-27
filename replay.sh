@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+if [[ ${1:-} == --pgo ]]; then
+  root="$(cd -- "$(dirname -- "$0")" && pwd -P)"
+  shift
+  export PYTHONPATH="${FAST_LIVO2_PGO_PREFIX:-$root/backend/pydeps}${PYTHONPATH:+:$PYTHONPATH}"
+  export OPENBLAS_NUM_THREADS=1
+  exec python3 "$root/backend/run.py" "$@"
+fi
 if [[ ${1:-} == --offline ]]; then
   root="$(cd -- "$(dirname -- "$0")" && pwd -P)"
   source "$root/env.sh" || exit 1

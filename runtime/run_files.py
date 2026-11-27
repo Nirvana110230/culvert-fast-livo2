@@ -68,7 +68,7 @@ def flatten(values, prefix=''):
             yield name, value
 
 
-def snapshot(run, config):
+def snapshot(run, config, overrides=None):
     parameters = {}
     sources = []
     for layer in PARAMETERS:
@@ -76,10 +76,14 @@ def snapshot(run, config):
         content = path.read_bytes()
         parameters.update(flatten(yaml.safe_load(content)['/**']['ros__parameters']))
         sources.append({'path': str(path), 'sha256': hashlib.sha256(content).hexdigest()})
+    if overrides:
+        parameters.update(overrides)
     output = run / 'resolved.yaml'
     output.write_text(yaml.safe_dump({'/**': {'ros__parameters': parameters}}, sort_keys=True),
                       encoding='utf-8')
     manifest = {'run': str(run), 'sources': sources, 'resolved_sha256': digest(output)}
+    if overrides:
+        manifest['overrides'] = overrides
     write_json(run / 'parameters_manifest.json', manifest)
     return parameters, manifest
 

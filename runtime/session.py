@@ -225,15 +225,25 @@ def session(args, run):
         (run / 'Log/result').mkdir(parents=True)
         (run / 'map').mkdir()
         (run / 'roslog').mkdir()
-        params, manifest = snapshot(run, ROOT / 'configs')
+        overrides = {}
+        if args.interval_deskew:
+            overrides['imu.interval_deskew'] = True
+        if args.stationary_gyro_bias:
+            overrides['imu.stationary_start_gyro_bias'] = True
+        params, manifest = snapshot(run, ROOT / 'configs', overrides)
         identity = {'session_id': run.name, 'executable': str(ALGORITHM),
                     'sha256': digest(ALGORITHM)}
         write_json(run / 'algorithm_identity.json', identity)
         env = dict(os.environ, ROS_LOG_DIR=str(run / 'roslog'), MALLOC_ARENA_MAX='2',
                    FAST_LIVO2_SESSION_ID=run.name, FAST_LIVO2_CONFIG_SHA256=manifest['resolved_sha256'],
                    FAST_LIVO2_ALGORITHM_SHA256=identity['sha256'], FAST_LIVO2_GRAVITY_DIR=str(run))
-        if args.keyframes:
+        if args.keyframes or args.loop_backend:
             env['FAST_LIVO_KEYFRAMES'] = str(run / 'keyframes')
+        if args.diagnostics:
+            env['FAST_LIVO_DIAGNOSTICS_DIR'] = str(run / 'diagnostics')
+        if args.strict_windows:
+            env['FAST_LIVO_STRICT_WINDOWS'] = '1'
+        state['strict_image_windows'] = env.get('FAST_LIVO_STRICT_WINDOWS') == '1'
         resource.setrlimit(resource.RLIMIT_CORE, (0, 0))
         check()
         require_free_pipeline(args.action == 'start')
@@ -260,6 +270,14 @@ def session(args, run):
         wait_until(lambda: probe.poll() is not None, 60, owned, '运行中的算法参数')
         children.stop('parameters', 2)
         observed_process(run, algorithm.pid, identity)
+        if args.loop_backend:
+            prefix = os.environ.get('FAST_LIVO2_PGO_PREFIX', str(ROOT/'backend/pydeps'))
+            pgo_env = dict(env, PYTHONPATH=prefix + os.pathsep + env.get('PYTHONPATH',''),
+                           OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='2')
+            command = ['nice','-n','10',sys.executable,ROOT/'backend/live_tf.py',
+                       '--index',run/'keyframes/index.csv','--gravity',run/'gravity_events.jsonl',
+                       '--out',run/'pgo','--complete',run/'keyframes/complete.json','--rebuild']
+            children.start('loop_backend', command, pgo_env)
         player = None
         if not hardware:
             player = children.start('replay', [sys.executable, RUNTIME / 'ros_input.py', 'play',
@@ -321,6 +339,23 @@ def session(args, run):
         stop_child('algorithm', 45)
         # Archive can legitimately take arbitrarily long to finish a large map.
         stop_child('archive', None)
+        if 'loop_backend' in children.items:
+            sidecar = children.items['loop_backend']
+            committed = get_result(run / 'keyframes/complete.json')
+            if committed:
+                sidecar.wait()  # Drain the committed prefix and rebuild historical clouds on NVMe.
+            stop_child('loop_backend', 30, interrupt_ok=True)
+            result = get_result(run / 'pgo/online_summary.json')
+            state['loop_backend'] = result
+            frames = committed.get('frames')
+            rebuilt = result.get('rebuild', {})
+            empty = frames == 0 and (result.get('status') == 'no_initialized_keyframes' or
+                                     (result.get('published') == 0 and result.get('status') == 'complete'
+                                      and rebuilt.get('status') == 'no_input'))
+            if not empty and not (result.get('status') == 'complete' and frames is not None
+                                  and result.get('published') == frames and rebuilt.get('frames') == frames
+                                  and rebuilt.get('status') == 'complete'):
+                state['errors'].append('回环发布或历史地图重建未完成')
         state['map'] = get_result(run / 'map/result.json')
         if 'archive' in children.items and state['map'].get('status') != 'complete':
             state['errors'].append('地图归档未完成 ' + str(state['map'].get('error', '无最终结果')))
@@ -375,7 +410,7 @@ def recover(active):
     except (OSError, ValueError):
         state = {}
     errors = []
-    for name in ('parameters', 'replay', 'camera', 'driver', 'observer', 'algorithm', 'archive'):
+    for name in ('parameters', 'replay', 'camera', 'driver', 'observer', 'algorithm', 'loop_backend', 'archive'):
         record = children.get(name)
         if not record or not same_process(record):
             continue
@@ -458,6 +493,11 @@ def cli():
     start = sub.add_parser('start', help='现场连续 LIVO')
     replay = sub.add_parser('replay', help='通过 ROS 回放三路原始输入')
     for action in (start, replay):
+        action.add_argument('--loop-backend', action='store_true', help='导出关键帧并启动独立 map→odom 回环进程')
+        action.add_argument('--stationary-gyro-bias', action='store_true', help='使用已知静止初段估计初始陀螺偏置')
+        action.add_argument('--interval-deskew', action='store_true', help='使用对应 IMU 积分区间的运动量去畸变')
+        action.add_argument('--diagnostics', action='store_true', help='保存逐窗时间、惯导初始化和点面统计')
+        action.add_argument('--strict-windows', action='store_true', help='使用半开时间窗分配雷达点')
         action.add_argument('--keyframes', action='store_true', help='按估计器参考时刻保存后端局部关键帧')
         action.add_argument('--runs-dir', type=Path,
                             default=Path(os.environ.get('FAST_LIVO2_RUNS_DIR', DEFAULT_RUNS)))
@@ -471,6 +511,8 @@ def cli():
     source = view.add_mutually_exclusive_group()
     source.add_argument('--run', type=Path, help='打开已归档会话的完整地图')
     source.add_argument('--map', type=Path, help='打开已导出的独立地图目录')
+    source.add_argument('--pgo', type=Path, help='打开独立回环后端的历史重建地图')
+    view.add_argument('--before', action='store_true', help='查看同一批关键帧的原始拼接地图')
     source.add_argument('--foxglove', action='store_true', help='实时 Foxglove，仅回环端口 8765')
     view.add_argument('--check', action='store_true', help='独立核验归档文件')
     view.add_argument('--no-gui', action='store_true', help='发布归档地图供订阅')
@@ -506,10 +548,15 @@ def cli():
     if args.action == 'stop':
         return stop_current()
     if args.action == 'view':
-        if args.run or args.map:
-            path = (args.run or args.map).expanduser().resolve(strict=True)
+        if args.before and not args.pgo:
+            parser.error('--before 需要 --pgo')
+        if args.run or args.map or args.pgo:
+            path = (args.run or args.map or args.pgo).expanduser().resolve(strict=True)
+            source_arg = '--run' if args.run else ('--pgo' if args.pgo else '--map')
             command = [sys.executable, str(RUNTIME / 'saved_run_view.py'),
-                       '--run' if args.run else '--map', str(path), '--seconds', str(args.seconds)]
+                       source_arg, str(path), '--seconds', str(args.seconds)]
+            if args.before:
+                command.append('--before')
             if args.check:
                 command.append('--check')
             if args.no_gui:
