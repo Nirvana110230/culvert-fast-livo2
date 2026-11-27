@@ -1,14 +1,67 @@
 {
-  "stage": "B0",
-  "board_role": "隔离回放研究",
-  "install_elf_sha256": "e9f7eaeb7260fe13304e1b846426b6a21dc91776d6128f991e6caeacab481469",
-  "gnu_build_id": "85e725b4b672db14eaa254e07e6c829bde4cbdf6",
+  "stage": "B1",
+  "board_role": "正式移动建图测试",
+  "install_elf_sha256": "a4e4320cac0668987bf15a4a8199430c50a5a65cd008ef00aace1a960f70aeb2",
+  "gnu_build_id": "f68d9a7fdd797e43c9b248fb93164db211b4aa98",
   "maintenance_overrides_sha256": {
     "camera/camera_device.hpp": "2e7acda51324725d7f1593d586cd663af78d307bfd8795814747ccc32128d908",
     "camera/camera_sync.cpp": "f63c489e2be683a6d1bf067209d845267ecbb6e5dc07f88ec72f6b51a0ef1883",
     "runtime/hardware.py": "c937bfa2d45b997c521496ade6d249e278e805c7335429d25fa7a4159302ba68",
     "runtime/sensors/radar_device.py": "95ad9e943e5c9a6467745b8eefe3eb8f35fab4b230895194cf7122e69d8115b6",
     "src/fast_livo/include/LIVMapper.h": "5d2fa382caea7faebe6b5b81d3388c55a2276af70bc59b327557a030f54fd8a9",
-    "src/fast_livo/src/LIVMapper.cpp": "eb38e32676d6d9a5bf0af8317398c699d2549b52293870d36cf773800bb2c9a3"
+    "src/fast_livo/src/LIVMapper.cpp": "cff305b6d86e4302011633ecc150788ae62868e01ca58ac83411469562144014",
+    "src/fast_livo/CMakeLists.txt": "2ef54dbfdb33c431a7b563c5e11f0f28ec6ed7700ebf8dc8867960b208dda92f",
+    "src/fast_livo/include/preprocess.h": "53160d36bff4df0b0ca1d38a418366fef35ac85d51068ace3f7e0b9bf017a80e",
+    "src/fast_livo/src/preprocess.cpp": "de499502225ba5cd1fcccc5de3455ccd1a117deaa4b566ee741244cc955760a3",
+    "tests/blind_regression.cpp": "5e2a221f6c6d99cb3108a1b861499ea877e0a333cbf25afe0af9b6f45fa98e35"
+  },
+  "tag": "stage-b1-20261127",
+  "offline_validation": {
+    "handheld_bag": "2026-11-14",
+    "rate": 1.0,
+    "resolved_sha256": "92c6a9b4d22e5b26873d43b62e3915d1e33dcc42fac0fdb5ede9250eb791bd2d",
+    "parameter_count": 81,
+    "blind_m": 0.5,
+    "mid360s_min_squared_m2": 0.25,
+    "initialization_imu": 456,
+    "input_counts": {
+      "lidar_rx": 627,
+      "imu_rx": 12071,
+      "synced": 1154,
+      "image_rx": 577,
+      "image_remaining": 0,
+      "vio_frames": 576,
+      "visual_update_frames": 575,
+      "visual_update_steps": 8590,
+      "lidar_remaining": 3,
+      "imu_remaining": 95
+    },
+    "input_delta": {
+      "lidar_rx": 0,
+      "imu_rx": 0,
+      "image_rx": 0
+    },
+    "outputs": {
+      "status": "complete",
+      "error": null,
+      "output_frame": "map_gravity",
+      "gravity_applied": true,
+      "segment_end_reason": null,
+      "rgb_points": 203173,
+      "geometry_points": 1132757,
+      "poses": 576
+    },
+    "output_sha256": {
+      "map_rgb.pcd": "f056ec152b5a6e7537d4868a8579d9b60580c64a1372ee408d38559b7e96ef3e",
+      "map_geometry.pcd": "10710ce32141d1a31a79bae9738bd95d7390b40ec30a44a06f9d4c099781a42d",
+      "trajectory.tum": "a56086c21169f754f80a2d99529552bb744797809e9b7c5d069502fb262e32ed"
+    },
+    "stop_reason": "bag_eof",
+    "exit_codes": {
+      "archive": 0,
+      "algorithm": 0,
+      "parameters": 0,
+      "replay": 0
+    }
   }
 }

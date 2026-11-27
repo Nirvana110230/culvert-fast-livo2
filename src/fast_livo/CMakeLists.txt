@@ -209,7 +209,7 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../../tests/visual_memory_regression.cpp"
   target_link_libraries(visual_memory_regression vio lio utils vikit_common::vikit_common vikit_ros::vikit_ros
     ${PCL_LIBRARIES} ${OpenCV_LIBRARIES} ${COMMON_DEPENDENCIES})
 endif()
-foreach(regression IN ITEMS contract_regression geometry_regression strict_math_regression)
+foreach(regression IN ITEMS blind_regression contract_regression geometry_regression strict_math_regression)
   if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../../tests/${regression}.cpp")
     add_executable(${regression} EXCLUDE_FROM_ALL ../../tests/${regression}.cpp)
     ament_target_dependencies(${regression} ${dependencies})

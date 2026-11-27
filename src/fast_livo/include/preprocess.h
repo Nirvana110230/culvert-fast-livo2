@@ -47,7 +47,7 @@ enum E_jump
 
 struct orgtype
 {
-  double range;
+  double range; // horizontal distance in metres
   double dista;
   double angle[2];
   double intersect;
@@ -152,7 +152,9 @@ class Preprocess
 public:
   //   EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 
+  static constexpr double kDefaultBlindMeters = 0.01;
   Preprocess();
+  void setBlindDistance(double meters);
   ~Preprocess();
 
   void process(const livox_ros_driver2::msg::CustomMsg::SharedPtr &msg, PointCloudXYZI::Ptr &pcl_out);
@@ -165,13 +167,14 @@ public:
   vector<orgtype> typess[128]; // maximum 128 line lidar
   int lidar_type, point_filter_num, N_SCANS;
   
-  double blind, blind_sqr;
   bool feature_enabled, given_offset_time;
   std::shared_ptr<rclcpp::Publisher<sensor_msgs::msg::PointCloud2>> pub_full;
   std::shared_ptr<rclcpp::Publisher<sensor_msgs::msg::PointCloud2>> pub_surf;
   std::shared_ptr<rclcpp::Publisher<sensor_msgs::msg::PointCloud2>> pub_corn;
 
 private:
+  double blind_meters_;
+  double blind_sqr;
   void avia_handler(const livox_ros_driver2::msg::CustomMsg::SharedPtr &msg);
   void oust64_handler(const sensor_msgs::msg::PointCloud2::ConstSharedPtr &msg);
   void velodyne_handler(const sensor_msgs::msg::PointCloud2::ConstSharedPtr &msg);

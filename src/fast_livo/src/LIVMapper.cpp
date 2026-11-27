@@ -114,7 +114,7 @@ void LIVMapper::readParameters(rclcpp::Node::SharedPtr &node)
   this->node->declare_parameter<bool>("imu.gravity_est_en", true);
   this->node->declare_parameter<bool>("imu.ba_bg_est_en", true);
 
-  this->node->declare_parameter<double>("preprocess.blind", 0.01);
+  this->node->declare_parameter<double>("preprocess.blind", Preprocess::kDefaultBlindMeters);
     this->node->declare_parameter<bool>("preprocess.hilti_en", false);
   this->node->declare_parameter<double>("preprocess.filter_size_surf", 0.5);
   this->node->declare_parameter<int>("preprocess.lidar_type", AVIA);
@@ -177,7 +177,7 @@ void LIVMapper::readParameters(rclcpp::Node::SharedPtr &node)
   this->node->get_parameter("imu.gravity_est_en", gravity_est_en);
   this->node->get_parameter("imu.ba_bg_est_en", ba_bg_est_en);
 
-  this->node->get_parameter("preprocess.blind", p_pre->blind);
+  p_pre->setBlindDistance(this->node->get_parameter("preprocess.blind").as_double());
   this->node->get_parameter("preprocess.filter_size_surf", filter_size_surf_min);
   this->node->get_parameter("preprocess.lidar_type", p_pre->lidar_type);
   this->node->get_parameter("preprocess.scan_line", p_pre->N_SCANS);

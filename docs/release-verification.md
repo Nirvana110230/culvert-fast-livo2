@@ -1,4 +1,14 @@
-# 2026-11-26 建图版本核对
+# 建图版本核对
+
+## 2026-11-27 · B1
+
+B1 基于 G3 的 B0 固定提交 `fc468aa9cec0d537f6d2d49ad27057d097434152`。目标板原生 Release，保留 strict-math 和 4 线程 OpenMP。构造函数、ROS 参数加载与 `Preprocess::set` 共用距离设置函数。Mid-360S 的三维距离平方与 0.25 m² 比较，恰为 0.5 m 的点保留。可选特征提取中的水平距离按米比较，整线近点有界退出。
+
+板端对生产处理函数送入 Livox CustomMsg，核验构造默认值、二次设值、无效输入、零阈值、整线近点及正式配置 3 取 1 下的 0.499/0.500/0.501 m 和多轴点。可用 `cmake --build build/fast_livo --target blind_regression` 构建相同夹具，加载 `env.sh` 后执行 `build/fast_livo/blind_regression --ros-args --params-file <正式六层合并后的resolved.yaml>`。
+
+60.167 s 手持包一次 1× 回放到 EOF，三路收发差均为零，81 项运行参数一致。由原包复算的 456 条初始化 IMU 与本次重力事件唯一吻合。地图为 `map_gravity`，几何 1,132,757 点、彩色 203,173 点、轨迹 576 个位姿。算法、播放器、参数探针、归档器退出码均为 0。实际部署沿用板端硬件识别、标定和 NVMe 路径。A 与 B0 的历史标签和隔离 B0 均保留。有人值守的真实移动、独立真值、绝对同步和持续负载仍待现场验证。详见[发布身份和制品校验值](../deploy/release.json)。
+
+## 2026-11-26 · G3 历史基线
 
 通过已固定主机密钥的只读 SSH 读取两处已有程序、源码与记录。A 位于 `/home/orangepi/fast_livo2`，B0 位于 `/home/orangepi/stage_b0_20261123/candidate`。本轮的构建和回归均在工作站执行，板端原部署和会话继续保留。
 

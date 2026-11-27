@@ -11,12 +11,15 @@ which is included as part of this source code package.
 */
 
 #include "preprocess.h"
+#include <cmath>
+#include <stdexcept>
 
 #define RETURN0 0x00
 #define RETURN0AND1 0x10
 
-Preprocess::Preprocess() : feature_enabled(0), lidar_type(AVIA), blind(0.01), point_filter_num(1)
+Preprocess::Preprocess() : lidar_type(AVIA), point_filter_num(1), feature_enabled(false)
 {
+  setBlindDistance(kDefaultBlindMeters);
   inf_bound = 10;
   N_SCANS = 6;
   group_size = 8;
@@ -43,11 +46,20 @@ Preprocess::Preprocess() : feature_enabled(0), lidar_type(AVIA), blind(0.01), po
 
 Preprocess::~Preprocess() {}
 
+void Preprocess::setBlindDistance(double meters)
+{
+  const double squared = meters * meters;
+  if (meters < 0.0 || !std::isfinite(squared))
+    throw std::invalid_argument("preprocess.blind must be a finite nonnegative distance with a finite square");
+  blind_meters_ = meters;
+  blind_sqr = squared;
+}
+
 void Preprocess::set(bool feat_en, int lid_type, double bld, int pfilt_num)
 {
+  setBlindDistance(bld);
   feature_enabled = feat_en;
   lidar_type = lid_type;
-  blind = bld;
   point_filter_num = pfilt_num;
 }
 
@@ -148,13 +160,13 @@ void Preprocess::avia_handler(const livox_ros_driver2::msg::CustomMsg::SharedPtr
       plsize--;
       for (uint i = 0; i < plsize; i++)
       {
-        types[i].range = pl[i].x * pl[i].x + pl[i].y * pl[i].y;
+        types[i].range = std::sqrt(pl[i].x * pl[i].x + pl[i].y * pl[i].y);
         vx = pl[i].x - pl[i + 1].x;
         vy = pl[i].y - pl[i + 1].y;
         vz = pl[i].z - pl[i + 1].z;
         types[i].dista = vx * vx + vy * vy + vz * vz;
       }
-      types[plsize].range = pl[plsize].x * pl[plsize].x + pl[plsize].y * pl[plsize].y;
+      types[plsize].range = std::sqrt(pl[plsize].x * pl[plsize].x + pl[plsize].y * pl[plsize].y);
       give_feature(pl, types);
       // pl_surf += pl;
     }
@@ -497,7 +509,7 @@ void Preprocess::velodyne_handler(const sensor_msgs::msg::PointCloud2::ConstShar
       // prints);
       if (i % point_filter_num == 0)
       {
-        if (added_pt.x * added_pt.x + added_pt.y * added_pt.y + added_pt.z * added_pt.z > blind_sqr)
+        if (added_pt.x * added_pt.x + added_pt.y * added_pt.y + added_pt.z * added_pt.z >= blind_sqr)
         {
           pl_surf.points.push_back(added_pt);
           // printf("time mode: %d time: %d \n", given_offset_time,
@@ -536,7 +548,7 @@ void Preprocess::Pandar128_handler(const sensor_msgs::msg::PointCloud2::ConstSha
 
     if (i % point_filter_num == 0)
     {
-      if (added_pt.x * added_pt.x + added_pt.y * added_pt.y + added_pt.z * added_pt.z > blind_sqr)
+      if (added_pt.x * added_pt.x + added_pt.y * added_pt.y + added_pt.z * added_pt.z >= blind_sqr)
       {
         pl_surf.points.push_back(added_pt);
         // printf("time mode: %d time: %d \n", given_offset_time,
@@ -693,7 +705,7 @@ void Preprocess::xt32_handler(const sensor_msgs::msg::PointCloud2::ConstSharedPt
       // prints);
       if (i % point_filter_num == 0)
       {
-        if (added_pt.x * added_pt.x + added_pt.y * added_pt.y + added_pt.z * added_pt.z > blind_sqr)
+        if (added_pt.x * added_pt.x + added_pt.y * added_pt.y + added_pt.z * added_pt.z >= blind_sqr)
         {
           pl_surf.points.push_back(added_pt);
           // printf("time mode: %d time: %d \n", given_offset_time,
@@ -754,10 +766,11 @@ void Preprocess::give_feature(pcl::PointCloud<PointType> &pl, vector<orgtype> &t
   }
   uint head = 0;
 
-  while (types[head].range < blind_sqr)
+  while (head < types.size() && types[head].range < blind_meters_)
   {
     head++;
   }
+  if (head == types.size()) return;
 
   // Surf
   plsize2 = (plsize > group_size) ? (plsize - group_size) : 0;
@@ -773,7 +786,7 @@ void Preprocess::give_feature(pcl::PointCloud<PointType> &pl, vector<orgtype> &t
 
   for (uint i = head; i < plsize2; i++)
   {
-    if (types[i].range < blind_sqr) { continue; }
+    if (types[i].range < blind_meters_) { continue; }
 
     i2 = i;
 
@@ -858,7 +871,7 @@ void Preprocess::give_feature(pcl::PointCloud<PointType> &pl, vector<orgtype> &t
   plsize2 = plsize > 3 ? plsize - 3 : 0;
   for (uint i = head + 3; i < plsize2; i++)
   {
-    if (types[i].range < blind_sqr || types[i].ftype >= Real_Plane) { continue; }
+    if (types[i].range < blind_meters_ || types[i].ftype >= Real_Plane) { continue; }
 
     if (types[i - 1].dista < 1e-16 || types[i].dista < 1e-16) { continue; }
 
@@ -870,7 +883,7 @@ void Preprocess::give_feature(pcl::PointCloud<PointType> &pl, vector<orgtype> &t
       int m = -1;
       if (j == 1) { m = 1; }
 
-      if (types[i + m].range < blind_sqr)
+      if (types[i + m].range < blind_meters_)
       {
         if (types[i].range > inf_bound) { types[i].edj[j] = Nr_inf; }
         else { types[i].edj[j] = Nr_blind; }
@@ -918,7 +931,7 @@ void Preprocess::give_feature(pcl::PointCloud<PointType> &pl, vector<orgtype> &t
   double ratio;
   for (uint i = head + 1; i < plsize2; i++)
   {
-    if (types[i].range < blind_sqr || types[i - 1].range < blind_sqr || types[i + 1].range < blind_sqr) { continue; }
+    if (types[i].range < blind_meters_ || types[i - 1].range < blind_meters_ || types[i + 1].range < blind_meters_) { continue; }
 
     if (types[i - 1].dista < 1e-8 || types[i].dista < 1e-8) { continue; }
 
@@ -1001,7 +1014,7 @@ int Preprocess::plane_judge(const PointCloudXYZI &pl, vector<orgtype> &types, ui
 
   for (i_nex = i_cur; i_nex < i_cur + group_size; i_nex++)
   {
-    if (types[i_nex].range < blind_sqr)
+    if (types[i_nex].range < blind_meters_)
     {
       curr_direct.setZero();
       return 2;
@@ -1013,7 +1026,7 @@ int Preprocess::plane_judge(const PointCloudXYZI &pl, vector<orgtype> &types, ui
   {
     if ((i_cur >= pl.size()) || (i_nex >= pl.size())) break;
 
-    if (types[i_nex].range < blind_sqr)
+    if (types[i_nex].range < blind_meters_)
     {
       curr_direct.setZero();
       return 2;
@@ -1100,11 +1113,11 @@ bool Preprocess::edge_jump_judge(const PointCloudXYZI &pl, vector<orgtype> &type
 {
   if (nor_dir == 0)
   {
-    if (types[i - 1].range < blind_sqr || types[i - 2].range < blind_sqr) { return false; }
+    if (types[i - 1].range < blind_meters_ || types[i - 2].range < blind_meters_) { return false; }
   }
   else if (nor_dir == 1)
   {
-    if (types[i + 1].range < blind_sqr || types[i + 2].range < blind_sqr) { return false; }
+    if (types[i + 1].range < blind_meters_ || types[i + 2].range < blind_meters_) { return false; }
   }
   double d1 = types[i + nor_dir - 1].dista;
   double d2 = types[i + 3 * nor_dir - 2].dista;
