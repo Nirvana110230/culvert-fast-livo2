@@ -1,7 +1,6 @@
 """Read original ROS 2 SQLite shards without materializing image or lidar payloads."""
 import argparse
 import bisect
-import collections
 import csv
 import ctypes as ct
 import ctypes.util
@@ -62,6 +61,50 @@ def topic_stats(records, low_ms, high_ms):
             "header_lt_threshold":sum(t<low_ms for t in deltas),"header_gt_threshold":sum(t>high_ms for t in deltas),
             "thresholds_ms":[low_ms,high_ms],"ten_largest_header_gaps":[item(i) for i in sorted(range(len(deltas)),key=deltas.__getitem__,reverse=True)[:10]],
             "largest_bag_gap":item(max(range(len(arrivals)),key=arrivals.__getitem__))}
+
+
+def inspect_shared_reads(camera, anomaly_frames):
+    def load(files,key):
+        data={}
+        for path in files:
+            with path.open(newline="") as stream:
+                for row in csv.DictReader(stream):
+                    identity=int(row[key])
+                    if identity in data: raise ValueError(f"duplicate {key} in camera timing trace")
+                    data[identity]={k:int(v) for k,v in row.items()}
+        return data
+    writer=load(camera.parent.glob("timeshare_writes.csv*"),"scan_sequence")
+    reader=load(camera.glob("timeshare_reads.csv*"),"frame_num")
+    if not writer or not reader:
+        return {"available":False}
+    ordered=sorted(writer.values(),key=lambda w:w["write_after_mono_ns"])
+    ends=[w["write_after_mono_ns"] for w in ordered]
+    near={n+dx for n in anomaly_frames for dx in range(-1,2)}
+    confirmed=overlap=mismatch=outside=0; samples=[]; concurrent=[]
+    for frame,row in sorted(reader.items()):
+        rb=row["read_before_mono_ns"]; re=row["read_after_mono_ns"]
+        i=bisect.bisect_right(ends,rb)-1
+        if i<0 or i+1>=len(ordered):
+            outside+=1;continue
+        left,right=ordered[i:i+2]
+        if right["write_before_mono_ns"]<=re:
+            overlap+=1
+            concurrent.append({"frame":frame,"read_mono_ns":[rb,re],"overlapping_write_mono_ns":[
+                right["write_before_mono_ns"],right["write_after_mono_ns"]],"previous_sequence":left["scan_sequence"],
+                "overlapping_sequence":right["scan_sequence"],"read_value_matches_previous":row["shared_stamp_ns"]==left["shared_stamp_ns"],
+                "read_value_matches_overlapping":row["shared_stamp_ns"]==right["shared_stamp_ns"]})
+            continue
+        agree=left["shared_stamp_ns"]==row["image_header_ns"]==row["shared_stamp_ns"]
+        confirmed+=agree; mismatch+=not agree
+        if frame in near:
+            samples.append({"frame":frame,"image_header_ns":row["image_header_ns"],"last_completed_write_sequence":left["scan_sequence"],
+                            "reader_stamp_matches_writer":agree,"read_after_last_write_ms":(rb-left["write_after_mono_ns"])/1e6,
+                            "next_write_after_read_ms":(right["write_before_mono_ns"]-re)/1e6})
+    return {"available":True,"writes":len(writer),"reads_retained":len(reader),"unambiguous_matching":confirmed,
+            "unambiguous_mismatches":mismatch,"overlapping_read_write_intervals":overlap,"unbracketed":outside,
+            "concurrent_reads":concurrent,
+            "missing_direct_trace_frames":[f for f in anomaly_frames if f not in reader],
+            "examples_around_actual_abnormal_headers":samples}
 
 
 def run(bag, camera):
@@ -134,6 +177,7 @@ def run(bag, camera):
         "largest_publish_delays":[sample(m) for m in sorted(metadata,key=lambda m:m["publish_done_ns"]-m["host_after_get_ns"],reverse=True)[:10]],
         "sdk_frame_device_interval_ticks":distribution(frames[b]["device_timestamp_raw"]-frames[a]["device_timestamp_raw"] for a,b in successive),
         "device_timestamp_frequency":"unconverted_ticks","abnormal_shared_header_intervals":details}
+    result["shared_clock_trace"]=inspect_shared_reads(camera,[d["frame_num"] for d in details if "frame_num" in d])
     return result
 
 

@@ -42,6 +42,8 @@ public:
   void set_acc_bias_cov(const V3D &b_a);
   void set_inv_expo_cov(const double &inv_expo);
   void set_imu_init_frame_num(const int &num);
+  void set_interval_deskew(bool enabled) { interval_deskew_ = enabled; }
+  void use_stationary_start_gyro_bias(bool enabled) { stationary_start_gyro_bias_ = enabled; }
   void disable_imu();
   void disable_gravity_est();
   void disable_bias_est();
@@ -50,6 +52,8 @@ public:
   void UndistortPcl(LidarMeasureGroup &lidar_meas, StatesGroup &state_inout, PointCloudXYZI &pcl_out);
 
   double IMU_mean_acc_norm;
+  double deskew_reference_s = -1.0;
+  double deskew_duration_s = 0.0;
   V3D unbiased_gyr;
 
   V3D cov_acc;
@@ -85,6 +89,8 @@ private:
   bool gravity_est_en = true;
   bool ba_bg_est_en = true;
   bool exposure_estimate_en = true;
+  bool interval_deskew_ = false;
+  bool stationary_start_gyro_bias_ = false;
 };
 typedef std::shared_ptr<ImuProcess> ImuProcessPtr;
 #endif

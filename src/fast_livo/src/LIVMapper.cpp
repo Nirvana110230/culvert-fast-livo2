@@ -284,6 +284,8 @@ void LIVMapper::initializeComponents(rclcpp::Node::SharedPtr &node)
   p_imu->set_gyr_bias_cov(V3D::Constant(b_gyr_cov));
   p_imu->set_acc_bias_cov(V3D::Constant(b_acc_cov));
   p_imu->set_imu_init_frame_num(imu_int_frame);
+  p_imu->set_interval_deskew(node->declare_parameter<bool>("imu.interval_deskew", false));
+  p_imu->use_stationary_start_gyro_bias(node->declare_parameter<bool>("imu.stationary_start_gyro_bias", false));
 
   if (!imu_en) p_imu->disable_imu();
   if (!gravity_est_en) p_imu->disable_gravity_est();
@@ -335,6 +337,8 @@ void LIVMapper::initializeSubscribersAndPublishers(rclcpp::Node::SharedPtr &node
   pubLaserCloudEffect = this->node->create_publisher<sensor_msgs::msg::PointCloud2>("/cloud_effected", 100);
   pubLaserCloudMap = this->node->create_publisher<sensor_msgs::msg::PointCloud2>("/Laser_map", 100);
   pubOdomAftMapped = this->node->create_publisher<nav_msgs::msg::Odometry>("/aft_mapped_to_init", 10);
+  navigation_state = this->node->create_publisher<nav_msgs::msg::Odometry>("/culvert_source/state", 5);
+  navigation_scan = this->node->create_publisher<sensor_msgs::msg::PointCloud2>("/culvert_source/scan", 5);
   pubPath = this->node->create_publisher<nav_msgs::msg::Path>("/path", 10);
   plane_pub = this->node->create_publisher<visualization_msgs::msg::Marker>("/planner_normal", 1);
   voxel_pub = this->node->create_publisher<visualization_msgs::msg::MarkerArray>("/voxels", 1);
@@ -504,9 +508,11 @@ void LIVMapper::handleLIO()
   voxelmap_manager->StateEstimation(state_propagat);
   _state = voxelmap_manager->state_;
   _pv_list = voxelmap_manager->pv_list_;
+  publishNavigationSource();
 
   if (keyframe_export && !p_imu->imu_need_init && LidarMeasures.lio_vio_flg == LIO &&
       feats_down_size > 0 && !LidarMeasures.measures.back().imu.empty() &&
+      p_imu->deskew_reference_s == LidarMeasures.last_lio_update_time &&
       LidarMeasures.measures.back().lio_time == LidarMeasures.last_lio_update_time) {
     const auto stamp = std::llround(LidarMeasures.measures.back().lio_time * 1e9);
     const auto& matches = voxelmap_manager->ptpl_list_;
@@ -1591,6 +1597,44 @@ template <typename T> void LIVMapper::set_posestamp(T &out)
   out.orientation.y = geoQuat.y;
   out.orientation.z = geoQuat.z;
   out.orientation.w = geoQuat.w;
+}
+
+// Source contract of culvert_livo_adapter: the scan is in the moving LiDAR
+// frame while the state locates the IMU. Both carry the estimator's timestamp.
+void LIVMapper::publishNavigationSource()
+{
+  if (!navigation_state || (!navigation_state->get_subscription_count() &&
+                            !navigation_scan->get_subscription_count())) return;
+  const double stamp = p_imu->deskew_reference_s;
+  if (stamp < 0 || LidarMeasures.lio_vio_flg != LIO || stamp != LidarMeasures.last_lio_update_time ||
+      stamp != LidarMeasures.measures.back().lio_time || voxelmap_manager->ptpl_list_.empty()) return;
+  pcl::PointCloud<pcl::PointXYZI> local;
+  local.reserve(feats_undistort->size());
+  double previous_ms = -0.001;
+  for (const auto& p : *feats_undistort) {
+    if (!std::isfinite(p.curvature) || p.curvature < previous_ms ||
+        p.curvature * 0.001 > p_imu->deskew_duration_s + 1e-6 ||
+        !std::isfinite(p.x) || !std::isfinite(p.y) || !std::isfinite(p.z) || !std::isfinite(p.intensity)) return;
+    pcl::PointXYZI point;
+    point.x = p.x; point.y = p.y; point.z = p.z; point.intensity = p.intensity;
+    local.push_back(point);
+    previous_ms = p.curvature;
+  }
+  sensor_msgs::msg::PointCloud2 cloud;
+  pcl::toROSMsg(local,cloud);
+  cloud.header.frame_id = "livo_lidar";
+  cloud.header.stamp = rclcpp::Time(std::llround(stamp * 1e9), RCL_ROS_TIME);
+  nav_msgs::msg::Odometry state;
+  state.header.stamp = cloud.header.stamp;
+  state.header.frame_id = "camera_init";
+  state.child_frame_id = "imu";
+  auto& pose = state.pose.pose;
+  pose.position.x = _state.pos_end.x(); pose.position.y = _state.pos_end.y(); pose.position.z = _state.pos_end.z();
+  const Eigen::Quaterniond rotation = Eigen::Quaterniond(_state.rot_end).normalized();
+  pose.orientation.x = rotation.x(); pose.orientation.y = rotation.y();
+  pose.orientation.z = rotation.z(); pose.orientation.w = rotation.w();
+  navigation_state->publish(state);
+  navigation_scan->publish(cloud);
 }
 
 void LIVMapper::publish_odometry(const rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr &pubOdomAftMapped)

@@ -135,7 +135,7 @@ set(COMMON_DEPENDENCIES OpenMP::OpenMP_CXX fmt::fmt Sophus::Sophus)
 
 # Add libraries
 add_library(vio src/vio.cpp src/frame.cpp src/visual_point.cpp)
-add_library(lio src/voxel_map.cpp)
+add_library(lio src/voxel_map.cpp src/lio_information.cpp)
 add_library(pre src/preprocess.cpp)
 add_library(imu_proc src/IMU_Processing.cpp)
 add_library(laser_mapping src/LIVMapper.cpp src/keyframe_export.cpp)
@@ -210,7 +210,7 @@ if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../../tests/visual_memory_regression.cpp"
   target_link_libraries(visual_memory_regression vio lio utils vikit_common::vikit_common vikit_ros::vikit_ros
     ${PCL_LIBRARIES} ${OpenCV_LIBRARIES} ${COMMON_DEPENDENCIES})
 endif()
-foreach(regression IN ITEMS blind_regression contract_regression geometry_regression strict_math_regression keyframe_export_regression image_window_regression)
+foreach(regression IN ITEMS blind_regression contract_regression geometry_regression strict_math_regression keyframe_export_regression image_window_regression interval_motion_regression)
   if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../../tests/${regression}.cpp")
     add_executable(${regression} EXCLUDE_FROM_ALL ../../tests/${regression}.cpp)
     ament_target_dependencies(${regression} ${dependencies})

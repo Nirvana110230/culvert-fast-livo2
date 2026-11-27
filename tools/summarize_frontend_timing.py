@@ -93,6 +93,8 @@ def summarize(directory):
     popped = total(windows, "new_points")
     tail = int(windows[-1]["carry_out"])
     queued_tail = source - popped
+    opened = total(windows,"new_scans")
+    unopened_scans = scans[opened:]
     early = total(windows, "early_gt_1us")
     imu_t = [float(r["stamp_s"]) for r in imu]
     plane_times = {float(r["cut_s"]) for r in planes}
@@ -136,6 +138,13 @@ def summarize(directory):
                    "new_points_within_1us_of_end": total(windows,"new_within_1us_cut"),
                    "before_start_over_1us": total(windows, "before_start_gt_1us"),
                    "max_rebase_error_ms": max(float(r["max_rebase_error_ms"]) for r in windows)},
+        "end_of_input": {"opened_scans":opened,"unopened_scans":len(unopened_scans),
+                         "sum_outputs_of_unopened_scans":total(unopened_scans,"output_points"),
+                         "tail_sum_matches_source_minus_opened":total(unopened_scans,"output_points")==queued_tail,
+                         "last_cut_s":cuts[-1],"last_opened_scan_max_time_minus_last_cut_ms":
+                             (float(scans[opened-1]["scan_s"])-cuts[-1])*1000+float(scans[opened-1]["max_output_ms"]) if opened else None,
+                         "first_unopened_scan_min_time_minus_last_cut_ms":
+                             (float(unopened_scans[0]["scan_s"])-cuts[-1])*1000+float(unopened_scans[0]["min_output_ms"]) if unopened_scans else None},
         "livox_preprocessing": {"messages": len(scans), "input_points": total(scans,"input_points"),
                                 "smoothed_branch_input": total(scans,"smoothing_inputs"),
                                 "changed": total(scans,"smoothing_changed"), "retained_changed": total(scans,"retained_changed"),
@@ -144,6 +153,8 @@ def summarize(directory):
                                 "changed_mean_abs_ms": sum(float(r["smoothing_abs_sum_ms"]) for r in scans) /
                                     max(1,total(scans,"smoothing_changed"))},
         "deskew": {"windows": len(deskew), "input_points": total(deskew,"input_points"),
+                   "assigned_minus_deskew_inputs": assigned-total(deskew,"input_points"),
+                   "first_initialization_window_points": int(windows[0]["current_points"]),
                    "transformed": total(deskew,"transformed_points"), "untransformed": total(deskew,"untransformed_points"),
                    "curvature_inversions": total(deskew,"time_inversions"),
                    "outside_propagation_interval_over_1us": total(deskew,"outside_interval_gt_1us")},
@@ -167,8 +178,17 @@ def compare_windows(reference, candidate):
     common = sorted(base.keys() & trial.keys(), key=float)
     delta = [int(trial[k]["current_points"])-int(base[k]["current_points"]) for k in common]
     differences = sorted(zip(common,delta),key=lambda x:abs(x[1]),reverse=True)
-    return {"reference_windows":len(base), "candidate_windows":len(trial), "same_stamps":len(common),
+    fields=("current_points","new_points","carry_in","carry_out","queued_scans","queued_points",
+            "early_gt_1us","before_start_gt_1us","offset_min_ms","offset_max_ms","max_rebase_error_ms")
+    identity_fields={"imu_init_samples.csv":"initialization_samples_identical","deskew_timing.csv":"deskew_table_identical",
+                     "preprocess_timing.csv":"preprocess_table_identical","plane_constraints.csv":"plane_diagnostics_identical"}
+    return {"reference_timing_windows_sha256":hashlib.sha256((reference/"timing_windows.csv").read_bytes()).hexdigest(),
+            "candidate_timing_windows_sha256":hashlib.sha256((candidate/"timing_windows.csv").read_bytes()).hexdigest(),
+            "reference_windows":len(base), "candidate_windows":len(trial), "same_stamps":len(common),
             "same_start_and_end":sum(base[k]["start_s"]==trial[k]["start_s"] for k in common),
+            "differing_rows_on_paired_stamps_by_field":{field:sum(base[k][field]!=trial[k][field] for k in common) for field in fields},
+            "identical_tables":{label:hashlib.sha256((reference/f).read_bytes()).digest()==hashlib.sha256((candidate/f).read_bytes()).digest()
+                                for f,label in identity_fields.items()},
             "count_changed_on_paired_stamps":sum(d!=0 for d in delta), "net_change_on_paired_stamps":sum(delta),
             "maximum_absolute_window_count_change":max(map(abs,delta),default=0),
             "assigned_returns_acquired_after_cut_over_1us_reference":sum(int(base[k]["early_gt_1us"]) for k in common),

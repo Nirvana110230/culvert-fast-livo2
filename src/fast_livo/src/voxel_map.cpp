@@ -12,6 +12,7 @@ which is included as part of this source code package.
 
 #include "voxel_map.h"
 #include "replay_timing_audit.hpp"
+#include "lio_information.hpp"
 #include "startup_parameters.h"
 #include <limits>
 #include <stdexcept>
@@ -395,9 +396,13 @@ void VoxelMapManager::StateEstimation(StatesGroup &state_propagat)
 
   bool flg_EKF_inited, flg_EKF_converged, EKF_stop_flg = 0;
   last_iterations_ = 0;
+  const bool sample_information = lio_information::Sample::due(replay_timing::windowEnd());
   for (int iterCount = 0; iterCount < config_setting_.max_iterations_; iterCount++)
   {
     ++last_iterations_;
+    lio_information::Sample information;
+    if (sample_information)
+      information.frame(state_.rot_end, state_.gravity, state_.pos_end + state_.rot_end * extT_);
     double total_residual = 0.0;
     pcl::PointCloud<pcl::PointXYZI>::Ptr world_lidar(new pcl::PointCloud<pcl::PointXYZI>);
     TransformLidar(state_.rot_end, state_.pos_end, feats_down_body_, world_lidar);
@@ -473,12 +478,15 @@ void VoxelMapManager::StateEstimation(StatesGroup &state_propagat)
 
       double sigma_l = J_nq * ptpl_list_[i].plane_var_ * J_nq.transpose();
 
-      R_inv(i) = 1.0 / (0.001 + sigma_l + ptpl_list_[i].normal_.transpose() * var * ptpl_list_[i].normal_);
+      const double sigma_point = ptpl_list_[i].normal_.transpose() * var * ptpl_list_[i].normal_;
+      R_inv(i) = 1.0 / (0.001 + sigma_l + sigma_point);
       // R_inv(i) = 1.0 / (sigma_l + ptpl_list_[i].normal_.transpose() * var * ptpl_list_[i].normal_);
 
       /*** calculate the Measuremnt Jacobian matrix H ***/
       V3D A(point_crossmat * state_.rot_end.transpose() * ptpl_list_[i].normal_);
       Hsub.row(i) << VEC_FROM_ARRAY(A), ptpl_list_[i].normal_[0], ptpl_list_[i].normal_[1], ptpl_list_[i].normal_[2];
+      if (sample_information)
+        information.add(ptpl.point_w_, ptpl.normal_, A, point_this.squaredNorm(), sigma_l, sigma_point, R_inv(i));
       Hsub_T_R_inv.col(i) << A[0] * R_inv(i), A[1] * R_inv(i), A[2] * R_inv(i), ptpl_list_[i].normal_[0] * R_inv(i),
           ptpl_list_[i].normal_[1] * R_inv(i), ptpl_list_[i].normal_[2] * R_inv(i);
       meas_vec(i) = -ptpl_list_[i].dis_to_plane_;
@@ -524,6 +532,8 @@ void VoxelMapManager::StateEstimation(StatesGroup &state_propagat)
       EKF_stop_flg = true;
     }
     if (EKF_stop_flg) {
+      if (sample_information)
+        information.write(replay_timing::windowEnd(), last_iterations_, H_T_H.block<6,6>(0,0));
       if (replay_timing::directory()) {
         const V3D lidar_origin = state_.pos_end + state_.rot_end * extT_;
         replay_timing::planes(ptpl_list_, state_.gravity, lidar_origin, last_iterations_);

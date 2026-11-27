@@ -150,7 +150,7 @@ void ImuProcess::IMU_init(const MeasureGroup &meas, StatesGroup &state_inout, in
   IMU_mean_acc_norm = mean_acc.norm();
   state_inout.gravity = -mean_acc / mean_acc.norm() * G_m_s2;
   state_inout.rot_end = Eye3d; // Exp(mean_acc.cross(V3D(0, 0, -1 / scale_gravity)));
-  state_inout.bias_g = Zero3d; // mean_gyr;
+  state_inout.bias_g = stationary_start_gyro_bias_ ? mean_gyr : Zero3d;
 
   last_imu = meas.imu.back();
 }
@@ -501,12 +501,15 @@ void ImuProcess::UndistortPcl(LidarMeasureGroup &lidar_meas, StatesGroup &state_
     for (auto head = std::next(IMUpose.rbegin()); head != IMUpose.rend() && it_pcl != points_end; ++head)
     {
       const bool oldest = std::next(head) == IMUpose.rend();
+      // Propagation saves this interval's average gyro and world acceleration
+      // on its END knot. Pose and velocity for interpolation start at the head.
+      const auto motion = interval_deskew_ ? std::prev(head) : head;
       R_imu << MAT_FROM_ARRAY(head->rot);
-      acc_imu << VEC_FROM_ARRAY(head->acc);
+      acc_imu << VEC_FROM_ARRAY(motion->acc);
       // cout<<"head imu acc: "<<acc_imu.transpose()<<endl;
       vel_imu << VEC_FROM_ARRAY(head->vel);
       pos_imu << VEC_FROM_ARRAY(head->pos);
-      angvel_avr << VEC_FROM_ARRAY(head->gyr);
+      angvel_avr << VEC_FROM_ARRAY(motion->gyr);
 
       // printf("head->offset_time: %lf \n", head->offset_time);
       // printf("it_pcl->curvature: %lf pt dt: %lf \n", it_pcl->curvature,
@@ -537,6 +540,10 @@ void ImuProcess::UndistortPcl(LidarMeasureGroup &lidar_meas, StatesGroup &state_
     }
     if (replay_timing::directory())
       replay_timing::deskew(prop_beg_time, prop_end_time, pcl_wait_proc.points, std::distance(it_pcl, points_end), IMUpose.size());
+    deskew_duration_s = prop_end_time - prop_beg_time;
+    if (!meas.imu.empty() && it_pcl == points_end && deskew_duration_s > 0 &&
+        std::abs(dt_all - deskew_duration_s) <= 1e-6)
+      deskew_reference_s = prop_end_time;
     pcl_out = pcl_wait_proc;
     pcl_wait_proc.clear();
     IMUpose.clear();
@@ -546,6 +553,7 @@ void ImuProcess::UndistortPcl(LidarMeasureGroup &lidar_meas, StatesGroup &state_
 
 void ImuProcess::Process2(LidarMeasureGroup &lidar_meas, StatesGroup &stat, PointCloudXYZI::Ptr cur_pcl_un_)
 {
+  deskew_reference_s = -1.0;
   double t1, t2, t3;
   t1 = omp_get_wtime();
   rcpputils::assert_true(lidar_meas.lidar != nullptr);

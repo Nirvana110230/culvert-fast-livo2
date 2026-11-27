@@ -43,6 +43,7 @@ public:
   void stateEstimationAndMapping();
   void handleVIO();
   void handleLIO();
+  void publishNavigationSource();
   void savePCD();
   void processImu();
   
@@ -183,6 +184,8 @@ public:
   rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr pubLaserCloudEffect;
   rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr pubLaserCloudMap;
   rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr pubOdomAftMapped;
+  rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr navigation_state;
+  rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr navigation_scan;
   rclcpp::Publisher<nav_msgs::msg::Path>::SharedPtr pubPath;
   rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr pubLaserCloudDyn;
   rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr pubLaserCloudDynRmed;
