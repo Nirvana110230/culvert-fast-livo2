@@ -1,4 +1,5 @@
 #include "LIVMapper.h"
+#include "lidar_image_windows.hpp"
 #include <cmath>
 #include <iomanip>
 #include <iostream>
@@ -21,7 +22,7 @@ auto imuAt(double stamp)
 void checkSync(LIVMapper& mapper)
 {
   LidarMeasureGroup group;
-  auto sync = [&] { return mapper.sync_packages(group); };
+  auto sync = [&](bool eof = false) { return mapper.sync_packages(group, eof); };
   require(mapper.slam_mode_ == LIVO && !sync(), "empty LIVO startup");
   cv::Mat image(4, 4, CV_8UC1, cv::Scalar(42));
   mapper.img_buffer.push_back(image);
@@ -35,6 +36,16 @@ void checkSync(LIVMapper& mapper)
   cloud->push_back(point);
   mapper.lid_raw_data_buffer.push_back(cloud);
   mapper.lid_header_time_buffer.push_back(10.0);
+  mapper.last_timestamp_lidar = 10.0;
+  auto old_livox = std::make_shared<livox_ros_driver2::msg::CustomMsg>();
+  old_livox->header.stamp = sec2Stamp(1.0);
+  auto old_standard = std::make_shared<sensor_msgs::msg::PointCloud2>();
+  old_standard->header.stamp = old_livox->header.stamp;
+  mapper.livox_pcl_cbk(old_livox);
+  mapper.standard_pcl_cbk(old_standard);
+  require(mapper.last_timestamp_lidar == 10.0 && mapper.lid_header_time_buffer.size() == 1 &&
+          mapper.lid_header_time_buffer.front() == 10.0 && mapper.lid_raw_data_buffer.size() == 1 &&
+          mapper.lid_raw_data_buffer.front() == cloud, "out-of-order callbacks changed header/cloud pairing");
   mapper.imu_buffer.push_back(imuAt(10.125));
   require(!sync(), "camera time exceeds LiDAR coverage");
   cloud->points.back().curvature = 125;
@@ -43,10 +54,12 @@ void checkSync(LIVMapper& mapper)
   mapper.imu_buffer.clear();
   require(!sync(), "startup requires IMU");
   mapper.imu_buffer.push_back(imuAt(10.125));
-  require(sync() && group.lio_vio_flg == LIO, "complete coverage must produce LIO");
+  if (lidar_image_windows::strictEnabled()) require(!sync(), "in-flight overlap still possible");
+  require(sync(true) && group.lio_vio_flg == LIO, "complete EOF coverage must produce LIO");
   const double lio_time = group.measures.back().lio_time;
   require(lio_time == 10.125 && group.measures.back().imu.size() == 1 &&
-          mapper.lid_raw_data_buffer.empty() && mapper.imu_buffer.empty(), "LIO cut at EOF");
+          mapper.lid_raw_data_buffer.size() == std::size_t(lidar_image_windows::strictEnabled()) &&
+          mapper.imu_buffer.empty(), "LIO cut at EOF");
   // LIO has finished processing this group. No future sensor messages will arrive.
   group.last_lio_update_time = lio_time;
   mapper.img_buffer.clear();
@@ -61,6 +74,14 @@ void checkSync(LIVMapper& mapper)
   mapper.img_time_buffer.push_back(10.25);
   require(!sync() && group.lio_vio_flg == VIO && mapper.img_buffer.size() == 1,
           "new pair still requires new measurements after VIO");
+  // Start the independent LIO-only fixture after checking the retained tail.
+  mapper.lid_raw_data_buffer.clear();
+  mapper.lid_header_time_buffer.clear();
+  cloud->clear();
+  point.curvature = 0;
+  cloud->push_back(point);
+  point.curvature = 125;
+  cloud->push_back(point);
   mapper.slam_mode_ = ONLY_LIO;
   mapper.img_en = 0;
   require(!sync(), "ONLY_LIO must still wait");

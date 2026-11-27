@@ -22,6 +22,7 @@ def main():
     parser.add_argument("--params", type=Path, help="recorded resolved.yaml")
     parser.add_argument("--imu-noise", type=float, nargs=2, metavar=("ACC", "GYR"))
     parser.add_argument("--lio", action="store_true", help="scan-clock LIO, without the camera")
+    parser.add_argument("--strict-windows", action="store_true", help="use half-open image time windows")
     args = parser.parse_args()
     run = args.output.resolve()
     bag = args.bag.resolve(strict=True)
@@ -52,8 +53,11 @@ def main():
                FAST_LIVO2_SESSION_ID=run.name, FAST_LIVO2_GRAVITY_DIR=str(run),
                FAST_LIVO2_CONFIG_SHA256=config_id, FAST_LIVO2_ALGORITHM_SHA256=identity["sha256"],
                ROS_DOMAIN_ID=os.getenv("FAST_LIVO2_REPLAY_DOMAIN", "216"), MALLOC_ARENA_MAX="2")
+    if args.strict_windows:
+        env["FAST_LIVO_STRICT_WINDOWS"] = "1"
     manifest = dict(bag=str(bag), config_sha256=config_id, config_source=str(args.params or ROOT / "configs"),
-                    imu_noise=args.imu_noise, lio=args.lio, input_order="rosbag2 sequential reader")
+                    imu_noise=args.imu_noise, lio=args.lio, strict_windows=env.get("FAST_LIVO_STRICT_WINDOWS") == "1",
+                    input_order="rosbag2 sequential reader")
     write_json(run / "offline.json", manifest)
     started = time.monotonic()
     command = [str(ALGORITHM), "--ros-args", "--disable-external-lib-logs", "--params-file", str(config)]

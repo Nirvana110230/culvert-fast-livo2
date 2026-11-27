@@ -19,6 +19,7 @@ which is included as part of this source code package.
 #include "keyframe_export.h"
 #include "rolling_csv.hpp"
 #include "replay_timing_audit.hpp"
+#include "lidar_image_windows.hpp"
 #include "startup_parameters.h"
 #include <vikit/camera_loader.h>
 
@@ -675,6 +676,7 @@ void LIVMapper::run(rclcpp::Node::SharedPtr &node, std::function<bool()> next_re
       "lidar_rx,imu_rx,image_rx,image_queue,vio_frames,visual_update_frames,visual_update_steps,synced");
   double last_sample = -1.0;
   unsigned long long synced = 0;
+  bool input_eof = false;
   const auto wall = [] {return std::chrono::duration<double>(std::chrono::steady_clock::now().time_since_epoch()).count();};
   while (rclcpp::ok()) 
   {
@@ -689,11 +691,14 @@ void LIVMapper::run(rclcpp::Node::SharedPtr &node, std::function<bool()> next_re
     if (img_buffer.size()>64 || lid_raw_data_buffer.size()>100 || imu_buffer.size()>kMaxImuQueue)
       throw std::runtime_error("Input queues stalled: stopping before memory exhaustion");
     auto images_before = img_buffer.size();
-    if (!sync_packages(LidarMeasures))
+    if (!sync_packages(LidarMeasures, input_eof))
     {
       if (!next_record) rate.sleep();
       // A rejected image may expose a second, already eligible window at EOF.
-      else if (images_before == img_buffer.size() && !next_record()) break;
+      else if (images_before == img_buffer.size()) {
+        if (input_eof) break;
+        input_eof = !next_record();
+      }
       continue;
     }
     const double processing_begin=wall();
@@ -890,24 +895,29 @@ void LIVMapper::standard_pcl_cbk(const sensor_msgs::msg::PointCloud2::ConstShare
 {
   ++eval_lidar_rx;
   if (!lidar_en) return;
-  mtx_buffer.lock();
+  std::unique_lock<std::mutex> lock(mtx_buffer);
 
   double cur_head_time = stamp2Sec(msg->header.stamp) + lidar_time_offset;
   // cout<<"got feature"<<endl;
   if (cur_head_time < last_timestamp_lidar)
   {
-    RCLCPP_ERROR(this->node->get_logger(),"lidar loop back, clear buffer");
-    lid_raw_data_buffer.clear();
+    RCLCPP_WARN(this->node->get_logger(), "Ignoring out-of-order LiDAR scan %.9f after %.9f", cur_head_time, last_timestamp_lidar);
+    return;
   }
   // ROS_INFO("get point cloud at time: %.6f", stamp2Sec(msg->header.stamp));
   PointCloudXYZI::Ptr ptr(new PointCloudXYZI());
   p_pre->process(msg, ptr);
+  if (ptr->empty()) {
+    RCLCPP_WARN(this->node->get_logger(), "Ignoring empty LiDAR scan");
+    return;
+  }
+  if (lidar_image_windows::strictEnabled()) lidar_image_windows::validateOffsets(ptr->points);
   std::sort(ptr->points.begin(), ptr->points.end(), [](const PointType &a, const PointType &b) { return a.curvature < b.curvature; });
   lid_raw_data_buffer.push_back(ptr);
   lid_header_time_buffer.push_back(cur_head_time);
   last_timestamp_lidar = cur_head_time;
 
-  mtx_buffer.unlock();
+  lock.unlock();
   drainStartupImu();
   sig_buffer.notify_all();
 }
@@ -916,7 +926,7 @@ void LIVMapper::livox_pcl_cbk(const livox_ros_driver2::msg::CustomMsg::ConstShar
 {
   ++eval_lidar_rx;
   if (!lidar_en) return;
-  mtx_buffer.lock();
+  std::unique_lock<std::mutex> lock(mtx_buffer);
   livox_ros_driver2::msg::CustomMsg::SharedPtr msg(new livox_ros_driver2::msg::CustomMsg(*msg_in));
   // if ((abs(stamp2Sec(msg->header.stamp) - last_timestamp_lidar) > 0.2 && last_timestamp_lidar > 0) || sync_jump_flag)
   // {
@@ -935,8 +945,8 @@ void LIVMapper::livox_pcl_cbk(const livox_ros_driver2::msg::CustomMsg::ConstShar
   RCLCPP_DEBUG(this->node->get_logger(), "Get LiDAR, its header time: %.6f", cur_head_time);
   if (cur_head_time < last_timestamp_lidar)
   {
-    RCLCPP_ERROR(this->node->get_logger(), "lidar loop back, clear buffer");
-    lid_raw_data_buffer.clear();
+    RCLCPP_WARN(this->node->get_logger(), "Ignoring out-of-order Livox scan %.9f after %.9f", cur_head_time, last_timestamp_lidar);
+    return;
   }
   RCLCPP_DEBUG(this->node->get_logger(), "get point cloud at time: %.6f", stamp2Sec(msg->header.stamp));
   PointCloudXYZI::Ptr ptr(new PointCloudXYZI());
@@ -944,16 +954,16 @@ void LIVMapper::livox_pcl_cbk(const livox_ros_driver2::msg::CustomMsg::ConstShar
 
   if (!ptr || ptr->empty()) {
     RCLCPP_ERROR(this->node->get_logger(), "Received an empty point cloud");
-    mtx_buffer.unlock();
     return;
   }
 
+  if (lidar_image_windows::strictEnabled()) lidar_image_windows::validateOffsets(ptr->points);
   std::sort(ptr->points.begin(), ptr->points.end(), [](const PointType &a, const PointType &b) { return a.curvature < b.curvature; });
   lid_raw_data_buffer.push_back(ptr);
   lid_header_time_buffer.push_back(cur_head_time);
   last_timestamp_lidar = cur_head_time;
 
-  mtx_buffer.unlock();
+  lock.unlock();
   drainStartupImu();
   sig_buffer.notify_all();
 }
@@ -1108,7 +1118,7 @@ void LIVMapper::img_cbk(const sensor_msgs::msg::Image::ConstSharedPtr &msg_in)
   sig_buffer.notify_all();
 }
 
-bool LIVMapper::sync_packages(LidarMeasureGroup &meas)
+bool LIVMapper::sync_packages(LidarMeasureGroup &meas, bool input_eof)
 {
   if (!rclcpp::ok()) return false;
   if (img_en && (img_buffer.empty() || img_time_buffer.empty())) return false;
@@ -1191,7 +1201,6 @@ bool LIVMapper::sync_packages(LidarMeasureGroup &meas)
       // printf("[ Data Cut ] last_lio_update_time: %lf \n",
       // meas.last_lio_update_time);
 
-      double lid_newest_time = lid_header_time_buffer.back() + lid_raw_data_buffer.back()->points.back().curvature / double(1000);
       double imu_newest_time = stamp2Sec(imu_buffer.back()->header.stamp);
 
       if (img_capture_time < meas.last_lio_update_time + 0.00001)
@@ -1202,7 +1211,10 @@ bool LIVMapper::sync_packages(LidarMeasureGroup &meas)
         return false;
       }
 
-      if (img_capture_time > lid_newest_time || img_capture_time > imu_newest_time)
+      const bool lidar_covered = lidar_image_windows::strictEnabled()
+        ? lidar_image_windows::covered(lid_raw_data_buffer, lid_header_time_buffer, img_capture_time, input_eof)
+        : img_capture_time <= lid_header_time_buffer.back() + lid_raw_data_buffer.back()->points.back().curvature / 1000.0;
+      if (!lidar_covered || img_capture_time > imu_newest_time)
       {
         // RCLCPP_ERROR(this->node->get_logger(), "lost first camera frame");
         // printf("img_capture_time, lid_newest_time, imu_newest_time: %lf , %lf
@@ -1230,62 +1242,66 @@ bool LIVMapper::sync_packages(LidarMeasureGroup &meas)
       mtx_buffer.unlock();
       sig_buffer.notify_all();
 
-      *(meas.pcl_proc_cur) = *(meas.pcl_proc_next);
-      PointCloudXYZI().swap(*meas.pcl_proc_next);
       auto *audit = replay_timing::directory() ? &replay_timing::windows() : nullptr;
-      if (audit) {
-        audit->begin(meas.last_lio_update_time, m.lio_time);
-        if (audit->carry.size() != meas.pcl_proc_cur->size())
-          throw std::runtime_error("timing audit carry provenance mismatch");
-        for (std::size_t i=0; i<audit->carry.size(); ++i)
-          audit->assigned(audit->carry[i], meas.pcl_proc_cur->points[i].curvature, true);
-        audit->carry.clear();
-      }
-
-      int lid_frame_num = lid_raw_data_buffer.size();
-      int max_size = meas.pcl_proc_cur->size() + 24000 * lid_frame_num;
-      meas.pcl_proc_cur->reserve(max_size);
-      meas.pcl_proc_next->reserve(max_size);
-      // deque<PointCloudXYZI::Ptr> lidar_buffer_tmp;
-
-      while (!lid_raw_data_buffer.empty())
-      {
-        if (lid_header_time_buffer.front() > img_capture_time) break;
-        auto pcl(lid_raw_data_buffer.front()->points);
-        double frame_header_time(lid_header_time_buffer.front());
-        float max_offs_time_ms = (m.lio_time - frame_header_time) * 1000.0f;
-        if (audit) { ++audit->new_scans; audit->popped += pcl.size(); }
-
-        for (int i = 0; i < pcl.size(); i++)
-        {
-          auto pt = pcl[i];
-          const replay_timing::SourceTime source{frame_header_time, pt.curvature};
-          if (audit) {
-            const double delta = source.relativeTo(m.lio_time);
-            audit->exact_end += delta == 0;
-            audit->near_end += std::abs(delta) <= replay_timing::tolerance_ms;
-          }
-          if (pcl[i].curvature < max_offs_time_ms)
-          {
-            pt.curvature += (frame_header_time - meas.last_lio_update_time) * 1000.0f;
-            meas.pcl_proc_cur->points.push_back(pt);
-            if (audit) audit->assigned(source, pt.curvature, false);
-          }
-          else
-          {
-            pt.curvature += (frame_header_time - m.lio_time) * 1000.0f;
-            meas.pcl_proc_next->points.push_back(pt);
-            if (audit) audit->carry.push_back(source);
-          }
+      if (audit) audit->begin(meas.last_lio_update_time, m.lio_time);
+      if (lidar_image_windows::strictEnabled()) {
+        if (audit) audit->countStrictInputs(lid_raw_data_buffer, lid_header_time_buffer);
+        lidar_image_windows::consume(lid_raw_data_buffer, lid_header_time_buffer, *meas.pcl_proc_cur,
+          meas.last_lio_update_time, m.lio_time, [&](const void *id, double header, float original, float actual) {
+            if (audit) audit->assigned({header, original}, actual, audit->partial_scans.count(id) != 0);
+          });
+        if (audit) audit->finishStrict(lid_raw_data_buffer, lid_header_time_buffer, meas.pcl_proc_cur->size());
+      } else {
+        *(meas.pcl_proc_cur) = *(meas.pcl_proc_next);
+        PointCloudXYZI().swap(*meas.pcl_proc_next);
+        if (audit) {
+          if (audit->carry.size() != meas.pcl_proc_cur->size())
+            throw std::runtime_error("timing audit carry provenance mismatch");
+          for (std::size_t i = 0; i < audit->carry.size(); ++i)
+            audit->assigned(audit->carry[i], meas.pcl_proc_cur->points[i].curvature, true);
+          audit->carry.clear();
         }
-        lid_raw_data_buffer.pop_front();
-        lid_header_time_buffer.pop_front();
-      }
 
-      if (audit) {
-        std::size_t queued = 0;
-        for (const auto &scan : lid_raw_data_buffer) queued += scan->size();
-        audit->finish(meas.pcl_proc_cur->size(), meas.pcl_proc_next->size(), queued, lid_raw_data_buffer.size());
+        int lid_frame_num = lid_raw_data_buffer.size();
+        int max_size = meas.pcl_proc_cur->size() + 24000 * lid_frame_num;
+        meas.pcl_proc_cur->reserve(max_size);
+        meas.pcl_proc_next->reserve(max_size);
+
+        while (!lid_raw_data_buffer.empty())
+        {
+          if (lid_header_time_buffer.front() > img_capture_time) break;
+          auto pcl(lid_raw_data_buffer.front()->points);
+          double frame_header_time(lid_header_time_buffer.front());
+          float max_offs_time_ms = (m.lio_time - frame_header_time) * 1000.0f;
+          if (audit) { ++audit->new_scans; audit->popped += pcl.size(); }
+
+          for (int i = 0; i < pcl.size(); i++)
+          {
+            auto pt = pcl[i];
+            const replay_timing::SourceTime source{frame_header_time, pt.curvature};
+            if (audit) audit->inspectNewPoint(source);
+            if (pcl[i].curvature < max_offs_time_ms)
+            {
+              pt.curvature += (frame_header_time - meas.last_lio_update_time) * 1000.0f;
+              meas.pcl_proc_cur->points.push_back(pt);
+              if (audit) audit->assigned(source, pt.curvature, false);
+            }
+            else
+            {
+              pt.curvature += (frame_header_time - m.lio_time) * 1000.0f;
+              meas.pcl_proc_next->points.push_back(pt);
+              if (audit) audit->carry.push_back(source);
+            }
+          }
+          lid_raw_data_buffer.pop_front();
+          lid_header_time_buffer.pop_front();
+        }
+
+        if (audit) {
+          std::size_t queued = 0;
+          for (const auto &scan : lid_raw_data_buffer) queued += scan->size();
+          audit->finish(meas.pcl_proc_cur->size(), meas.pcl_proc_next->size(), queued, lid_raw_data_buffer.size(), audit->carry.size());
+        }
       }
       meas.measures.push_back(m);
       meas.lio_vio_flg = LIO;

@@ -8,14 +8,22 @@
 #include <iomanip>
 #include <limits>
 #include <stdexcept>
+#include <set>
 #include <vector>
 
 namespace replay_timing {
 
 inline const char *directory()
 {
-  static const char *path = std::getenv("FAST_LIVO_KEYFRAMES");
-  return path && *path ? path : nullptr;
+  static const char *path = []() -> const char * {
+    const char *requested = std::getenv("FAST_LIVO_DIAGNOSTICS_DIR");
+    if (requested && *requested) return requested;
+    const char *offline = std::getenv("FAST_LIVO2_OFFLINE_BAG");
+    if (!offline || !*offline) return nullptr;
+    const char *keyframes = std::getenv("FAST_LIVO_KEYFRAMES");
+    return keyframes && *keyframes ? keyframes : nullptr;
+  }();
+  return path;
 }
 
 inline std::ofstream csv(const char *name, const char *columns)
@@ -44,6 +52,7 @@ struct Window {
   unsigned long long popped = 0, carry_in = 0, used = 0, late = 0, early = 0, early_carry = 0, exact_end = 0, near_end = 0;
   unsigned long long assigned_exact_end = 0, assigned_near_end = 0, new_scans = 0;
   std::vector<SourceTime> carry;
+  std::set<const void *> partial_scans;
 
   void begin(double a, double b)
   {
@@ -69,11 +78,49 @@ struct Window {
     }
   }
 
-  void finish(std::size_t current, std::size_t next, std::size_t queue_points, std::size_t queued_scans)
+  void inspectNewPoint(SourceTime source)
+  {
+    const double delta = source.relativeTo(end);
+    exact_end += delta == 0;
+    near_end += std::abs(delta) <= tolerance_ms;
+  }
+
+  template<class Clouds, class Headers>
+  void countStrictInputs(const Clouds &clouds, const Headers &headers)
+  {
+    for (std::size_t i = 0; i < clouds.size() && headers[i] <= end; ++i) {
+      const auto &cloud = clouds[i];
+      if (partial_scans.count(cloud.get())) {
+        carry_in += cloud->size();
+        continue;
+      }
+      ++new_scans;
+      popped += cloud->size();
+      for (const auto &p : cloud->points) inspectNewPoint({headers[i], p.curvature});
+    }
+  }
+
+  template<class Clouds, class Headers>
+  void finishStrict(const Clouds &clouds, const Headers &headers, std::size_t current)
+  {
+    partial_scans.clear();
+    std::size_t remainder = 0, unseen = 0;
+    for (std::size_t i = 0; i < clouds.size(); ++i) {
+      if (headers[i] <= end) {
+        partial_scans.insert(clouds[i].get());
+        remainder += clouds[i]->size();
+      } else {
+        unseen += clouds[i]->size();
+      }
+    }
+    finish(current, remainder, unseen, clouds.size() - partial_scans.size(), remainder);
+  }
+
+  void finish(std::size_t current, std::size_t next, std::size_t queue_points, std::size_t queued_scans, std::size_t provenance_next)
   {
     static auto file = csv("timing_windows.csv",
       "start_s,end_s,new_scans,new_points,carry_in,current_points,carry_out,queued_scans,queued_points,identity_count_ok,early_gt_1us,early_carried_gt_1us,before_start_gt_1us,early_sum_ms,early_max_ms,offset_min_ms,offset_max_ms,max_rebase_error_ms,new_exact_cut,new_within_1us_cut,assigned_exact_cut,assigned_within_1us_cut");
-    const bool balanced = used == current && carry.size() == next && popped + carry_in == current + next;
+    const bool balanced = used == current && provenance_next == next && popped + carry_in == current + next;
     file << start << ',' << end << ',' << new_scans << ',' << popped << ',' << carry_in << ',' << current
          << ',' << next << ',' << queued_scans << ',' << queue_points << ',' << balanced << ',' << early
          << ',' << early_carry << ',' << late << ',' << early_sum << ',' << early_max << ','
