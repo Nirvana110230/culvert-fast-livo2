@@ -1,0 +1,14 @@
+{
+  "run": "../first_dds/20261127T152248Z_7bff46e490",
+  "counts": {
+    "state": 7064,
+    "scan": 7064,
+    "tf": 389
+  },
+  "same_stamp_pairs": 7064,
+  "keyframes": 389,
+  "keyframes_with_full_pair": 389,
+  "keyframes_with_tf": 389,
+  "foreign_tf_stamps": 0,
+  "wrong_frame_or_layout": []
+}

@@ -1,0 +1,381 @@
+{
+  "source": "live sync, preprocess, IMU_init, deskew and final-iteration plane match instrumentation",
+  "input_file_sha256": {
+    "timing_windows.csv": "e437eb29b914178a055b1e2892b3408e3ef42658635fe7ad951936806b72f5cb",
+    "preprocess_timing.csv": "e934aa67b0378cad4710faec1325f6618df6cd668e7b8e85f0abe05a5a6bafcb",
+    "plane_constraints.csv": "a27c8cd79224c51ed467e399e868bc3dbff0fb31f906ec53b633fcc41d78b8ec",
+    "imu_init_samples.csv": "1ba0caf94d4150c46723e9be45f10abcd61b98f309c0778447dbc7043e9f9836",
+    "deskew_timing.csv": "64d992ed3905c16f0f0f5670f88a49eef4d70ac5d48943249c162999909c911e"
+  },
+  "criteria": {
+    "clock": "source scan header plus effective float curvature, ms; before deskew",
+    "early": "acquisition strictly more than 1 microsecond after accepted end; exact and near-cut reported separately",
+    "surface_classes": "within 20 degrees of gravity axis and >0.20 m above/below LiDAR origin for ceiling/ground candidates; within 20 degrees of perpendicular for wall candidates",
+    "residual": "absolute signed point-to-plane distance from final accepted iteration, metres; each matched point counted once per update",
+    "initial_acceleration_units": "message-native Livox axes, no m/s^2 conversion by driver",
+    "normal_tensor": "unit plane-normal outer products in estimator world axes, invariant to normal sign"
+  },
+  "accepted_half_open_windows": 18285,
+  "window_end_range_s": [
+    1590192138.0002801,
+    1590193966.7000458
+  ],
+  "window_width_ms": {
+    "n": 18285,
+    "min": 99.8380184173584,
+    "p50": 99.84016418457031,
+    "p95_nearest_rank": 100.32010078430176,
+    "max": 3099.99418258667
+  },
+  "scan_count_by_number_of_interior_accepted_cuts": {
+    "0": 6404,
+    "1": 6174,
+    "2": 5777
+  },
+  "points": {
+    "preprocess_output": 97737410,
+    "popped_from_source_queues": 97532745,
+    "assigned": 97532728,
+    "pending_next_window_at_end": 17,
+    "callback_output_never_popped": 204665,
+    "last_accepted_window_observed_raw_queue_points": 5511,
+    "windows_with_count_mismatch": 0,
+    "carry_continuity_errors": 0,
+    "popped_minus_assigned_minus_pending": 0,
+    "early_over_1us": 0,
+    "early_carried_over_1us": 0,
+    "early_fraction_of_assigned": 0.0,
+    "affected_window_count": 0,
+    "early_max_ms": 0.0,
+    "affected_window_maximum_ms": {
+      "n": 0
+    },
+    "worst_window_end_s": null,
+    "early_mean_ms": null,
+    "assigned_at_exact_end": 0,
+    "assigned_within_1us_of_end": 405,
+    "new_points_at_exact_end": 0,
+    "new_points_within_1us_of_end": 249,
+    "before_start_over_1us": 0,
+    "max_rebase_error_ms": 0.0001220703125
+  },
+  "end_of_input": {
+    "opened_scans": 18318,
+    "unopened_scans": 37,
+    "sum_outputs_of_unopened_scans": 204665,
+    "tail_sum_matches_source_minus_opened": true,
+    "last_cut_s": 1590193966.7000458,
+    "last_opened_scan_max_time_minus_last_cut_ms": 0.3100624084472656,
+    "first_unopened_scan_min_time_minus_last_cut_ms": 0.35953373461961746
+  },
+  "livox_preprocessing": {
+    "messages": 18355,
+    "input_points": 367099104,
+    "smoothed_branch_input": 367099104,
+    "changed": 0,
+    "retained_changed": 0,
+    "max_abs_ms": 0.0,
+    "retained_max_abs_ms": 0.0,
+    "changed_mean_abs_ms": 0.0
+  },
+  "deskew": {
+    "windows": 18284,
+    "input_points": 97373547,
+    "assigned_minus_deskew_inputs": 159181,
+    "first_initialization_window_points": 159181,
+    "transformed": 97373547,
+    "untransformed": 0,
+    "curvature_inversions": 0,
+    "outside_propagation_interval_over_1us": 0
+  },
+  "imu_initialization": {
+    "samples": 464,
+    "unique_stamps": 464,
+    "input_groups": 1,
+    "first_s": 1590192135.6818578,
+    "last_s": 1590192137.9977665,
+    "span_ms": 2315.908670425415,
+    "configured_count": 30,
+    "counter_after": 465,
+    "acceleration_native_driver_units": {
+      "axis_mean": [
+        -0.3508325034174426,
+        -0.015773240103514802,
+        0.9380207657814026
+      ],
+      "axis_population_std": [
+        0.0046116892658030414,
+        0.0032181268948398923,
+        0.0015650156545163401
+      ],
+      "norm": {
+        "n": 464,
+        "min": 0.9965000773169163,
+        "p50": 1.001240366427664,
+        "p95_nearest_rank": 1.0063873658609392,
+        "max": 1.007659044326552
+      }
+    },
+    "angular_velocity_native_driver_units": {
+      "axis_mean": [
+        -0.003914475545351361,
+        0.0021124003687873483,
+        -0.017451631322760005
+      ],
+      "axis_population_std": [
+        0.0009777427370922197,
+        0.0008807847918651506,
+        0.0014746715321459912
+      ],
+      "norm": {
+        "n": 464,
+        "min": 0.013632668558219952,
+        "p50": 0.01786169102948722,
+        "p95_nearest_rank": 0.02029380702895282,
+        "max": 0.0224736873325411
+      }
+    }
+  },
+  "plane_cuts_missing_from_window_table": 0,
+  "planes": {
+    "all": {
+      "count": 31075533,
+      "fraction_of_all": 1.0,
+      "mean_abs_m": 0.020418881767417168,
+      "rms_m": 0.03342730952241188,
+      "max_abs_m": 0.7876688838005066,
+      "per_nonempty_window_p95_abs_m": {
+        "n": 18284,
+        "min": 0.034412968903779984,
+        "p50": 0.06467944756150246,
+        "p95_nearest_rank": 0.08244171738624573,
+        "max": 0.21714721620082855
+      },
+      "mean_normal_outer_product_xx_xy_xz_yy_yz_zz": [
+        0.3527964959877572,
+        0.03373681200747691,
+        -0.017052299139645902,
+        0.24160705651372533,
+        0.011032588342264353,
+        0.4055964474985177
+      ]
+    },
+    "horizontal_below": {
+      "count": 2979381,
+      "fraction_of_all": 0.09587545932035985,
+      "mean_abs_m": 0.009693835928649216,
+      "rms_m": 0.015404781474596098,
+      "max_abs_m": 0.6352803111076355,
+      "per_nonempty_window_p95_abs_m": {
+        "n": 18275,
+        "min": 0.001304534962400794,
+        "p50": 0.020797308534383774,
+        "p95_nearest_rank": 0.0480632521212101,
+        "max": 0.30102604627609253
+      },
+      "mean_normal_outer_product_xx_xy_xz_yy_yz_zz": [
+        0.12046556666483313,
+        -0.001652076526800095,
+        -0.3214435049201639,
+        0.0010719975226345594,
+        0.004653127615392647,
+        0.8784624358125325
+      ]
+    },
+    "horizontal_above": {
+      "count": 8043871,
+      "fraction_of_all": 0.25884901153586004,
+      "mean_abs_m": 0.017354614150813373,
+      "rms_m": 0.029459013049675933,
+      "max_abs_m": 0.6746288537979126,
+      "per_nonempty_window_p95_abs_m": {
+        "n": 18284,
+        "min": 0.014370507560670376,
+        "p50": 0.051108356565237045,
+        "p95_nearest_rank": 0.07908597588539124,
+        "max": 0.4173903465270996
+      },
+      "mean_normal_outer_product_xx_xy_xz_yy_yz_zz": [
+        0.11700188121688142,
+        -0.00012278406651364604,
+        -0.3081523652581634,
+        0.005267824890439901,
+        0.00226891718325823,
+        0.8777302938926789
+      ]
+    },
+    "vertical": {
+      "count": 16595882,
+      "fraction_of_all": 0.5340497940936363,
+      "mean_abs_m": 0.020892651370585623,
+      "rms_m": 0.033047908388206704,
+      "max_abs_m": 0.7876688838005066,
+      "per_nonempty_window_p95_abs_m": {
+        "n": 18284,
+        "min": 0.034390054643154144,
+        "p50": 0.063242107629776,
+        "p95_nearest_rank": 0.08445776998996735,
+        "max": 0.2049986720085144
+      },
+      "mean_normal_outer_product_xx_xy_xz_yy_yz_zz": [
+        0.5208526169541957,
+        0.060046624291399384,
+        0.1831173097439688,
+        0.40368410352325806,
+        0.0192484852416721,
+        0.07546327952254626
+      ]
+    },
+    "other": {
+      "count": 3456399,
+      "fraction_of_all": 0.11122573505014378,
+      "mean_abs_m": 0.034520247606321226,
+      "rms_m": 0.05077269948470974,
+      "max_abs_m": 0.7546226382255554,
+      "per_nonempty_window_p95_abs_m": {
+        "n": 18284,
+        "min": 0.04378043860197067,
+        "p50": 0.10140474513173103,
+        "p95_nearest_rank": 0.1375056952238083,
+        "max": 0.23963287472724915
+      },
+      "mean_normal_outer_product_xx_xy_xz_yy_yz_zz": [
+        0.29489353608988045,
+        0.016714664082802,
+        -0.038323701544354195,
+        0.22075192055578335,
+        -0.0025217990700059046,
+        0.48435454335433625
+      ]
+    }
+  },
+  "plane_translation_sensitivity": {
+    "reference_unit_up_in_world": [
+      -0.3502698618966999,
+      -0.015747944044248816,
+      0.9365164313055302
+    ],
+    "assumption": "B1 initial world=IMU frame and uav.gravity_align_en=false",
+    "per_update_along_initialization_up": {
+      "n": 18284,
+      "min": 0.24150313274034227,
+      "p50": 0.4089741303425652,
+      "p95_nearest_rank": 0.4777979777711948,
+      "max": 0.6057583346413747
+    },
+    "per_update_along_world_z": {
+      "n": 18284,
+      "min": 0.25732278473111864,
+      "p50": 0.40652087536970377,
+      "p95_nearest_rank": 0.45682288368658003,
+      "max": 0.5756742910602335
+    },
+    "definition": "sum((n dot u)^2)/N over final point-to-plane correspondences; unweighted translation sensitivity, excludes lever arm, covariance, visual/IMU constraints"
+  },
+  "mapper_final_input_counters": {
+    "lidar_rx": 18355,
+    "imu_rx": 366943,
+    "synced": 36570,
+    "image_rx": 18288,
+    "image_remaining": 0,
+    "vio_frames": 18284,
+    "visual_update_frames": 18283,
+    "visual_update_steps": 293909,
+    "lidar_remaining": 38,
+    "imu_remaining": 741
+  },
+  "paired_window_comparison": {
+    "reference_timing_windows_sha256": "b3e564451bff039ec0526060e1a067d664aff7509d703dd7035ab8e654205ac4",
+    "candidate_timing_windows_sha256": "e437eb29b914178a055b1e2892b3408e3ef42658635fe7ad951936806b72f5cb",
+    "reference_windows": 18285,
+    "candidate_windows": 18285,
+    "same_stamps": 18285,
+    "same_start_and_end": 18285,
+    "differing_rows_on_paired_stamps_by_field": {
+      "current_points": 0,
+      "new_points": 0,
+      "carry_in": 0,
+      "carry_out": 0,
+      "queued_scans": 18136,
+      "queued_points": 18136,
+      "early_gt_1us": 0,
+      "before_start_gt_1us": 0,
+      "offset_min_ms": 0,
+      "offset_max_ms": 0,
+      "max_rebase_error_ms": 0
+    },
+    "identical_tables": {
+      "initialization_samples_identical": true,
+      "deskew_table_identical": true,
+      "preprocess_table_identical": true,
+      "plane_diagnostics_identical": false
+    },
+    "count_changed_on_paired_stamps": 0,
+    "net_change_on_paired_stamps": 0,
+    "maximum_absolute_window_count_change": 0,
+    "assigned_returns_acquired_after_cut_over_1us_reference": 0,
+    "assigned_returns_acquired_after_cut_over_1us_candidate": 0,
+    "ten_largest_window_count_changes": [
+      {
+        "cut_s": "1590192138.0002801",
+        "reference": 159181,
+        "candidate": 159181,
+        "candidate_minus_reference": 0
+      },
+      {
+        "cut_s": "1590192138.2004385",
+        "reference": 10227,
+        "candidate": 10227,
+        "candidate_minus_reference": 0
+      },
+      {
+        "cut_s": "1590192138.3002784",
+        "reference": 5139,
+        "candidate": 5139,
+        "candidate_minus_reference": 0
+      },
+      {
+        "cut_s": "1590192138.4001184",
+        "reference": 5105,
+        "candidate": 5105,
+        "candidate_minus_reference": 0
+      },
+      {
+        "cut_s": "1590192138.5004385",
+        "reference": 5130,
+        "candidate": 5130,
+        "candidate_minus_reference": 0
+      },
+      {
+        "cut_s": "1590192138.6002784",
+        "reference": 5123,
+        "candidate": 5123,
+        "candidate_minus_reference": 0
+      },
+      {
+        "cut_s": "1590192138.7001185",
+        "reference": 5129,
+        "candidate": 5129,
+        "candidate_minus_reference": 0
+      },
+      {
+        "cut_s": "1590192138.8004384",
+        "reference": 5129,
+        "candidate": 5129,
+        "candidate_minus_reference": 0
+      },
+      {
+        "cut_s": "1590192138.9002783",
+        "reference": 5117,
+        "candidate": 5117,
+        "candidate_minus_reference": 0
+      },
+      {
+        "cut_s": "1590192139.0001185",
+        "reference": 5140,
+        "candidate": 5140,
+        "candidate_minus_reference": 0
+      }
+    ]
+  }
+}

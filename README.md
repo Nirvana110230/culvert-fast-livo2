@@ -1,8 +1,10 @@
 # 香橙派 FAST-LIVO2 建图
 
+`codex/corridor-pgo` 提供严格时间分窗、测量时刻关键帧、独立 GICP／GTSAM 回环及历史几何和彩色地图重建。第二轮长包的五处留出区域和第一轮 1× ROS 2 联合回放已在 RK3588 验证。候选启动、复现和看图命令见[走廊建图技术报告](docs/corridor-pgo-20261127.md)。
+
 正式版 **B1** 继承 B0 的首帧 IMU 修复，并对 Mid-360S 使用确定的 0.5 m 最近距离。发布标签为 `stage-b1-20261127`。历史 A 和 B0 分别由 `g3-stage-a-20261126`、`g3-stage-b0-20261126` 固定，B0 同时保留在 `research/stage-b0`。已验证的安装 ELF 由板端和工作站留存，SHA256、Build ID、参数及整包回放结果见[发布记录](deploy/release.json)。
 
-仅核验维护源码、参数、标定与随仓依赖可执行：
+在正式标签 `stage-b1-20261127` 的工作树中，使用以下命令核对该发布的维护源码、参数、标定与随仓依赖。
 
 ```bash
 python3 tools/verify_release.py --source-only

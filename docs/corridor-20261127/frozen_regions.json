@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "basis": "B1 first plan before any loop registration; match by sensor timestamps",
+  "sensor_stamp_unit": "ns",
+  "maximum_time_difference_s": 2.6,
+  "radius_m": 4.0,
+  "plan_sha256": "f232f0da1bf6f33b441925dc5968a8ffe03c0978060ab365b7e56aecfdb3105b",
+  "index_sha256": "cf2d2a99545180b05cd500bf2aeabe0d1177264fc712234007a6311646f00774",
+  "pairs": [
+    {
+      "region": 1,
+      "target_id": "771",
+      "source_id": "1100",
+      "target_stamp_ns": 1590193046700169472,
+      "source_stamp_ns": 1590193392600418560
+    },
+    {
+      "region": 2,
+      "target_id": "499",
+      "source_id": "1404",
+      "target_stamp_ns": 1590192764900096768,
+      "source_stamp_ns": 1590193761000438272
+    },
+    {
+      "region": 3,
+      "target_id": "743",
+      "source_id": "1138",
+      "target_stamp_ns": 1590193017400402176,
+      "source_stamp_ns": 1590193435400263168
+    },
+    {
+      "region": 4,
+      "target_id": "817",
+      "source_id": "1055",
+      "target_stamp_ns": 1590193087500299008,
+      "source_stamp_ns": 1590193343400232960
+    },
+    {
+      "region": 5,
+      "target_id": "705",
+      "source_id": "1195",
+      "target_stamp_ns": 1590192973900275712,
+      "source_stamp_ns": 1590193505000051456
+    }
+  ]
+}

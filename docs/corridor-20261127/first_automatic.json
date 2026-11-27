@@ -1,0 +1,200 @@
+{
+  "keyframes": 389,
+  "duration_s": 703.2996303360001,
+  "tape_windows": [],
+  "accepted": [
+    {
+      "kind": "automatic",
+      "target_id": 66,
+      "source_id": 151
+    },
+    {
+      "kind": "automatic",
+      "target_id": 66,
+      "source_id": 179
+    },
+    {
+      "kind": "automatic",
+      "target_id": 86,
+      "source_id": 221
+    },
+    {
+      "kind": "automatic",
+      "target_id": 134,
+      "source_id": 268
+    },
+    {
+      "kind": "automatic",
+      "target_id": 173,
+      "source_id": 294
+    },
+    {
+      "kind": "automatic",
+      "target_id": 67,
+      "source_id": 296
+    },
+    {
+      "kind": "automatic",
+      "target_id": 56,
+      "source_id": 305
+    },
+    {
+      "kind": "automatic",
+      "target_id": 1,
+      "source_id": 308
+    },
+    {
+      "kind": "automatic",
+      "target_id": 42,
+      "source_id": 311
+    },
+    {
+      "kind": "automatic",
+      "target_id": 10,
+      "source_id": 321
+    },
+    {
+      "kind": "automatic",
+      "target_id": 25,
+      "source_id": 325
+    },
+    {
+      "kind": "automatic",
+      "target_id": 25,
+      "source_id": 334
+    },
+    {
+      "kind": "automatic",
+      "target_id": 10,
+      "source_id": 343
+    },
+    {
+      "kind": "automatic",
+      "target_id": 31,
+      "source_id": 346
+    },
+    {
+      "kind": "automatic",
+      "target_id": 4,
+      "source_id": 351
+    },
+    {
+      "kind": "automatic",
+      "target_id": 22,
+      "source_id": 366
+    },
+    {
+      "kind": "automatic",
+      "target_id": 1,
+      "source_id": 369
+    },
+    {
+      "kind": "automatic",
+      "target_id": 22,
+      "source_id": 372
+    },
+    {
+      "kind": "automatic",
+      "target_id": 1,
+      "source_id": 375
+    },
+    {
+      "kind": "automatic",
+      "target_id": 22,
+      "source_id": 378
+    },
+    {
+      "kind": "automatic",
+      "target_id": 1,
+      "source_id": 381
+    },
+    {
+      "kind": "automatic",
+      "target_id": 22,
+      "source_id": 384
+    },
+    {
+      "kind": "automatic",
+      "target_id": 1,
+      "source_id": 387
+    }
+  ],
+  "considered": 67,
+  "heldout_revisits": 3,
+  "holdout_points_removed_from_fits_with_repetition": 237706,
+  "before": {
+    "length_m": 176.65003972386543,
+    "first_last_xyz_m": [
+      0.1967746240021081,
+      0.03592907738681014,
+      0.0026348053704569737
+    ],
+    "first_last_norm_m": 0.20004522851689965,
+    "largest_step_m": 1.1001987674622438,
+    "step_p95_m": 1.0374185134020593,
+    "z_range_m": 0.3990897310066683
+  },
+  "after": {
+    "length_m": 176.67707452937103,
+    "first_last_xyz_m": [
+      0.1857122247141786,
+      0.10033375528708807,
+      0.0068307040866700955
+    ],
+    "first_last_norm_m": 0.21119316129225987,
+    "largest_step_m": 1.101602382927614,
+    "step_p95_m": 1.0375575601508609,
+    "z_range_m": 0.3741464467617762
+  },
+  "dense_lio": {
+    "count": 7064,
+    "source_stage": "LIO",
+    "interpolation": "linear translation and SLERP on T_map_odom; nearest outside keyframe range",
+    "extrapolated_by_constant_correction": 31
+  },
+  "graph": {
+    "solver": "GTSAM Pose3 Levenberg-Marquardt",
+    "initial_error": 23.95935917285195,
+    "final_error": 0.36400570539379734,
+    "iterations": 3,
+    "factor_count": 412,
+    "gauge": "first pose prior sigma 1e-5",
+    "loop_loss": "Huber 1.8 on whitened 6D residual block",
+    "consistency_passes": [
+      {
+        "input_loops": 23,
+        "graph_initial_error": 23.95935917285195,
+        "graph_final_error": 0.36400570539379734,
+        "inconsistent": []
+      }
+    ]
+  },
+  "maps": {
+    "geometry_points_each": 2076053,
+    "intensity_frames": 389,
+    "color_frames": 389,
+    "color_points_each": 244120,
+    "geometry_frames": 389
+  },
+  "bounds": {
+    "(0, 1)": {
+      "scale_px_per_m": 9.458180550419206,
+      "center_m": [
+        13.71145645413464,
+        -8.983979674981995
+      ]
+    },
+    "(0, 2)": {
+      "scale_px_per_m": 14.497705446326048,
+      "center_m": [
+        13.71145645413464,
+        -0.1016437464827078
+      ]
+    }
+  },
+  "registration_phase_s": 11.449633538000853,
+  "rebuild_s": 0.731776857001023,
+  "wall_clock_s": 16.06172468800105,
+  "peak_rss_MiB": 138.44140625,
+  "bytes_prior_to_summary": 77313951
+}

@@ -1,0 +1,275 @@
+{
+  "matrix_sha256": "7247e98611a806e63b7df0efd2e49041e61cd025658e65958e5976ee84e4ebf6",
+  "weight_sha256": "8fa285f412734dd16215b8489cd72c3598de02b32ace524283eeed3cebf0e21b",
+  "samples": 1739,
+  "valid_samples": 1739,
+  "sample_dt_s": {
+    "min": 1.0003180503845215,
+    "p05": 1.000319480895996,
+    "p50": 1.0996785163879395,
+    "p95": 1.099684476852417,
+    "max": 1.1001687049865723
+  },
+  "definition": "Final accepted point-to-plane matches, before state prior. World coordinates [RMS_arm*rotation,translation]. Per-update unweighted RMS of matched IMU-frame lever arms. Eigenvalues ascending; eigendirection sign arbitrary. No trajectory-error ground truth.",
+  "classes": {
+    "all": {
+      "count": 2951456,
+      "weight_fraction": 1.0,
+      "vertical_translation_information_fraction": 1.0,
+      "gravity_axis_scaled_rotation_information_fraction": 1.0,
+      "arithmetic_mean_R_inv_per_m2": 806.310987656025,
+      "mean_fixed_variance_m2": 0.001,
+      "mean_plane_variance_m2": 0.0004512239431447108,
+      "mean_projected_point_variance_m2": 0.0001837861850751457,
+      "component_fraction_of_summed_variance": {
+        "fixed_variance_sum_m2": 0.6116170063660499,
+        "sigma_plane_sum_m2": 0.2759762373068527,
+        "sigma_point_sum_m2": 0.11240675632709742
+      }
+    },
+    "horizontal_above": {
+      "count": 763669,
+      "weight_fraction": 0.25291047265562006,
+      "vertical_translation_information_fraction": 0.5932959498031544,
+      "gravity_axis_scaled_rotation_information_fraction": 0.005989284336887805,
+      "arithmetic_mean_R_inv_per_m2": 788.1348704720782,
+      "mean_fixed_variance_m2": 0.001,
+      "mean_plane_variance_m2": 0.00025398656103462565,
+      "mean_projected_point_variance_m2": 0.00018254712652298545,
+      "component_fraction_of_summed_variance": {
+        "fixed_variance_sum_m2": 0.6961201179348575,
+        "sigma_plane_sum_m2": 0.1768051548212925,
+        "sigma_point_sum_m2": 0.12707472724385
+      }
+    },
+    "horizontal_below": {
+      "count": 284307,
+      "weight_fraction": 0.11337930691574745,
+      "vertical_translation_information_fraction": 0.268665490400334,
+      "gravity_axis_scaled_rotation_information_fraction": 0.00036303420467915886,
+      "arithmetic_mean_R_inv_per_m2": 949.0413525037135,
+      "mean_fixed_variance_m2": 0.001,
+      "mean_plane_variance_m2": 4.8354221711542075e-05,
+      "mean_projected_point_variance_m2": 3.227159178565985e-05,
+      "component_fraction_of_summed_variance": {
+        "fixed_variance_sum_m2": 0.9253897024389278,
+        "sigma_plane_sum_m2": 0.04474649884130986,
+        "sigma_point_sum_m2": 0.02986379871976231
+      }
+    },
+    "other": {
+      "count": 337196,
+      "weight_fraction": 0.10925196264747442,
+      "vertical_translation_information_fraction": 0.1263236421542292,
+      "gravity_axis_scaled_rotation_information_fraction": 0.09057551484911626,
+      "arithmetic_mean_R_inv_per_m2": 771.0556513184058,
+      "mean_fixed_variance_m2": 0.001,
+      "mean_plane_variance_m2": 0.002392281553611751,
+      "mean_projected_point_variance_m2": 0.0001930186040568339,
+      "component_fraction_of_summed_variance": {
+        "fixed_variance_sum_m2": 0.27891667531966713,
+        "sigma_plane_sum_m2": 0.6672472173619576,
+        "sigma_point_sum_m2": 0.05383610731837532
+      }
+    },
+    "vertical": {
+      "count": 1566284,
+      "weight_fraction": 0.5244582577811581,
+      "vertical_translation_information_fraction": 0.011714917642282517,
+      "gravity_axis_scaled_rotation_information_fraction": 0.9030721666093168,
+      "arithmetic_mean_R_inv_per_m2": 796.8550101875041,
+      "mean_fixed_variance_m2": 0.001,
+      "mean_plane_variance_m2": 0.00020263932773082857,
+      "mean_projected_point_variance_m2": 0.00020990517456164636,
+      "component_fraction_of_summed_variance": {
+        "fixed_variance_sum_m2": 0.7079422973060744,
+        "sigma_plane_sum_m2": 0.14345695119832128,
+        "sigma_point_sum_m2": 0.14860075149560448
+      }
+    }
+  },
+  "rms_arm_m": {
+    "min": 3.776284162935623,
+    "p05": 4.9063830648866595,
+    "p50": 5.578253472596082,
+    "p95": 6.865486978947481,
+    "max": 7.849533282398487
+  },
+  "lambda_min_over_max": {
+    "min": 0.024176477737712435,
+    "p05": 0.03858435373348258,
+    "p50": 0.07631584399117745,
+    "p95": 0.16492599772907587,
+    "max": 0.2674674663568993
+  },
+  "weak_rotation_norm": {
+    "min": 0.10286629852621831,
+    "p05": 0.8052147301971161,
+    "p50": 0.9503019245531119,
+    "p95": 0.9732525606251496,
+    "max": 0.9873880883968308
+  },
+  "weak_translation_norm": {
+    "min": 0.15831854879341178,
+    "p05": 0.22973777559131173,
+    "p50": 0.31132981256322206,
+    "p95": 0.5929833367396177,
+    "max": 0.9946951918188383
+  },
+  "weak_abs_translation_projection_up": {
+    "min": 4.200252353801152e-05,
+    "p05": 0.013286889815492722,
+    "p50": 0.14460234571489033,
+    "p95": 0.3922970100472111,
+    "max": 0.6672769133575177
+  },
+  "weak_abs_scaled_rotation_projection_up": {
+    "min": 0.00029951485065724676,
+    "p05": 0.014030154573254494,
+    "p50": 0.07220782899034475,
+    "p95": 0.6178194746009631,
+    "max": 0.9533373334346544
+  },
+  "weak_abs_translation_cosine_up_for_norm_gt_0_1": {
+    "min": 0.00023328372103018004,
+    "p05": 0.043821649294022734,
+    "p50": 0.4463523626940041,
+    "p95": 0.8524315347019796,
+    "max": 0.9527740103915164
+  },
+  "vertical_translation_rayleigh_per_sum_weight": {
+    "min": 0.2541885962421586,
+    "p05": 0.3363929143045322,
+    "p50": 0.418911901447203,
+    "p95": 0.493262888328,
+    "max": 0.6594709045738442
+  },
+  "yaw_scaled_rotation_rayleigh_per_sum_weight": {
+    "min": 0.07226916143129329,
+    "p05": 0.13378118863623986,
+    "p50": 0.24560101124396505,
+    "p95": 0.3457000791560174,
+    "max": 0.4070099873766104
+  },
+  "five_smallest_min_over_max": [
+    {
+      "cut_s": 1590192480.600056,
+      "lambda_min_max_ratio": 0.024176477737712435,
+      "weak_scaled_rotation_world_xyz": [
+        -0.6782800007456696,
+        0.6887753137893475,
+        -0.1461428487852156
+      ],
+      "weak_translation_world_xyz": [
+        -0.14522698345765686,
+        -0.14415436917160374,
+        -0.047913636642485
+      ],
+      "weak_translation_dot_up": 0.006966518835511075,
+      "second_to_first_eigenvalue_ratio": 5.970666596580994
+    },
+    {
+      "cut_s": 1590192496.3003855,
+      "lambda_min_max_ratio": 0.0243983159399084,
+      "weak_scaled_rotation_world_xyz": [
+        -0.6703111976620421,
+        0.6836503058529829,
+        -0.2173230774900596
+      ],
+      "weak_translation_world_xyz": [
+        -0.09019291656069955,
+        -0.1250288476717606,
+        -0.11094531372887137
+      ],
+      "weak_translation_dot_up": -0.0715103587481424,
+      "second_to_first_eigenvalue_ratio": 9.532294313419253
+    },
+    {
+      "cut_s": 1590192486.9000592,
+      "lambda_min_max_ratio": 0.025240701280258467,
+      "weak_scaled_rotation_world_xyz": [
+        0.6943280268138273,
+        -0.6623992513545716,
+        0.17490669175881773
+      ],
+      "weak_translation_world_xyz": [
+        0.15868719334729195,
+        0.1464005754241619,
+        -0.0439171759877665
+      ],
+      "weak_translation_dot_up": -0.09773644885814126,
+      "second_to_first_eigenvalue_ratio": 7.4484856369726105
+    },
+    {
+      "cut_s": 1590192728.6000288,
+      "lambda_min_max_ratio": 0.026563968408612425,
+      "weak_scaled_rotation_world_xyz": [
+        -0.5774197265474851,
+        0.73461588341427,
+        -0.25625965817916563
+      ],
+      "weak_translation_world_xyz": [
+        -0.17521334623008897,
+        -0.1719687717161478,
+        -0.031368386577738196
+      ],
+      "weak_translation_dot_up": 0.03140144029226893,
+      "second_to_first_eigenvalue_ratio": 4.666047379776424
+    },
+    {
+      "cut_s": 1590192483.7003775,
+      "lambda_min_max_ratio": 0.026612591083760788,
+      "weak_scaled_rotation_world_xyz": [
+        0.6782700955725299,
+        -0.6763804094103767,
+        0.15585722955560735
+      ],
+      "weak_translation_world_xyz": [
+        0.16795610133944272,
+        0.1621364885826973,
+        -0.06058259078366008
+      ],
+      "weak_translation_dot_up": -0.11674223266815754,
+      "second_to_first_eigenvalue_ratio": 6.3967361949449675
+    }
+  ],
+  "independent_recomputation": {
+    "recomputed_eigenvalue_relative_to_largest_max_error": 2.8895682076847264e-15,
+    "weak_eigenvector_relative_residual_max": 5.517231095227075e-16,
+    "weak_unit_norm_max_error": 8.881784197001252e-16,
+    "vertical_projection_max_relative_error": 4.3397255650472946e-15,
+    "yaw_projection_max_relative_error": 4.269231616837595e-15,
+    "inverse_weight_decomposition_max_relative_error": 3.938556496997571e-15
+  },
+  "runtime_identity": {
+    "session_id": "gyro_init",
+    "executable": "/data/robot/livo_pgo_dev/candidate/install/fast_livo/lib/fast_livo/fastlivo_mapping",
+    "sha256": "a6f7e10d39ab0b306208c01e80d15801d55d903a18833e61aff349c2497c7f2b"
+  },
+  "run_configuration": {
+    "bag": "/data/robot/maps/fast_livo2/runs/corridor_baseline02_20261127T111905Z_NqWFM0/raw_bag",
+    "config_sha256": "3f7bea31ff9cefecb29ae552ef8d99b9631a456dd1b70e78dc6652a512ded69e",
+    "config_source": "/data/robot/maps/fast_livo2/runs/corridor_baseline02_20261127T111905Z_NqWFM0/20261127T111909Z_85997cf277/resolved.yaml",
+    "imu_noise": null,
+    "lio": false,
+    "strict_windows": true,
+    "interval_deskew": false,
+    "stationary_start_gyro_bias": true,
+    "input_order": "rosbag2 sequential reader",
+    "exit_code": 0,
+    "elapsed_s": 1740.0257229950003,
+    "peak_rss_kib": 860116,
+    "counts": {
+      "lidar_rx": 18355,
+      "imu_rx": 366943,
+      "synced": 36570,
+      "image_rx": 18288,
+      "image_remaining": 0,
+      "vio_frames": 18284,
+      "visual_update_frames": 18283,
+      "visual_update_steps": 293905,
+      "lidar_remaining": 38,
+      "imu_remaining": 741
+    }
+  }
+}

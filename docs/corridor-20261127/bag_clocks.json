@@ -1,0 +1,700 @@
+{
+  "shards": 148,
+  "read_mode": "SQLite immutable read-only, CDR1 integer Header, ROS String metadata",
+  "streams": {
+    "/hik_camera/image_timeshare": {
+      "messages": 18288,
+      "header_dt_ms": {
+        "n": 18287,
+        "min": 0.0,
+        "median": 99.84,
+        "p95": 100.32,
+        "p99": 100.32383,
+        "max": 200.16332
+      },
+      "bag_dt_ms": {
+        "n": 18287,
+        "min": 5.66909,
+        "median": 100.166458,
+        "p95": 117.073485,
+        "p99": 130.445384,
+        "max": 308.200931
+      },
+      "header_duplicates_adjacent": 3,
+      "header_backsteps": 0,
+      "header_lt_threshold": 3,
+      "header_gt_threshold": 3,
+      "thresholds_ms": [
+        50,
+        150
+      ],
+      "ten_largest_header_gaps": [
+        {
+          "previous_header_ns": 1590193128900273190,
+          "header_ns": 1590193129100436510,
+          "bag_ns": 1795779355321920415,
+          "header_dt_ms": 200.16332,
+          "bag_dt_ms": 23.456887,
+          "shard": 79,
+          "rowid": 3487
+        },
+        {
+          "previous_header_ns": 1590193724000290110,
+          "header_ns": 1590193724200450110,
+          "bag_ns": 1795779950405578294,
+          "header_dt_ms": 200.16,
+          "bag_dt_ms": 103.049145,
+          "shard": 127,
+          "rowid": 3459
+        },
+        {
+          "previous_header_ns": 1590192137900280340,
+          "header_ns": 1590192138100438530,
+          "bag_ns": 1795778364293950310,
+          "header_dt_ms": 200.15819,
+          "bag_dt_ms": 157.616261,
+          "shard": 0,
+          "rowid": 572
+        },
+        {
+          "previous_header_ns": 1590193963900032090,
+          "header_ns": 1590193964000356680,
+          "bag_ns": 1795780190185386997,
+          "header_dt_ms": 100.32459,
+          "bag_dt_ms": 90.669058,
+          "shard": 147,
+          "rowid": 1063
+        },
+        {
+          "previous_header_ns": 1590193960900018380,
+          "header_ns": 1590193961000342950,
+          "bag_ns": 1795780187200266215,
+          "header_dt_ms": 100.32457,
+          "bag_dt_ms": 94.834301,
+          "shard": 147,
+          "rowid": 190
+        },
+        {
+          "previous_header_ns": 1590193938900079510,
+          "header_ns": 1590193939000404040,
+          "bag_ns": 1795780165186432271,
+          "header_dt_ms": 100.32453,
+          "bag_dt_ms": 95.367752,
+          "shard": 145,
+          "rowid": 1012
+        },
+        {
+          "previous_header_ns": 1590193956900160210,
+          "header_ns": 1590193957000484740,
+          "bag_ns": 1795780183184655894,
+          "header_dt_ms": 100.32453,
+          "bag_dt_ms": 96.981817,
+          "shard": 146,
+          "rowid": 2634
+        },
+        {
+          "previous_header_ns": 1590193935900065980,
+          "header_ns": 1590193936000390480,
+          "bag_ns": 1795780162185432967,
+          "header_dt_ms": 100.3245,
+          "bag_dt_ms": 100.49665,
+          "shard": 145,
+          "rowid": 138
+        },
+        {
+          "previous_header_ns": 1590193953900146670,
+          "header_ns": 1590193954000471170,
+          "bag_ns": 1795780180185066657,
+          "header_dt_ms": 100.3245,
+          "bag_dt_ms": 100.290444,
+          "shard": 146,
+          "rowid": 1764
+        },
+        {
+          "previous_header_ns": 1590193932900052520,
+          "header_ns": 1590193933000377000,
+          "bag_ns": 1795780159186006687,
+          "header_dt_ms": 100.32448,
+          "bag_dt_ms": 98.816129,
+          "shard": 144,
+          "rowid": 2869
+        }
+      ],
+      "largest_bag_gap": {
+        "previous_header_ns": 1590193128800433190,
+        "header_ns": 1590193128900273190,
+        "bag_ns": 1795779355298463528,
+        "header_dt_ms": 99.84,
+        "bag_dt_ms": 308.200931,
+        "shard": 79,
+        "rowid": 3466
+      }
+    },
+    "/livox/lidar": {
+      "messages": 18355,
+      "header_dt_ms": {
+        "n": 18354,
+        "min": 99.83815,
+        "median": 99.84,
+        "p95": 100.32,
+        "p99": 100.32382,
+        "max": 100.32461
+      },
+      "bag_dt_ms": {
+        "n": 18354,
+        "min": 2.145416,
+        "median": 100.036542,
+        "p95": 105.083313,
+        "p99": 112.595409,
+        "max": 331.719068
+      },
+      "header_duplicates_adjacent": 0,
+      "header_backsteps": 0,
+      "header_lt_threshold": 0,
+      "header_gt_threshold": 0,
+      "thresholds_ms": [
+        50,
+        150
+      ],
+      "ten_largest_header_gaps": [
+        {
+          "previous_header_ns": 1590193966900045880,
+          "header_ns": 1590193967000370490,
+          "bag_ns": 1795780193121470440,
+          "header_dt_ms": 100.32461,
+          "bag_dt_ms": 98.104554,
+          "shard": 147,
+          "rowid": 1900
+        },
+        {
+          "previous_header_ns": 1590193963900032090,
+          "header_ns": 1590193964000356680,
+          "bag_ns": 1795780190121213211,
+          "header_dt_ms": 100.32459,
+          "bag_dt_ms": 97.060858,
+          "shard": 147,
+          "rowid": 1047
+        },
+        {
+          "previous_header_ns": 1590193960900018380,
+          "header_ns": 1590193961000342950,
+          "bag_ns": 1795780187121808513,
+          "header_dt_ms": 100.32457,
+          "bag_dt_ms": 98.388759,
+          "shard": 147,
+          "rowid": 174
+        },
+        {
+          "previous_header_ns": 1590193938900079510,
+          "header_ns": 1590193939000404040,
+          "bag_ns": 1795780165120983042,
+          "header_dt_ms": 100.32453,
+          "bag_dt_ms": 97.825599,
+          "shard": 145,
+          "rowid": 995
+        },
+        {
+          "previous_header_ns": 1590193956900160210,
+          "header_ns": 1590193957000484740,
+          "bag_ns": 1795780183118166885,
+          "header_dt_ms": 100.32453,
+          "bag_dt_ms": 98.354967,
+          "shard": 146,
+          "rowid": 2620
+        },
+        {
+          "previous_header_ns": 1590193935900065980,
+          "header_ns": 1590193936000390480,
+          "bag_ns": 1795780162120841519,
+          "header_dt_ms": 100.3245,
+          "bag_dt_ms": 99.566536,
+          "shard": 145,
+          "rowid": 123
+        },
+        {
+          "previous_header_ns": 1590193953900146670,
+          "header_ns": 1590193954000471170,
+          "bag_ns": 1795780180120160504,
+          "header_dt_ms": 100.3245,
+          "bag_dt_ms": 99.378997,
+          "shard": 146,
+          "rowid": 1748
+        },
+        {
+          "previous_header_ns": 1590193969900059650,
+          "header_ns": 1590193970000384150,
+          "bag_ns": 1795780196122117081,
+          "header_dt_ms": 100.3245,
+          "bag_dt_ms": 98.662963,
+          "shard": 147,
+          "rowid": 2530
+        },
+        {
+          "previous_header_ns": 1590193932900052520,
+          "header_ns": 1590193933000377000,
+          "bag_ns": 1795780159122292520,
+          "header_dt_ms": 100.32448,
+          "bag_dt_ms": 100.00724,
+          "shard": 144,
+          "rowid": 2855
+        },
+        {
+          "previous_header_ns": 1590193950900133190,
+          "header_ns": 1590193951000457670,
+          "bag_ns": 1795780177120979971,
+          "header_dt_ms": 100.32448,
+          "bag_dt_ms": 99.724618,
+          "shard": 146,
+          "rowid": 875
+        }
+      ],
+      "largest_bag_gap": {
+        "previous_header_ns": 1590193128800433190,
+        "header_ns": 1590193128900273190,
+        "bag_ns": 1795779355256125107,
+        "header_dt_ms": 99.84,
+        "bag_dt_ms": 331.719068,
+        "shard": 79,
+        "rowid": 3458
+      }
+    },
+    "/livox/imu": {
+      "messages": 366943,
+      "header_dt_ms": {
+        "n": 366942,
+        "min": 2.97271,
+        "median": 4.898305000000001,
+        "p95": 5.89195,
+        "p99": 5.93854,
+        "max": 9.97549
+      },
+      "bag_dt_ms": {
+        "n": 366942,
+        "min": 0.0315,
+        "median": 4.915435,
+        "p95": 7.239093,
+        "p99": 12.06481,
+        "max": 45.768472
+      },
+      "header_duplicates_adjacent": 0,
+      "header_backsteps": 0,
+      "header_lt_threshold": 0,
+      "header_gt_threshold": 1,
+      "thresholds_ms": [
+        2.5,
+        7.5
+      ],
+      "ten_largest_header_gaps": [
+        {
+          "previous_header_ns": 1590193427355521570,
+          "header_ns": 1590193427365497060,
+          "bag_ns": 1795779653421170608,
+          "header_dt_ms": 9.97549,
+          "bag_dt_ms": 15.116742,
+          "shard": 104,
+          "rowid": 7
+        },
+        {
+          "previous_header_ns": 1590193342105190140,
+          "header_ns": 1590193342111910340,
+          "bag_ns": 1795779568119245234,
+          "header_dt_ms": 6.7202,
+          "bag_dt_ms": 6.345576,
+          "shard": 97,
+          "rowid": 472
+        },
+        {
+          "previous_header_ns": 1590193337105268340,
+          "header_ns": 1590193337111886850,
+          "bag_ns": 1795779563119962065,
+          "header_dt_ms": 6.61851,
+          "bag_dt_ms": 4.849017,
+          "shard": 96,
+          "rowid": 2626
+        },
+        {
+          "previous_header_ns": 1590193340105296540,
+          "header_ns": 1590193340111902900,
+          "bag_ns": 1795779566119958563,
+          "header_dt_ms": 6.60636,
+          "bag_dt_ms": 6.872333,
+          "shard": 96,
+          "rowid": 3499
+        },
+        {
+          "previous_header_ns": 1590193339105302640,
+          "header_ns": 1590193339111896580,
+          "bag_ns": 1795779565119147401,
+          "header_dt_ms": 6.59394,
+          "bag_dt_ms": 6.759456,
+          "shard": 96,
+          "rowid": 3208
+        },
+        {
+          "previous_header_ns": 1590193338105351830,
+          "header_ns": 1590193338111893730,
+          "bag_ns": 1795779564119112999,
+          "header_dt_ms": 6.5419,
+          "bag_dt_ms": 6.264201,
+          "shard": 96,
+          "rowid": 2917
+        },
+        {
+          "previous_header_ns": 1590193341105454510,
+          "header_ns": 1590193341111907700,
+          "bag_ns": 1795779567119591920,
+          "header_dt_ms": 6.45319,
+          "bag_dt_ms": 7.04471,
+          "shard": 97,
+          "rowid": 181
+        },
+        {
+          "previous_header_ns": 1590192470752044370,
+          "header_ns": 1590192470758085440,
+          "bag_ns": 1795778696748219484,
+          "header_dt_ms": 6.04107,
+          "bag_dt_ms": 5.876731,
+          "shard": 26,
+          "rowid": 3094
+        },
+        {
+          "previous_header_ns": 1590192255721786700,
+          "header_ns": 1590192255727824940,
+          "bag_ns": 1795778481722569136,
+          "header_dt_ms": 6.03824,
+          "bag_dt_ms": 6.24955,
+          "shard": 9,
+          "rowid": 1871
+        },
+        {
+          "previous_header_ns": 1590193848337161430,
+          "header_ns": 1590193848343199010,
+          "bag_ns": 1795780074357842633,
+          "header_dt_ms": 6.03758,
+          "bag_dt_ms": 5.330782,
+          "shard": 137,
+          "rowid": 3443
+        }
+      ],
+      "largest_bag_gap": {
+        "previous_header_ns": 1590193427351242760,
+        "header_ns": 1590193427355521570,
+        "bag_ns": 1795779653406053866,
+        "header_dt_ms": 4.27881,
+        "bag_dt_ms": 45.768472,
+        "shard": 104,
+        "rowid": 2
+      }
+    }
+  },
+  "camera": {
+    "metadata": 18288,
+    "unique_frame_nums": 18288,
+    "first_last_frames": [
+      0,
+      18287
+    ],
+    "unreported_frame_ids": 0,
+    "lost_packets_total": 0,
+    "shared_image_headers_matching_lidar": 18288,
+    "direct_timeshare_trace_rows_in_range": 11099,
+    "ordinal_joint_validated_on_trace": true,
+    "trace_header_mismatch": 0,
+    "sdk_get_to_publish_done_ms": {
+      "n": 18288,
+      "min": 5.771783,
+      "median": 12.9883325,
+      "p95": 32.12144,
+      "p99": 37.598515,
+      "max": 221.938305
+    },
+    "get_to_publish_gt_100ms": 3,
+    "largest_publish_delays": [
+      {
+        "frame_num": 9910,
+        "host_after_get_ns": 1795779355063689326,
+        "host_publish_done_ns": 1795779355285627631,
+        "device_timestamp_raw": 113168067567,
+        "get_to_publish_ms": 221.938305
+      },
+      {
+        "frame_num": 5082,
+        "host_after_get_ns": 1795778872256060783,
+        "host_publish_done_ns": 1795778872383816490,
+        "device_timestamp_raw": 64888111275,
+        "get_to_publish_ms": 127.755707
+      },
+      {
+        "frame_num": 13882,
+        "host_after_get_ns": 1795779752269963815,
+        "host_publish_done_ns": 1795779752376389642,
+        "device_timestamp_raw": 152888017005,
+        "get_to_publish_ms": 106.425827
+      },
+      {
+        "frame_num": 8550,
+        "host_after_get_ns": 1795779219061834891,
+        "host_publish_done_ns": 1795779219161716832,
+        "device_timestamp_raw": 99568083042,
+        "get_to_publish_ms": 99.881941
+      },
+      {
+        "frame_num": 3600,
+        "host_after_get_ns": 1795778724050694251,
+        "host_publish_done_ns": 1795778724149869259,
+        "device_timestamp_raw": 50068117375,
+        "get_to_publish_ms": 99.175008
+      },
+      {
+        "frame_num": 11895,
+        "host_after_get_ns": 1795779553566860311,
+        "host_publish_done_ns": 1795779553659711182,
+        "device_timestamp_raw": 133018042975,
+        "get_to_publish_ms": 92.850871
+      },
+      {
+        "frame_num": 626,
+        "host_after_get_ns": 1795778426653726313,
+        "host_publish_done_ns": 1795778426743308767,
+        "device_timestamp_raw": 20328112446,
+        "get_to_publish_ms": 89.582454
+      },
+      {
+        "frame_num": 9540,
+        "host_after_get_ns": 1795779318063184738,
+        "host_publish_done_ns": 1795779318151799350,
+        "device_timestamp_raw": 109468071934,
+        "get_to_publish_ms": 88.614612
+      },
+      {
+        "frame_num": 4584,
+        "host_after_get_ns": 1795778822454780557,
+        "host_publish_done_ns": 1795778822542346188,
+        "device_timestamp_raw": 59908113813,
+        "get_to_publish_ms": 87.565631
+      },
+      {
+        "frame_num": 14871,
+        "host_after_get_ns": 1795779851171673909,
+        "host_publish_done_ns": 1795779851251502905,
+        "device_timestamp_raw": 162778003788,
+        "get_to_publish_ms": 79.828996
+      }
+    ],
+    "sdk_frame_device_interval_ticks": {
+      "n": 18287,
+      "min": 9999983,
+      "median": 9999988,
+      "p95": 10000005,
+      "p99": 10000009,
+      "max": 10000013
+    },
+    "device_timestamp_frequency": "unconverted_ticks",
+    "abnormal_shared_header_intervals": [
+      {
+        "shard": 0,
+        "rowid": 572,
+        "image_header_ns": 1590192138100438530,
+        "previous_header_ns": 1590192137900280340,
+        "dt_ms": 200.15819,
+        "bag_interval_ms": 157.616261,
+        "frame_num": 1,
+        "host_after_get_ns": 1795778364276628591,
+        "host_publish_done_ns": 1795778364283160515,
+        "device_timestamp_raw": 14078106925,
+        "get_to_publish_ms": 6.531924,
+        "previous_frame": 0,
+        "previous_get_to_publish_ms": 67.005529,
+        "sdk_get_mono_interval_ms": 239.656329,
+        "device_interval_ticks": 10000008,
+        "frame_has_direct_trace": false
+      },
+      {
+        "shard": 0,
+        "rowid": 575,
+        "image_header_ns": 1590192138100438530,
+        "previous_header_ns": 1590192138100438530,
+        "dt_ms": 0.0,
+        "bag_interval_ms": 5.66909,
+        "frame_num": 2,
+        "host_after_get_ns": 1795778364283283610,
+        "host_publish_done_ns": 1795778364293434302,
+        "device_timestamp_raw": 14088106938,
+        "get_to_publish_ms": 10.150692,
+        "previous_frame": 1,
+        "previous_get_to_publish_ms": 6.531924,
+        "sdk_get_mono_interval_ms": 6.655019,
+        "device_interval_ticks": 10000013,
+        "frame_has_direct_trace": false
+      },
+      {
+        "shard": 79,
+        "rowid": 3487,
+        "image_header_ns": 1590193129100436510,
+        "previous_header_ns": 1590193128900273190,
+        "dt_ms": 200.16332,
+        "bag_interval_ms": 23.456887,
+        "frame_num": 9911,
+        "host_after_get_ns": 1795779355287313457,
+        "host_publish_done_ns": 1795779355316549982,
+        "device_timestamp_raw": 113178067555,
+        "get_to_publish_ms": 29.236525,
+        "previous_frame": 9910,
+        "previous_get_to_publish_ms": 221.938305,
+        "sdk_get_mono_interval_ms": 223.623838,
+        "device_interval_ticks": 9999988,
+        "frame_has_direct_trace": true
+      },
+      {
+        "shard": 79,
+        "rowid": 3511,
+        "image_header_ns": 1590193129200276510,
+        "previous_header_ns": 1590193129200276510,
+        "dt_ms": 0.0,
+        "bag_interval_ms": 42.300504,
+        "frame_num": 9913,
+        "host_after_get_ns": 1795779355363771755,
+        "host_publish_done_ns": 1795779355372127673,
+        "device_timestamp_raw": 113198067530,
+        "get_to_publish_ms": 8.355918,
+        "previous_frame": 9912,
+        "previous_get_to_publish_ms": 22.305393,
+        "sdk_get_mono_interval_ms": 46.779025,
+        "device_interval_ticks": 9999988,
+        "frame_has_direct_trace": true
+      },
+      {
+        "shard": 127,
+        "rowid": 3427,
+        "image_header_ns": 1590193724000290110,
+        "previous_header_ns": 1590193724000290110,
+        "dt_ms": 0.0,
+        "bag_interval_ms": 118.940282,
+        "frame_num": 15862,
+        "host_after_get_ns": 1795779950272979870,
+        "host_publish_done_ns": 1795779950299805279,
+        "device_timestamp_raw": 172687990321,
+        "get_to_publish_ms": 26.825409,
+        "previous_frame": 15861,
+        "previous_get_to_publish_ms": 8.181818,
+        "sdk_get_mono_interval_ms": 100.126941,
+        "device_interval_ticks": 9999987,
+        "frame_has_direct_trace": true
+      },
+      {
+        "shard": 127,
+        "rowid": 3459,
+        "image_header_ns": 1590193724200450110,
+        "previous_header_ns": 1590193724000290110,
+        "dt_ms": 200.16,
+        "bag_interval_ms": 103.049145,
+        "frame_num": 15863,
+        "host_after_get_ns": 1795779950374255393,
+        "host_publish_done_ns": 1795779950403220173,
+        "device_timestamp_raw": 172697990309,
+        "get_to_publish_ms": 28.96478,
+        "previous_frame": 15862,
+        "previous_get_to_publish_ms": 26.825409,
+        "sdk_get_mono_interval_ms": 101.275524,
+        "device_interval_ticks": 9999988,
+        "frame_has_direct_trace": true
+      }
+    ]
+  },
+  "shared_clock_trace": {
+    "available": true,
+    "writes": 18378,
+    "reads_retained": 11099,
+    "unambiguous_matching": 11098,
+    "unambiguous_mismatches": 0,
+    "overlapping_read_write_intervals": 1,
+    "unbracketed": 0,
+    "concurrent_reads": [
+      {
+        "frame": 15862,
+        "read_mono_ns": [
+          1727856809097,
+          1727856809680
+        ],
+        "overlapping_write_mono_ns": [
+          1727798621703,
+          1727877060935
+        ],
+        "previous_sequence": 15915,
+        "overlapping_sequence": 15916,
+        "read_value_matches_previous": true,
+        "read_value_matches_overlapping": false
+      }
+    ],
+    "missing_direct_trace_frames": [
+      1,
+      2
+    ],
+    "examples_around_actual_abnormal_headers": [
+      {
+        "frame": 9910,
+        "image_header_ns": 1590193128900273190,
+        "last_completed_write_sequence": 9964,
+        "reader_stamp_matches_writer": true,
+        "read_after_last_write_ms": 58.685092,
+        "next_write_after_read_ms": 192.201281
+      },
+      {
+        "frame": 9911,
+        "image_header_ns": 1590193129100436510,
+        "last_completed_write_sequence": 9966,
+        "reader_stamp_matches_writer": true,
+        "read_after_last_write_ms": 24.223383,
+        "next_write_after_read_ms": 17.529374
+      },
+      {
+        "frame": 9912,
+        "image_header_ns": 1590193129200276510,
+        "last_completed_write_sequence": 9967,
+        "reader_stamp_matches_writer": true,
+        "read_after_last_write_ms": 12.149316,
+        "next_write_after_read_ms": 88.489781
+      },
+      {
+        "frame": 9913,
+        "image_header_ns": 1590193129200276510,
+        "last_completed_write_sequence": 9967,
+        "reader_stamp_matches_writer": true,
+        "read_after_last_write_ms": 58.928632,
+        "next_write_after_read_ms": 41.710173
+      },
+      {
+        "frame": 9914,
+        "image_header_ns": 1590193129300116510,
+        "last_completed_write_sequence": 9968,
+        "reader_stamp_matches_writer": true,
+        "read_after_last_write_ms": 58.606926,
+        "next_write_after_read_ms": 40.636846
+      },
+      {
+        "frame": 15861,
+        "image_header_ns": 1590193724000290110,
+        "last_completed_write_sequence": 15915,
+        "reader_stamp_matches_writer": true,
+        "read_after_last_write_ms": 58.723767,
+        "next_write_after_read_ms": 41.939256
+      },
+      {
+        "frame": 15863,
+        "image_header_ns": 1590193724200450110,
+        "last_completed_write_sequence": 15917,
+        "reader_stamp_matches_writer": true,
+        "read_after_last_write_ms": 55.271024,
+        "next_write_after_read_ms": 40.268593
+      },
+      {
+        "frame": 15864,
+        "image_header_ns": 1590193724300290110,
+        "last_completed_write_sequence": 15918,
+        "reader_stamp_matches_writer": true,
+        "read_after_last_write_ms": 58.433268,
+        "next_write_after_read_ms": 41.523049
+      }
+    ]
+  }
+}

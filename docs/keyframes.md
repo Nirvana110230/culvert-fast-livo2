@@ -14,6 +14,8 @@
 
 ## 完整估计状态
 
+导航适配器从 `/culvert_source/state` 读取 `camera_init → imu` 的后验位姿，从 `/culvert_source/scan` 读取 `livo_lidar` 坐标的去畸变 XYZ/强度点云。两者取同一个估计时刻；有订阅且该更新通过传播终点和点时间核对时才发布。关键帧 PCD 则已施加 LiDAR→IMU 外参，可直接与索引中的 IMU 位姿相乘。地图重建使用索引的 LIO 阶段，与后续 VIO 阶段分别存储。
+
 `states.csv` 按实际处理阶段输出位姿、速度、重力、陀螺/加速度偏置及姿态/位置方差对角线。阶段 `LIO` 和 `VIO` 表示有效的对应更新，`LIO_no_plane_match`、`VIO_no_update` 区分未形成约束的处理。原配置启用 IMU 传播发布时，附加 `IMU_propagated`。LIO 和 VIO 可共享同一测量时刻，读取轨迹应明确选择阶段。
 
 ## 数值回归

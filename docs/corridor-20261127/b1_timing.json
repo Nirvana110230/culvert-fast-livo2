@@ -1,0 +1,291 @@
+{
+  "source": "live sync, preprocess, IMU_init, deskew and final-iteration plane match instrumentation",
+  "input_file_sha256": {
+    "timing_windows.csv": "4205f478c44843a54a67d4caf8b5a7718df8952b3b86d52047b22b1244f21514",
+    "preprocess_timing.csv": "e934aa67b0378cad4710faec1325f6618df6cd668e7b8e85f0abe05a5a6bafcb",
+    "plane_constraints.csv": "ae9842ae70b2a68d1f3fd91eaf828724f8ea6de101299f41dc79fa6dd9b7acce",
+    "imu_init_samples.csv": "1ba0caf94d4150c46723e9be45f10abcd61b98f309c0778447dbc7043e9f9836",
+    "deskew_timing.csv": "784980852cb0eb10793fded2b155b1d4a3fb0048b9ca05772a78f94414638b05"
+  },
+  "criteria": {
+    "clock": "source scan header plus effective float curvature, ms; before deskew",
+    "early": "acquisition strictly more than 1 microsecond after accepted end; exact and near-cut reported separately",
+    "surface_classes": "within 20 degrees of gravity axis and >0.20 m above/below LiDAR origin for ceiling/ground candidates; within 20 degrees of perpendicular for wall candidates",
+    "residual": "absolute signed point-to-plane distance from final accepted iteration, metres; each matched point counted once per update",
+    "initial_acceleration_units": "message-native Livox axes, no m/s^2 conversion by driver",
+    "normal_tensor": "unit plane-normal outer products in estimator world axes, invariant to normal sign"
+  },
+  "accepted_half_open_windows": 18285,
+  "window_end_range_s": [
+    1590192138.0002801,
+    1590193966.7000458
+  ],
+  "window_width_ms": {
+    "n": 18285,
+    "min": 99.8380184173584,
+    "p50": 99.84016418457031,
+    "p95_nearest_rank": 100.32010078430176,
+    "max": 3099.99418258667
+  },
+  "scan_count_by_number_of_interior_accepted_cuts": {
+    "0": 6404,
+    "1": 6174,
+    "2": 5777
+  },
+  "points": {
+    "preprocess_output": 97737410,
+    "popped_from_source_queues": 97532745,
+    "assigned": 97532745,
+    "pending_next_window_at_end": 0,
+    "callback_output_never_popped": 204665,
+    "last_accepted_window_observed_raw_queue_points": 5511,
+    "windows_with_count_mismatch": 0,
+    "carry_continuity_errors": 0,
+    "popped_minus_assigned_minus_pending": 0,
+    "early_over_1us": 102017,
+    "early_carried_over_1us": 102017,
+    "early_fraction_of_assigned": 0.001045976917803349,
+    "affected_window_count": 5970,
+    "early_max_ms": 0.3145942687988281,
+    "affected_window_maximum_ms": {
+      "n": 5970,
+      "min": 0.013240814208984375,
+      "p50": 0.3100624084472656,
+      "p95_nearest_rank": 0.3121681213378906,
+      "max": 0.3145942687988281
+    },
+    "worst_window_end_s": "1590193957.0001602",
+    "early_mean_ms": 0.16171554760171186,
+    "assigned_at_exact_end": 0,
+    "assigned_within_1us_of_end": 437,
+    "new_points_at_exact_end": 0,
+    "new_points_within_1us_of_end": 249,
+    "before_start_over_1us": 0,
+    "max_rebase_error_ms": 0.0001220703125
+  },
+  "end_of_input": {
+    "opened_scans": 18318,
+    "unopened_scans": 37,
+    "sum_outputs_of_unopened_scans": 204665,
+    "tail_sum_matches_source_minus_opened": true,
+    "last_cut_s": 1590193966.7000458,
+    "last_opened_scan_max_time_minus_last_cut_ms": 0.3100624084472656,
+    "first_unopened_scan_min_time_minus_last_cut_ms": 0.35953373461961746
+  },
+  "livox_preprocessing": {
+    "messages": 18355,
+    "input_points": 367099104,
+    "smoothed_branch_input": 367099104,
+    "changed": 0,
+    "retained_changed": 0,
+    "max_abs_ms": 0.0,
+    "retained_max_abs_ms": 0.0,
+    "changed_mean_abs_ms": 0.0
+  },
+  "deskew": {
+    "windows": 18284,
+    "input_points": 97373564,
+    "assigned_minus_deskew_inputs": 159181,
+    "first_initialization_window_points": 159181,
+    "transformed": 97373564,
+    "untransformed": 0,
+    "curvature_inversions": 0,
+    "outside_propagation_interval_over_1us": 102017
+  },
+  "imu_initialization": {
+    "samples": 464,
+    "unique_stamps": 464,
+    "input_groups": 1,
+    "first_s": 1590192135.6818578,
+    "last_s": 1590192137.9977665,
+    "span_ms": 2315.908670425415,
+    "configured_count": 30,
+    "counter_after": 465,
+    "acceleration_native_driver_units": {
+      "axis_mean": [
+        -0.3508325034174426,
+        -0.015773240103514802,
+        0.9380207657814026
+      ],
+      "axis_population_std": [
+        0.0046116892658030414,
+        0.0032181268948398923,
+        0.0015650156545163401
+      ],
+      "norm": {
+        "n": 464,
+        "min": 0.9965000773169163,
+        "p50": 1.001240366427664,
+        "p95_nearest_rank": 1.0063873658609392,
+        "max": 1.007659044326552
+      }
+    },
+    "angular_velocity_native_driver_units": {
+      "axis_mean": [
+        -0.003914475545351361,
+        0.0021124003687873483,
+        -0.017451631322760005
+      ],
+      "axis_population_std": [
+        0.0009777427370922197,
+        0.0008807847918651506,
+        0.0014746715321459912
+      ],
+      "norm": {
+        "n": 464,
+        "min": 0.013632668558219952,
+        "p50": 0.01786169102948722,
+        "p95_nearest_rank": 0.02029380702895282,
+        "max": 0.0224736873325411
+      }
+    }
+  },
+  "plane_cuts_missing_from_window_table": 0,
+  "planes": {
+    "all": {
+      "count": 30913180,
+      "fraction_of_all": 1.0,
+      "mean_abs_m": 0.020693464062653474,
+      "rms_m": 0.03441744312278258,
+      "max_abs_m": 0.7121033668518066,
+      "per_nonempty_window_p95_abs_m": {
+        "n": 18284,
+        "min": 0.033901605755090714,
+        "p50": 0.06426561251282692,
+        "p95_nearest_rank": 0.09495916217565536,
+        "max": 0.21714721620082855
+      },
+      "mean_normal_outer_product_xx_xy_xz_yy_yz_zz": [
+        0.35495852816585466,
+        0.0308010536021945,
+        -0.01686169584471725,
+        0.23819777369941283,
+        0.007699667485299738,
+        0.40684369813473287
+      ]
+    },
+    "horizontal_below": {
+      "count": 2968579,
+      "fraction_of_all": 0.09602955761911262,
+      "mean_abs_m": 0.00950319963545422,
+      "rms_m": 0.015575378960422263,
+      "max_abs_m": 0.5776256322860718,
+      "per_nonempty_window_p95_abs_m": {
+        "n": 18264,
+        "min": 0.003650781000033021,
+        "p50": 0.020828906446695328,
+        "p95_nearest_rank": 0.05354030057787895,
+        "max": 0.370026558637619
+      },
+      "mean_normal_outer_product_xx_xy_xz_yy_yz_zz": [
+        0.12131847229928175,
+        0.001961671199498758,
+        -0.32218860008777983,
+        0.0011739510967526104,
+        -0.005302021670356212,
+        0.8775075766039656
+      ]
+    },
+    "horizontal_above": {
+      "count": 8011993,
+      "fraction_of_all": 0.25917725060961055,
+      "mean_abs_m": 0.017453619828809788,
+      "rms_m": 0.02980470995985672,
+      "max_abs_m": 0.6490593552589417,
+      "per_nonempty_window_p95_abs_m": {
+        "n": 18284,
+        "min": 0.012987150810658932,
+        "p50": 0.05119377747178078,
+        "p95_nearest_rank": 0.0861099362373352,
+        "max": 0.4173903465270996
+      },
+      "mean_normal_outer_product_xx_xy_xz_yy_yz_zz": [
+        0.11744282269611123,
+        0.0031215139068140516,
+        -0.3083594303431254,
+        0.00550089451260032,
+        -0.006683311292774236,
+        0.8770562827912886
+      ]
+    },
+    "vertical": {
+      "count": 16411484,
+      "fraction_of_all": 0.5308895429069413,
+      "mean_abs_m": 0.021121777247718857,
+      "rms_m": 0.034053036580204345,
+      "max_abs_m": 0.6874657869338989,
+      "per_nonempty_window_p95_abs_m": {
+        "n": 18284,
+        "min": 0.034030210226774216,
+        "p50": 0.06253846362233162,
+        "p95_nearest_rank": 0.09907761216163635,
+        "max": 0.3045055866241455
+      },
+      "mean_normal_outer_product_xx_xy_xz_yy_yz_zz": [
+        0.5254355126574952,
+        0.05273758385594904,
+        0.18603135028046436,
+        0.39790827200351975,
+        0.021368835428373704,
+        0.07665621533898519
+      ]
+    },
+    "other": {
+      "count": 3521124,
+      "fraction_of_all": 0.11390364886433553,
+      "mean_abs_m": 0.0355033765570692,
+      "rms_m": 0.05262196969936869,
+      "max_abs_m": 0.7121033668518066,
+      "per_nonempty_window_p95_abs_m": {
+        "n": 18284,
+        "min": 0.04500589519739151,
+        "p50": 0.10262689366936684,
+        "p95_nearest_rank": 0.15715250372886658,
+        "max": 0.2753230035305023
+      },
+      "mean_normal_outer_product_xx_xy_xz_yy_yz_zz": [
+        0.29780996698629236,
+        0.015853908310297385,
+        -0.04182847798775115,
+        0.22311833369522435,
+        -0.0123219120756547,
+        0.47907169931848337
+      ]
+    }
+  },
+  "plane_translation_sensitivity": {
+    "reference_unit_up_in_world": [
+      -0.3502698618966999,
+      -0.015747944044248816,
+      0.9365164313055302
+    ],
+    "assumption": "B1 initial world=IMU frame and uav.gravity_align_en=false",
+    "per_update_along_initialization_up": {
+      "n": 18284,
+      "min": 0.24057727556747902,
+      "p50": 0.4096446567210296,
+      "p95_nearest_rank": 0.4800376589007481,
+      "max": 0.6615303676607285
+    },
+    "per_update_along_world_z": {
+      "n": 18284,
+      "min": 0.25824297315059763,
+      "p50": 0.4073882193842509,
+      "p95_nearest_rank": 0.4628939696558057,
+      "max": 0.6205562939608066
+    },
+    "definition": "sum((n dot u)^2)/N over final point-to-plane correspondences; unweighted translation sensitivity, excludes lever arm, covariance, visual/IMU constraints"
+  },
+  "mapper_final_input_counters": {
+    "lidar_rx": 18355,
+    "imu_rx": 366943,
+    "synced": 36570,
+    "image_rx": 18288,
+    "image_remaining": 0,
+    "vio_frames": 18284,
+    "visual_update_frames": 18283,
+    "visual_update_steps": 293166,
+    "lidar_remaining": 37,
+    "imu_remaining": 741
+  }
+}

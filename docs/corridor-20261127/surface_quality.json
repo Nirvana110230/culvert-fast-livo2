@@ -1,0 +1,2385 @@
+{
+  "input_original": "backend_dev/watermark_joint/holdout.json",
+  "same_poses_and_loops": true,
+  "rules": {
+    "max_normal_difference_deg": 15.0,
+    "min_reference_points": 42,
+    "min_source_points": 28,
+    "min_reference_footprint_coverage": 0.35,
+    "min_peak_fraction": 0.3,
+    "min_second_tangential_span_m": 0.2,
+    "min_first_tangential_span_m": 0.5,
+    "parallel_max_deg": 15.0,
+    "corner_min_angle_deg": 75.0,
+    "corner_max_angle_change_deg": 15.0
+  },
+  "regions": [
+    {
+      "target_id": 765,
+      "source_id": 1095,
+      "target_index": 765,
+      "source_index": 1095,
+      "target_center_map_gravity_m": [
+        11.691583394200075,
+        83.62979150357151,
+        -1.4031718763680552
+      ],
+      "identity": "odometry-proposed unlabelled revisit",
+      "old_points": 1981,
+      "point_to_point": {
+        "before": {
+          "source_points": 3783,
+          "source_median_m": 0.30502058460566983,
+          "source_p90_m": 1.45737107817817,
+          "target_median_m": 0.14875605126012642,
+          "source_coverage_32cm": 0.5048902987047317,
+          "target_coverage_32cm": 0.6461383139828369
+        },
+        "after": {
+          "source_points": 3783,
+          "source_median_m": 0.28688791845610234,
+          "source_p90_m": 1.5040323867848517,
+          "target_median_m": 0.10662791482877067,
+          "source_coverage_32cm": 0.5117631509384086,
+          "target_coverage_32cm": 0.6461383139828369
+        }
+      },
+      "surfaces": [
+        {
+          "type": "floor_1",
+          "centroid_m": [
+            0.9468749299341089,
+            1.774477493842609,
+            -0.5544114717195854
+          ],
+          "normal": [
+            -0.04287169523045256,
+            0.018655738676214454,
+            0.9989063925926754
+          ],
+          "before": {
+            "n": 6
+          },
+          "after": {
+            "n": 14,
+            "candidate_n": 31,
+            "target_n": 345,
+            "target_footprint_coverage": 0.008695652173913044,
+            "offset_m": 0.39352705902602564,
+            "source_normal": [
+              -0.9477402522859754,
+              0.3187173879803615,
+              -0.014409746558889852
+            ],
+            "source_plane_centroid_m": [
+              -1.7213490069932467,
+              2.158381925607261,
+              -0.2885390802339768
+            ],
+            "two_visit_thickness_p90_p10_m": 0.473022191586107,
+            "angle_deg": 88.15572277832482
+          }
+        },
+        {
+          "type": "wall_a_1",
+          "centroid_m": [
+            -1.3373011930622447,
+            3.1369451473226575,
+            1.1737449425765853
+          ],
+          "normal": [
+            0.8905144857567777,
+            -0.45297764251339984,
+            0.04236987184715207
+          ],
+          "before": {
+            "n": 253,
+            "candidate_n": 281,
+            "target_n": 147,
+            "target_footprint_coverage": 0.9795918367346939,
+            "offset_m": -0.0670189045145353,
+            "source_normal": [
+              0.8959913698683633,
+              -0.4429940463246107,
+              0.03091504556624255
+            ],
+            "source_plane_centroid_m": [
+              -1.3994360679057882,
+              3.140530006539624,
+              1.1097647665283952
+            ],
+            "two_visit_thickness_p90_p10_m": 0.14583983201007206,
+            "angle_deg": 0.9254415466061142
+          },
+          "after": {
+            "n": 259,
+            "candidate_n": 282,
+            "target_n": 147,
+            "target_footprint_coverage": 0.9863945578231292,
+            "offset_m": 0.003219085967699124,
+            "source_normal": [
+              0.8858224555791552,
+              -0.46215821023374043,
+              0.04157362030496873
+            ],
+            "source_plane_centroid_m": [
+              -1.3899745429615693,
+              3.021231380246688,
+              1.0634260030476839
+            ],
+            "two_visit_thickness_p90_p10_m": 0.10779248311815229,
+            "angle_deg": 0.5924864009455033
+          }
+        }
+      ],
+      "parallel_wall_spacing": [],
+      "corner_candidates": [],
+      "opening_candidates": [],
+      "quality": {
+        "rules": {
+          "max_normal_difference_deg": 15.0,
+          "min_reference_points": 42,
+          "min_source_points": 28,
+          "min_reference_footprint_coverage": 0.35,
+          "min_peak_fraction": 0.3,
+          "min_second_tangential_span_m": 0.2,
+          "min_first_tangential_span_m": 0.5,
+          "parallel_max_deg": 15.0,
+          "corner_min_angle_deg": 75.0,
+          "corner_max_angle_change_deg": 15.0
+        },
+        "surfaces": {
+          "floor_1": {
+            "before": {
+              "valid": false,
+              "status": "excluded",
+              "reasons": [
+                "raw_normal_conflict_or_missing",
+                "supported_normal_conflict_or_missing",
+                "raw_too_few_points",
+                "raw_insufficient_footprint",
+                "normal_filtered_too_few_points",
+                "normal_filtered_insufficient_footprint"
+              ],
+              "raw_fit": {
+                "n": 6
+              },
+              "normal_filtered_fit": {
+                "n": 1
+              },
+              "published": null
+            },
+            "after": {
+              "valid": false,
+              "status": "excluded",
+              "reasons": [
+                "raw_normal_conflict_or_missing",
+                "supported_normal_conflict_or_missing",
+                "raw_too_few_points",
+                "raw_insufficient_footprint",
+                "normal_filtered_too_few_points",
+                "normal_filtered_insufficient_footprint",
+                "normal_filtered_weak_peak"
+              ],
+              "raw_fit": {
+                "n": 14,
+                "candidate_n": 31,
+                "target_n": 345,
+                "target_footprint_coverage": 0.008695652173913044,
+                "offset_m": 0.39352705902602564,
+                "source_normal": [
+                  -0.9477402522859754,
+                  0.3187173879803615,
+                  -0.014409746558889852
+                ],
+                "source_plane_centroid_m": [
+                  -1.7213490069932467,
+                  2.158381925607261,
+                  -0.2885390802339768
+                ],
+                "two_visit_thickness_p90_p10_m": 0.473022191586107,
+                "angle_deg": 88.15572277832482
+              },
+              "normal_filtered_fit": {
+                "n": 0
+              },
+              "published": null
+            }
+          },
+          "wall_a_1": {
+            "before": {
+              "valid": true,
+              "status": "valid",
+              "reasons": [],
+              "raw_fit": {
+                "n": 253,
+                "candidate_n": 281,
+                "target_n": 147,
+                "target_footprint_coverage": 0.9795918367346939,
+                "offset_m": -0.0670189045145353,
+                "source_normal": [
+                  0.8959913698683633,
+                  -0.4429940463246107,
+                  0.03091504556624255
+                ],
+                "source_plane_centroid_m": [
+                  -1.3994360679057882,
+                  3.140530006539624,
+                  1.1097647665283952
+                ],
+                "two_visit_thickness_p90_p10_m": 0.14583983201007206,
+                "angle_deg": 0.9254415466061142
+              },
+              "normal_filtered_fit": {
+                "n": 221,
+                "candidate_n": 221,
+                "target_n": 147,
+                "target_footprint_coverage": 0.9591836734693877,
+                "offset_m": -0.0670189045145353,
+                "source_normal": [
+                  0.8917221575399563,
+                  -0.45125559486505834,
+                  0.03464075425373338
+                ],
+                "source_plane_centroid_m": [
+                  -1.3799614327699175,
+                  3.173860641665707,
+                  0.9588242153434772
+                ],
+                "two_visit_thickness_p90_p10_m": 0.1370252599009753,
+                "angle_deg": 0.45895142932311667
+              },
+              "published": {
+                "n": 221,
+                "candidate_n": 221,
+                "target_n": 147,
+                "target_footprint_coverage": 0.9591836734693877,
+                "offset_m": -0.0670189045145353,
+                "source_normal": [
+                  0.8917221575399563,
+                  -0.45125559486505834,
+                  0.03464075425373338
+                ],
+                "source_plane_centroid_m": [
+                  -1.3799614327699175,
+                  3.173860641665707,
+                  0.9588242153434772
+                ],
+                "two_visit_thickness_p90_p10_m": 0.1370252599009753,
+                "angle_deg": 0.45895142932311667
+              }
+            },
+            "after": {
+              "valid": true,
+              "status": "valid",
+              "reasons": [],
+              "raw_fit": {
+                "n": 259,
+                "candidate_n": 282,
+                "target_n": 147,
+                "target_footprint_coverage": 0.9863945578231292,
+                "offset_m": 0.003219085967699124,
+                "source_normal": [
+                  0.8858224555791552,
+                  -0.46215821023374043,
+                  0.04157362030496873
+                ],
+                "source_plane_centroid_m": [
+                  -1.3899745429615693,
+                  3.021231380246688,
+                  1.0634260030476839
+                ],
+                "two_visit_thickness_p90_p10_m": 0.10779248311815229,
+                "angle_deg": 0.5924864009455033
+              },
+              "normal_filtered_fit": {
+                "n": 229,
+                "candidate_n": 231,
+                "target_n": 147,
+                "target_footprint_coverage": 0.9659863945578231,
+                "offset_m": 0.0037909907689651617,
+                "source_normal": [
+                  0.8904710582103604,
+                  -0.453673531915501,
+                  0.03523664185242401
+                ],
+                "source_plane_centroid_m": [
+                  -1.3734830017284103,
+                  3.034934028581278,
+                  0.9275965195882621
+                ],
+                "two_visit_thickness_p90_p10_m": 0.10569595062390594,
+                "angle_deg": 0.41065263813992353
+              },
+              "published": {
+                "n": 229,
+                "candidate_n": 231,
+                "target_n": 147,
+                "target_footprint_coverage": 0.9659863945578231,
+                "offset_m": 0.0037909907689651617,
+                "source_normal": [
+                  0.8904710582103604,
+                  -0.453673531915501,
+                  0.03523664185242401
+                ],
+                "source_plane_centroid_m": [
+                  -1.3734830017284103,
+                  3.034934028581278,
+                  0.9275965195882621
+                ],
+                "two_visit_thickness_p90_p10_m": 0.10569595062390594,
+                "angle_deg": 0.41065263813992353
+              }
+            }
+          }
+        },
+        "spacing": [],
+        "corners": [],
+        "openings": []
+      }
+    },
+    {
+      "target_id": 497,
+      "source_id": 1399,
+      "target_index": 497,
+      "source_index": 1399,
+      "target_center_map_gravity_m": [
+        18.335893873027555,
+        -21.866705780725926,
+        0.10844233749119485
+      ],
+      "identity": "odometry-proposed unlabelled revisit",
+      "old_points": 1668,
+      "point_to_point": {
+        "before": {
+          "source_points": 3446,
+          "source_median_m": 0.982494345788907,
+          "source_p90_m": 1.5302714596015048,
+          "target_median_m": 0.8798553653667014,
+          "source_coverage_32cm": 0.13900174114915845,
+          "target_coverage_32cm": 0.22302158273381295
+        },
+        "after": {
+          "source_points": 3441,
+          "source_median_m": 0.38759004870045893,
+          "source_p90_m": 1.6077050204729004,
+          "target_median_m": 0.1518572865985115,
+          "source_coverage_32cm": 0.47486195873292647,
+          "target_coverage_32cm": 0.6306954436450839
+        }
+      },
+      "surfaces": [
+        {
+          "type": "floor_1",
+          "centroid_m": [
+            1.955941243700536,
+            0.302839448611577,
+            -0.6111094610550993
+          ],
+          "normal": [
+            0.027635087975687284,
+            0.026907292938549827,
+            0.9992558728870675
+          ],
+          "before": {
+            "n": 65,
+            "candidate_n": 65,
+            "target_n": 364,
+            "target_footprint_coverage": 0.1978021978021978,
+            "offset_m": 0.06877347067885035,
+            "source_normal": [
+              0.02609229855908728,
+              0.021790676642420622,
+              0.9994220121487063
+            ],
+            "source_plane_centroid_m": [
+              0.9915856675930588,
+              2.0799128753531773,
+              -0.5613813283847121
+            ],
+            "two_visit_thickness_p90_p10_m": 0.0823797215355436,
+            "angle_deg": 0.30634565349623183
+          },
+          "after": {
+            "n": 410,
+            "candidate_n": 425,
+            "target_n": 364,
+            "target_footprint_coverage": 0.7994505494505495,
+            "offset_m": 0.013865976247570792,
+            "source_normal": [
+              0.02617035274266017,
+              0.025492298294649492,
+              0.9993324048408425
+            ],
+            "source_plane_centroid_m": [
+              1.5871411918110478,
+              0.8811699753159359,
+              -0.6005204206275463
+            ],
+            "two_visit_thickness_p90_p10_m": 0.02607460643292428,
+            "angle_deg": 0.11676983494787264
+          }
+        },
+        {
+          "type": "wall_a_1",
+          "centroid_m": [
+            -0.06301176674710268,
+            2.2815438679942006,
+            1.3656553189080063
+          ],
+          "normal": [
+            0.7031006508351044,
+            -0.7109850668784587,
+            0.0122355821719231
+          ],
+          "before": {
+            "n": 13,
+            "candidate_n": 54,
+            "target_n": 115,
+            "target_footprint_coverage": 0.05217391304347826,
+            "offset_m": -0.15426687708701947,
+            "source_normal": [
+              0.019142435354748057,
+              0.02393580550870492,
+              0.9995302118412124
+            ],
+            "source_plane_centroid_m": [
+              -0.19485849074892359,
+              2.3606589637295907,
+              -0.5416178767739012
+            ],
+            "two_visit_thickness_p90_p10_m": 0.2546952132603887,
+            "angle_deg": 89.50318822865223
+          },
+          "after": {
+            "n": 290,
+            "candidate_n": 351,
+            "target_n": 115,
+            "target_footprint_coverage": 0.8434782608695652,
+            "offset_m": 0.00303920418752164,
+            "source_normal": [
+              0.7077499647115957,
+              -0.7064606203501376,
+              -0.001838299549477117
+            ],
+            "source_plane_centroid_m": [
+              0.35865291086351214,
+              2.6884779174348465,
+              1.255147741917402
+            ],
+            "two_visit_thickness_p90_p10_m": 0.03496743379451269,
+            "angle_deg": 0.8879287412808864
+          }
+        },
+        {
+          "type": "wall_b_1",
+          "centroid_m": [
+            -0.6406578906249326,
+            -2.6938698313331133,
+            1.3279842782062292
+          ],
+          "normal": [
+            0.7141620316346465,
+            0.6990454362148167,
+            -0.03616725976225726
+          ],
+          "before": {
+            "n": 28,
+            "candidate_n": 48,
+            "target_n": 268,
+            "target_footprint_coverage": 0.06343283582089553,
+            "offset_m": -0.49231259738213445,
+            "source_normal": [
+              0.053607216072400155,
+              0.0545306571605715,
+              -0.9970720504630561
+            ],
+            "source_plane_centroid_m": [
+              -0.7185861680995943,
+              -3.240038023998259,
+              2.7901512316012007
+            ],
+            "two_visit_thickness_p90_p10_m": 0.5792964269544862,
+            "angle_deg": 83.54256785151674
+          },
+          "after": {
+            "n": 97,
+            "candidate_n": 175,
+            "target_n": 268,
+            "target_footprint_coverage": 0.3619402985074627,
+            "offset_m": 0.026937633337368736,
+            "source_normal": [
+              0.7205759280519306,
+              0.691745698364691,
+              -0.047520739746399754
+            ],
+            "source_plane_centroid_m": [
+              -0.3384432915225356,
+              -2.9233542690935046,
+              1.9850521024020946
+            ],
+            "two_visit_thickness_p90_p10_m": 0.03799951771713877,
+            "angle_deg": 0.8562411033209721
+          }
+        }
+      ],
+      "parallel_wall_spacing": [],
+      "corner_candidates": [],
+      "opening_candidates": [],
+      "quality": {
+        "rules": {
+          "max_normal_difference_deg": 15.0,
+          "min_reference_points": 42,
+          "min_source_points": 28,
+          "min_reference_footprint_coverage": 0.35,
+          "min_peak_fraction": 0.3,
+          "min_second_tangential_span_m": 0.2,
+          "min_first_tangential_span_m": 0.5,
+          "parallel_max_deg": 15.0,
+          "corner_min_angle_deg": 75.0,
+          "corner_max_angle_change_deg": 15.0
+        },
+        "surfaces": {
+          "floor_1": {
+            "before": {
+              "valid": false,
+              "status": "excluded",
+              "reasons": [
+                "raw_insufficient_footprint",
+                "normal_filtered_insufficient_footprint"
+              ],
+              "raw_fit": {
+                "n": 65,
+                "candidate_n": 65,
+                "target_n": 364,
+                "target_footprint_coverage": 0.1978021978021978,
+                "offset_m": 0.06877347067885035,
+                "source_normal": [
+                  0.02609229855908728,
+                  0.021790676642420622,
+                  0.9994220121487063
+                ],
+                "source_plane_centroid_m": [
+                  0.9915856675930588,
+                  2.0799128753531773,
+                  -0.5613813283847121
+                ],
+                "two_visit_thickness_p90_p10_m": 0.0823797215355436,
+                "angle_deg": 0.30634565349623183
+              },
+              "normal_filtered_fit": {
+                "n": 65,
+                "candidate_n": 65,
+                "target_n": 364,
+                "target_footprint_coverage": 0.1978021978021978,
+                "offset_m": 0.06877347067885035,
+                "source_normal": [
+                  0.02609229855908728,
+                  0.021790676642420622,
+                  0.9994220121487063
+                ],
+                "source_plane_centroid_m": [
+                  0.9915856675930588,
+                  2.0799128753531773,
+                  -0.5613813283847121
+                ],
+                "two_visit_thickness_p90_p10_m": 0.0823797215355436,
+                "angle_deg": 0.30634565349623183
+              },
+              "published": null
+            },
+            "after": {
+              "valid": true,
+              "status": "valid",
+              "reasons": [],
+              "raw_fit": {
+                "n": 410,
+                "candidate_n": 425,
+                "target_n": 364,
+                "target_footprint_coverage": 0.7994505494505495,
+                "offset_m": 0.013865976247570792,
+                "source_normal": [
+                  0.02617035274266017,
+                  0.025492298294649492,
+                  0.9993324048408425
+                ],
+                "source_plane_centroid_m": [
+                  1.5871411918110478,
+                  0.8811699753159359,
+                  -0.6005204206275463
+                ],
+                "two_visit_thickness_p90_p10_m": 0.02607460643292428,
+                "angle_deg": 0.11676983494787264
+              },
+              "normal_filtered_fit": {
+                "n": 398,
+                "candidate_n": 398,
+                "target_n": 364,
+                "target_footprint_coverage": 0.7994505494505495,
+                "offset_m": 0.013693456919883582,
+                "source_normal": [
+                  0.022086366394670875,
+                  0.026701791030472415,
+                  0.9993994230412809
+                ],
+                "source_plane_centroid_m": [
+                  1.627555298337454,
+                  0.8331030372065439,
+                  -0.6016203764584931
+                ],
+                "two_visit_thickness_p90_p10_m": 0.02584227897846799,
+                "angle_deg": 0.3182430011464555
+              },
+              "published": {
+                "n": 398,
+                "candidate_n": 398,
+                "target_n": 364,
+                "target_footprint_coverage": 0.7994505494505495,
+                "offset_m": 0.013693456919883582,
+                "source_normal": [
+                  0.022086366394670875,
+                  0.026701791030472415,
+                  0.9993994230412809
+                ],
+                "source_plane_centroid_m": [
+                  1.627555298337454,
+                  0.8331030372065439,
+                  -0.6016203764584931
+                ],
+                "two_visit_thickness_p90_p10_m": 0.02584227897846799,
+                "angle_deg": 0.3182430011464555
+              }
+            }
+          },
+          "wall_a_1": {
+            "before": {
+              "valid": false,
+              "status": "excluded",
+              "reasons": [
+                "raw_normal_conflict_or_missing",
+                "supported_normal_conflict_or_missing",
+                "raw_too_few_points",
+                "raw_insufficient_footprint",
+                "raw_weak_peak",
+                "normal_filtered_too_few_points",
+                "normal_filtered_insufficient_footprint",
+                "normal_filtered_weak_peak"
+              ],
+              "raw_fit": {
+                "n": 13,
+                "candidate_n": 54,
+                "target_n": 115,
+                "target_footprint_coverage": 0.05217391304347826,
+                "offset_m": -0.15426687708701947,
+                "source_normal": [
+                  0.019142435354748057,
+                  0.02393580550870492,
+                  0.9995302118412124
+                ],
+                "source_plane_centroid_m": [
+                  -0.19485849074892359,
+                  2.3606589637295907,
+                  -0.5416178767739012
+                ],
+                "two_visit_thickness_p90_p10_m": 0.2546952132603887,
+                "angle_deg": 89.50318822865223
+              },
+              "normal_filtered_fit": {
+                "n": 0
+              },
+              "published": null
+            },
+            "after": {
+              "valid": true,
+              "status": "valid",
+              "reasons": [],
+              "raw_fit": {
+                "n": 290,
+                "candidate_n": 351,
+                "target_n": 115,
+                "target_footprint_coverage": 0.8434782608695652,
+                "offset_m": 0.00303920418752164,
+                "source_normal": [
+                  0.7077499647115957,
+                  -0.7064606203501376,
+                  -0.001838299549477117
+                ],
+                "source_plane_centroid_m": [
+                  0.35865291086351214,
+                  2.6884779174348465,
+                  1.255147741917402
+                ],
+                "two_visit_thickness_p90_p10_m": 0.03496743379451269,
+                "angle_deg": 0.8879287412808864
+              },
+              "normal_filtered_fit": {
+                "n": 174,
+                "candidate_n": 181,
+                "target_n": 115,
+                "target_footprint_coverage": 0.8173913043478261,
+                "offset_m": -6.725383466675517e-05,
+                "source_normal": [
+                  0.6993196193082719,
+                  -0.7147439176307143,
+                  0.009654131780326864
+                ],
+                "source_plane_centroid_m": [
+                  0.4212708012258655,
+                  2.7609839633873015,
+                  1.271750987777722
+                ],
+                "two_visit_thickness_p90_p10_m": 0.026062777717943665,
+                "angle_deg": 0.3393978122506598
+              },
+              "published": {
+                "n": 174,
+                "candidate_n": 181,
+                "target_n": 115,
+                "target_footprint_coverage": 0.8173913043478261,
+                "offset_m": -6.725383466675517e-05,
+                "source_normal": [
+                  0.6993196193082719,
+                  -0.7147439176307143,
+                  0.009654131780326864
+                ],
+                "source_plane_centroid_m": [
+                  0.4212708012258655,
+                  2.7609839633873015,
+                  1.271750987777722
+                ],
+                "two_visit_thickness_p90_p10_m": 0.026062777717943665,
+                "angle_deg": 0.3393978122506598
+              }
+            }
+          },
+          "wall_b_1": {
+            "before": {
+              "valid": false,
+              "status": "excluded",
+              "reasons": [
+                "raw_normal_conflict_or_missing",
+                "supported_normal_conflict_or_missing",
+                "raw_insufficient_footprint",
+                "normal_filtered_too_few_points",
+                "normal_filtered_insufficient_footprint",
+                "normal_filtered_weak_peak"
+              ],
+              "raw_fit": {
+                "n": 28,
+                "candidate_n": 48,
+                "target_n": 268,
+                "target_footprint_coverage": 0.06343283582089553,
+                "offset_m": -0.49231259738213445,
+                "source_normal": [
+                  0.053607216072400155,
+                  0.0545306571605715,
+                  -0.9970720504630561
+                ],
+                "source_plane_centroid_m": [
+                  -0.7185861680995943,
+                  -3.240038023998259,
+                  2.7901512316012007
+                ],
+                "two_visit_thickness_p90_p10_m": 0.5792964269544862,
+                "angle_deg": 83.54256785151674
+              },
+              "normal_filtered_fit": {
+                "n": 0
+              },
+              "published": null
+            },
+            "after": {
+              "valid": false,
+              "status": "excluded",
+              "reasons": [
+                "normal_filtered_insufficient_footprint"
+              ],
+              "raw_fit": {
+                "n": 97,
+                "candidate_n": 175,
+                "target_n": 268,
+                "target_footprint_coverage": 0.3619402985074627,
+                "offset_m": 0.026937633337368736,
+                "source_normal": [
+                  0.7205759280519306,
+                  0.691745698364691,
+                  -0.047520739746399754
+                ],
+                "source_plane_centroid_m": [
+                  -0.3384432915225356,
+                  -2.9233542690935046,
+                  1.9850521024020946
+                ],
+                "two_visit_thickness_p90_p10_m": 0.03799951771713877,
+                "angle_deg": 0.8562411033209721
+              },
+              "normal_filtered_fit": {
+                "n": 75,
+                "candidate_n": 75,
+                "target_n": 268,
+                "target_footprint_coverage": 0.33955223880597013,
+                "offset_m": 0.026389820102332262,
+                "source_normal": [
+                  0.7156915297453856,
+                  0.6976509424622279,
+                  -0.03269245681002798
+                ],
+                "source_plane_centroid_m": [
+                  -0.3478385055395526,
+                  -2.931898196930578,
+                  1.7843926075327685
+                ],
+                "two_visit_thickness_p90_p10_m": 0.03465811901086484,
+                "angle_deg": 0.2317347274129165
+              },
+              "published": null
+            }
+          }
+        },
+        "spacing": [],
+        "corners": [],
+        "openings": []
+      }
+    },
+    {
+      "target_id": 739,
+      "source_id": 1133,
+      "target_index": 739,
+      "source_index": 1133,
+      "target_center_map_gravity_m": [
+        11.086316717713489,
+        69.75440896853583,
+        -1.2226958183034695
+      ],
+      "identity": "odometry-proposed unlabelled revisit",
+      "old_points": 1860,
+      "point_to_point": {
+        "before": {
+          "source_points": 3281,
+          "source_median_m": 0.33804789260618895,
+          "source_p90_m": 1.5312445140782938,
+          "target_median_m": 0.16687640150512234,
+          "source_coverage_32cm": 0.49436147516001216,
+          "target_coverage_32cm": 0.5817204301075268
+        },
+        "after": {
+          "source_points": 3258,
+          "source_median_m": 0.32471353858897506,
+          "source_p90_m": 1.5133505789281871,
+          "target_median_m": 0.12622160326833098,
+          "source_coverage_32cm": 0.49877225291589933,
+          "target_coverage_32cm": 0.5801075268817204
+        }
+      },
+      "surfaces": [
+        {
+          "type": "floor_1",
+          "centroid_m": [
+            0.11975018720451275,
+            1.979041825768118,
+            -0.5922516937084357
+          ],
+          "normal": [
+            -0.03860398579774002,
+            0.015323299271822343,
+            0.9991370920849422
+          ],
+          "before": {
+            "n": 4
+          },
+          "after": {
+            "n": 3
+          }
+        },
+        {
+          "type": "wall_a_1",
+          "centroid_m": [
+            1.7912937152392334,
+            0.19275737562255066,
+            1.2310096017025232
+          ],
+          "normal": [
+            0.998758088897148,
+            -0.03133363935985238,
+            0.03873606726273615
+          ],
+          "before": {
+            "n": 775,
+            "candidate_n": 818,
+            "target_n": 540,
+            "target_footprint_coverage": 0.9092592592592592,
+            "offset_m": -0.1062380892204888,
+            "source_normal": [
+              0.9984668897257938,
+              -0.042331537676335046,
+              0.03566386181075581
+            ],
+            "source_plane_centroid_m": [
+              1.6597876951624222,
+              -0.34889818810027273,
+              1.4067500087212321
+            ],
+            "two_visit_thickness_p90_p10_m": 0.14225312446224567,
+            "angle_deg": 0.6544733887149311
+          },
+          "after": {
+            "n": 762,
+            "candidate_n": 828,
+            "target_n": 540,
+            "target_footprint_coverage": 0.8925925925925926,
+            "offset_m": 0.0064623745322355255,
+            "source_normal": [
+              0.9989044948799661,
+              -0.031677743497617476,
+              0.034443151358422415
+            ],
+            "source_plane_centroid_m": [
+              1.7689948705668121,
+              -0.48355739147306526,
+              1.4182240771710495
+            ],
+            "two_visit_thickness_p90_p10_m": 0.07754598451390364,
+            "angle_deg": 0.24689759974623232
+          }
+        },
+        {
+          "type": "wall_a_2",
+          "centroid_m": [
+            -1.8971255810157786,
+            0.7434523504033115,
+            1.0623097381764077
+          ],
+          "normal": [
+            0.9988139159419547,
+            -0.028464622711585577,
+            0.039503500788979615
+          ],
+          "before": {
+            "n": 653,
+            "candidate_n": 683,
+            "target_n": 455,
+            "target_footprint_coverage": 0.8989010989010989,
+            "offset_m": -0.10390597542415082,
+            "source_normal": [
+              0.9990179259497693,
+              -0.03627665959308306,
+              0.025439882071051585
+            ],
+            "source_plane_centroid_m": [
+              -2.019939092934026,
+              0.34457315976595365,
+              1.2532029102581925
+            ],
+            "two_visit_thickness_p90_p10_m": 0.12592849251939137,
+            "angle_deg": 0.9218399423492244
+          },
+          "after": {
+            "n": 641,
+            "candidate_n": 670,
+            "target_n": 455,
+            "target_footprint_coverage": 0.9032967032967033,
+            "offset_m": 0.0012872684330035853,
+            "source_normal": [
+              0.9994621621996017,
+              -0.027382575288997752,
+              0.0180438605026493
+            ],
+            "source_plane_centroid_m": [
+              -1.9131373566018204,
+              0.24430009526695928,
+              1.2489073396040964
+            ],
+            "two_visit_thickness_p90_p10_m": 0.025782906320252853,
+            "angle_deg": 1.2316927006422886
+          }
+        }
+      ],
+      "parallel_wall_spacing": [
+        {
+          "family": "wall_a",
+          "target_spacing_m": 3.707628654376845,
+          "before_source_spacing_m": 3.705296082182287,
+          "after_source_spacing_m": 3.712803766155072
+        }
+      ],
+      "corner_candidates": [],
+      "opening_candidates": [],
+      "quality": {
+        "rules": {
+          "max_normal_difference_deg": 15.0,
+          "min_reference_points": 42,
+          "min_source_points": 28,
+          "min_reference_footprint_coverage": 0.35,
+          "min_peak_fraction": 0.3,
+          "min_second_tangential_span_m": 0.2,
+          "min_first_tangential_span_m": 0.5,
+          "parallel_max_deg": 15.0,
+          "corner_min_angle_deg": 75.0,
+          "corner_max_angle_change_deg": 15.0
+        },
+        "surfaces": {
+          "floor_1": {
+            "before": {
+              "valid": false,
+              "status": "excluded",
+              "reasons": [
+                "raw_normal_conflict_or_missing",
+                "supported_normal_conflict_or_missing",
+                "raw_too_few_points",
+                "raw_insufficient_footprint",
+                "normal_filtered_too_few_points",
+                "normal_filtered_insufficient_footprint",
+                "normal_filtered_weak_peak"
+              ],
+              "raw_fit": {
+                "n": 4
+              },
+              "normal_filtered_fit": {
+                "n": 0
+              },
+              "published": null
+            },
+            "after": {
+              "valid": false,
+              "status": "excluded",
+              "reasons": [
+                "raw_normal_conflict_or_missing",
+                "supported_normal_conflict_or_missing",
+                "raw_too_few_points",
+                "raw_insufficient_footprint",
+                "normal_filtered_too_few_points",
+                "normal_filtered_insufficient_footprint",
+                "normal_filtered_weak_peak"
+              ],
+              "raw_fit": {
+                "n": 3
+              },
+              "normal_filtered_fit": {
+                "n": 0
+              },
+              "published": null
+            }
+          },
+          "wall_a_1": {
+            "before": {
+              "valid": true,
+              "status": "valid",
+              "reasons": [],
+              "raw_fit": {
+                "n": 775,
+                "candidate_n": 818,
+                "target_n": 540,
+                "target_footprint_coverage": 0.9092592592592592,
+                "offset_m": -0.1062380892204888,
+                "source_normal": [
+                  0.9984668897257938,
+                  -0.042331537676335046,
+                  0.03566386181075581
+                ],
+                "source_plane_centroid_m": [
+                  1.6597876951624222,
+                  -0.34889818810027273,
+                  1.4067500087212321
+                ],
+                "two_visit_thickness_p90_p10_m": 0.14225312446224567,
+                "angle_deg": 0.6544733887149311
+              },
+              "normal_filtered_fit": {
+                "n": 744,
+                "candidate_n": 747,
+                "target_n": 540,
+                "target_footprint_coverage": 0.9074074074074074,
+                "offset_m": -0.10586627575847601,
+                "source_normal": [
+                  0.9986205006133442,
+                  -0.04254181030200979,
+                  0.03077807874090554
+                ],
+                "source_plane_centroid_m": [
+                  1.663854237209769,
+                  -0.34155606638334424,
+                  1.3503808550763556
+                ],
+                "two_visit_thickness_p90_p10_m": 0.1419140280288837,
+                "angle_deg": 0.7876337747920669
+              },
+              "published": {
+                "n": 744,
+                "candidate_n": 747,
+                "target_n": 540,
+                "target_footprint_coverage": 0.9074074074074074,
+                "offset_m": -0.10586627575847601,
+                "source_normal": [
+                  0.9986205006133442,
+                  -0.04254181030200979,
+                  0.03077807874090554
+                ],
+                "source_plane_centroid_m": [
+                  1.663854237209769,
+                  -0.34155606638334424,
+                  1.3503808550763556
+                ],
+                "two_visit_thickness_p90_p10_m": 0.1419140280288837,
+                "angle_deg": 0.7876337747920669
+              }
+            },
+            "after": {
+              "valid": true,
+              "status": "valid",
+              "reasons": [],
+              "raw_fit": {
+                "n": 762,
+                "candidate_n": 828,
+                "target_n": 540,
+                "target_footprint_coverage": 0.8925925925925926,
+                "offset_m": 0.0064623745322355255,
+                "source_normal": [
+                  0.9989044948799661,
+                  -0.031677743497617476,
+                  0.034443151358422415
+                ],
+                "source_plane_centroid_m": [
+                  1.7689948705668121,
+                  -0.48355739147306526,
+                  1.4182240771710495
+                ],
+                "two_visit_thickness_p90_p10_m": 0.07754598451390364,
+                "angle_deg": 0.24689759974623232
+              },
+              "normal_filtered_fit": {
+                "n": 726,
+                "candidate_n": 726,
+                "target_n": 540,
+                "target_footprint_coverage": 0.8907407407407407,
+                "offset_m": 0.007264980354809759,
+                "source_normal": [
+                  0.9990594374476899,
+                  -0.03165879872921984,
+                  0.029630405156331537
+                ],
+                "source_plane_centroid_m": [
+                  1.7730252519516585,
+                  -0.4757759843367446,
+                  1.3575611839814228
+                ],
+                "two_visit_thickness_p90_p10_m": 0.07698153136601349,
+                "angle_deg": 0.5223357965188014
+              },
+              "published": {
+                "n": 726,
+                "candidate_n": 726,
+                "target_n": 540,
+                "target_footprint_coverage": 0.8907407407407407,
+                "offset_m": 0.007264980354809759,
+                "source_normal": [
+                  0.9990594374476899,
+                  -0.03165879872921984,
+                  0.029630405156331537
+                ],
+                "source_plane_centroid_m": [
+                  1.7730252519516585,
+                  -0.4757759843367446,
+                  1.3575611839814228
+                ],
+                "two_visit_thickness_p90_p10_m": 0.07698153136601349,
+                "angle_deg": 0.5223357965188014
+              }
+            }
+          },
+          "wall_a_2": {
+            "before": {
+              "valid": true,
+              "status": "valid",
+              "reasons": [],
+              "raw_fit": {
+                "n": 653,
+                "candidate_n": 683,
+                "target_n": 455,
+                "target_footprint_coverage": 0.8989010989010989,
+                "offset_m": -0.10390597542415082,
+                "source_normal": [
+                  0.9990179259497693,
+                  -0.03627665959308306,
+                  0.025439882071051585
+                ],
+                "source_plane_centroid_m": [
+                  -2.019939092934026,
+                  0.34457315976595365,
+                  1.2532029102581925
+                ],
+                "two_visit_thickness_p90_p10_m": 0.12592849251939137,
+                "angle_deg": 0.9218399423492244
+              },
+              "normal_filtered_fit": {
+                "n": 625,
+                "candidate_n": 625,
+                "target_n": 455,
+                "target_footprint_coverage": 0.8989010989010989,
+                "offset_m": -0.10474832068451924,
+                "source_normal": [
+                  0.9989890337217451,
+                  -0.036305446774483545,
+                  0.026510847557169478
+                ],
+                "source_plane_centroid_m": [
+                  -2.0200702940097126,
+                  0.31338317134097576,
+                  1.2010015824253548
+                ],
+                "two_visit_thickness_p90_p10_m": 0.12616053356592558,
+                "angle_deg": 0.869542780889008
+              },
+              "published": {
+                "n": 625,
+                "candidate_n": 625,
+                "target_n": 455,
+                "target_footprint_coverage": 0.8989010989010989,
+                "offset_m": -0.10474832068451924,
+                "source_normal": [
+                  0.9989890337217451,
+                  -0.036305446774483545,
+                  0.026510847557169478
+                ],
+                "source_plane_centroid_m": [
+                  -2.0200702940097126,
+                  0.31338317134097576,
+                  1.2010015824253548
+                ],
+                "two_visit_thickness_p90_p10_m": 0.12616053356592558,
+                "angle_deg": 0.869542780889008
+              }
+            },
+            "after": {
+              "valid": true,
+              "status": "valid",
+              "reasons": [],
+              "raw_fit": {
+                "n": 641,
+                "candidate_n": 670,
+                "target_n": 455,
+                "target_footprint_coverage": 0.9032967032967033,
+                "offset_m": 0.0012872684330035853,
+                "source_normal": [
+                  0.9994621621996017,
+                  -0.027382575288997752,
+                  0.0180438605026493
+                ],
+                "source_plane_centroid_m": [
+                  -1.9131373566018204,
+                  0.24430009526695928,
+                  1.2489073396040964
+                ],
+                "two_visit_thickness_p90_p10_m": 0.025782906320252853,
+                "angle_deg": 1.2316927006422886
+              },
+              "normal_filtered_fit": {
+                "n": 603,
+                "candidate_n": 603,
+                "target_n": 455,
+                "target_footprint_coverage": 0.8989010989010989,
+                "offset_m": 0.0008791150316542902,
+                "source_normal": [
+                  0.9993160099839202,
+                  -0.02608213491836676,
+                  0.026215156454185595
+                ],
+                "source_plane_centroid_m": [
+                  -1.915210511745816,
+                  0.2117624315404389,
+                  1.1877002438241444
+                ],
+                "two_visit_thickness_p90_p10_m": 0.02373818324049154,
+                "angle_deg": 0.7740471457306084
+              },
+              "published": {
+                "n": 603,
+                "candidate_n": 603,
+                "target_n": 455,
+                "target_footprint_coverage": 0.8989010989010989,
+                "offset_m": 0.0008791150316542902,
+                "source_normal": [
+                  0.9993160099839202,
+                  -0.02608213491836676,
+                  0.026215156454185595
+                ],
+                "source_plane_centroid_m": [
+                  -1.915210511745816,
+                  0.2117624315404389,
+                  1.1877002438241444
+                ],
+                "two_visit_thickness_p90_p10_m": 0.02373818324049154,
+                "angle_deg": 0.7740471457306084
+              }
+            }
+          }
+        },
+        "spacing": [
+          {
+            "family": "wall_a",
+            "reference_m": 3.707628654376845,
+            "before": {
+              "valid": true,
+              "reasons": [],
+              "spacing_m": 3.706510237188524
+            },
+            "after": {
+              "valid": true,
+              "reasons": [],
+              "spacing_m": 3.7140145235783604
+            }
+          }
+        ],
+        "corners": [],
+        "openings": []
+      }
+    },
+    {
+      "target_id": 810,
+      "source_id": 1049,
+      "target_index": 810,
+      "source_index": 1049,
+      "target_center_map_gravity_m": [
+        24.606960004030743,
+        81.07306804010243,
+        -0.7832420119060294
+      ],
+      "identity": "odometry-proposed unlabelled revisit",
+      "old_points": 1789,
+      "point_to_point": {
+        "before": {
+          "source_points": 3329,
+          "source_median_m": 0.2817348858232052,
+          "source_p90_m": 1.4159628815670542,
+          "target_median_m": 0.11545471532543893,
+          "source_coverage_32cm": 0.5112646440372485,
+          "target_coverage_32cm": 0.6539966461710452
+        },
+        "after": {
+          "source_points": 3370,
+          "source_median_m": 0.27420649651958373,
+          "source_p90_m": 1.4073433347144486,
+          "target_median_m": 0.10019638073734992,
+          "source_coverage_32cm": 0.5157270029673591,
+          "target_coverage_32cm": 0.6523197316936836
+        }
+      },
+      "surfaces": [
+        {
+          "type": "floor_1",
+          "centroid_m": [
+            1.4798620747063245,
+            -1.5801469877729535,
+            -0.468688231331009
+          ],
+          "normal": [
+            -0.03363931360088803,
+            0.02996551705229998,
+            0.9989847167841206
+          ],
+          "before": {
+            "n": 16,
+            "candidate_n": 21,
+            "target_n": 201,
+            "target_footprint_coverage": 0.11442786069651742,
+            "offset_m": 0.8055096254525883,
+            "source_normal": [
+              -0.016779314479648342,
+              0.07101060052899216,
+              0.9973344219558978
+            ],
+            "source_plane_centroid_m": [
+              1.865866258917005,
+              -0.0053094926233949735,
+              0.2922708240730285
+            ],
+            "two_visit_thickness_p90_p10_m": 0.8437003073199049,
+            "angle_deg": 2.5443493688358547
+          },
+          "after": {
+            "n": 21,
+            "candidate_n": 21,
+            "target_n": 201,
+            "target_footprint_coverage": 0.04477611940298507,
+            "offset_m": 0.7358915299646314,
+            "source_normal": [
+              -0.7378490681850546,
+              -0.6749620561718793,
+              0.002230539548017233
+            ],
+            "source_plane_centroid_m": [
+              1.8805982108931003,
+              0.14786838993827073,
+              0.2121236388334916
+            ],
+            "two_visit_thickness_p90_p10_m": 0.8192452015147891,
+            "angle_deg": 89.60904356288896
+          }
+        },
+        {
+          "type": "wall_a_1",
+          "centroid_m": [
+            1.3330968560475063,
+            0.7139860727302022,
+            0.7837945729890798
+          ],
+          "normal": [
+            0.7236771921501908,
+            0.6900495591245276,
+            0.011087268088275943
+          ],
+          "before": {
+            "n": 449,
+            "candidate_n": 473,
+            "target_n": 361,
+            "target_footprint_coverage": 0.8864265927977839,
+            "offset_m": 0.05843125364742915,
+            "source_normal": [
+              0.7301271612347838,
+              0.683265181237747,
+              0.00793854743541817
+            ],
+            "source_plane_centroid_m": [
+              1.196011789914953,
+              0.9409141573420766,
+              0.7342625413539717
+            ],
+            "two_visit_thickness_p90_p10_m": 0.07457289217542581,
+            "angle_deg": 0.5658813803497873
+          },
+          "after": {
+            "n": 428,
+            "candidate_n": 445,
+            "target_n": 361,
+            "target_footprint_coverage": 0.8808864265927978,
+            "offset_m": 0.00374219060774242,
+            "source_normal": [
+              0.7281363839913724,
+              0.6853482844071798,
+              0.010730115008900015
+            ],
+            "source_plane_centroid_m": [
+              1.2398212246556284,
+              0.8186689753434487,
+              0.7266059485223736
+            ],
+            "two_visit_thickness_p90_p10_m": 0.026987653100229554,
+            "angle_deg": 0.3718230435314921
+          }
+        },
+        {
+          "type": "wall_a_2",
+          "centroid_m": [
+            -1.3353898492223522,
+            -1.8358616617593269,
+            1.239653793220692
+          ],
+          "normal": [
+            0.7279381487344789,
+            0.6856363773245883,
+            0.0029681149294933967
+          ],
+          "before": {
+            "n": 787,
+            "candidate_n": 940,
+            "target_n": 513,
+            "target_footprint_coverage": 0.935672514619883,
+            "offset_m": 0.05648516203642101,
+            "source_normal": [
+              0.7290843752180471,
+              0.6844191815898437,
+              0.0025214449823002974
+            ],
+            "source_plane_centroid_m": [
+              -1.5336346767038314,
+              -1.538705852448989,
+              1.5212681159344592
+            ],
+            "two_visit_thickness_p90_p10_m": 0.15374931978180942,
+            "angle_deg": 0.09915506685251614
+          },
+          "after": {
+            "n": 832,
+            "candidate_n": 968,
+            "target_n": 513,
+            "target_footprint_coverage": 0.9376218323586745,
+            "offset_m": -0.00037985303462127404,
+            "source_normal": [
+              0.7263541622426029,
+              0.687310629515686,
+              0.0037053404160144114
+            ],
+            "source_plane_centroid_m": [
+              -1.5663909664209306,
+              -1.5900027148898477,
+              1.5058926736654794
+            ],
+            "two_visit_thickness_p90_p10_m": 0.11864368479287137,
+            "angle_deg": 0.13864676417916294
+          }
+        }
+      ],
+      "parallel_wall_spacing": [
+        {
+          "family": "wall_a",
+          "target_spacing_m": 3.685590037793759,
+          "before_source_spacing_m": 3.687539053996689,
+          "after_source_spacing_m": 3.6897120617687436
+        }
+      ],
+      "corner_candidates": [],
+      "opening_candidates": [],
+      "quality": {
+        "rules": {
+          "max_normal_difference_deg": 15.0,
+          "min_reference_points": 42,
+          "min_source_points": 28,
+          "min_reference_footprint_coverage": 0.35,
+          "min_peak_fraction": 0.3,
+          "min_second_tangential_span_m": 0.2,
+          "min_first_tangential_span_m": 0.5,
+          "parallel_max_deg": 15.0,
+          "corner_min_angle_deg": 75.0,
+          "corner_max_angle_change_deg": 15.0
+        },
+        "surfaces": {
+          "floor_1": {
+            "before": {
+              "valid": false,
+              "status": "excluded",
+              "reasons": [
+                "supported_normal_conflict_or_missing",
+                "raw_too_few_points",
+                "raw_insufficient_footprint",
+                "normal_filtered_too_few_points",
+                "normal_filtered_insufficient_footprint",
+                "normal_filtered_weak_peak"
+              ],
+              "raw_fit": {
+                "n": 16,
+                "candidate_n": 21,
+                "target_n": 201,
+                "target_footprint_coverage": 0.11442786069651742,
+                "offset_m": 0.8055096254525883,
+                "source_normal": [
+                  -0.016779314479648342,
+                  0.07101060052899216,
+                  0.9973344219558978
+                ],
+                "source_plane_centroid_m": [
+                  1.865866258917005,
+                  -0.0053094926233949735,
+                  0.2922708240730285
+                ],
+                "two_visit_thickness_p90_p10_m": 0.8437003073199049,
+                "angle_deg": 2.5443493688358547
+              },
+              "normal_filtered_fit": {
+                "n": 0
+              },
+              "published": null
+            },
+            "after": {
+              "valid": false,
+              "status": "excluded",
+              "reasons": [
+                "raw_normal_conflict_or_missing",
+                "supported_normal_conflict_or_missing",
+                "raw_too_few_points",
+                "raw_insufficient_footprint",
+                "normal_filtered_too_few_points",
+                "normal_filtered_insufficient_footprint",
+                "normal_filtered_weak_peak"
+              ],
+              "raw_fit": {
+                "n": 21,
+                "candidate_n": 21,
+                "target_n": 201,
+                "target_footprint_coverage": 0.04477611940298507,
+                "offset_m": 0.7358915299646314,
+                "source_normal": [
+                  -0.7378490681850546,
+                  -0.6749620561718793,
+                  0.002230539548017233
+                ],
+                "source_plane_centroid_m": [
+                  1.8805982108931003,
+                  0.14786838993827073,
+                  0.2121236388334916
+                ],
+                "two_visit_thickness_p90_p10_m": 0.8192452015147891,
+                "angle_deg": 89.60904356288896
+              },
+              "normal_filtered_fit": {
+                "n": 0
+              },
+              "published": null
+            }
+          },
+          "wall_a_1": {
+            "before": {
+              "valid": true,
+              "status": "valid",
+              "reasons": [],
+              "raw_fit": {
+                "n": 449,
+                "candidate_n": 473,
+                "target_n": 361,
+                "target_footprint_coverage": 0.8864265927977839,
+                "offset_m": 0.05843125364742915,
+                "source_normal": [
+                  0.7301271612347838,
+                  0.683265181237747,
+                  0.00793854743541817
+                ],
+                "source_plane_centroid_m": [
+                  1.196011789914953,
+                  0.9409141573420766,
+                  0.7342625413539717
+                ],
+                "two_visit_thickness_p90_p10_m": 0.07457289217542581,
+                "angle_deg": 0.5658813803497873
+              },
+              "normal_filtered_fit": {
+                "n": 448,
+                "candidate_n": 448,
+                "target_n": 361,
+                "target_footprint_coverage": 0.8864265927977839,
+                "offset_m": 0.05851961640383443,
+                "source_normal": [
+                  0.7301283832724624,
+                  0.6832641312727288,
+                  0.007916492661763228
+                ],
+                "source_plane_centroid_m": [
+                  1.1965062880596995,
+                  0.9403477101276826,
+                  0.7368128512322822
+                ],
+                "two_visit_thickness_p90_p10_m": 0.07459495713047776,
+                "angle_deg": 0.5663725060250212
+              },
+              "published": {
+                "n": 448,
+                "candidate_n": 448,
+                "target_n": 361,
+                "target_footprint_coverage": 0.8864265927977839,
+                "offset_m": 0.05851961640383443,
+                "source_normal": [
+                  0.7301283832724624,
+                  0.6832641312727288,
+                  0.007916492661763228
+                ],
+                "source_plane_centroid_m": [
+                  1.1965062880596995,
+                  0.9403477101276826,
+                  0.7368128512322822
+                ],
+                "two_visit_thickness_p90_p10_m": 0.07459495713047776,
+                "angle_deg": 0.5663725060250212
+              }
+            },
+            "after": {
+              "valid": true,
+              "status": "valid",
+              "reasons": [],
+              "raw_fit": {
+                "n": 428,
+                "candidate_n": 445,
+                "target_n": 361,
+                "target_footprint_coverage": 0.8808864265927978,
+                "offset_m": 0.00374219060774242,
+                "source_normal": [
+                  0.7281363839913724,
+                  0.6853482844071798,
+                  0.010730115008900015
+                ],
+                "source_plane_centroid_m": [
+                  1.2398212246556284,
+                  0.8186689753434487,
+                  0.7266059485223736
+                ],
+                "two_visit_thickness_p90_p10_m": 0.026987653100229554,
+                "angle_deg": 0.3718230435314921
+              },
+              "normal_filtered_fit": {
+                "n": 426,
+                "candidate_n": 426,
+                "target_n": 361,
+                "target_footprint_coverage": 0.8808864265927978,
+                "offset_m": 0.0037421907153409473,
+                "source_normal": [
+                  0.7280324084742498,
+                  0.6854374017360145,
+                  0.01201584423021278
+                ],
+                "source_plane_centroid_m": [
+                  1.2421918001842966,
+                  0.8164881266784748,
+                  0.7322645117398402
+                ],
+                "two_visit_thickness_p90_p10_m": 0.026933445207775984,
+                "angle_deg": 0.36732940203665354
+              },
+              "published": {
+                "n": 426,
+                "candidate_n": 426,
+                "target_n": 361,
+                "target_footprint_coverage": 0.8808864265927978,
+                "offset_m": 0.0037421907153409473,
+                "source_normal": [
+                  0.7280324084742498,
+                  0.6854374017360145,
+                  0.01201584423021278
+                ],
+                "source_plane_centroid_m": [
+                  1.2421918001842966,
+                  0.8164881266784748,
+                  0.7322645117398402
+                ],
+                "two_visit_thickness_p90_p10_m": 0.026933445207775984,
+                "angle_deg": 0.36732940203665354
+              }
+            }
+          },
+          "wall_a_2": {
+            "before": {
+              "valid": true,
+              "status": "valid",
+              "reasons": [],
+              "raw_fit": {
+                "n": 787,
+                "candidate_n": 940,
+                "target_n": 513,
+                "target_footprint_coverage": 0.935672514619883,
+                "offset_m": 0.05648516203642101,
+                "source_normal": [
+                  0.7290843752180471,
+                  0.6844191815898437,
+                  0.0025214449823002974
+                ],
+                "source_plane_centroid_m": [
+                  -1.5336346767038314,
+                  -1.538705852448989,
+                  1.5212681159344592
+                ],
+                "two_visit_thickness_p90_p10_m": 0.15374931978180942,
+                "angle_deg": 0.09915506685251614
+              },
+              "normal_filtered_fit": {
+                "n": 716,
+                "candidate_n": 716,
+                "target_n": 513,
+                "target_footprint_coverage": 0.9337231968810916,
+                "offset_m": 0.05724268984507043,
+                "source_normal": [
+                  0.7283279060969867,
+                  0.6852085094107787,
+                  0.005268759952494156
+                ],
+                "source_plane_centroid_m": [
+                  -1.4821748054493689,
+                  -1.5923478053361901,
+                  1.4421439972514876
+                ],
+                "two_visit_thickness_p90_p10_m": 0.15379134656888827,
+                "angle_deg": 0.1359245242213696
+              },
+              "published": {
+                "n": 716,
+                "candidate_n": 716,
+                "target_n": 513,
+                "target_footprint_coverage": 0.9337231968810916,
+                "offset_m": 0.05724268984507043,
+                "source_normal": [
+                  0.7283279060969867,
+                  0.6852085094107787,
+                  0.005268759952494156
+                ],
+                "source_plane_centroid_m": [
+                  -1.4821748054493689,
+                  -1.5923478053361901,
+                  1.4421439972514876
+                ],
+                "two_visit_thickness_p90_p10_m": 0.15379134656888827,
+                "angle_deg": 0.1359245242213696
+              }
+            },
+            "after": {
+              "valid": true,
+              "status": "valid",
+              "reasons": [],
+              "raw_fit": {
+                "n": 832,
+                "candidate_n": 968,
+                "target_n": 513,
+                "target_footprint_coverage": 0.9376218323586745,
+                "offset_m": -0.00037985303462127404,
+                "source_normal": [
+                  0.7263541622426029,
+                  0.687310629515686,
+                  0.0037053404160144114
+                ],
+                "source_plane_centroid_m": [
+                  -1.5663909664209306,
+                  -1.5900027148898477,
+                  1.5058926736654794
+                ],
+                "two_visit_thickness_p90_p10_m": 0.11864368479287137,
+                "angle_deg": 0.13864676417916294
+              },
+              "normal_filtered_fit": {
+                "n": 758,
+                "candidate_n": 758,
+                "target_n": 513,
+                "target_footprint_coverage": 0.9337231968810916,
+                "offset_m": 8.580194167232685e-05,
+                "source_normal": [
+                  0.7250490141278079,
+                  0.6886305508992039,
+                  0.00958600441023329
+                ],
+                "source_plane_centroid_m": [
+                  -1.4916578705028496,
+                  -1.6701986459267215,
+                  1.4409788685997331
+                ],
+                "two_visit_thickness_p90_p10_m": 0.11818946060749994,
+                "angle_deg": 0.44789377953470494
+              },
+              "published": {
+                "n": 758,
+                "candidate_n": 758,
+                "target_n": 513,
+                "target_footprint_coverage": 0.9337231968810916,
+                "offset_m": 8.580194167232685e-05,
+                "source_normal": [
+                  0.7250490141278079,
+                  0.6886305508992039,
+                  0.00958600441023329
+                ],
+                "source_plane_centroid_m": [
+                  -1.4916578705028496,
+                  -1.6701986459267215,
+                  1.4409788685997331
+                ],
+                "two_visit_thickness_p90_p10_m": 0.11818946060749994,
+                "angle_deg": 0.44789377953470494
+              }
+            }
+          }
+        },
+        "spacing": [
+          {
+            "family": "wall_a",
+            "reference_m": 3.685590037793759,
+            "before": {
+              "valid": true,
+              "reasons": [],
+              "spacing_m": 3.686869928166422
+            },
+            "after": {
+              "valid": true,
+              "reasons": [],
+              "spacing_m": 3.6892464310099333
+            }
+          }
+        ],
+        "corners": [],
+        "openings": []
+      }
+    },
+    {
+      "target_id": 701,
+      "source_id": 1190,
+      "target_index": 701,
+      "source_index": 1190,
+      "target_center_map_gravity_m": [
+        10.141380246423102,
+        49.036345052125206,
+        -0.9232266703066525
+      ],
+      "identity": "odometry-proposed unlabelled revisit",
+      "old_points": 1633,
+      "point_to_point": {
+        "before": {
+          "source_points": 3331,
+          "source_median_m": 0.4871630251009369,
+          "source_p90_m": 1.5001240850725257,
+          "target_median_m": 0.3877466604198123,
+          "source_coverage_32cm": 0.11738216751726209,
+          "target_coverage_32cm": 0.1653398652786283
+        },
+        "after": {
+          "source_points": 3283,
+          "source_median_m": 0.4328740348439292,
+          "source_p90_m": 1.5032486500280824,
+          "target_median_m": 0.12231127511533506,
+          "source_coverage_32cm": 0.4584221748400853,
+          "target_coverage_32cm": 0.5664421310471525
+        }
+      },
+      "surfaces": [
+        {
+          "type": "floor_1",
+          "centroid_m": [
+            0.4425672219743641,
+            1.9967459655594282,
+            -0.5882820593907325
+          ],
+          "normal": [
+            -0.025390174443338027,
+            0.02139393683320189,
+            0.9994486672703677
+          ],
+          "before": {
+            "n": 0
+          },
+          "after": {
+            "n": 10
+          }
+        },
+        {
+          "type": "wall_a_1",
+          "centroid_m": [
+            2.1324987785915015,
+            0.0771320102961771,
+            1.0629634047903858
+          ],
+          "normal": [
+            0.9993607946322277,
+            -0.025044708611574453,
+            0.02551009060359049
+          ],
+          "before": {
+            "n": 521,
+            "candidate_n": 538,
+            "target_n": 364,
+            "target_footprint_coverage": 0.8983516483516484,
+            "offset_m": -0.3592103942254079,
+            "source_normal": [
+              0.9990923649697776,
+              -0.038720234368240604,
+              0.017753583006405907
+            ],
+            "source_plane_centroid_m": [
+              1.7669364945816823,
+              -0.023163570631445352,
+              1.3112120224587092
+            ],
+            "two_visit_thickness_p90_p10_m": 0.3829121609326998,
+            "angle_deg": 0.9009486943671262
+          },
+          "after": {
+            "n": 538,
+            "candidate_n": 587,
+            "target_n": 364,
+            "target_footprint_coverage": 0.9285714285714286,
+            "offset_m": 0.005992550866465991,
+            "source_normal": [
+              0.9991534055882749,
+              -0.028779838729489162,
+              0.029397159455586006
+            ],
+            "source_plane_centroid_m": [
+              2.1284339259590723,
+              -0.14923756953164086,
+              1.2982064631074928
+            ],
+            "two_visit_thickness_p90_p10_m": 0.019031663596866377,
+            "angle_deg": 0.3090977579798964
+          }
+        },
+        {
+          "type": "wall_a_2",
+          "centroid_m": [
+            -1.5380491664642948,
+            0.0678978783355434,
+            1.047100677002969
+          ],
+          "normal": [
+            0.9994560532329437,
+            -0.026376491815212552,
+            0.019795917143430625
+          ],
+          "before": {
+            "n": 630,
+            "candidate_n": 660,
+            "target_n": 312,
+            "target_footprint_coverage": 0.9775641025641025,
+            "offset_m": -0.36848903678006084,
+            "source_normal": [
+              0.9991834008043253,
+              -0.04027300627016745,
+              0.0032583006408447054
+            ],
+            "source_plane_centroid_m": [
+              -1.9047189015153765,
+              -0.0999635576556148,
+              1.0468766743560032
+            ],
+            "two_visit_thickness_p90_p10_m": 0.40457363093578314,
+            "angle_deg": 1.2377723338535644
+          },
+          "after": {
+            "n": 569,
+            "candidate_n": 579,
+            "target_n": 312,
+            "target_footprint_coverage": 0.9711538461538461,
+            "offset_m": 0.014685858657541436,
+            "source_normal": [
+              0.9995435974517798,
+              -0.025448289937244885,
+              0.016278247215984903
+            ],
+            "source_plane_centroid_m": [
+              -1.5318684726798255,
+              -0.11693770118809198,
+              0.9871754760908166
+            ],
+            "two_visit_thickness_p90_p10_m": 0.053771805753960844,
+            "angle_deg": 0.20850656883251098
+          }
+        }
+      ],
+      "parallel_wall_spacing": [
+        {
+          "family": "wall_a",
+          "target_spacing_m": 3.6683751045854933,
+          "before_source_spacing_m": 3.6776474027724557,
+          "after_source_spacing_m": 3.6596820496445104
+        }
+      ],
+      "corner_candidates": [],
+      "opening_candidates": [],
+      "quality": {
+        "rules": {
+          "max_normal_difference_deg": 15.0,
+          "min_reference_points": 42,
+          "min_source_points": 28,
+          "min_reference_footprint_coverage": 0.35,
+          "min_peak_fraction": 0.3,
+          "min_second_tangential_span_m": 0.2,
+          "min_first_tangential_span_m": 0.5,
+          "parallel_max_deg": 15.0,
+          "corner_min_angle_deg": 75.0,
+          "corner_max_angle_change_deg": 15.0
+        },
+        "surfaces": {
+          "floor_1": {
+            "before": {
+              "valid": false,
+              "status": "excluded",
+              "reasons": [
+                "raw_normal_conflict_or_missing",
+                "supported_normal_conflict_or_missing",
+                "raw_too_few_points",
+                "raw_insufficient_footprint",
+                "raw_weak_peak",
+                "normal_filtered_too_few_points",
+                "normal_filtered_insufficient_footprint",
+                "normal_filtered_weak_peak"
+              ],
+              "raw_fit": {
+                "n": 0
+              },
+              "normal_filtered_fit": {
+                "n": 0
+              },
+              "published": null
+            },
+            "after": {
+              "valid": false,
+              "status": "excluded",
+              "reasons": [
+                "raw_normal_conflict_or_missing",
+                "supported_normal_conflict_or_missing",
+                "raw_too_few_points",
+                "raw_insufficient_footprint",
+                "normal_filtered_too_few_points",
+                "normal_filtered_insufficient_footprint",
+                "normal_filtered_weak_peak"
+              ],
+              "raw_fit": {
+                "n": 10
+              },
+              "normal_filtered_fit": {
+                "n": 0
+              },
+              "published": null
+            }
+          },
+          "wall_a_1": {
+            "before": {
+              "valid": true,
+              "status": "valid",
+              "reasons": [],
+              "raw_fit": {
+                "n": 521,
+                "candidate_n": 538,
+                "target_n": 364,
+                "target_footprint_coverage": 0.8983516483516484,
+                "offset_m": -0.3592103942254079,
+                "source_normal": [
+                  0.9990923649697776,
+                  -0.038720234368240604,
+                  0.017753583006405907
+                ],
+                "source_plane_centroid_m": [
+                  1.7669364945816823,
+                  -0.023163570631445352,
+                  1.3112120224587092
+                ],
+                "two_visit_thickness_p90_p10_m": 0.3829121609326998,
+                "angle_deg": 0.9009486943671262
+              },
+              "normal_filtered_fit": {
+                "n": 492,
+                "candidate_n": 496,
+                "target_n": 364,
+                "target_footprint_coverage": 0.8928571428571429,
+                "offset_m": -0.35942978046040885,
+                "source_normal": [
+                  0.9991370818195334,
+                  -0.03854253364289139,
+                  0.015477882075188257
+                ],
+                "source_plane_centroid_m": [
+                  1.7663185861964639,
+                  -0.04232406520499475,
+                  1.2849776892986027
+                ],
+                "two_visit_thickness_p90_p10_m": 0.3824834428610356,
+                "angle_deg": 0.9636823177555605
+              },
+              "published": {
+                "n": 492,
+                "candidate_n": 496,
+                "target_n": 364,
+                "target_footprint_coverage": 0.8928571428571429,
+                "offset_m": -0.35942978046040885,
+                "source_normal": [
+                  0.9991370818195334,
+                  -0.03854253364289139,
+                  0.015477882075188257
+                ],
+                "source_plane_centroid_m": [
+                  1.7663185861964639,
+                  -0.04232406520499475,
+                  1.2849776892986027
+                ],
+                "two_visit_thickness_p90_p10_m": 0.3824834428610356,
+                "angle_deg": 0.9636823177555605
+              }
+            },
+            "after": {
+              "valid": true,
+              "status": "valid",
+              "reasons": [],
+              "raw_fit": {
+                "n": 538,
+                "candidate_n": 587,
+                "target_n": 364,
+                "target_footprint_coverage": 0.9285714285714286,
+                "offset_m": 0.005992550866465991,
+                "source_normal": [
+                  0.9991534055882749,
+                  -0.028779838729489162,
+                  0.029397159455586006
+                ],
+                "source_plane_centroid_m": [
+                  2.1284339259590723,
+                  -0.14923756953164086,
+                  1.2982064631074928
+                ],
+                "two_visit_thickness_p90_p10_m": 0.019031663596866377,
+                "angle_deg": 0.3090977579798964
+              },
+              "normal_filtered_fit": {
+                "n": 490,
+                "candidate_n": 490,
+                "target_n": 364,
+                "target_footprint_coverage": 0.9230769230769231,
+                "offset_m": 0.006075267427434798,
+                "source_normal": [
+                  0.9993520602574281,
+                  -0.025236397470745908,
+                  0.025662889586575227
+                ],
+                "source_plane_centroid_m": [
+                  2.1276481363851936,
+                  -0.21760377900053834,
+                  1.2236856219233794
+                ],
+                "two_visit_thickness_p90_p10_m": 0.018441569061407422,
+                "angle_deg": 0.014054228134025331
+              },
+              "published": {
+                "n": 490,
+                "candidate_n": 490,
+                "target_n": 364,
+                "target_footprint_coverage": 0.9230769230769231,
+                "offset_m": 0.006075267427434798,
+                "source_normal": [
+                  0.9993520602574281,
+                  -0.025236397470745908,
+                  0.025662889586575227
+                ],
+                "source_plane_centroid_m": [
+                  2.1276481363851936,
+                  -0.21760377900053834,
+                  1.2236856219233794
+                ],
+                "two_visit_thickness_p90_p10_m": 0.018441569061407422,
+                "angle_deg": 0.014054228134025331
+              }
+            }
+          },
+          "wall_a_2": {
+            "before": {
+              "valid": true,
+              "status": "valid",
+              "reasons": [],
+              "raw_fit": {
+                "n": 630,
+                "candidate_n": 660,
+                "target_n": 312,
+                "target_footprint_coverage": 0.9775641025641025,
+                "offset_m": -0.36848903678006084,
+                "source_normal": [
+                  0.9991834008043253,
+                  -0.04027300627016745,
+                  0.0032583006408447054
+                ],
+                "source_plane_centroid_m": [
+                  -1.9047189015153765,
+                  -0.0999635576556148,
+                  1.0468766743560032
+                ],
+                "two_visit_thickness_p90_p10_m": 0.40457363093578314,
+                "angle_deg": 1.2377723338535644
+              },
+              "normal_filtered_fit": {
+                "n": 582,
+                "candidate_n": 582,
+                "target_n": 312,
+                "target_footprint_coverage": 0.9455128205128205,
+                "offset_m": -0.3689359396496064,
+                "source_normal": [
+                  0.9991653682061459,
+                  -0.040722897739755945,
+                  0.003195712307832983
+                ],
+                "source_plane_centroid_m": [
+                  -1.9051161209255991,
+                  -0.16205638337289907,
+                  1.0740424893154636
+                ],
+                "two_visit_thickness_p90_p10_m": 0.4017420085369586,
+                "angle_deg": 1.2572344113577059
+              },
+              "published": {
+                "n": 582,
+                "candidate_n": 582,
+                "target_n": 312,
+                "target_footprint_coverage": 0.9455128205128205,
+                "offset_m": -0.3689359396496064,
+                "source_normal": [
+                  0.9991653682061459,
+                  -0.040722897739755945,
+                  0.003195712307832983
+                ],
+                "source_plane_centroid_m": [
+                  -1.9051161209255991,
+                  -0.16205638337289907,
+                  1.0740424893154636
+                ],
+                "two_visit_thickness_p90_p10_m": 0.4017420085369586,
+                "angle_deg": 1.2572344113577059
+              }
+            },
+            "after": {
+              "valid": true,
+              "status": "valid",
+              "reasons": [],
+              "raw_fit": {
+                "n": 569,
+                "candidate_n": 579,
+                "target_n": 312,
+                "target_footprint_coverage": 0.9711538461538461,
+                "offset_m": 0.014685858657541436,
+                "source_normal": [
+                  0.9995435974517798,
+                  -0.025448289937244885,
+                  0.016278247215984903
+                ],
+                "source_plane_centroid_m": [
+                  -1.5318684726798255,
+                  -0.11693770118809198,
+                  0.9871754760908166
+                ],
+                "two_visit_thickness_p90_p10_m": 0.053771805753960844,
+                "angle_deg": 0.20850656883251098
+              },
+              "normal_filtered_fit": {
+                "n": 516,
+                "candidate_n": 516,
+                "target_n": 312,
+                "target_footprint_coverage": 0.9615384615384616,
+                "offset_m": 0.015239120250120258,
+                "source_normal": [
+                  0.9994793304852405,
+                  -0.02561681778588044,
+                  0.01961750695935628
+                ],
+                "source_plane_centroid_m": [
+                  -1.530224822082111,
+                  -0.1754803896104519,
+                  0.9997943337693657
+                ],
+                "two_visit_thickness_p90_p10_m": 0.04549820484262914,
+                "angle_deg": 0.0447302351195961
+              },
+              "published": {
+                "n": 516,
+                "candidate_n": 516,
+                "target_n": 312,
+                "target_footprint_coverage": 0.9615384615384616,
+                "offset_m": 0.015239120250120258,
+                "source_normal": [
+                  0.9994793304852405,
+                  -0.02561681778588044,
+                  0.01961750695935628
+                ],
+                "source_plane_centroid_m": [
+                  -1.530224822082111,
+                  -0.1754803896104519,
+                  0.9997943337693657
+                ],
+                "two_visit_thickness_p90_p10_m": 0.04549820484262914,
+                "angle_deg": 0.0447302351195961
+              }
+            }
+          }
+        },
+        "spacing": [
+          {
+            "family": "wall_a",
+            "reference_m": 3.6683751045854933,
+            "before": {
+              "valid": true,
+              "reasons": [],
+              "spacing_m": 3.6778749117125624
+            },
+            "after": {
+              "valid": true,
+              "reasons": [],
+              "spacing_m": 3.6592115141385437
+            }
+          }
+        ],
+        "corners": [],
+        "openings": []
+      }
+    }
+  ]
+}

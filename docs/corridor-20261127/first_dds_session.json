@@ -1,0 +1,186 @@
+{
+  "session_id": "20261127T152248Z_7bff46e490",
+  "run": "/data/robot/livo_pgo_dev/first_dds/20261127T152248Z_7bff46e490",
+  "mode": "replay",
+  "state": "complete",
+  "started_host_ns": 1795792968006334116,
+  "errors": [],
+  "stop_reason": "bag_eof",
+  "data_device": 66305,
+  "ros_domain_id": "218",
+  "strict_image_windows": true,
+  "loop_backend": {
+    "status": "complete",
+    "rebuild": {
+      "status": "complete",
+      "frames": 389,
+      "elapsed_s": 1.1350676009997187
+    },
+    "published": 389,
+    "revisions": 14,
+    "active_edges": [
+      [
+        65,
+        166
+      ],
+      [
+        77,
+        202
+      ],
+      [
+        93,
+        241
+      ],
+      [
+        131,
+        258
+      ],
+      [
+        148,
+        290
+      ],
+      [
+        58,
+        303
+      ],
+      [
+        42,
+        311
+      ],
+      [
+        10,
+        330
+      ],
+      [
+        25,
+        334
+      ],
+      [
+        31,
+        346
+      ],
+      [
+        0,
+        367
+      ],
+      [
+        0,
+        373
+      ],
+      [
+        0,
+        379
+      ],
+      [
+        0,
+        385
+      ]
+    ],
+    "session": {
+      "parent": "map_gravity",
+      "child": "camera_init",
+      "direction": "p_G = R_GC p_C + t_GC",
+      "gravity_camera_init_m_s2": [
+        3.608521393152264,
+        0.08724633786923826,
+        -9.121790472911053
+      ],
+      "R_GC": [
+        [
+          0.929887109468602,
+          -0.0016951799005264071,
+          0.3678411206067548
+        ],
+        [
+          -0.0016951799005264071,
+          0.9999590141716684,
+          0.008893612422960067
+        ],
+        [
+          -0.3678411206067548,
+          -0.008893612422960067,
+          0.9298461236402704
+        ]
+      ],
+      "quaternion_xyzw": [
+        -0.00452691000195228,
+        0.18723366488347926,
+        0.0,
+        0.9823049739363714
+      ],
+      "translation_m": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "yaw_reference": "none",
+      "origin": "camera_init",
+      "session_id": "20261127T152248Z_7bff46e490",
+      "event_file": "/data/robot/livo_pgo_dev/first_dds/20261127T152248Z_7bff46e490/gravity_events.jsonl"
+    },
+    "parent": "map",
+    "child": "odom",
+    "stamp": "source estimator measurement, integer ns",
+    "elapsed_s": 714.8312422320005,
+    "query_wall_s": [
+      2.493862475000242,
+      0.19225432999974146,
+      0.25709811200067634,
+      0.20734603800065088,
+      0.29871265099973243,
+      0.2590496319999147,
+      0.21022517300025356,
+      0.2696323479995044,
+      0.5057678179991854,
+      0.4179233730001215,
+      0.4472133819999726,
+      0.328059784999823,
+      0.43092397899999924,
+      0.2743613800003004,
+      0.37180875899957755,
+      0.281108471999687,
+      0.36494270999992295,
+      0.2199705229995743,
+      0.3573688360002052,
+      0.266768213999967,
+      0.33658252300028835
+    ],
+    "peak_rss_MiB": 176.26171875
+  },
+  "map": {
+    "status": "complete",
+    "error": null,
+    "output_frame": "map_gravity",
+    "gravity_applied": true,
+    "segment_end_reason": null,
+    "rgb_points": 2141800,
+    "geometry_points": 12938494,
+    "poses": 7064
+  },
+  "mapper_counters": {
+    "lidar_rx": 7119,
+    "imu_rx": 142286,
+    "synced": 14130,
+    "image_rx": 7067,
+    "image_remaining": 0,
+    "vio_frames": 7064,
+    "visual_update_frames": 7063,
+    "visual_update_steps": 109423,
+    "lidar_remaining": 6,
+    "imu_remaining": 134
+  },
+  "replay_input_delta": {
+    "lidar_rx": 0,
+    "imu_rx": 0,
+    "image_rx": 0
+  },
+  "processes": {
+    "archive": 0,
+    "algorithm": 0,
+    "parameters": 0,
+    "loop_backend": 0,
+    "replay": 0
+  },
+  "elapsed_s": 721.6833690419999,
+  "ended_host_ns": 1795793689689722116
+}

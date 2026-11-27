@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "frames": 1519,
+  "maps": {
+    "map_before.pcd": {
+      "points_verified": 8138600,
+      "maximum_xyz_abs_error_m": 3.8154026498204985e-06,
+      "sha256": "925d57de4c4e765e75ac9d635326dd92242b0973247b00431cea0ed2171d0984"
+    },
+    "map_rgb_before.pcd": {
+      "points_verified": 945066,
+      "maximum_xyz_abs_error_m": 3.815167119114449e-06,
+      "sha256": "9cf2737296dfffb6917ed0c0ac4a0b552f4143966055c188e386b666db71e981"
+    },
+    "map_after.pcd": {
+      "points_verified": 8138600,
+      "maximum_xyz_abs_error_m": 3.8150143950588244e-06,
+      "sha256": "45575e7ac3197d4243303e840db78ec775163975bb765282091be379090aeab5"
+    },
+    "map_rgb_after.pcd": {
+      "points_verified": 945066,
+      "maximum_xyz_abs_error_m": 3.814830108694878e-06,
+      "sha256": "649a96f04576a8989cf800b272e8c7f882f2c68411ee2dbbf3f5f95ea3d8b90b"
+    }
+  },
+  "T_map_odom_times_T_odom_body_max_abs": 1.142219674399314e-08
+}

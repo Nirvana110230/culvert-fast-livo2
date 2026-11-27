@@ -1,0 +1,312 @@
+{
+  "keyframes": 1519,
+  "duration_s": 1825.199593216,
+  "tape_windows": [
+    {
+      "lo_s": 10.0,
+      "hi_s": 60.0,
+      "n": 10,
+      "selected_index": 5,
+      "radius_p90_m": 0.003098735746149841,
+      "span_s": 45.899924224
+    },
+    {
+      "lo_s": 1775.0,
+      "hi_s": 1825.0,
+      "n": 9,
+      "selected_index": 1511,
+      "radius_p90_m": 0.0034452846695143396,
+      "span_s": 40.600023039999996
+    }
+  ],
+  "accepted": [
+    {
+      "kind": "tape",
+      "target_id": 5,
+      "source_id": 1511
+    },
+    {
+      "kind": "automatic",
+      "target_id": 14,
+      "source_id": 69
+    },
+    {
+      "kind": "automatic",
+      "target_id": 14,
+      "source_id": 91
+    },
+    {
+      "kind": "automatic",
+      "target_id": 31,
+      "source_id": 118
+    },
+    {
+      "kind": "automatic",
+      "target_id": 34,
+      "source_id": 147
+    },
+    {
+      "kind": "automatic",
+      "target_id": 253,
+      "source_id": 336
+    },
+    {
+      "kind": "automatic",
+      "target_id": 241,
+      "source_id": 477
+    },
+    {
+      "kind": "automatic",
+      "target_id": 308,
+      "source_id": 515
+    },
+    {
+      "kind": "automatic",
+      "target_id": 177,
+      "source_id": 574
+    },
+    {
+      "kind": "automatic",
+      "target_id": 876,
+      "source_id": 971
+    },
+    {
+      "kind": "automatic",
+      "target_id": 856,
+      "source_id": 994
+    },
+    {
+      "kind": "automatic",
+      "target_id": 781,
+      "source_id": 1076
+    },
+    {
+      "kind": "automatic",
+      "target_id": 750,
+      "source_id": 1117
+    },
+    {
+      "kind": "automatic",
+      "target_id": 713,
+      "source_id": 1173
+    },
+    {
+      "kind": "automatic",
+      "target_id": 655,
+      "source_id": 1237
+    },
+    {
+      "kind": "automatic",
+      "target_id": 629,
+      "source_id": 1260
+    },
+    {
+      "kind": "automatic",
+      "target_id": 594,
+      "source_id": 1283
+    },
+    {
+      "kind": "automatic",
+      "target_id": 164,
+      "source_id": 1297
+    },
+    {
+      "kind": "automatic",
+      "target_id": 566,
+      "source_id": 1306
+    },
+    {
+      "kind": "automatic",
+      "target_id": 548,
+      "source_id": 1322
+    },
+    {
+      "kind": "automatic",
+      "target_id": 302,
+      "source_id": 1335
+    },
+    {
+      "kind": "automatic",
+      "target_id": 508,
+      "source_id": 1353
+    },
+    {
+      "kind": "automatic",
+      "target_id": 507,
+      "source_id": 1369
+    },
+    {
+      "kind": "automatic",
+      "target_id": 241,
+      "source_id": 1392
+    },
+    {
+      "kind": "automatic",
+      "target_id": 198,
+      "source_id": 1442
+    },
+    {
+      "kind": "automatic",
+      "target_id": 110,
+      "source_id": 1486
+    },
+    {
+      "kind": "automatic",
+      "target_id": 6,
+      "source_id": 1504
+    },
+    {
+      "kind": "automatic",
+      "target_id": 6,
+      "source_id": 1516
+    }
+  ],
+  "considered": 58,
+  "heldout_revisits": 5,
+  "holdout_points_removed_from_fits_with_repetition": 141405,
+  "before": {
+    "length_m": 702.9584231644546,
+    "first_last_xyz_m": [
+      -1.2799489423336867,
+      0.6517560101514934,
+      0.0704318708539793
+    ],
+    "first_last_norm_m": 1.4380597484742101,
+    "largest_step_m": 1.0718447616598714,
+    "step_p95_m": 1.0349165265654048,
+    "z_range_m": 2.7348272364968134,
+    "tape_window_delta_xyz_m": [
+      -1.2739977859197928,
+      0.6394746243108629,
+      0.06472515447632014
+    ],
+    "tape_window_separation_m": 1.4269504193517157
+  },
+  "after": {
+    "length_m": 702.9809406056391,
+    "first_last_xyz_m": [
+      -0.013327875125375144,
+      0.020628643816608686,
+      0.006944774474591055
+    ],
+    "first_last_norm_m": 0.025522599663299048,
+    "largest_step_m": 1.0718671541842137,
+    "step_p95_m": 1.0349653845549462,
+    "z_range_m": 3.3743827684068557,
+    "tape_window_delta_xyz_m": [
+      -0.00566386557800749,
+      0.008190548816922041,
+      0.0010035619713445378
+    ],
+    "tape_window_separation_m": 0.010008576314264188
+  },
+  "dense_lio": {
+    "count": 18284,
+    "source_stage": "LIO",
+    "interpolation": "linear translation and SLERP on T_map_odom; nearest outside keyframe range",
+    "extrapolated_by_constant_correction": 33,
+    "before": {
+      "window_medians_xyz_m": [
+        [
+          -0.018986137252074556,
+          0.0012735481960335763,
+          0.0058853397027636215
+        ],
+        [
+          -1.2917219096291717,
+          0.6420674012423625,
+          0.07123467950395723
+        ]
+      ],
+      "window_counts": [
+        500,
+        501
+      ],
+      "delta_xyz_m": [
+        -1.2727357723770971,
+        0.640793853046329,
+        0.06534933980119362
+      ],
+      "separation_m": 1.426444406418539,
+      "horizontal_separation_m": 1.424946703701681,
+      "window_stationarity_radius_p90_m": [
+        0.0020046418200027134,
+        0.004210828870564295
+      ]
+    },
+    "after": {
+      "window_medians_xyz_m": [
+        [
+          -0.01965840436441925,
+          0.0019246040471013336,
+          0.004965345982304282
+        ],
+        [
+          -0.024448456930183493,
+          0.010783508855065516,
+          0.007715891238561895
+        ]
+      ],
+      "window_counts": [
+        500,
+        501
+      ],
+      "delta_xyz_m": [
+        -0.004790052565764244,
+        0.008858904807964182,
+        0.0027505452562576133
+      ],
+      "separation_m": 0.010439841818058203,
+      "horizontal_separation_m": 0.010070987934624662,
+      "window_stationarity_radius_p90_m": [
+        0.003913797005583361,
+        0.004255144612580925
+      ]
+    }
+  },
+  "graph": {
+    "solver": "GTSAM Pose3 Levenberg-Marquardt",
+    "initial_error": 957.8630157458019,
+    "final_error": 1.587676864533751,
+    "iterations": 4,
+    "factor_count": 1547,
+    "gauge": "first pose prior sigma 1e-5",
+    "loop_loss": "Huber 1.8 on whitened 6D residual block",
+    "consistency_passes": [
+      {
+        "input_loops": 28,
+        "graph_initial_error": 957.8630157458019,
+        "graph_final_error": 1.587676864533751,
+        "inconsistent": []
+      }
+    ]
+  },
+  "maps": {
+    "geometry_points_each": 8138600,
+    "intensity_frames": 1519,
+    "color_frames": 1519,
+    "color_points_each": 945066,
+    "geometry_frames": 1519
+  },
+  "bounds": {
+    "(0, 1)": {
+      "scale_px_per_m": 3.0180291206304215,
+      "center_m": [
+        28.22116665052858,
+        23.427462423747983
+      ]
+    },
+    "(0, 2)": {
+      "scale_px_per_m": 9.695920821129537,
+      "center_m": [
+        28.22116665052858,
+        0.03439141110744082
+      ]
+    }
+  },
+  "registration_phase_s": 15.391288443999656,
+  "rebuild_s": 4.47969403299976,
+  "wall_clock_s": 29.104735127999447,
+  "peak_rss_MiB": 148.26953125,
+  "bytes_prior_to_summary": 297331714
+}
