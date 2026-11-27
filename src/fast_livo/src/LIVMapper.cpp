@@ -16,7 +16,9 @@ which is included as part of this source code package.
 */
 
 #include "LIVMapper.h"
+#include "keyframe_export.h"
 #include "rolling_csv.hpp"
+#include "replay_timing_audit.hpp"
 #include "startup_parameters.h"
 #include <vikit/camera_loader.h>
 
@@ -51,6 +53,27 @@ LIVMapper::LIVMapper(rclcpp::Node::SharedPtr &node, std::string node_name)
   root_dir = ROOT_DIR;
   initializeFiles();
   initializeComponents(this->node);          // initialize components errors
+  if (const char* directory = std::getenv("FAST_LIVO_KEYFRAMES"); directory && *directory) {
+    if (!imu_en || slam_mode_ == ONLY_LO)
+      throw std::invalid_argument("Deskewed IMU keyframes require enabled LiDAR and IMU");
+    std::ostringstream metadata;
+    const Eigen::IOFormat flat(17, 0, ",", ",");
+    metadata << std::setprecision(17) << "R_imu_lidar_row_major=" << extR.format(flat)
+             << "\nt_imu_lidar_m=" << extT.transpose().format(flat)
+             << "\nlidar_topic=" << lid_topic << "\nimu_topic=" << imu_topic << "\n";
+    if (img_en) {
+      metadata << "R_camera_imu_row_major=" << vio_manager->Rci.format(flat)
+               << "\nt_camera_imu_m=" << vio_manager->Pci.transpose().format(flat)
+               << "\nR_camera_lidar_row_major=" << vio_manager->Rcl.format(flat)
+               << "\nt_camera_lidar_m=" << vio_manager->Pcl.transpose().format(flat) << '\n';
+      for (const auto& key : this->node->list_parameters({"parameter_blackboard"}, 10).names) {
+        const auto parameter = this->node->get_parameter(key);
+        if (parameter.get_type() != rclcpp::ParameterType::PARAMETER_NOT_SET)
+          metadata << key << '=' << parameter.value_to_string() << '\n';
+      }
+    }
+    keyframe_export = std::make_unique<KeyframeExport>(directory, metadata.str());
+  }
   path.header.stamp = this->node->now();
   path.header.frame_id = "camera_init";
 }
@@ -406,10 +429,20 @@ void LIVMapper::handleVIO()
     vio_manager->plot_flag = false;
   }
 
+  const auto visual_steps_before = vio_manager->visual_update_steps;
   if (!vio_manager->processFrame(LidarMeasures.measures.back().img, _pv_list, voxelmap_manager->voxel_map_,
                                  LidarMeasures.last_lio_update_time - _first_lidar_time)) {
     pcl_w_wait_pub->clear();
     return;
+  }
+
+  if (keyframe_export && !p_imu->imu_need_init &&
+      LidarMeasures.measures.back().vio_time == LidarMeasures.last_lio_update_time) {
+    const auto stamp = std::llround(LidarMeasures.measures.back().vio_time * 1e9);
+    keyframe_export->recordState(stamp, vio_manager->visual_update_steps != visual_steps_before
+                                 ? "VIO" : "VIO_no_update", _state);
+    keyframe_export->image(stamp, vio_manager->img_rgb, *vio_manager->cam,
+                           vio_manager->Rci, vio_manager->Pci, blind_rgb_points);
   }
 
   if (imu_prop_enable) 
@@ -470,6 +503,21 @@ void LIVMapper::handleLIO()
   voxelmap_manager->StateEstimation(state_propagat);
   _state = voxelmap_manager->state_;
   _pv_list = voxelmap_manager->pv_list_;
+
+  if (keyframe_export && !p_imu->imu_need_init && LidarMeasures.lio_vio_flg == LIO &&
+      feats_down_size > 0 && !LidarMeasures.measures.back().imu.empty() &&
+      LidarMeasures.measures.back().lio_time == LidarMeasures.last_lio_update_time) {
+    const auto stamp = std::llround(LidarMeasures.measures.back().lio_time * 1e9);
+    const auto& matches = voxelmap_manager->ptpl_list_;
+    if (matches.empty()) {
+      keyframe_export->recordState(stamp, "LIO_no_plane_match", _state);
+    } else {
+      double residual_sum = 0;
+      for (const auto& match : matches) residual_sum += std::abs(match.dis_to_plane_);
+      keyframe_export->lidar(stamp, _state, *feats_undistort, extR, extT, feats_down_size,
+                             matches.size(), residual_sum/matches.size(), slam_mode_ == LIVO);
+    }
+  }
 
   double t2 = omp_get_wtime();
 
@@ -570,6 +618,7 @@ void LIVMapper::handleLIO()
 
 void LIVMapper::savePCD() 
 {
+  if (keyframe_export) keyframe_export->finish();
   if (pcd_save_en && (pcl_wait_save->points.size() > 0 || pcl_wait_save_intensity->points.size() > 0) && pcd_save_interval < 0) 
   {
     std::string raw_points_dir = std::string(ROOT_DIR) + "Log/pcd/all_raw_points.pcd";
@@ -618,7 +667,7 @@ void LIVMapper::savePCD()
   }
 }
 
-void LIVMapper::run(rclcpp::Node::SharedPtr &node) 
+void LIVMapper::run(rclcpp::Node::SharedPtr &node, std::function<bool()> next_record)
 {
   rclcpp::WallRate rate(5000);
   RollingCsv eval("Log/processing.csv",
@@ -631,7 +680,7 @@ void LIVMapper::run(rclcpp::Node::SharedPtr &node)
   {
     const double cycle_begin=wall();
     try {
-      rclcpp::spin_some(this->node);
+      if (!next_record) rclcpp::spin_some(this->node);
     } catch (const rclcpp::exceptions::RCLError&) {
       // A signal may shut down the context after the while(ok) check.
       if (rclcpp::ok()) throw;
@@ -639,9 +688,12 @@ void LIVMapper::run(rclcpp::Node::SharedPtr &node)
     }
     if (img_buffer.size()>64 || lid_raw_data_buffer.size()>100 || imu_buffer.size()>kMaxImuQueue)
       throw std::runtime_error("Input queues stalled: stopping before memory exhaustion");
-    if (!sync_packages(LidarMeasures)) 
+    auto images_before = img_buffer.size();
+    if (!sync_packages(LidarMeasures))
     {
-      rate.sleep();
+      if (!next_record) rate.sleep();
+      // A rejected image may expose a second, already eligible window at EOF.
+      else if (images_before == img_buffer.size() && !next_record()) break;
       continue;
     }
     const double processing_begin=wall();
@@ -740,6 +792,11 @@ void LIVMapper::imu_prop_callback()
     q = Eigen::Quaterniond(imu_propagate.rot_end);
     imu_prop_odom.header.frame_id = "world";
     imu_prop_odom.header.stamp = newest_imu.header.stamp;
+    if (keyframe_export && !prop_imu_buffer.empty() && stamp2Sec(newest_imu.header.stamp) >= latest_ekf_time) {
+      const auto& stamp = newest_imu.header.stamp;
+      keyframe_export->recordState(int64_t(stamp.sec) * 1000000000LL + stamp.nanosec,
+                                   "IMU_propagated", imu_propagate);
+    }
     imu_prop_odom.pose.pose.position.x = posi.x();
     imu_prop_odom.pose.pose.position.y = posi.y();
     imu_prop_odom.pose.pose.position.z = posi.z();
@@ -1175,6 +1232,15 @@ bool LIVMapper::sync_packages(LidarMeasureGroup &meas)
 
       *(meas.pcl_proc_cur) = *(meas.pcl_proc_next);
       PointCloudXYZI().swap(*meas.pcl_proc_next);
+      auto *audit = replay_timing::directory() ? &replay_timing::windows() : nullptr;
+      if (audit) {
+        audit->begin(meas.last_lio_update_time, m.lio_time);
+        if (audit->carry.size() != meas.pcl_proc_cur->size())
+          throw std::runtime_error("timing audit carry provenance mismatch");
+        for (std::size_t i=0; i<audit->carry.size(); ++i)
+          audit->assigned(audit->carry[i], meas.pcl_proc_cur->points[i].curvature, true);
+        audit->carry.clear();
+      }
 
       int lid_frame_num = lid_raw_data_buffer.size();
       int max_size = meas.pcl_proc_cur->size() + 24000 * lid_frame_num;
@@ -1188,25 +1254,39 @@ bool LIVMapper::sync_packages(LidarMeasureGroup &meas)
         auto pcl(lid_raw_data_buffer.front()->points);
         double frame_header_time(lid_header_time_buffer.front());
         float max_offs_time_ms = (m.lio_time - frame_header_time) * 1000.0f;
+        if (audit) { ++audit->new_scans; audit->popped += pcl.size(); }
 
         for (int i = 0; i < pcl.size(); i++)
         {
           auto pt = pcl[i];
+          const replay_timing::SourceTime source{frame_header_time, pt.curvature};
+          if (audit) {
+            const double delta = source.relativeTo(m.lio_time);
+            audit->exact_end += delta == 0;
+            audit->near_end += std::abs(delta) <= replay_timing::tolerance_ms;
+          }
           if (pcl[i].curvature < max_offs_time_ms)
           {
             pt.curvature += (frame_header_time - meas.last_lio_update_time) * 1000.0f;
             meas.pcl_proc_cur->points.push_back(pt);
+            if (audit) audit->assigned(source, pt.curvature, false);
           }
           else
           {
             pt.curvature += (frame_header_time - m.lio_time) * 1000.0f;
             meas.pcl_proc_next->points.push_back(pt);
+            if (audit) audit->carry.push_back(source);
           }
         }
         lid_raw_data_buffer.pop_front();
         lid_header_time_buffer.pop_front();
       }
 
+      if (audit) {
+        std::size_t queued = 0;
+        for (const auto &scan : lid_raw_data_buffer) queued += scan->size();
+        audit->finish(meas.pcl_proc_cur->size(), meas.pcl_proc_next->size(), queued, lid_raw_data_buffer.size());
+      }
       meas.measures.push_back(m);
       meas.lio_vio_flg = LIO;
       // meas.last_lio_update_time = m.lio_time;

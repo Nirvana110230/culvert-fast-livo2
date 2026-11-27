@@ -11,6 +11,7 @@ which is included as part of this source code package.
 */
 
 #include "voxel_map.h"
+#include "replay_timing_audit.hpp"
 #include "startup_parameters.h"
 #include <limits>
 #include <stdexcept>
@@ -522,7 +523,13 @@ void VoxelMapManager::StateEstimation(StatesGroup &state_propagat)
       // VD(DIM_STATE) P_diag = _state.cov.diagonal();
       EKF_stop_flg = true;
     }
-    if (EKF_stop_flg) break;
+    if (EKF_stop_flg) {
+      if (replay_timing::directory()) {
+        const V3D lidar_origin = state_.pos_end + state_.rot_end * extT_;
+        replay_timing::planes(ptpl_list_, state_.gravity, lidar_origin, last_iterations_);
+      }
+      break;
+    }
   }
 
   // double t2 = omp_get_wtime();

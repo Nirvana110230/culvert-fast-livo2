@@ -1,5 +1,6 @@
 #include "LIVMapper.h"
 #include "session_gravity.h"
+#include "bag_input.h"
 
 int main(int argc, char **argv)
 {
@@ -10,12 +11,14 @@ int main(int argc, char **argv)
   try {
     LIVMapper mapper(nh, "laserMapping");
     mapper.initializeSubscribersAndPublishers(nh, it_);
-    mapper.run(nh);
-  } catch (const std::invalid_argument& error) {
-    RCLCPP_ERROR(nh->get_logger(), "%s", error.what());
-    rclcpp::shutdown();
-    return 2;
-  } catch (const session_gravity::Error& error) {
+    if (const char* path = std::getenv("FAST_LIVO2_OFFLINE_BAG")) {
+      BagInput input(mapper, path);
+      mapper.run(nh, [&] { return input.next(); });
+      input.verify();
+    } else {
+      mapper.run(nh);
+    }
+  } catch (const std::exception& error) {
     RCLCPP_ERROR(nh->get_logger(), "%s", error.what());
     rclcpp::shutdown();
     return 2;

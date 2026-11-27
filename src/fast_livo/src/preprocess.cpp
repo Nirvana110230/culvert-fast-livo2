@@ -11,6 +11,7 @@ which is included as part of this source code package.
 */
 
 #include "preprocess.h"
+#include "replay_timing_audit.hpp"
 #include <cmath>
 #include <stdexcept>
 
@@ -111,6 +112,8 @@ void Preprocess::avia_handler(const livox_ros_driver2::msg::CustomMsg::SharedPtr
   pl_full.clear();
   double t1 = omp_get_wtime();
   int plsize = msg->point_num;
+  replay_timing::Preprocess timing;
+  const bool audit = replay_timing::directory() != nullptr;
   printf("[ Preprocess ] Input point number: %d \n", plsize);
   // printf("point_filter_num: %d\n", point_filter_num);
 
@@ -197,6 +200,7 @@ void Preprocess::avia_handler(const livox_ros_driver2::msg::CustomMsg::SharedPtr
                                      : pl_full[i - 1].curvature + 0.004166667f; // float(100/24000)
         }
 
+        const auto size_before = pl_surf.size();
         if (valid_num % point_filter_num == 0)
         {
           if (pl_full[i].x * pl_full[i].x + pl_full[i].y * pl_full[i].y + pl_full[i].z * pl_full[i].z >= blind_sqr)
@@ -206,9 +210,11 @@ void Preprocess::avia_handler(const livox_ros_driver2::msg::CustomMsg::SharedPtr
             // pl_full[i].curvature);
           }
         }
+        if (audit) timing.point(msg->points[i].offset_time / float(1000000), pl_full[i].curvature, pl_surf.size() != size_before);
       }
     }
   }
+  if (audit) timing.finish(stamp2Sec(msg->header.stamp), msg->point_num, feature_enabled, pl_surf.points);
   printf("[ Preprocess ] Output point number: %zu \n", pl_surf.points.size());
 }
 

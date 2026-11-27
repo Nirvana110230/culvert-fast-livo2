@@ -27,6 +27,8 @@ which is included as part of this source code package.
 #include <nav_msgs/msg/path.hpp>
 #include <vikit/camera_loader.h>
 
+class KeyframeExport;
+
 class LIVMapper
 {
 public:
@@ -35,7 +37,7 @@ public:
   void initializeSubscribersAndPublishers(rclcpp::Node::SharedPtr &nh, image_transport::ImageTransport &it_);
   void initializeComponents(rclcpp::Node::SharedPtr &node);
   void initializeFiles();
-  void run(rclcpp::Node::SharedPtr &node);
+  void run(rclcpp::Node::SharedPtr &node, std::function<bool()> next_record = {});
   void gravityAlignment();
   void handleFirstFrame();
   void stateEstimationAndMapping();
@@ -168,6 +170,7 @@ public:
   ImuProcessPtr p_imu;
   VoxelMapManagerPtr voxelmap_manager;
   VIOManagerPtr vio_manager;
+  std::unique_ptr<KeyframeExport> keyframe_export;
 
   rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr plane_pub;
   rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr voxel_pub;

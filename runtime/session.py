@@ -232,6 +232,8 @@ def session(args, run):
         env = dict(os.environ, ROS_LOG_DIR=str(run / 'roslog'), MALLOC_ARENA_MAX='2',
                    FAST_LIVO2_SESSION_ID=run.name, FAST_LIVO2_CONFIG_SHA256=manifest['resolved_sha256'],
                    FAST_LIVO2_ALGORITHM_SHA256=identity['sha256'], FAST_LIVO2_GRAVITY_DIR=str(run))
+        if args.keyframes:
+            env['FAST_LIVO_KEYFRAMES'] = str(run / 'keyframes')
         resource.setrlimit(resource.RLIMIT_CORE, (0, 0))
         check()
         require_free_pipeline(args.action == 'start')
@@ -456,6 +458,7 @@ def cli():
     start = sub.add_parser('start', help='现场连续 LIVO')
     replay = sub.add_parser('replay', help='通过 ROS 回放三路原始输入')
     for action in (start, replay):
+        action.add_argument('--keyframes', action='store_true', help='按估计器参考时刻保存后端局部关键帧')
         action.add_argument('--runs-dir', type=Path,
                             default=Path(os.environ.get('FAST_LIVO2_RUNS_DIR', DEFAULT_RUNS)))
     replay.add_argument('bag', type=Path)

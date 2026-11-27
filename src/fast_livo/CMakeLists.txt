@@ -78,6 +78,7 @@ endif()
 # Find ament and required dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rosbag2_cpp REQUIRED)
 find_package(rclpy REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
@@ -137,7 +138,7 @@ add_library(vio src/vio.cpp src/frame.cpp src/visual_point.cpp)
 add_library(lio src/voxel_map.cpp)
 add_library(pre src/preprocess.cpp)
 add_library(imu_proc src/IMU_Processing.cpp)
-add_library(laser_mapping src/LIVMapper.cpp)
+add_library(laser_mapping src/LIVMapper.cpp src/keyframe_export.cpp)
 add_library(utils src/utils.cpp)
 
 ament_target_dependencies(vio ${dependencies} )
@@ -160,7 +161,7 @@ target_link_libraries(imu_proc ${COMMON_DEPENDENCIES})
 # Add the main executable
 add_executable(fastlivo_mapping src/main.cpp)
 
-ament_target_dependencies(fastlivo_mapping ${dependencies})
+ament_target_dependencies(fastlivo_mapping ${dependencies} rosbag2_cpp)
 
 # Link libraries to the executable
 target_link_libraries(fastlivo_mapping

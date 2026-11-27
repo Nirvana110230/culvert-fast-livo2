@@ -11,6 +11,7 @@ which is included as part of this source code package.
 */
 
 #include "IMU_Processing.h"
+#include "replay_timing_audit.hpp"
 #include "session_gravity.h"
 #include <iterator>
 #include <rcpputils/asserts.hpp>
@@ -534,6 +535,8 @@ void ImuProcess::UndistortPcl(LidarMeasureGroup &lidar_meas, StatesGroup &state_
 
       }
     }
+    if (replay_timing::directory())
+      replay_timing::deskew(prop_beg_time, prop_end_time, pcl_wait_proc.points, std::distance(it_pcl, points_end), IMUpose.size());
     pcl_out = pcl_wait_proc;
     pcl_wait_proc.clear();
     IMUpose.clear();
@@ -561,6 +564,8 @@ void ImuProcess::Process2(LidarMeasureGroup &lidar_meas, StatesGroup &stat, Poin
     if (meas.imu.empty()) { return; };
     /// The very first lidar frame
     IMU_init(meas, stat, init_iter_num);
+    if (replay_timing::directory())
+      replay_timing::imuInit(meas.imu, [](const auto &stamp){ return stamp2Sec(stamp); }, pcl_end_time, init_iter_num, MAX_INI_COUNT);
     // The initialized state belongs to this measurement end. Buffered LIVO
     // points for the next slice already have offsets relative to this instant.
     last_prop_end_time = pcl_end_time;
