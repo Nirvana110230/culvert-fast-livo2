@@ -1,5 +1,7 @@
 # 香橙派 FAST-LIVO2 建图
 
+`codex/corridor-z-geometry` 在保留独立回环的基础上增加静止陀螺更新、运动补偿惯性方向与跨访次共享平面。第二轮相同地面点的 975 个冻结格去平面 RMS 从 363 mm 降至 123 mm，区域 2 的墙面双访厚度有局部代价。[全局高程技术报告、两轮数据与板端命令](docs/corridor-z-20261128.md)
+
 `codex/corridor-pgo` 提供严格时间分窗、测量时刻关键帧、独立 GICP／GTSAM 回环及历史几何和彩色地图重建。第二轮长包的五处留出区域和第一轮 1× ROS 2 联合回放已在 RK3588 验证。候选启动、复现和看图命令见[走廊建图技术报告](docs/corridor-pgo-20261127.md)。
 
 正式版 **B1** 继承 B0 的首帧 IMU 修复，并对 Mid-360S 使用确定的 0.5 m 最近距离。发布标签为 `stage-b1-20261127`。历史 A 和 B0 分别由 `g3-stage-a-20261126`、`g3-stage-b0-20261126` 固定，B0 同时保留在 `research/stage-b0`。已验证的安装 ELF 由板端和工作站留存，SHA256、Build ID、参数及整包回放结果见[发布记录](deploy/release.json)。

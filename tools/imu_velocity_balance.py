@@ -52,7 +52,10 @@ def analyze(args):
     rot = Rotation.from_quat(columns(("qx","qy","qz","qw")))
     g, ba, bg = (columns([prefix+a for a in "xyz"]) for prefix in ("g","ba","bg"))
     if args.init_norm is None:
-        with (root/"keyframes/imu_init_samples.csv").open() as f:
+        init_path=root/"diagnostics/imu_init_samples.csv"
+        if not init_path.is_file():
+            init_path=root/"keyframes/imu_init_samples.csv"
+        with init_path.open() as f:
             init = np.array([[float(r["a"+k]) for k in "xyz"] for r in csv.DictReader(f)])
         init_norm = np.linalg.norm(init.mean(0))
     else:
