@@ -25,6 +25,7 @@ def main():
     parser.add_argument("--strict-windows", action="store_true", help="use half-open image time windows")
     parser.add_argument("--interval-deskew", action="store_true", help="use motion integrated over each point's IMU interval")
     parser.add_argument("--stationary-gyro-bias", action="store_true", help="estimate initial gyro bias from a known stationary start")
+    parser.add_argument("--static-rate-update", action="store_true", help="update gyro bias in motion-screened four-second windows")
     args = parser.parse_args()
     run = args.output.resolve()
     bag = args.bag.resolve(strict=True)
@@ -40,7 +41,7 @@ def main():
         shutil.copyfile(args.params, config)
     else:
         snapshot(run, ROOT / "configs")
-    if args.imu_noise or args.lio or args.interval_deskew or args.stationary_gyro_bias:
+    if args.imu_noise or args.lio or args.interval_deskew or args.stationary_gyro_bias or args.static_rate_update:
         cfg = yaml.safe_load(config.read_bytes())
         params = cfg["/**"]["ros__parameters"]
         if args.imu_noise:
@@ -51,6 +52,8 @@ def main():
             params["imu.interval_deskew"] = True
         if args.stationary_gyro_bias:
             params["imu.stationary_start_gyro_bias"] = True
+        if args.static_rate_update:
+            params["imu.static_rate_update"] = True
         config.write_text(yaml.safe_dump(cfg, sort_keys=True), encoding="utf-8")
     identity = dict(session_id=run.name, executable=str(ALGORITHM), sha256=digest(ALGORITHM))
     write_json(run / "algorithm_identity.json", identity)
@@ -64,7 +67,7 @@ def main():
     manifest = dict(bag=str(bag), config_sha256=config_id, config_source=str(args.params or ROOT / "configs"),
                     imu_noise=args.imu_noise, lio=args.lio, strict_windows=env.get("FAST_LIVO_STRICT_WINDOWS") == "1",
                     interval_deskew=args.interval_deskew, stationary_start_gyro_bias=args.stationary_gyro_bias,
-                    input_order="rosbag2 sequential reader")
+                    static_rate_update=args.static_rate_update, input_order="rosbag2 sequential reader")
     write_json(run / "offline.json", manifest)
     started = time.monotonic()
     command = [str(ALGORITHM), "--ros-args", "--disable-external-lib-logs", "--params-file", str(config)]

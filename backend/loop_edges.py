@@ -14,6 +14,12 @@ def rotation_deg(T):
     return float(np.rad2deg(Rotation.from_matrix(T[:3, :3]).magnitude()))
 
 
+def normalized_right_jacobian(points_source, normals_target, rotation, radius):
+    """dr/d(radius * omega_body, v_body) for T Exp(xi), source origin."""
+    normals_body = normals_target @ rotation
+    return np.column_stack((np.cross(points_source, normals_body) / radius, normals_body))
+
+
 def select_pairs(poses, times, p0, maximum, radius, min_seconds, fixed_pairs=None):
     xyz = poses[:, :3, 3]
     track = np.r_[0., np.cumsum(np.linalg.norm(np.diff(xyz, axis=0), axis=1))]
@@ -161,8 +167,14 @@ class EdgeBuilder:
         T = np.array(sol.T_target_source)
         # Local plane-normal moment is a direct test of translation observability;
         # unlike NN distance it responds to a missing corridor direction.
-        ids = np.unique(q[4][q[5]])
-        ids = ids[::max(1, math.ceil(len(ids)/1600))]
+        source_ids = np.flatnonzero(q[5])
+        target_ids = q[4][source_ids]
+        distance = np.linalg.norm(transform(source[source_ids], T) - target[target_ids], axis=1)
+        order = np.argsort(distance, kind="stable")
+        ids, first = np.unique(target_ids[order], return_index=True)
+        stride = max(1, math.ceil(len(ids) / 1600))
+        matched_source = source[source_ids[order[first[::stride]]]]
+        ids = ids[::stride]
         eig = np.zeros(3)
         eig6 = np.zeros(6)
         weak = None
@@ -178,13 +190,10 @@ class EdgeBuilder:
             if len(normals) >= 20:
                 eig, axes = np.linalg.eigh(normals.T @ normals / len(normals))
                 weak = (self.poses[i][:3,:3] @ axes[:,0]).tolist()
-                centers = target[ids][planar]
-                centers = centers-centers.mean(axis=0)
-                lever_radius = max(.25,np.sqrt(np.mean(np.sum(centers**2,axis=1))))
-                # Rotate normalized information from the target axes into the
-                # source-body right tangent of BetweenFactorPose3.
-                rot = T[:3,:3]
-                jac = np.c_[np.cross(centers/lever_radius,normals)@rot,normals@rot]
+                points = matched_source[planar]
+                centers = points - points.mean(axis=0)
+                lever_radius = max(.25, np.sqrt(np.mean(np.sum(points**2, axis=1))))
+                jac = normalized_right_jacobian(points, normals, T[:3,:3], lever_radius)
                 moment_source = jac.T@jac/len(normals)
                 eig6 = np.linalg.eigvalsh(moment_source)
                 sectors = len(np.unique(centers>=0,axis=0))
@@ -197,6 +206,7 @@ class EdgeBuilder:
                    normal_moment_eigenvalues=eig.tolist(), weakest_translation_axis_map_gravity=weak,
                    normalized_point_plane_eigenvalues=eig6.tolist(), small_gicp_hessian_eigenvalues=np.linalg.eigvalsh(sol.H).tolist(),
                    normalized_point_plane_moment_source=moment_source.tolist(), matched_lever_radius_m=float(lever_radius),
+                   moment_coordinates="source_origin_radius_omega_v",
                    occupied_centered_octants=sectors, T_primary_inverse_neighbor=difference.tolist(),
                    neighbor_diff_m=float(np.linalg.norm(difference[:3, 3])), neighbor_diff_deg=rotation_deg(difference),
                    correction_m=float(np.linalg.norm(change[:3, 3])), correction_deg=rotation_deg(change),

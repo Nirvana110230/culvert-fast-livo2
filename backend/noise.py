@@ -74,7 +74,16 @@ def loop_covariance(e,model):
     scales=np.maximum.reduce([np.array(model["base_sigmas"]),repeat,np.array([r]*3+[t]*3)])
     eig,Q=np.linalg.eigh(e["normalized_point_plane_moment_source"])
     inflation=np.clip(np.median(eig)/np.maximum(eig,1e-7),1.,16.)
-    cov=np.diag(scales)@(Q@np.diag(inflation)@Q.T)@np.diag(scales)
+    if e.get("moment_coordinates") == "source_origin_radius_omega_v":
+        # The axes Q live in metres on both blocks. Map the directional
+        # excess variance back with diag(1/radius,1), retaining the independent
+        # empirical floors in native right-tangent units.
+        units = np.array([1 / e["matched_lever_radius_m"]]*3 + [1.]*3)
+        modes = t * units[:, None] * Q
+        cov = np.diag(scales**2) + (modes * (inflation - 1)) @ modes.T
+    else:
+        # Re-solving an archived, centroid-based graph reproduces its weights.
+        cov=np.diag(scales)@(Q@np.diag(inflation)@Q.T)@np.diag(scales)
     e["repeatability_single_pair_rad_m"]=repeat.tolist()
     e["directional_variance_inflation"]=inflation.tolist()
     e["covariance_source_tangent"]=cov.tolist()

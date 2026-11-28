@@ -44,6 +44,7 @@ public:
   void set_imu_init_frame_num(const int &num);
   void set_interval_deskew(bool enabled) { interval_deskew_ = enabled; }
   void use_stationary_start_gyro_bias(bool enabled) { stationary_start_gyro_bias_ = enabled; }
+  void use_static_rate_update(bool enabled) { static_rate_update_ = enabled; }
   void disable_imu();
   void disable_gravity_est();
   void disable_bias_est();
@@ -69,6 +70,12 @@ public:
   int lidar_type;
 
 private:
+  void observeStaticRate(const MeasureGroup &meas, double epoch, StatesGroup &state);
+  bool static_rate_update_ = false;
+  double static_begin_ = -1., static_last_sample_ = -1.;
+  int static_count_ = 0;
+  V3D static_position_, static_sum_, static_squares_;
+  M3D static_rotation_;
   void IMU_init(const MeasureGroup &meas, StatesGroup &state, int &N);
   void Forward_without_imu(LidarMeasureGroup &meas, StatesGroup &state_inout, PointCloudXYZI &pcl_out);
   PointCloudXYZI pcl_wait_proc;

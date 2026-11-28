@@ -285,6 +285,7 @@ void LIVMapper::initializeComponents(rclcpp::Node::SharedPtr &node)
   p_imu->set_acc_bias_cov(V3D::Constant(b_acc_cov));
   p_imu->set_imu_init_frame_num(imu_int_frame);
   p_imu->set_interval_deskew(node->declare_parameter<bool>("imu.interval_deskew", false));
+  p_imu->use_static_rate_update(node->declare_parameter<bool>("imu.static_rate_update", false));
   p_imu->use_stationary_start_gyro_bias(node->declare_parameter<bool>("imu.stationary_start_gyro_bias", false));
 
   if (!imu_en) p_imu->disable_imu();

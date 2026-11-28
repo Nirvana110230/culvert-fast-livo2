@@ -228,6 +228,8 @@ def session(args, run):
         overrides = {}
         if args.interval_deskew:
             overrides['imu.interval_deskew'] = True
+        if args.static_rate_update:
+            overrides['imu.static_rate_update'] = True
         if args.stationary_gyro_bias:
             overrides['imu.stationary_start_gyro_bias'] = True
         params, manifest = snapshot(run, ROOT / 'configs', overrides)
@@ -496,6 +498,7 @@ def cli():
         action.add_argument('--loop-backend', action='store_true', help='导出关键帧并启动独立 map→odom 回环进程')
         action.add_argument('--stationary-gyro-bias', action='store_true', help='使用已知静止初段估计初始陀螺偏置')
         action.add_argument('--interval-deskew', action='store_true', help='使用对应 IMU 积分区间的运动量去畸变')
+        action.add_argument('--static-rate-update', action='store_true', help='静止窗口陀螺偏置观测')
         action.add_argument('--diagnostics', action='store_true', help='保存逐窗时间、惯导初始化和点面统计')
         action.add_argument('--strict-windows', action='store_true', help='使用半开时间窗分配雷达点')
         action.add_argument('--keyframes', action='store_true', help='按估计器参考时刻保存后端局部关键帧')

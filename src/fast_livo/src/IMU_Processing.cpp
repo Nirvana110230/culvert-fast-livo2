@@ -42,6 +42,8 @@ ImuProcess::~ImuProcess() {}
 void ImuProcess::Reset()
 {
   session_gravity::Recorder::instance().closeForReset();
+  static_begin_ = -1.;
+  static_last_sample_ = -1.;
   RCLCPP_WARN(rclcpp::get_logger(""), "Reset ImuProcess");
   mean_acc = V3D(0, 0, -1.0);
   mean_gyr = V3D(0, 0, 0);
@@ -241,6 +243,63 @@ void ImuProcess::Forward_without_imu(LidarMeasureGroup &meas, StatesGroup &state
 }
 
 
+void ImuProcess::observeStaticRate(const MeasureGroup &meas, double epoch, StatesGroup &state)
+{
+  // The post-update pose is at epoch. Consume the completed window before
+  // accumulating the next packet, so no future samples update this state.
+  const bool moving = static_begin_ >= 0. &&
+      ((state.pos_end - static_position_).norm() > .025 ||
+       Eigen::AngleAxisd(static_rotation_.transpose()*state.rot_end).angle() > .006 ||
+       state.vel_end.norm() > .08 || epoch - static_last_sample_ > .1);
+  if (moving) static_begin_ = -1.;
+  if (static_begin_ >= 0. && epoch - static_begin_ >= 4.) {
+    if (static_count_ >= 700) {
+      const V3D rate = static_sum_ / static_count_;
+      const V3D variance = static_squares_ / static_count_ - rate.cwiseProduct(rate);
+      if (variance.maxCoeff() < .004*.004 && rate.norm() < .04) {
+        // Zero angular speed observes body gyro bias. Retain a finite floor
+        // for unresolved slow motion and reuse of the propagation samples.
+        const M3D noise = M3D::Identity() * (.0015*.0015);
+        const M3D innovation = state.cov.block<3,3>(10,10) + noise;
+        const Eigen::Matrix<double,DIM_STATE,3> gain =
+            innovation.ldlt().solve(state.cov.middleCols<3>(10).transpose()).transpose();
+        const Eigen::Matrix<double,DIM_STATE,1> dx = gain * (rate - state.bias_g);
+        MD(DIM_STATE,DIM_STATE) A = MD(DIM_STATE,DIM_STATE)::Identity();
+        A.middleCols<3>(10) -= gain;
+        state.cov = (A*state.cov*A.transpose() + gain*noise*gain.transpose()).eval();
+        state += dx;
+        // Reset the right attitude error after injection.
+        const V3D theta = dx.head<3>();
+        M3D skew;
+        skew << SKEW_SYM_MATRX(theta);
+        MD(DIM_STATE,DIM_STATE) reset = MD(DIM_STATE,DIM_STATE)::Identity();
+        reset.block<3,3>(0,0) -= .5*skew;
+        state.cov = (reset*state.cov*reset.transpose()).eval();
+        RCLCPP_INFO(rclcpp::get_logger("imu"), "static gyro update t=%.6f n=%d", epoch, static_count_);
+      }
+    }
+    static_begin_ = -1.;
+  }
+  if (static_begin_ < 0.) {
+    static_begin_ = epoch;
+    static_position_ = state.pos_end;
+    static_rotation_ = state.rot_end;
+    static_sum_.setZero();
+    static_squares_.setZero();
+    static_count_ = 0;
+  }
+  for (const auto &imu : meas.imu) {
+    const double stamp = stamp2Sec(imu->header.stamp);
+    if (stamp <= epoch || stamp <= static_last_sample_) continue;
+    const auto &w = imu->angular_velocity;
+    const V3D rate(w.x,w.y,w.z);
+    static_sum_ += rate;
+    static_squares_ += rate.cwiseProduct(rate);
+    static_last_sample_ = stamp;
+    ++static_count_;
+  }
+}
+
 void ImuProcess::UndistortPcl(LidarMeasureGroup &lidar_meas, StatesGroup &state_inout, PointCloudXYZI &pcl_out)
 {
   double t0 = omp_get_wtime();
@@ -253,6 +312,8 @@ void ImuProcess::UndistortPcl(LidarMeasureGroup &lidar_meas, StatesGroup &state_
   const double &imu_beg_time = stamp2Sec(v_imu.front()->header.stamp);
   const double &imu_end_time = stamp2Sec(v_imu.back()->header.stamp);
   const double prop_beg_time = last_prop_end_time;
+  if (static_rate_update_ && ba_bg_est_en && lidar_meas.lio_vio_flg == LIO)
+    observeStaticRate(meas, prop_beg_time, state_inout);
   // printf("[ IMU ] undistort input size: %zu \n", lidar_meas.pcl_proc_cur->points.size());
   // printf("[ IMU ] IMU data sequence size: %zu \n", meas.imu.size());
   // printf("[ IMU ] lidar_scan_index_now: %d \n", lidar_meas.lidar_scan_index_now);
