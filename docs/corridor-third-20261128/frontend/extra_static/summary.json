@@ -1,0 +1,120 @@
+{
+  "early_no_direct_log": {
+    "n": 31,
+    "bound_s": [
+      4.100160512,
+      125.60023014400001
+    ],
+    "both_strictly_greater": 31,
+    "norm_over_neighbor_median": {
+      "min": 6.128209001929515,
+      "median": 27.668409529993344,
+      "max": 1853.888850317569
+    },
+    "cosine": {
+      "min": 0.9950592417484212,
+      "median": 0.9999270789750292,
+      "max": 0.9999999955111483
+    },
+    "projected_fraction": {
+      "min": 0.5999525804536274,
+      "median": 0.6126314800210717,
+      "max": 0.8425490057356634
+    },
+    "amplitude_rad_s": {
+      "min": 1.800218533327778e-05,
+      "median": 7.38882575158081e-05,
+      "max": 0.014951473545412557
+    },
+    "next_visual_amplitude_rad_s": {
+      "min": 9.564816566501181e-07,
+      "median": 1.4413793672454431e-06,
+      "max": 1.778459274836484e-06
+    },
+    "rotation_variance_trace_within_neighbor_range": 30
+  },
+  "late_logged": {
+    "n": 18,
+    "bound_s": [
+      2009.400154112,
+      2078.499865088
+    ],
+    "both_strictly_greater": 18,
+    "norm_over_neighbor_median": {
+      "min": 1.7666733930918066,
+      "median": 5.911729868650832,
+      "max": 14.186465497210506
+    },
+    "cosine": {
+      "min": 0.9784362341449859,
+      "median": 0.996640484474443,
+      "max": 0.9999684353555773
+    },
+    "projected_fraction": {
+      "min": 0.4675111741625948,
+      "median": 0.6072229403776027,
+      "max": 0.9573479152551525
+    },
+    "amplitude_rad_s": {
+      "min": 1.8590910327009516e-05,
+      "median": 6.604762297194935e-05,
+      "max": 0.0002748972889778444
+    },
+    "next_visual_amplitude_rad_s": {
+      "min": 5.173313781570585e-06,
+      "median": 6.4367633465794025e-06,
+      "max": 9.29388848945145e-06
+    },
+    "rotation_variance_trace_within_neighbor_range": 16
+  },
+  "early_blind_rank": {
+    "interval_s": [
+      0,
+      126.60023014400001
+    ],
+    "steps": 1267,
+    "top31_hits": 29,
+    "candidate_ids_outside_top31": [
+      11,
+      29
+    ]
+  },
+  "camera_latch": {
+    "rows": 1959,
+    "outlier_ordinal_zero_based": 1831,
+    "query_return_codes": [
+      0,
+      0
+    ],
+    "neighbors_raw_ticks": [
+      262757918641,
+      258563672241,
+      262968453833
+    ],
+    "neighbors_hex": [
+      "0x3d2d97a7b1",
+      "0x3c339888b1",
+      "0x3d3a242ac9"
+    ],
+    "expected_minus_observed_ticks": 4294956746.8936768,
+    "difference_to_2pow32_ticks": 10549.106323242188,
+    "fit_ns_per_raw_count": 10.000108462821208,
+    "fit_frequency_mhz": 99.99891538355197,
+    "observed_fit_residual_ms": 42949.58266387158,
+    "timestamp_frequency_readback": {
+      "TimestampTickFrequency": {
+        "rc": 2147483913
+      },
+      "GevTimestampTickFrequency": {
+        "rc": 2147483913
+      }
+    }
+  },
+  "input_sha256": {
+    "raw/keyframes/states.csv": "d533ebabca81479a93296cc2260ef74c0aa2f810310d68e65ce7ffaadb6ccddb",
+    "static_updates.csv": "4ed5e7bc75cf29f5446d24a3ed40b28e60b92113e3a06edaea966717e01637ed",
+    "raw/sensors/camera/clock_latch.csv": "123712f2c2111dc6509603dcb308db31f5522477239cdf40e32faaed6803bef9",
+    "raw/algorithm.log": "b350a46362a18a6046bc8a05fe4d8a35a0fa87a90f46add493f3b62d158c7374",
+    "raw/algorithm.log.1": "25f34233f80c526d728123b870ae382bf63d37b69ac64b91fe1e377f20cbe72a"
+  }
+}

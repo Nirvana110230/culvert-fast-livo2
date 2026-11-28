@@ -1,0 +1,217 @@
+{
+  "roslog_bytes": {
+    "python3_4142_1795850827337.log": 0,
+    "python3_4030_1795850809131.log": 0,
+    "python3_4044_1795850811153.log": 0,
+    "python3_4171_1795850829289.log": 0,
+    "camera_sync_4080_1795850822092.log": 0
+  },
+  "diagnostics_columns": {
+    "lio_information_6d.csv": [
+      "cut_s",
+      "iterations",
+      "points",
+      "valid",
+      "rms_arm_m",
+      "weight_sum",
+      "up_x",
+      "up_y",
+      "up_z",
+      "world_tup_information",
+      "world_rup_scaled_information",
+      "weak_translation_up",
+      "weak_scaled_rotation_up",
+      "lambda0",
+      "lambda1",
+      "lambda2",
+      "lambda3",
+      "lambda4",
+      "lambda5",
+      "weak_rx",
+      "weak_ry",
+      "weak_rz",
+      "weak_tx",
+      "weak_ty",
+      "weak_tz",
+      "h00",
+      "h01",
+      "h02",
+      "h03",
+      "h04",
+      "h05",
+      "h11",
+      "h12",
+      "h13",
+      "h14",
+      "h15",
+      "h22",
+      "h23",
+      "h24",
+      "h25",
+      "h33",
+      "h34",
+      "h35",
+      "h44",
+      "h45",
+      "h55"
+    ],
+    "plane_constraints.csv": [
+      "cut_s",
+      "iterations",
+      "class",
+      "count",
+      "abs_sum_m",
+      "sq_sum_m",
+      "p50_abs_m",
+      "p95_abs_m",
+      "max_abs_m",
+      "nxx_sum",
+      "nxy_sum",
+      "nxz_sum",
+      "nyy_sum",
+      "nyz_sum",
+      "nzz_sum"
+    ],
+    "preprocess_timing.csv": [
+      "scan_s",
+      "input_points",
+      "feature_enabled",
+      "smoothing_inputs",
+      "smoothing_changed",
+      "smoothing_abs_sum_ms",
+      "smoothing_abs_max_ms",
+      "output_points",
+      "retained_changed",
+      "retained_abs_max_ms",
+      "min_output_ms",
+      "max_output_ms"
+    ],
+    "measurement_weight_sources.csv": [
+      "cut_s",
+      "iterations",
+      "class",
+      "count",
+      "weight_sum",
+      "sigma_plane_sum_m2",
+      "sigma_point_sum_m2",
+      "inverse_weight_sum_m2",
+      "fixed_variance_sum_m2",
+      "arm_squared_sum_m2",
+      "vertical_translation_information",
+      "yaw_rotation_information"
+    ],
+    "deskew_timing.csv": [
+      "prop_start_s",
+      "prop_end_s",
+      "input_points",
+      "transformed_points",
+      "untransformed_points",
+      "pose_count",
+      "time_inversions",
+      "outside_interval_gt_1us"
+    ],
+    "timing_windows.csv": [
+      "start_s",
+      "end_s",
+      "new_scans",
+      "new_points",
+      "carry_in",
+      "current_points",
+      "carry_out",
+      "queued_scans",
+      "queued_points",
+      "identity_count_ok",
+      "early_gt_1us",
+      "early_carried_gt_1us",
+      "before_start_gt_1us",
+      "early_sum_ms",
+      "early_max_ms",
+      "offset_min_ms",
+      "offset_max_ms",
+      "max_rebase_error_ms",
+      "new_exact_cut",
+      "new_within_1us_cut",
+      "assigned_exact_cut",
+      "assigned_within_1us_cut"
+    ],
+    "imu_init_samples.csv": [
+      "cut_s",
+      "stamp_s",
+      "counter_after_group",
+      "limit",
+      "ax",
+      "ay",
+      "az",
+      "gx",
+      "gy",
+      "gz"
+    ]
+  },
+  "input_counters": {
+    "lidar_rx": 20818,
+    "imu_rx": 416367,
+    "synced": 41618,
+    "image_rx": 20812,
+    "image_remaining": 0,
+    "vio_frames": 20807,
+    "visual_update_frames": 20806,
+    "visual_update_steps": 333103,
+    "lidar_remaining": 7,
+    "imu_remaining": 153
+  },
+  "session_mapper_counter_names": [
+    "lidar_rx",
+    "imu_rx",
+    "synced",
+    "image_rx",
+    "image_remaining",
+    "vio_frames",
+    "visual_update_frames",
+    "visual_update_steps",
+    "lidar_remaining",
+    "imu_remaining"
+  ],
+  "keyframe_completion": {
+    "frames": 1287,
+    "state_samples": 41614
+  },
+  "disabled_external_lib_logs": true,
+  "historical_boot_in_journal_list": false,
+  "historical_journal_filtered": {
+    "return_code": 1,
+    "line_count": 0,
+    "stderr_empty": true
+  },
+  "historical_journal_process": {
+    "return_code": 0,
+    "line_count": 0,
+    "stderr_empty": true
+  },
+  "historical_journal_any": {
+    "return_code": 0,
+    "line_count": 0,
+    "stderr_empty": true
+  },
+  "camera_genicam_sha256": "5adc90b80f6db0508d614d04dd7669ebe6ddc19359768467f925746b0fc50d4c",
+  "camera_xml_nodes": {
+    "DeviceTimestamp": {
+      "Description": "Current device time in ns.",
+      "pValue": "DeviceTimestamp_Reg",
+      "Unit": "ns"
+    },
+    "DeviceTimestamp_Reg": {
+      "Address": "0x01f0",
+      "Length": "8"
+    },
+    "DeviceTimestampLatch": {
+      "Description": "Timestamp Latch.",
+      "pValue": "TimestampLatch_Reg",
+      "CommandValue": "2"
+    },
+    "DeviceTimestampIncrement": {
+      "Description": "Timestamp increment in ns/tick.",
+      "pValue": "DeviceTimestampIncrement_Reg",
+      "Unit": "ns/tick"
+    }
+  }
+}

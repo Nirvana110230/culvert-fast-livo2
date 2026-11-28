@@ -1,0 +1,17 @@
+{
+  "tested_date": "2026-11-28",
+  "timezone": "+08:00",
+  "cpu_cores": 8,
+  "table_rows": 45,
+  "sysstat_file": "sa28",
+  "thermal_activity_available": false,
+  "thermal_sar_response": "Requested activities not available in file",
+  "other_archives_present": {
+    "/var/log/atop": false,
+    "/var/log/collectl": false,
+    "/var/log/pcp/pmlogger": false,
+    "/var/log/armbian-hardware-monitor.log": false,
+    "/var/log/armbianmonitor.log": false,
+    "/var/log/armbian-hardware-monitor": false
+  }
+}

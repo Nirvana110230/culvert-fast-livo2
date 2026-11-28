@@ -1,0 +1,985 @@
+{
+  "schema": 1,
+  "timezone": "Asia/Shanghai",
+  "field_rounds": [
+    {
+      "name": "第一轮 B1 现场",
+      "field_session_host_time": {
+        "start": "2026-11-27 15:52:45.807870282+08:00",
+        "end": "2026-11-27 16:04:58.327102744+08:00",
+        "elapsed_s": 732.519210296
+      },
+      "bag": {
+        "duration_s": 709.516705433,
+        "bytes": 30758715392,
+        "shards": 57,
+        "messages": 206603,
+        "core_messages": {
+          "/livox/lidar": 7119,
+          "/livox/imu": 142286,
+          "/hik_camera/image_timeshare": 7067
+        }
+      },
+      "processing_ms_p50_p95_max": [
+        29.7299405,
+        59.05750925,
+        78.939634
+      ],
+      "algorithm_rss_mib_p50_p95_max": [
+        701.421875,
+        751.2578125,
+        757.63671875
+      ],
+      "continuous_map": {
+        "poses": 7035,
+        "geometry_points": 12879873,
+        "rgb_points": 2130867
+      },
+      "frontend_final_counts": {
+        "lidar_rx": 7045,
+        "imu_rx": 140896,
+        "synced": 14076,
+        "image_rx": 7039,
+        "image_remaining": 0,
+        "vio_frames": 7035,
+        "visual_update_frames": 7034,
+        "visual_update_steps": 106561,
+        "lidar_remaining": 5,
+        "imu_remaining": 134
+      },
+      "route_marker": "终点随意停车；运动起止为事后速度阈值估计",
+      "archive_trajectory": {
+        "source": "/data/robot/maps/fast_livo2/runs/corridor_20261127T075234Z_eiYOUs/20261127T075245Z_f64f306a96/map/trajectory.tum",
+        "n": 7035,
+        "span_s": 703.5248341560364,
+        "length_native_3d_m": 190.88017142895555,
+        "length_1s_3d_m": 179.11581296483973,
+        "z_range_m": 0.4534897079890473,
+        "trajectory_plane_rms_m": 0.040451716145185404
+      },
+      "source": "docs/mainline/2026-11-27/first_corridor_test/首次走廊建图实验_关键指标.json",
+      "resource_samples": 358,
+      "min_mem_available_GiB": 13.302974700927734,
+      "min_disk_free_GiB": 201.31352615356445,
+      "sqlite_MiB_per_bag_s": 41.34334914228458
+    },
+    {
+      "name": "第二轮 B1 现场",
+      "field_session_host_time": {
+        "start": "2026-11-27T19:19:09.138+08:00",
+        "end": "2026-11-27T19:50:07.737+08:00",
+        "elapsed_s": 1858.599482215
+      },
+      "bag": {
+        "duration_s": 1834.735465529,
+        "bytes": 79569846272,
+        "shards": 148,
+        "messages": 533316,
+        "core_messages": {
+          "/livox/lidar": 18355,
+          "/livox/imu": 366943,
+          "/hik_camera/image_timeshare": 18288
+        }
+      },
+      "processing_ms_p50_p95_max": [
+        31.785743000000366,
+        62.61369919997719,
+        110.86617099999785
+      ],
+      "algorithm_rss_mib_p50_p95_max": [
+        777.755859375,
+        810.26953125,
+        876.8359375
+      ],
+      "continuous_map": {
+        "poses": 18251,
+        "geometry_points": 30984944,
+        "rgb_points": 4935054
+      },
+      "frontend_final_counts": {
+        "lidar_rx": 18293,
+        "imu_rx": 365840,
+        "synced": 36508,
+        "image_rx": 18256,
+        "image_remaining": 0,
+        "vio_frames": 18251,
+        "visual_update_frames": 18250,
+        "visual_update_steps": 290242,
+        "lidar_remaining": 37,
+        "imu_remaining": 741
+      },
+      "route_marker": "P0 胶带，MOVE_START 和 RETURN_P0 事件；位置复位未外测",
+      "archive_trajectory": {
+        "source": "/data/robot/maps/fast_livo2/runs/corridor_baseline02_20261127T111905Z_NqWFM0/20261127T111909Z_85997cf277/map/trajectory.tum",
+        "n": 18251,
+        "span_s": 1825.108125925064,
+        "length_native_3d_m": 732.5716994921265,
+        "length_1s_3d_m": 707.0927792656785,
+        "z_range_m": 2.8212946708028674,
+        "trajectory_plane_rms_m": 0.366626093892603
+      },
+      "source": "/data/robot/maps/fast_livo2/runs/corridor_baseline02_20261127T111905Z_NqWFM0",
+      "resource_samples": 915,
+      "min_mem_available_GiB": 13.13751220703125,
+      "min_disk_free_GiB": 126.18672561645508,
+      "sqlite_MiB_per_bag_s": 41.35948760772487
+    },
+    {
+      "name": "第三轮新候选现场",
+      "field_session_host_time": {
+        "start": "2026-11-28T15:26:48.660+08:00",
+        "end": "2026-11-28T16:02:01.177+08:00",
+        "elapsed_s": 2112.5167567279996
+      },
+      "bag": {
+        "duration_s": 2087.890295894,
+        "bytes": 90699190272,
+        "shards": 169,
+        "messages": 607211,
+        "core_messages": {
+          "/livox/lidar": 20886,
+          "/livox/imu": 417574,
+          "/hik_camera/image_timeshare": 20850
+        }
+      },
+      "processing_ms_p50_p95_max": [
+        32.91236600034608,
+        63.25811940005223,
+        110.87485500002003
+      ],
+      "algorithm_rss_mib_p50_p95_max": [
+        799.79296875,
+        929.20234375,
+        1059.23828125
+      ],
+      "continuous_map": {
+        "poses": 20807,
+        "geometry_points": 35912381,
+        "rgb_points": 5883721
+      },
+      "frontend_final_counts": {
+        "lidar_rx": 20818,
+        "imu_rx": 416367,
+        "synced": 41618,
+        "image_rx": 20812,
+        "image_remaining": 0,
+        "vio_frames": 20807,
+        "visual_update_frames": 20806,
+        "visual_update_steps": 333103,
+        "lidar_remaining": 7,
+        "imu_remaining": 153
+      },
+      "route_marker": "MOVE_START 与 STOP_REQUEST；由固定静止窗比较起止位置",
+      "archive_trajectory": {
+        "source": "/data/robot/maps/fast_livo2/runs/corridor03_20261128T072245Z_tzunG9/20261128T072648Z_c05694da93/map/trajectory.tum",
+        "n": 20807,
+        "span_s": 2080.8191726207733,
+        "length_native_3d_m": 673.7712773171872,
+        "length_1s_3d_m": 645.0392653470074,
+        "z_range_m": 3.461304312619223,
+        "trajectory_plane_rms_m": 0.5304230516742077
+      },
+      "source": "docs/mainline/2026-11-28/third_corridor_test/frontend/metrics.json",
+      "resource_samples": 1041,
+      "min_mem_available_GiB": 12.85226058959961,
+      "min_disk_free_GiB": 33.4343147277832,
+      "sqlite_MiB_per_bag_s": 41.42817678273332
+    }
+  ],
+  "second_field_targeted": {
+    "archive_base": "/data/robot/maps/fast_livo2/runs/corridor_baseline02_20261127T111905Z_NqWFM0",
+    "started": "2026-11-27T19:19:09.138+08:00",
+    "ended": "2026-11-27T19:50:07.737+08:00",
+    "wall_s": 1858.599482215,
+    "state": "complete",
+    "frontend_counts": {
+      "lidar_rx": 18293,
+      "imu_rx": 365840,
+      "synced": 36508,
+      "image_rx": 18256,
+      "image_remaining": 0,
+      "vio_frames": 18251,
+      "visual_update_frames": 18250,
+      "visual_update_steps": 290242,
+      "lidar_remaining": 37,
+      "imu_remaining": 741
+    },
+    "map": {
+      "status": "complete",
+      "error": null,
+      "output_frame": "map_gravity",
+      "gravity_applied": true,
+      "segment_end_reason": null,
+      "rgb_points": 4935054,
+      "geometry_points": 30984944,
+      "poses": 18251
+    },
+    "bag": {
+      "duration_s": 1834.735465529,
+      "first": "2026-11-27T19:19:21.687+08:00",
+      "messages": 533316,
+      "shards": 148,
+      "bytes": 79569846272,
+      "topic_counts": {
+        "/hardware_sync/camera_clock": 1716,
+        "/hardware_sync/camera_events": 91438,
+        "/hardware_sync/camera_metadata": 18288,
+        "/hik_camera/camera_info_timeshare": 18288,
+        "/hik_camera/image_timeshare": 18288,
+        "/livox/imu": 366943,
+        "/livox/lidar": 18355
+      }
+    },
+    "resources": {
+      "samples": 915,
+      "min_available_bytes": 14106296320,
+      "min_disk_free_bytes": 135491964928,
+      "max_algorithm_rss_bytes": 919429120
+    },
+    "monitor": {
+      "sample_count": 928,
+      "thermal_peak_C": {
+        "littlecore-thermal": 61.0,
+        "center-thermal": 58.23,
+        "npu-thermal": 58.23,
+        "bigcore0-thermal": 61.0,
+        "gpu-thermal": 58.23,
+        "soc-thermal": 60.076,
+        "bigcore1-thermal": 61.923
+      },
+      "system_busy_pct_p50_p95_max": [
+        36.483,
+        40.1023,
+        48.59
+      ]
+    },
+    "events": [
+      {
+        "event": "SESSION_START",
+        "wall": "2026-11-27T19:19:05.366+08:00",
+        "ns": 1795778345366829969
+      },
+      {
+        "event": "MOVE_START",
+        "wall": "2026-11-27T19:20:07.414+08:00",
+        "ns": 1795778407414352608
+      },
+      {
+        "event": "RETURN_P0",
+        "wall": "2026-11-27T19:49:40.946+08:00",
+        "ns": 1795780180946246740
+      },
+      {
+        "event": "MOVE_END",
+        "wall": "2026-11-27T19:49:41.121+08:00",
+        "ns": 1795780181121690925
+      },
+      {
+        "event": "SESSION_END",
+        "wall": "2026-11-27T19:50:09.998+08:00",
+        "ns": 1795780209998359844
+      }
+    ],
+    "processing": {
+      "n": 1777,
+      "processing_ms": [
+        31.785743000000366,
+        62.61369919997719,
+        110.86617099999785
+      ],
+      "cycle_ms": [
+        33.865354999988995,
+        63.05588800009898,
+        111.24213399989458
+      ],
+      "lidar_queue": [
+        0.0,
+        1.0,
+        3.0
+      ],
+      "image_queue": [
+        0.0,
+        1.0,
+        1.0
+      ],
+      "imu_queue": [
+        21.0,
+        23.0,
+        97.0
+      ]
+    },
+    "integrity": true,
+    "camera": {
+      "frames": 18288,
+      "timeouts": 1,
+      "events_queue_dropped": 0,
+      "exit_code": 0
+    },
+    "source_sha256": {
+      "raw_bag/metadata.yaml": "501da5529e1ea9b1c3f7aca78eb370f4f2d90284ff5a0b5c064306edaeb8d074",
+      "integrity.json": "6551cb8bc0305969f8178e30e9248ead57a5cff7c77693960061208d9020d490",
+      "events.jsonl": "cc2556177ac9efaa28c03e764a9719aeaa9ed38ec1fbc28762438bd960e86212",
+      "resources_2s.jsonl": "d99d27408bb8b779cc359d586fca9cd6c7a1b78d26f198db70d0c21fce61925f",
+      "20261127T111909Z_85997cf277/session.json": "d3bd8b5ef664551ff6ad49c457eb41b60eccaa74312c9a7997578e9ef0e3591a",
+      "20261127T111909Z_85997cf277/resources.json": "e9749cf58de35fbd375f31ccbab8b9a27f5e86decadd779d2f7ba9c6bccfd1b1",
+      "20261127T111909Z_85997cf277/Log/processing.csv": "ab8df6a82c7460d6182298fce933119a363aa9d216b9e6d3d27f63d35c667fec"
+    },
+    "algorithm_mib_p50_p95_max": [
+      777.755859375,
+      810.26953125,
+      876.8359375
+    ]
+  },
+  "third_field_session_map": {
+    "map": {
+      "status": "complete",
+      "error": null,
+      "output_frame": "map_gravity",
+      "gravity_applied": true,
+      "segment_end_reason": null,
+      "rgb_points": 5883721,
+      "geometry_points": 35912381,
+      "poses": 20807
+    },
+    "front_counts": {
+      "lidar_rx": 20818,
+      "imu_rx": 416367,
+      "synced": 41618,
+      "image_rx": 20812,
+      "image_remaining": 0,
+      "vio_frames": 20807,
+      "visual_update_frames": 20806,
+      "visual_update_steps": 333103,
+      "lidar_remaining": 7,
+      "imu_remaining": 153
+    },
+    "started": "2026-11-28T15:26:48.660+08:00",
+    "ended": "2026-11-28T16:02:01.177+08:00",
+    "session_sha256": "edde67cedf6e4137c95a52a8ac4327611940efe39c1654d8dd5ff772c2b4f76d"
+  },
+  "job_resources": {
+    "r1_static_front": {
+      "source": "docs/mainline/2026-11-28/z_geometry/first_static/offline.json",
+      "task": "offline_front",
+      "wall_s": 626.589744293,
+      "peak_rss_MiB": 782.78515625,
+      "counts": {
+        "lidar_rx": 7119,
+        "imu_rx": 142286,
+        "synced": 14130,
+        "image_rx": 7067,
+        "image_remaining": 0,
+        "vio_frames": 7064,
+        "visual_update_frames": 7063,
+        "visual_update_steps": 114934,
+        "lidar_remaining": 6,
+        "imu_remaining": 134
+      }
+    },
+    "r1_static_structure": {
+      "source": "docs/mainline/2026-11-28/z_geometry/first_static/summary.json",
+      "task": "new_front_structure",
+      "wall_s": 4.983596481999484,
+      "peak_rss_MiB": 120.5234375,
+      "keyframes": 393,
+      "geometry": 2097083,
+      "rgb": 247039,
+      "keyframe_z_range_m": 0.11998788566068817,
+      "before_plane_holdout_rms_m": 0.0128065381457058,
+      "after_plane_holdout_rms_m": 0.011420735152504122,
+      "held_blocks": 118,
+      "fitted_planes": {
+        "floor": 10,
+        "ceiling": 14,
+        "wall": 36
+      },
+      "direction_factors": 86
+    },
+    "r1_old_structure": {
+      "source": "docs/mainline/2026-11-28/z_geometry/structure_first/summary.json",
+      "task": "historical_frames_structure",
+      "wall_s": 5.411986123999668,
+      "peak_rss_MiB": 124.85546875,
+      "keyframes": 389,
+      "geometry": 2076053,
+      "rgb": 244120,
+      "keyframe_z_range_m": 0.14732276923084212,
+      "before_plane_holdout_rms_m": 0.012283313756244956,
+      "after_plane_holdout_rms_m": 0.011634698207476361,
+      "held_blocks": 114,
+      "fitted_planes": {
+        "floor": 10,
+        "ceiling": 15,
+        "wall": 36
+      },
+      "direction_factors": 86
+    },
+    "r2_watermark_front": {
+      "source": "data/corridor_runs/20261127_second_mapping/pgo/watermark/offline.json",
+      "task": "offline_front",
+      "wall_s": 1053.483299132,
+      "peak_rss_MiB": 843.46484375,
+      "counts": {
+        "lidar_rx": 18355,
+        "imu_rx": 366943,
+        "synced": 36570,
+        "image_rx": 18288,
+        "image_remaining": 0,
+        "vio_frames": 18284,
+        "visual_update_frames": 18283,
+        "visual_update_steps": 293909,
+        "lidar_remaining": 38,
+        "imu_remaining": 741
+      }
+    },
+    "r2_old_pgo": {
+      "source": "livo-pgo-dev/docs/corridor-20261127/joint_summary.json",
+      "task": "original_loop",
+      "wall_s": 29.104735127999447,
+      "peak_rss_MiB": 148.26953125,
+      "keyframes": 1519,
+      "geometry": 8138600,
+      "rgb": 945066,
+      "keyframe_z_range_m": 3.3743827684068557,
+      "before_plane_holdout_rms_m": null,
+      "after_plane_holdout_rms_m": null,
+      "held_blocks": null,
+      "fitted_planes": null,
+      "direction_factors": null
+    },
+    "r2_cov_pgo": {
+      "source": "docs/mainline/2026-11-28/z_geometry/cov_second/summary.json",
+      "task": "coordinate_corrected_loop",
+      "wall_s": 29.052375227000084,
+      "peak_rss_MiB": 154.39453125,
+      "keyframes": 1519,
+      "geometry": 8138600,
+      "rgb": 945066,
+      "keyframe_z_range_m": 3.3833133680880056,
+      "before_plane_holdout_rms_m": null,
+      "after_plane_holdout_rms_m": null,
+      "held_blocks": null,
+      "fitted_planes": null,
+      "direction_factors": null
+    },
+    "r2_old_structure": {
+      "source": "docs/mainline/2026-11-28/z_geometry/structure_second/summary.json",
+      "task": "historical_frames_structure",
+      "wall_s": 27.942431637999107,
+      "peak_rss_MiB": 177.7578125,
+      "keyframes": 1519,
+      "geometry": 8138600,
+      "rgb": 945066,
+      "keyframe_z_range_m": 1.064619891213617,
+      "before_plane_holdout_rms_m": 0.015142407606379837,
+      "after_plane_holdout_rms_m": 0.014347631474330831,
+      "held_blocks": 519,
+      "fitted_planes": {
+        "floor": 48,
+        "ceiling": 59,
+        "wall": 213
+      },
+      "direction_factors": 224
+    },
+    "r2_static_front": {
+      "source": "docs/mainline/2026-11-28/z_geometry/front_static/offline.json",
+      "task": "offline_front",
+      "wall_s": 1607.6651703389998,
+      "peak_rss_MiB": 849.76171875,
+      "counts": {
+        "lidar_rx": 18355,
+        "imu_rx": 366943,
+        "synced": 36570,
+        "image_rx": 18288,
+        "image_remaining": 0,
+        "vio_frames": 18284,
+        "visual_update_frames": 18283,
+        "visual_update_steps": 294033,
+        "lidar_remaining": 38,
+        "imu_remaining": 741
+      }
+    },
+    "r2_static_structure": {
+      "source": "docs/mainline/2026-11-28/z_geometry/front_static/summary.json",
+      "task": "new_front_structure",
+      "wall_s": 23.52860927599977,
+      "peak_rss_MiB": 176.42578125,
+      "keyframes": 1523,
+      "geometry": 8158670,
+      "rgb": 946798,
+      "keyframe_z_range_m": 1.022644707389111,
+      "before_plane_holdout_rms_m": 0.014886678226263522,
+      "after_plane_holdout_rms_m": 0.01399810573273722,
+      "held_blocks": 487,
+      "fitted_planes": {
+        "floor": 47,
+        "ceiling": 55,
+        "wall": 182
+      },
+      "direction_factors": 224
+    },
+    "r3_offline_B": {
+      "source": "data/corridor_runs/20261128_third_mapping/pgo/summary.json",
+      "task": "field_frame_loop",
+      "wall_s": 22.21318917299959,
+      "peak_rss_MiB": 148.4140625,
+      "keyframes": 1287,
+      "geometry": 6962792,
+      "rgb": 803792,
+      "keyframe_z_range_m": 3.712557532363819,
+      "before_plane_holdout_rms_m": null,
+      "after_plane_holdout_rms_m": null,
+      "held_blocks": null,
+      "fitted_planes": null,
+      "direction_factors": null
+    },
+    "r3_offline_C": {
+      "source": "data/corridor_runs/20261128_third_mapping/structure/summary.json",
+      "task": "field_frame_structure",
+      "wall_s": 20.422874304999823,
+      "peak_rss_MiB": 183.15625,
+      "keyframes": 1287,
+      "geometry": 6962792,
+      "rgb": 803792,
+      "keyframe_z_range_m": 0.9615733483957694,
+      "before_plane_holdout_rms_m": 0.013529966955382217,
+      "after_plane_holdout_rms_m": 0.013328056792121274,
+      "held_blocks": 409,
+      "fitted_planes": {
+        "floor": 43,
+        "ceiling": 50,
+        "wall": 175
+      },
+      "direction_factors": 256
+    },
+    "r1_prior_1x_dds": {
+      "source": "docs/mainline/2026-11-27/corridor_pgo/first_dds/{session,resources,online_summary}.json",
+      "wall_s": 721.6833690419999,
+      "frontend_peak_mib": 781.82421875,
+      "backend_peak_mib": 176.26171875,
+      "keyframes": 389
+    }
+  },
+  "methods": {
+    "track": "Each field map/trajectory.tum interpolated in XYZ at t0+0,1,... seconds with final endpoint retained. Sum 3D steps. Full trajectory residual is ordinary least squares of z~x+y+1 on every native archive pose, vertical residual.",
+    "rss": "field resources.jsonl process resident memory sampled approximately every 2 s; offline jobs use their own per-process summary. Concurrent processes may share pages; do not sum peak values.",
+    "processing": "Log/processing.csv sampled processing_ms, linear P50/P95 and maximum. Does not represent every fusion cycle.",
+    "map": "field continuous archive and downstream keyframe reconstructions differ in sample lineage; geometry and RGB are separate outputs.",
+    "clock": "session elapsed includes startup and teardown. Bag metadata interval uses rosbag storage receipt time. Map/trajectory.tum span is reported separately.",
+    "byte_unit": "GiB=2^30; MiB=2^20"
+  },
+  "comparisons": {
+    "second_earlier_web": {
+      "archive": "E:/Google/FAST_LIVO2_Z轴四文件分析与复算包_20261128.zip",
+      "sha256": "9e4ea60e8fdb7b926805143785164b6215666835e4e860b5c35427bed000211a",
+      "entries": 74,
+      "report": "FAST_LIVO2_Z轴四文件深度分析_20261128.md",
+      "report_sha256": "b9d4aa21a37dbf9fca394e7293d5540a2506e6cb67e265bee2fab27ace1658aa",
+      "external_report_matches_zip": true,
+      "metrics_json_matches_external": true,
+      "original_before_after_975_cells": {
+        "before": {
+          "cells": 975,
+          "coefficients": [
+            0.022129787313518435,
+            -0.004823046555039401,
+            -1.1462075330577508
+          ],
+          "residual_rms_m": 0.37083637097938366,
+          "residual_range_m": 1.6331235590648139,
+          "thickness_p50_p95": [
+            0.0338958859443664,
+            0.2296452939510345
+          ]
+        },
+        "after": {
+          "cells": 975,
+          "coefficients": [
+            0.032697425366569464,
+            -0.007660052763202474,
+            -1.1643744814218748
+          ],
+          "residual_rms_m": 0.36312461026552056,
+          "residual_range_m": 1.6610044177698808,
+          "thickness_p50_p95": [
+            0.0325374364852906,
+            0.05303663730621329
+          ]
+        },
+        "shape_residual_correlation": 0.9873006781306378,
+        "delta_z_plane_coefficients": [
+          0.01053506984338685,
+          -0.0028527783934598453,
+          -0.017501983738020033
+        ],
+        "delta_z_plane_R2": 0.9091192862241189,
+        "delta_z_residual_rms_m": 0.05789172721058087
+      },
+      "internal_source": "analysis/geometry/matched_surface_stats.json"
+    },
+    "second_original_B_then_structure": [
+      0.363124608108891,
+      0.1225823383622531
+    ],
+    "second_three_way_frozen_common": {
+      "common_cells": 945,
+      "rms_previous_primary_front_m": [
+        0.364045136493026,
+        0.12318794828461307,
+        0.11811862360677228
+      ]
+    },
+    "second_old_vs_new_front": [
+      {
+        "case": "watermark",
+        "count": 18284,
+        "sensor_bounds_s": [
+          0.0,
+          1828.499607296
+        ],
+        "track_z_range_m": 2.738225427455843,
+        "detrended_track_rms_m": 0.3802380229751168,
+        "static_gyro_error": [
+          [
+            -0.002766198496496666,
+            0.001366860382486502,
+            -0.012851027989717026
+          ],
+          [
+            -0.0006758265933799325,
+            -1.870528017217251e-05,
+            -0.00025896269710293414
+          ]
+        ]
+      },
+      {
+        "case": "interval",
+        "count": 18284,
+        "sensor_bounds_s": [
+          0.0,
+          1828.499607296
+        ],
+        "track_z_range_m": 2.263831022215641,
+        "detrended_track_rms_m": 0.3956547398218185,
+        "static_gyro_error": [
+          [
+            -0.0026912435913887854,
+            0.001358640732303744,
+            -0.012820647419342942
+          ],
+          [
+            -0.0008681680521455785,
+            -0.00019559356420924728,
+            -0.0002897782528067539
+          ]
+        ]
+      },
+      {
+        "case": "interval_static",
+        "count": 18284,
+        "sensor_bounds_s": [
+          0.0,
+          1828.499607296
+        ],
+        "track_z_range_m": 2.6275125863471134,
+        "detrended_track_rms_m": 0.35656312777619115,
+        "static_gyro_error": [
+          [
+            -8.771752396480488e-05,
+            1.7968952710589823e-05,
+            -0.0003449610819201733
+          ],
+          [
+            -5.4846587584413305e-05,
+            8.177309240335758e-06,
+            -3.550333196379943e-06
+          ]
+        ]
+      }
+    ],
+    "first_older_frames": {
+      "keyframes": 389,
+      "planes": {
+        "floor": 10,
+        "ceiling": 15,
+        "wall": 36
+      },
+      "direction_factors": 86,
+      "fitted_blocks": 441,
+      "held_blocks": 114,
+      "held_plane_rms_before_m": 0.012283313756244956,
+      "held_plane_rms_after_m": 0.011634698207476361,
+      "after": {
+        "length_m": 176.81058754726774,
+        "first_last_xyz_m": [
+          0.19136187547898437,
+          0.09177319324859642,
+          -0.005946717460301765
+        ],
+        "first_last_norm_m": 0.2123135648855984,
+        "largest_step_m": 1.102768982770537,
+        "step_p95_m": 1.0371219512935566,
+        "z_range_m": 0.14732276923084212
+      },
+      "wall_clock_s": 5.411986123999668,
+      "peak_rss_MiB": 124.85546875,
+      "rebuild_s": 0.7148749440002575,
+      "maps": {
+        "geometry_points_each": 2076053,
+        "intensity_frames": 389,
+        "color_frames": 389,
+        "color_points_each": 244120,
+        "geometry_frames": 389
+      }
+    },
+    "first_new_front": {
+      "keyframes": 393,
+      "after": {
+        "length_m": 176.6685828842133,
+        "first_last_xyz_m": [
+          0.19628120771708518,
+          0.07883625883362808,
+          -0.010015666261623113
+        ],
+        "first_last_norm_m": 0.21175878206210139,
+        "largest_step_m": 1.0732633421621924,
+        "step_p95_m": 1.0345670043382031,
+        "z_range_m": 0.11998788566068817
+      },
+      "direction_factors": 86,
+      "planes": {
+        "floor": 10,
+        "ceiling": 14,
+        "wall": 36
+      },
+      "held_plane_rms_after_m": 0.011420735152504122,
+      "maps": {
+        "geometry_points_each": 2097083,
+        "intensity_frames": 393,
+        "color_frames": 393,
+        "color_points_each": 247039,
+        "geometry_frames": 393
+      },
+      "replay_counts": {
+        "lidar_rx": 7119,
+        "imu_rx": 142286,
+        "synced": 14130,
+        "image_rx": 7067,
+        "image_remaining": 0,
+        "vio_frames": 7064,
+        "visual_update_frames": 7063,
+        "visual_update_steps": 114934,
+        "lidar_remaining": 6,
+        "imu_remaining": 134
+      },
+      "replay_s": 626.589744293,
+      "replay_peak_rss_kib": 801572,
+      "static_updates": 36,
+      "fixed_source_distance_m": [
+        0.604863067189489,
+        0.10107391850996847,
+        0.10108080859102019
+      ]
+    },
+    "third_B_fixed_cells": {
+      "A": 0.524703353579748,
+      "B": 0.4248178709335246,
+      "C": 0.1372693827708589
+    },
+    "third_B_fixed_n": 1248,
+    "third_dense_window_endpoints": {
+      "A": {
+        "distance_3d_m": 1.2089397578927714,
+        "keyframe_first_last_3d_m": 1.2113108256363232,
+        "dense_z_range_m": 3.461304313
+      },
+      "B": {
+        "distance_3d_m": 0.005401547552305104,
+        "keyframe_first_last_3d_m": 0.01301944080298132,
+        "dense_z_range_m": 3.7138429680000002
+      },
+      "C": {
+        "distance_3d_m": 0.020315351964941452,
+        "keyframe_first_last_3d_m": 0.033558378951082664,
+        "dense_z_range_m": 1.012036977
+      },
+      "issued": {
+        "distance_3d_m": 0.006003682316286462,
+        "keyframe_first_last_3d_m": 0.014096264211523522,
+        "dense_z_range_m": 4.497521358566271
+      },
+      "online_final": {
+        "distance_3d_m": 0.0036789370254146515,
+        "keyframe_first_last_3d_m": 0.01409626421561331,
+        "dense_z_range_m": 4.405926781921436
+      }
+    },
+    "third_online_resources": {
+      "elapsed_s": 2087.261065284,
+      "peak_rss_MiB": 185.1796875,
+      "rebuild": {
+        "status": "complete",
+        "frames": 1287,
+        "elapsed_s": 4.122920929999964
+      }
+    },
+    "second_279_common": {
+      "cov": {
+        "fixed": 279,
+        "supported": 279,
+        "previous_median_p95_m": [
+          0.0082348196657606,
+          0.0368425741825405
+        ],
+        "candidate_median_p95_m": [
+          0.0078606384845241,
+          0.03800706764143927
+        ],
+        "missing": []
+      },
+      "previous": {
+        "fixed": 279,
+        "supported": 279,
+        "previous_median_p95_m": [
+          0.0082348196657606,
+          0.0368425741825405
+        ],
+        "candidate_median_p95_m": [
+          0.0082348196657606,
+          0.03684257418254005
+        ],
+        "missing": []
+      },
+      "structure": {
+        "fixed": 279,
+        "supported": 279,
+        "previous_median_p95_m": [
+          0.0082348196657606,
+          0.0368425741825405
+        ],
+        "candidate_median_p95_m": [
+          0.0055507282956124,
+          0.02003904644588835
+        ],
+        "missing": []
+      }
+    },
+    "second_new_279_common": {
+      "front_structure": {
+        "fixed": 279,
+        "supported": 279,
+        "previous_median_p95_m": [
+          0.0082348196657606,
+          0.0368425741825405
+        ],
+        "candidate_median_p95_m": [
+          0.0057932384108946,
+          0.01873193365069163
+        ],
+        "missing": []
+      },
+      "interval": {
+        "fixed": 279,
+        "supported": 279,
+        "previous_median_p95_m": [
+          0.0082348196657606,
+          0.0368425741825405
+        ],
+        "candidate_median_p95_m": [
+          0.0861596396047561,
+          0.28356209724536663
+        ],
+        "missing": []
+      },
+      "previous": {
+        "fixed": 279,
+        "supported": 279,
+        "previous_median_p95_m": [
+          0.0082348196657606,
+          0.0368425741825405
+        ],
+        "candidate_median_p95_m": [
+          0.0082348196657606,
+          0.03684257418254005
+        ],
+        "missing": []
+      },
+      "static": {
+        "fixed": 279,
+        "supported": 279,
+        "previous_median_p95_m": [
+          0.0082348196657606,
+          0.0368425741825405
+        ],
+        "candidate_median_p95_m": [
+          0.0253408669716059,
+          0.1494112566059622
+        ],
+        "missing": []
+      },
+      "structure": {
+        "fixed": 279,
+        "supported": 279,
+        "previous_median_p95_m": [
+          0.0082348196657606,
+          0.0368425741825405
+        ],
+        "candidate_median_p95_m": [
+          0.0055507282956124,
+          0.02003904644588835
+        ],
+        "missing": []
+      }
+    }
+  },
+  "sources": [
+    {
+      "path": "docs/mainline/2026-11-27/first_corridor_test/首次走廊建图实验_关键指标.json",
+      "sha256": "510237c4f074301d44381c4da54809bc49e8252755f6a1c431e9efd076daac9d"
+    },
+    {
+      "path": "docs/mainline/2026-11-27/first_corridor_test/FAST-LIVO2_B1_首次走廊移动建图实验技术报告_20261127.md",
+      "sha256": "a7745c549250b1631c792ff5e0a02b37c7ce4b6d9c19c180863833fcef30aaa4"
+    },
+    {
+      "path": "docs/mainline/2026-11-27/first_corridor_test/FAST-LIVO2 B1 首次走廊移动建图实验总结(网页端).md",
+      "sha256": "c284e2e5a51ab618101bc172bdb564f83ba3e43fa4ae6968b10f40672103113d"
+    },
+    {
+      "path": "E:/Google/FAST_LIVO2_两轮走廊建图实验与改进调研报告_20261127.md",
+      "sha256": "11fd07e5accfd544f8f6bff392e9d60b090eb0816c623fc7644aa6a4612c8f39"
+    },
+    {
+      "path": "livo-pgo-dev/docs/corridor-pgo-20261127.md",
+      "sha256": "019fa7b876c041d025f7d993ede792c96b499ad077936f5195ff6d895ed7c311"
+    },
+    {
+      "path": "livo-pgo-dev/docs/corridor-z-20261128.md",
+      "sha256": "95a8ef89b2a68d8a20d2adb5e94ecea526e15c1511e44d110f0a5d43df605619"
+    },
+    {
+      "path": "livo-pgo-dev/docs/corridor-z-20261128-metrics.json",
+      "sha256": "a10da6043a83a8e6934699290f76b3e924bbc79bd8948505393f9ff2fe08d8d9"
+    },
+    {
+      "path": "docs/mainline/2026-11-28/z_geometry/paired_z_surfaces.json",
+      "sha256": "58b835a2dd401f6603fa4055648f7ab014a138e08e86b63c1f94238cb68df59f"
+    },
+    {
+      "path": "docs/mainline/2026-11-28/z_geometry/front_static/three_way_floor.json",
+      "sha256": "1c6e94f3228be1b2205bccd2ef52858822924de1996d71af79c0895c12492df3"
+    },
+    {
+      "path": "docs/mainline/2026-11-28/third_corridor_test/frontend/metrics.json",
+      "sha256": "d2fcb0efda45aefc4b132707d62e5bf0d38aea48d7d3798b3c031ecc18925edb"
+    },
+    {
+      "path": "docs/mainline/2026-11-28/third_corridor_test/loops/metrics.json",
+      "sha256": "986b25fc35e501192540f95417452d04d6880d87d9ed46aaccc76315e6970f3d"
+    },
+    {
+      "path": "docs/mainline/2026-11-28/third_corridor_test/geometry/geometry_metrics.json",
+      "sha256": "9d3511310f5cceee366b737d1f96d4c9a013b80e9230229ccf1061306bc14cf7"
+    }
+  ]
+}
